@@ -9,39 +9,91 @@
     "sub": "LUSTRUM finds junk, duplicates, look-alike photos and app leftovers — and clears them only with your approval. It has no INTERNET permission, so it physically cannot send anything anywhere.",
     "cta1": "Download APK",
     "cta2": "Source code",
-    "stats": ["ads", "INTERNET permission", "trackers", "languages"],
-    "nav": ["Features", "Compare", "Privacy", "Download"],
+    "stats": [
+      "ads",
+      "INTERNET permission",
+      "trackers",
+      "languages"
+    ],
+    "nav": [
+      "Features",
+      "Compare",
+      "Privacy",
+      "Download"
+    ],
     "f_title": "What it does",
     "features": [
-      ["Storage at a glance", "Used and free space, broken down by images, video, audio, documents and archives."],
-      ["Large, old & junk files", "Files over 50 MB, untouched for a year, temp files, thumbnails, trash and interrupted downloads."],
-      ["Exact duplicates", "Matched by size, then a quick fingerprint, then full SHA-256. The oldest copy is kept by default."],
-      ["Look-alike photos", "Perceptual hashing finds resized, re-saved and repeated shots. You review each group."],
-      ["App leftovers", "Folders left behind by apps you uninstalled long ago, plus empty folders."],
-      ["Photo compression", "Re-encodes big JPEGs and replaces them only if the result is at least 20% smaller. EXIF is kept."],
-      ["Apps, caches & unused", "Cache size per app, last-used date, one tap to its settings or to uninstall."],
-      ["Device status", "RAM, battery level and temperature — read-only, for information."]
+      [
+        "Storage at a glance",
+        "Used and free space, broken down by images, video, audio, documents and archives."
+      ],
+      [
+        "Large, old & junk files",
+        "Files over 50 MB, untouched for a year, temp files, thumbnails, trash and interrupted downloads."
+      ],
+      [
+        "Exact duplicates",
+        "Matched by size, then a quick fingerprint, then full SHA-256. The oldest copy is kept by default."
+      ],
+      [
+        "Look-alike photos",
+        "Perceptual hashing finds resized, re-saved and repeated shots, grouped without chaining. You review each group; the largest copy is kept by default."
+      ],
+      [
+        "App leftovers",
+        "Folders left behind by apps you uninstalled long ago, plus empty folders."
+      ],
+      [
+        "Photo compression",
+        "Re-encodes big JPEGs and replaces them only if the result is at least 20% smaller. EXIF is kept; Motion Photos and HDR shots are skipped."
+      ],
+      [
+        "Apps, caches & unused",
+        "Cache size per app, last-used date, one tap to its settings or to uninstall."
+      ],
+      [
+        "Device status",
+        "RAM, battery level and temperature — read-only, for information."
+      ]
     ],
     "p_title": "Private by construction",
     "p_text": "Most cleaners earn their keep from ads and data. LUSTRUM is built the other way around.",
     "points": [
       "No INTERNET permission in the manifest — you can verify it in your system's app info.",
       "No accounts, no analytics, no ads, no purchase prompts.",
-      "Every deletion is confirmed first; media deletions go through Android's own system dialog."
+      "Every deletion is confirmed first; media deletions go through Android's own system dialog.",
+      "Built-in safety checks: Motion Photos and HDR photos are never recompressed, files changed in the last 24 hours are never called junk, and nothing outside shared storage can be deleted."
     ],
     "c_title": "How it compares",
     "c_sub": "Against the best-known cleaners, based on their public descriptions (November 2026).",
-    "rows": ["No ads", "No internet access or telemetry", "Open source", "Duplicates & look-alike photos", "Leftovers of uninstalled apps", "Photo compression", "Scheduled cleaning", "“RAM boost”"],
+    "rows": [
+      "No ads",
+      "No internet access or telemetry",
+      "Open source",
+      "Duplicates & look-alike photos",
+      "Leftovers of uninstalled apps",
+      "Photo compression",
+      "Scheduled cleaning",
+      "“RAM boost”",
+      "Root / Shizuku support"
+    ],
     "legend": "✓ yes · ~ partial or paid · ✗ no · — not offered, on purpose",
-    "sr": ["yes", "partial or paid", "no", "not offered"],
+    "sr": [
+      "yes",
+      "partial or paid",
+      "no",
+      "not offered"
+    ],
     "n_title": "What it will not do — on purpose",
     "n_items": [
       "“RAM boost” and background-app killers. Android manages memory itself; these buttons don't help and drain the battery.",
       "Clearing other apps' caches in one tap. Android forbids it without special privileges, so LUSTRUM takes you straight to each app's storage screen.",
-      "iOS. The system does not allow cleaning outside an app's own sandbox."
+      "iOS. The system does not allow cleaning outside an app's own sandbox.",
+      "Undo. There is no recycle bin or preview yet: deletions are permanent, so every action is confirmed first.",
+      "Look inside other apps' Android/data folder. Android 11+ blocks this for every normal app; only root or Shizuku can, and LUSTRUM does not support them yet."
     ],
     "d_title": "Get LUSTRUM",
-    "d_sub": "Beta — version 0.3.0. Installs directly; no store account needed.",
+    "d_sub": "Beta — version 0.4.0. Installs directly; no store account needed.",
     "steps": [
       "Download the APK from the latest release.",
       "Allow installation from this source when Android asks.",
@@ -49,25 +101,67 @@
     ],
     "d_btn": "Download APK",
     "perm_title": "Permissions, in plain words",
-    "perm_cols": ["Permission", "Why"],
+    "perm_cols": [
+      "Permission",
+      "Why"
+    ],
     "perms": [
-      ["Media", "Scans photos, video and audio. Deleting asks Android for confirmation."],
-      ["All files access (optional)", "Documents, junk, leftovers, empty folders and compression."],
-      ["Usage access (optional)", "Cache size per app and when each app was last used."],
-      ["Package removal", "Lets you uninstall an app from the list."]
+      [
+        "Media",
+        "Scans photos, video and audio. Deleting asks Android for confirmation."
+      ],
+      [
+        "All files access (optional)",
+        "Documents, junk, leftovers, empty folders and compression."
+      ],
+      [
+        "Usage access (optional)",
+        "Cache size per app and when each app was last used."
+      ],
+      [
+        "Package removal",
+        "Lets you uninstall an app from the list."
+      ]
     ],
     "lic": "Released under the MIT licence.",
     "share": "Share",
-    "a11y": ["Accessibility", "High contrast", "Readable font", "More spacing", "Reduce motion", "Underline links", "Reset", "Close"],
+    "a11y": [
+      "Accessibility",
+      "High contrast",
+      "Readable font",
+      "More spacing",
+      "Reduce motion",
+      "Underline links",
+      "Reset",
+      "Close"
+    ],
     "scroll": "Back to top",
-    "zoom": ["Zoom in", "Zoom out", "Fit to screen"],
-    "mock": ["Used", "free", "Can be cleared", "freed"],
-    "cats": ["Images", "Video", "Audio", "Documents", "Archives"],
-    "support": ["Support the project", "Buy me a coffee"],
+    "zoom": [
+      "Zoom in",
+      "Zoom out",
+      "Fit to screen"
+    ],
+    "mock": [
+      "Used",
+      "free",
+      "Can be cleared",
+      "freed"
+    ],
+    "cats": [
+      "Images",
+      "Video",
+      "Audio",
+      "Documents",
+      "Archives"
+    ],
+    "support": [
+      "Support the project",
+      "Buy me a coffee"
+    ],
     "build_title": "Building",
-    "build_text": "JDK 21, Android SDK, Gradle 8.14+: run `gradle assembleRelease`. The APK appears in `app/build/outputs/apk/release/`. The Build APK workflow builds on every push and publishes a release on `v*` tags. The release APK is signed with the debug key (fine for direct installs); add your own key for public distribution.",
+    "build_text": "JDK 21, Android SDK, Gradle 8.14+: run `gradle assembleRelease` (`gradle testDebugUnitTest` runs the unit tests). The APK appears in `app/build/outputs/apk/release/`. The Build APK workflow tests, builds and publishes a release for every new version pushed to main. APKs are signed with a stable public key kept in the repository (`tools/lustrum-public.jks`), so updates install over each other; for your own distribution add your key as repository secrets (`LUSTRUM_KEYSTORE_B64`, `LUSTRUM_STORE_PASS`, `LUSTRUM_KEY_PASS`, `LUSTRUM_KEY_ALIAS`).",
     "status_title": "Status",
-    "status_text": "Beta. Builds in CI; not yet tested on a physical phone. Report problems as issues.",
+    "status_text": "Beta. 8 unit tests and the build run in CI; not yet tested on a physical phone. Updating from 0.3.0 or earlier: uninstall once, because those builds used a different signing key; from 0.4.0 on, updates install over the old version.",
     "ver": "Version",
     "upd": "Last updated"
   },
@@ -81,39 +175,91 @@
     "sub": "LUSTRUM găsește resturi, duplicate, fotografii asemănătoare și rămășițe de aplicații și le șterge doar cu acordul tău. Nu are permisiunea INTERNET, deci nu poate trimite nimic nicăieri.",
     "cta1": "Descarcă APK",
     "cta2": "Cod sursă",
-    "stats": ["reclame", "permisiune INTERNET", "urmăritoare", "limbi"],
-    "nav": ["Funcții", "Comparație", "Confidențialitate", "Descarcă"],
+    "stats": [
+      "reclame",
+      "permisiune INTERNET",
+      "urmăritoare",
+      "limbi"
+    ],
+    "nav": [
+      "Funcții",
+      "Comparație",
+      "Confidențialitate",
+      "Descarcă"
+    ],
     "f_title": "Ce face",
     "features": [
-      ["Stocarea dintr-o privire", "Spațiu folosit și liber, defalcat pe imagini, video, audio, documente și arhive."],
-      ["Fișiere mari, vechi și resturi", "Fișiere peste 50 MB, neatinse de un an, temporare, miniaturi, coș și descărcări întrerupte."],
-      ["Duplicate exacte", "Comparate după mărime, apoi amprentă rapidă, apoi SHA-256 complet. Implicit se păstrează cel mai vechi exemplar."],
-      ["Fotografii asemănătoare", "Hash perceptual pentru poze redimensionate, resalvate sau repetate. Tu verifici fiecare grup."],
-      ["Rămășițe de aplicații", "Foldere lăsate de aplicații dezinstalate de mult, plus folderele goale."],
-      ["Comprimare foto", "Recodează JPEG-uri mari și le înlocuiește doar dacă rezultatul e cu cel puțin 20% mai mic. EXIF păstrat."],
-      ["Aplicații, cache și nefolosite", "Mărimea cache-ului per aplicație, data ultimei folosiri, un clic spre setări sau dezinstalare."],
-      ["Starea dispozitivului", "RAM, nivelul și temperatura bateriei — doar citire, informativ."]
+      [
+        "Stocarea dintr-o privire",
+        "Spațiu folosit și liber, defalcat pe imagini, video, audio, documente și arhive."
+      ],
+      [
+        "Fișiere mari, vechi și resturi",
+        "Fișiere peste 50 MB, neatinse de un an, temporare, miniaturi, coș și descărcări întrerupte."
+      ],
+      [
+        "Duplicate exacte",
+        "Comparate după mărime, apoi amprentă rapidă, apoi SHA-256 complet. Implicit se păstrează cel mai vechi exemplar."
+      ],
+      [
+        "Fotografii asemănătoare",
+        "Hash perceptual: găsește aceeași poză redimensionată, resalvată sau repetată, grupată fără înlănțuire. Tu verifici fiecare grup; implicit se păstrează cea mai mare copie."
+      ],
+      [
+        "Rămășițe de aplicații",
+        "Foldere lăsate de aplicații dezinstalate de mult, plus folderele goale."
+      ],
+      [
+        "Comprimare foto",
+        "Recomprimă JPEG-urile mari și le înlocuiește doar dacă rezultatul e cu cel puțin 20% mai mic. EXIF se păstrează; fotografiile cu video încorporat și cele HDR sunt ocolite."
+      ],
+      [
+        "Aplicații, cache și nefolosite",
+        "Mărimea cache-ului per aplicație, data ultimei folosiri, un clic spre setări sau dezinstalare."
+      ],
+      [
+        "Starea dispozitivului",
+        "RAM, nivelul și temperatura bateriei — doar citire, informativ."
+      ]
     ],
     "p_title": "Privat prin construcție",
     "p_text": "Majoritatea curățătoarelor trăiesc din reclame și date. LUSTRUM e făcut invers.",
     "points": [
       "Fără permisiunea INTERNET în manifest — o poți verifica în informațiile aplicației din sistem.",
       "Fără conturi, analitice, reclame sau cereri de plată.",
-      "Orice ștergere e confirmată; ștergerea media trece prin dialogul propriu Android."
+      "Orice ștergere e confirmată; ștergerea media trece prin dialogul propriu Android.",
+      "Verificări de siguranță încorporate: fotografiile cu video încorporat (Motion Photo) și cele HDR nu sunt niciodată recomprimate, fișierele modificate în ultimele 24 de ore nu sunt considerate resturi, iar în afara stocării partajate nu se poate șterge nimic."
     ],
     "c_title": "Cum se compară",
     "c_sub": "Față de cele mai cunoscute curățătoare, pe baza descrierilor lor publice (noiembrie 2026).",
-    "rows": ["Fără reclame", "Fără acces la internet sau telemetrie", "Open source", "Duplicate și fotografii asemănătoare", "Rămășițe de la aplicații dezinstalate", "Comprimare foto", "Curățare programată", "„Boost RAM”"],
+    "rows": [
+      "Fără reclame",
+      "Fără acces la internet sau telemetrie",
+      "Open source",
+      "Duplicate și fotografii asemănătoare",
+      "Rămășițe de la aplicații dezinstalate",
+      "Comprimare foto",
+      "Curățare programată",
+      "„Boost RAM”",
+      "Suport root / Shizuku"
+    ],
     "legend": "✓ da · ~ parțial sau contra cost · ✗ nu · — nu există, intenționat",
-    "sr": ["da", "parțial sau contra cost", "nu", "nu există"],
+    "sr": [
+      "da",
+      "parțial sau contra cost",
+      "nu",
+      "nu există"
+    ],
     "n_title": "Ce nu face — intenționat",
     "n_items": [
       "„Boost RAM” și oprirea aplicațiilor din fundal. Android gestionează singur memoria; butoanele astea nu ajută și consumă baterie.",
       "Golirea cache-ului altor aplicații dintr-un clic. Android o interzice fără privilegii speciale, așa că LUSTRUM te duce direct la ecranul de stocare al fiecărei aplicații.",
-      "iOS. Sistemul nu permite curățare în afara propriului spațiu al aplicației."
+      "iOS. Sistemul nu permite curățare în afara propriului spațiu al aplicației.",
+      "Anulare. Nu există încă coș de reciclare sau previzualizare: ștergerile sunt definitive, de aceea fiecare acțiune e confirmată înainte.",
+      "Să se uite în folderul Android/data al altor aplicații. Android 11+ blochează asta pentru orice aplicație obișnuită; doar root sau Shizuku pot, iar LUSTRUM nu le suportă încă."
     ],
     "d_title": "Obține LUSTRUM",
-    "d_sub": "Beta — versiunea 0.3.0. Se instalează direct; nu ai nevoie de cont de magazin.",
+    "d_sub": "Beta — versiunea 0.4.0. Se instalează direct; nu ai nevoie de cont de magazin.",
     "steps": [
       "Descarcă APK-ul din ultima versiune publicată.",
       "Permite instalarea din această sursă când Android te întreabă.",
@@ -121,25 +267,67 @@
     ],
     "d_btn": "Descarcă APK",
     "perm_title": "Permisiunile, pe înțelesul tuturor",
-    "perm_cols": ["Permisiune", "De ce"],
+    "perm_cols": [
+      "Permisiune",
+      "De ce"
+    ],
     "perms": [
-      ["Media", "Scanează fotografii, video și audio. La ștergere, Android cere confirmare."],
-      ["Acces la toate fișierele (opțional)", "Documente, resturi, rămășițe, foldere goale și comprimare."],
-      ["Acces la utilizare (opțional)", "Mărimea cache-ului per aplicație și când a fost folosită ultima oară."],
-      ["Ștergere pachete", "Îți permite să dezinstalezi o aplicație din listă."]
+      [
+        "Media",
+        "Scanează fotografii, video și audio. La ștergere, Android cere confirmare."
+      ],
+      [
+        "Acces la toate fișierele (opțional)",
+        "Documente, resturi, rămășițe, foldere goale și comprimare."
+      ],
+      [
+        "Acces la utilizare (opțional)",
+        "Mărimea cache-ului per aplicație și când a fost folosită ultima oară."
+      ],
+      [
+        "Ștergere pachete",
+        "Îți permite să dezinstalezi o aplicație din listă."
+      ]
     ],
     "lic": "Publicat sub licența MIT.",
     "share": "Distribuie",
-    "a11y": ["Accesibilitate", "Contrast ridicat", "Font lizibil", "Spațiere mai mare", "Reduce animațiile", "Subliniază linkurile", "Resetează", "Închide"],
+    "a11y": [
+      "Accesibilitate",
+      "Contrast ridicat",
+      "Font lizibil",
+      "Spațiere mai mare",
+      "Reduce animațiile",
+      "Subliniază linkurile",
+      "Resetează",
+      "Închide"
+    ],
     "scroll": "Sus",
-    "zoom": ["Mărește", "Micșorează", "Potrivește la ecran"],
-    "mock": ["Folosit", "liber", "Se poate elibera", "eliberați"],
-    "cats": ["Imagini", "Video", "Audio", "Documente", "Arhive"],
-    "support": ["Susține proiectul", "Cumpără-mi o cafea"],
+    "zoom": [
+      "Mărește",
+      "Micșorează",
+      "Potrivește la ecran"
+    ],
+    "mock": [
+      "Folosit",
+      "liber",
+      "Se poate elibera",
+      "eliberați"
+    ],
+    "cats": [
+      "Imagini",
+      "Video",
+      "Audio",
+      "Documente",
+      "Arhive"
+    ],
+    "support": [
+      "Susține proiectul",
+      "Cumpără-mi o cafea"
+    ],
     "build_title": "Construire",
-    "build_text": "JDK 21, Android SDK, Gradle 8.14+: rulează `gradle assembleRelease`. APK-ul apare în `app/build/outputs/apk/release/`. Workflow-ul Build APK construiește la fiecare push și publică o versiune la etichetele `v*`. APK-ul de release e semnat cu cheia de debug (potrivit pentru instalare directă); pentru distribuție publică adaugă o cheie proprie.",
+    "build_text": "JDK 21, Android SDK, Gradle 8.14+: rulează `gradle assembleRelease` (`gradle testDebugUnitTest` rulează testele unitare). APK-ul apare în `app/build/outputs/apk/release/`. Fluxul Build APK testează, compilează și publică o versiune pentru fiecare versiune nouă ajunsă pe main. APK-urile sunt semnate cu o cheie publică stabilă din repo (`tools/lustrum-public.jks`), deci actualizările se instalează peste versiunea veche; pentru distribuția ta adaugă propria cheie ca secrete de repo (`LUSTRUM_KEYSTORE_B64`, `LUSTRUM_STORE_PASS`, `LUSTRUM_KEY_PASS`, `LUSTRUM_KEY_ALIAS`).",
     "status_title": "Stare",
-    "status_text": "Beta. Se compilează în CI; încă netestat pe un telefon real. Raportează problemele ca issues.",
+    "status_text": "Beta. 8 teste unitare și compilarea rulează în CI; încă netestată pe un telefon fizic. Actualizare de la 0.3.0 sau mai vechi: dezinstalează o dată, pentru că acele versiuni foloseau altă cheie de semnare; de la 0.4.0 încolo, actualizările se instalează peste versiunea veche.",
     "ver": "Versiune",
     "upd": "Ultima actualizare"
   },
@@ -153,39 +341,91 @@
     "sub": "LUSTRUM repère fichiers inutiles, doublons, photos similaires et restes d'applications, et ne les supprime qu'avec votre accord. Il n'a pas la permission INTERNET : il ne peut physiquement rien envoyer.",
     "cta1": "Télécharger l'APK",
     "cta2": "Code source",
-    "stats": ["publicités", "permission INTERNET", "traqueurs", "langues"],
-    "nav": ["Fonctions", "Comparaison", "Confidentialité", "Télécharger"],
+    "stats": [
+      "publicités",
+      "permission INTERNET",
+      "traqueurs",
+      "langues"
+    ],
+    "nav": [
+      "Fonctions",
+      "Comparaison",
+      "Confidentialité",
+      "Télécharger"
+    ],
     "f_title": "Ce qu'il fait",
     "features": [
-      ["Le stockage d'un coup d'œil", "Espace utilisé et libre, réparti entre images, vidéos, audio, documents et archives."],
-      ["Gros fichiers, anciens et inutiles", "Fichiers de plus de 50 Mo, intacts depuis un an, temporaires, miniatures, corbeille et téléchargements interrompus."],
-      ["Doublons exacts", "Comparés par taille, puis empreinte rapide, puis SHA-256 complet. L'exemplaire le plus ancien est conservé par défaut."],
-      ["Photos similaires", "Un hachage perceptuel retrouve les images redimensionnées, réenregistrées ou répétées. Vous validez chaque groupe."],
-      ["Restes d'applications", "Dossiers laissés par des applications désinstallées depuis longtemps, et dossiers vides."],
-      ["Compression photo", "Réencode les gros JPEG et ne les remplace que si le résultat est au moins 20 % plus léger. EXIF conservé."],
-      ["Applications, caches et inutilisées", "Taille du cache par application, date de dernière utilisation, accès direct aux réglages ou à la désinstallation."],
-      ["État de l'appareil", "RAM, niveau et température de la batterie — en lecture seule, à titre informatif."]
+      [
+        "Le stockage d'un coup d'œil",
+        "Espace utilisé et libre, réparti entre images, vidéos, audio, documents et archives."
+      ],
+      [
+        "Gros fichiers, anciens et inutiles",
+        "Fichiers de plus de 50 Mo, intacts depuis un an, temporaires, miniatures, corbeille et téléchargements interrompus."
+      ],
+      [
+        "Doublons exacts",
+        "Comparés par taille, puis empreinte rapide, puis SHA-256 complet. L'exemplaire le plus ancien est conservé par défaut."
+      ],
+      [
+        "Photos similaires",
+        "Le hachage perceptuel repère les clichés redimensionnés, réenregistrés ou répétés, groupés sans chaînage. Vous vérifiez chaque groupe ; la plus grande copie est conservée par défaut."
+      ],
+      [
+        "Restes d'applications",
+        "Dossiers laissés par des applications désinstallées depuis longtemps, et dossiers vides."
+      ],
+      [
+        "Compression photo",
+        "Réencode les gros JPEG et ne les remplace que si le résultat est au moins 20 % plus léger. L'EXIF est conservé ; les Motion Photos et les photos HDR sont ignorées."
+      ],
+      [
+        "Applications, caches et inutilisées",
+        "Taille du cache par application, date de dernière utilisation, accès direct aux réglages ou à la désinstallation."
+      ],
+      [
+        "État de l'appareil",
+        "RAM, niveau et température de la batterie — en lecture seule, à titre informatif."
+      ]
     ],
     "p_title": "Privé par construction",
     "p_text": "La plupart des nettoyeurs vivent de publicité et de données. LUSTRUM fait l'inverse.",
     "points": [
       "Aucune permission INTERNET dans le manifeste — vérifiable dans les informations de l'application.",
       "Pas de compte, pas d'analyse, pas de pub, pas d'incitation à payer.",
-      "Chaque suppression est confirmée ; pour les médias, c'est la boîte de dialogue d'Android qui s'en charge."
+      "Chaque suppression est confirmée ; pour les médias, c'est la boîte de dialogue d'Android qui s'en charge.",
+      "Garde-fous intégrés : les Motion Photos et les photos HDR ne sont jamais recompressées, les fichiers modifiés depuis moins de 24 h ne sont jamais traités comme inutiles, et rien hors du stockage partagé ne peut être supprimé."
     ],
     "c_title": "Comparaison",
     "c_sub": "Face aux nettoyeurs les plus connus, d'après leurs descriptions publiques (novembre 2026).",
-    "rows": ["Sans publicité", "Sans accès internet ni télémétrie", "Open source", "Doublons et photos similaires", "Restes d'applications désinstallées", "Compression photo", "Nettoyage planifié", "« Boost RAM »"],
+    "rows": [
+      "Sans publicité",
+      "Sans accès internet ni télémétrie",
+      "Open source",
+      "Doublons et photos similaires",
+      "Restes d'applications désinstallées",
+      "Compression photo",
+      "Nettoyage planifié",
+      "« Boost RAM »",
+      "Prise en charge root / Shizuku"
+    ],
     "legend": "✓ oui · ~ partiel ou payant · ✗ non · — absent, volontairement",
-    "sr": ["oui", "partiel ou payant", "non", "absent"],
+    "sr": [
+      "oui",
+      "partiel ou payant",
+      "non",
+      "absent"
+    ],
     "n_title": "Ce qu'il ne fait pas — volontairement",
     "n_items": [
       "Le « boost RAM » et les tueurs d'applications en arrière-plan. Android gère la mémoire seul ; ces boutons n'aident pas et vident la batterie.",
       "Vider le cache des autres applications en un geste. Android l'interdit sans privilèges spéciaux ; LUSTRUM vous emmène donc directement à l'écran de stockage de chaque application.",
-      "iOS. Le système interdit tout nettoyage hors du bac à sable de l'application."
+      "iOS. Le système interdit tout nettoyage hors du bac à sable de l'application.",
+      "L'annulation. Il n'y a pas encore de corbeille ni d'aperçu : les suppressions sont définitives, donc chaque action est d'abord confirmée.",
+      "Regarder dans le dossier Android/data des autres applications. Android 11+ l'interdit à toute application ordinaire ; seuls root ou Shizuku le permettent, et LUSTRUM ne les gère pas encore."
     ],
     "d_title": "Obtenir LUSTRUM",
-    "d_sub": "Bêta — version 0.3.0. Installation directe, sans compte de boutique.",
+    "d_sub": "Bêta — version 0.4.0. Installation directe, sans compte de boutique.",
     "steps": [
       "Téléchargez l'APK depuis la dernière version publiée.",
       "Autorisez l'installation depuis cette source lorsque Android le demande.",
@@ -193,25 +433,67 @@
     ],
     "d_btn": "Télécharger l'APK",
     "perm_title": "Les permissions, en clair",
-    "perm_cols": ["Permission", "Pourquoi"],
+    "perm_cols": [
+      "Permission",
+      "Pourquoi"
+    ],
     "perms": [
-      ["Médias", "Analyse photos, vidéos et audio. Pour supprimer, Android demande confirmation."],
-      ["Accès à tous les fichiers (facultatif)", "Documents, fichiers inutiles, restes, dossiers vides et compression."],
-      ["Accès aux données d'utilisation (facultatif)", "Taille du cache par application et date de dernière utilisation."],
-      ["Suppression de paquets", "Permet de désinstaller une application depuis la liste."]
+      [
+        "Médias",
+        "Analyse photos, vidéos et audio. Pour supprimer, Android demande confirmation."
+      ],
+      [
+        "Accès à tous les fichiers (facultatif)",
+        "Documents, fichiers inutiles, restes, dossiers vides et compression."
+      ],
+      [
+        "Accès aux données d'utilisation (facultatif)",
+        "Taille du cache par application et date de dernière utilisation."
+      ],
+      [
+        "Suppression de paquets",
+        "Permet de désinstaller une application depuis la liste."
+      ]
     ],
     "lic": "Publié sous licence MIT.",
     "share": "Partager",
-    "a11y": ["Accessibilité", "Contraste élevé", "Police lisible", "Espacement accru", "Réduire les animations", "Souligner les liens", "Réinitialiser", "Fermer"],
+    "a11y": [
+      "Accessibilité",
+      "Contraste élevé",
+      "Police lisible",
+      "Espacement accru",
+      "Réduire les animations",
+      "Souligner les liens",
+      "Réinitialiser",
+      "Fermer"
+    ],
     "scroll": "Haut de page",
-    "zoom": ["Agrandir", "Réduire", "Ajuster à l'écran"],
-    "mock": ["Utilisé", "libre", "Peut être libéré", "libérés"],
-    "cats": ["Images", "Vidéos", "Audio", "Documents", "Archives"],
-    "support": ["Soutenir le projet", "Offrez-moi un café"],
+    "zoom": [
+      "Agrandir",
+      "Réduire",
+      "Ajuster à l'écran"
+    ],
+    "mock": [
+      "Utilisé",
+      "libre",
+      "Peut être libéré",
+      "libérés"
+    ],
+    "cats": [
+      "Images",
+      "Vidéos",
+      "Audio",
+      "Documents",
+      "Archives"
+    ],
+    "support": [
+      "Soutenir le projet",
+      "Offrez-moi un café"
+    ],
     "build_title": "Compilation",
-    "build_text": "JDK 21, Android SDK, Gradle 8.14+ : lancez `gradle assembleRelease`. L'APK apparaît dans `app/build/outputs/apk/release/`. Le workflow Build APK compile à chaque push et publie une version sur les étiquettes `v*`. L'APK de release est signé avec la clé de débogage (suffisant pour une installation directe) ; ajoutez votre propre clé pour une diffusion publique.",
+    "build_text": "JDK 21, SDK Android, Gradle 8.14+ : lancez `gradle assembleRelease` (`gradle testDebugUnitTest` exécute les tests unitaires). L'APK apparaît dans `app/build/outputs/apk/release/`. Le workflow Build APK teste, compile et publie une version pour chaque nouvelle version poussée sur main. Les APK sont signés avec une clé publique stable du dépôt (`tools/lustrum-public.jks`), donc les mises à jour s'installent par-dessus ; pour votre propre diffusion, ajoutez votre clé en secrets du dépôt (`LUSTRUM_KEYSTORE_B64`, `LUSTRUM_STORE_PASS`, `LUSTRUM_KEY_PASS`, `LUSTRUM_KEY_ALIAS`).",
     "status_title": "État",
-    "status_text": "Bêta. Compile en CI ; pas encore testé sur un vrai téléphone. Signalez les problèmes via les issues.",
+    "status_text": "Bêta. 8 tests unitaires et la compilation tournent en CI ; pas encore testée sur un vrai téléphone. Mise à jour depuis 0.3.0 ou antérieure : désinstallez une fois, ces versions utilisaient une autre clé de signature ; dès 0.4.0, les mises à jour s'installent par-dessus.",
     "ver": "Version",
     "upd": "Dernière mise à jour"
   },
@@ -225,39 +507,91 @@
     "sub": "LUSTRUM trova file inutili, duplicati, foto simili e residui di app, e li elimina solo con il tuo consenso. Non ha il permesso INTERNET, quindi non può inviare nulla da nessuna parte.",
     "cta1": "Scarica l'APK",
     "cta2": "Codice sorgente",
-    "stats": ["pubblicità", "permesso INTERNET", "tracker", "lingue"],
-    "nav": ["Funzioni", "Confronto", "Privacy", "Scarica"],
+    "stats": [
+      "pubblicità",
+      "permesso INTERNET",
+      "tracker",
+      "lingue"
+    ],
+    "nav": [
+      "Funzioni",
+      "Confronto",
+      "Privacy",
+      "Scarica"
+    ],
     "f_title": "Cosa fa",
     "features": [
-      ["Archiviazione a colpo d'occhio", "Spazio usato e libero, suddiviso in immagini, video, audio, documenti e archivi."],
-      ["File grandi, vecchi e inutili", "File oltre 50 MB, intatti da un anno, temporanei, miniature, cestino e download interrotti."],
-      ["Duplicati esatti", "Confrontati per dimensione, poi impronta rapida, poi SHA-256 completo. Per impostazione predefinita resta la copia più vecchia."],
-      ["Foto simili", "L'hash percettivo trova immagini ridimensionate, risalvate o ripetute. Controlli tu ogni gruppo."],
-      ["Residui di app", "Cartelle lasciate da app disinstallate da tempo, più le cartelle vuote."],
-      ["Compressione foto", "Ricodifica i JPEG grandi e li sostituisce solo se il risultato è almeno il 20% più leggero. EXIF conservato."],
-      ["App, cache e inutilizzate", "Dimensione della cache per app, data dell'ultimo utilizzo, accesso diretto alle impostazioni o alla disinstallazione."],
-      ["Stato del dispositivo", "RAM, livello e temperatura della batteria — sola lettura, a scopo informativo."]
+      [
+        "Archiviazione a colpo d'occhio",
+        "Spazio usato e libero, suddiviso in immagini, video, audio, documenti e archivi."
+      ],
+      [
+        "File grandi, vecchi e inutili",
+        "File oltre 50 MB, intatti da un anno, temporanei, miniature, cestino e download interrotti."
+      ],
+      [
+        "Duplicati esatti",
+        "Confrontati per dimensione, poi impronta rapida, poi SHA-256 completo. Per impostazione predefinita resta la copia più vecchia."
+      ],
+      [
+        "Foto simili",
+        "L'hash percettivo trova scatti ridimensionati, risalvati o ripetuti, raggruppati senza concatenazioni. Controlli tu ogni gruppo; per impostazione predefinita si tiene la copia più grande."
+      ],
+      [
+        "Residui di app",
+        "Cartelle lasciate da app disinstallate da tempo, più le cartelle vuote."
+      ],
+      [
+        "Compressione foto",
+        "Ricodifica i JPEG grandi e li sostituisce solo se il risultato è almeno il 20% più leggero. L'EXIF si conserva; Motion Photo e foto HDR vengono saltate."
+      ],
+      [
+        "App, cache e inutilizzate",
+        "Dimensione della cache per app, data dell'ultimo utilizzo, accesso diretto alle impostazioni o alla disinstallazione."
+      ],
+      [
+        "Stato del dispositivo",
+        "RAM, livello e temperatura della batteria — sola lettura, a scopo informativo."
+      ]
     ],
     "p_title": "Privato per costruzione",
     "p_text": "La maggior parte dei pulitori vive di pubblicità e dati. LUSTRUM è fatto al contrario.",
     "points": [
       "Nessun permesso INTERNET nel manifest — lo verifichi nelle info dell'app del sistema.",
       "Niente account, analisi, pubblicità o richieste di pagamento.",
-      "Ogni eliminazione è confermata; per i contenuti multimediali interviene la finestra di dialogo di Android."
+      "Ogni eliminazione è confermata; per i contenuti multimediali interviene la finestra di dialogo di Android.",
+      "Controlli di sicurezza integrati: le Motion Photo e le foto HDR non vengono mai ricompresse, i file modificati nelle ultime 24 ore non sono mai considerati inutili e nulla fuori dall'archiviazione condivisa può essere eliminato."
     ],
     "c_title": "Il confronto",
     "c_sub": "Con i pulitori più noti, in base alle loro descrizioni pubbliche (novembre 2026).",
-    "rows": ["Senza pubblicità", "Senza accesso a internet né telemetria", "Open source", "Duplicati e foto simili", "Residui di app disinstallate", "Compressione foto", "Pulizia programmata", "«Boost RAM»"],
+    "rows": [
+      "Senza pubblicità",
+      "Senza accesso a internet né telemetria",
+      "Open source",
+      "Duplicati e foto simili",
+      "Residui di app disinstallate",
+      "Compressione foto",
+      "Pulizia programmata",
+      "«Boost RAM»",
+      "Supporto root / Shizuku"
+    ],
     "legend": "✓ sì · ~ parziale o a pagamento · ✗ no · — assente, di proposito",
-    "sr": ["sì", "parziale o a pagamento", "no", "assente"],
+    "sr": [
+      "sì",
+      "parziale o a pagamento",
+      "no",
+      "assente"
+    ],
     "n_title": "Cosa non fa — di proposito",
     "n_items": [
       "Il «boost RAM» e i chiusori di app in background. Android gestisce da solo la memoria; questi pulsanti non servono e scaricano la batteria.",
       "Svuotare la cache delle altre app con un tocco. Android lo vieta senza privilegi speciali, perciò LUSTRUM ti porta direttamente alla schermata di archiviazione di ogni app.",
-      "iOS. Il sistema non consente pulizie fuori dall'area riservata dell'app."
+      "iOS. Il sistema non consente pulizie fuori dall'area riservata dell'app.",
+      "L'annullamento. Non ci sono ancora cestino né anteprime: le eliminazioni sono definitive, quindi ogni azione viene prima confermata.",
+      "Guardare nella cartella Android/data delle altre app. Da Android 11 è bloccato per ogni app normale; solo root o Shizuku possono, e LUSTRUM non li supporta ancora."
     ],
     "d_title": "Ottieni LUSTRUM",
-    "d_sub": "Beta — versione 0.3.0. Si installa direttamente, senza account di uno store.",
+    "d_sub": "Beta — versione 0.4.0. Si installa direttamente, senza account di uno store.",
     "steps": [
       "Scarica l'APK dall'ultima versione pubblicata.",
       "Consenti l'installazione da questa fonte quando Android lo chiede.",
@@ -265,25 +599,67 @@
     ],
     "d_btn": "Scarica l'APK",
     "perm_title": "I permessi, in parole semplici",
-    "perm_cols": ["Permesso", "Perché"],
+    "perm_cols": [
+      "Permesso",
+      "Perché"
+    ],
     "perms": [
-      ["Contenuti multimediali", "Analizza foto, video e audio. Per eliminare, Android chiede conferma."],
-      ["Accesso a tutti i file (facoltativo)", "Documenti, file inutili, residui, cartelle vuote e compressione."],
-      ["Accesso ai dati di utilizzo (facoltativo)", "Dimensione della cache per app e data dell'ultimo utilizzo."],
-      ["Rimozione pacchetti", "Consente di disinstallare un'app dall'elenco."]
+      [
+        "Contenuti multimediali",
+        "Analizza foto, video e audio. Per eliminare, Android chiede conferma."
+      ],
+      [
+        "Accesso a tutti i file (facoltativo)",
+        "Documenti, file inutili, residui, cartelle vuote e compressione."
+      ],
+      [
+        "Accesso ai dati di utilizzo (facoltativo)",
+        "Dimensione della cache per app e data dell'ultimo utilizzo."
+      ],
+      [
+        "Rimozione pacchetti",
+        "Consente di disinstallare un'app dall'elenco."
+      ]
     ],
     "lic": "Rilasciato con licenza MIT.",
     "share": "Condividi",
-    "a11y": ["Accessibilità", "Contrasto elevato", "Carattere leggibile", "Più spaziatura", "Riduci animazioni", "Sottolinea i link", "Ripristina", "Chiudi"],
+    "a11y": [
+      "Accessibilità",
+      "Contrasto elevato",
+      "Carattere leggibile",
+      "Più spaziatura",
+      "Riduci animazioni",
+      "Sottolinea i link",
+      "Ripristina",
+      "Chiudi"
+    ],
     "scroll": "Torna su",
-    "zoom": ["Ingrandisci", "Riduci", "Adatta allo schermo"],
-    "mock": ["Usato", "libero", "Si può liberare", "liberati"],
-    "cats": ["Immagini", "Video", "Audio", "Documenti", "Archivi"],
-    "support": ["Sostieni il progetto", "Offrimi un caffè"],
+    "zoom": [
+      "Ingrandisci",
+      "Riduci",
+      "Adatta allo schermo"
+    ],
+    "mock": [
+      "Usato",
+      "libero",
+      "Si può liberare",
+      "liberati"
+    ],
+    "cats": [
+      "Immagini",
+      "Video",
+      "Audio",
+      "Documenti",
+      "Archivi"
+    ],
+    "support": [
+      "Sostieni il progetto",
+      "Offrimi un caffè"
+    ],
     "build_title": "Compilazione",
-    "build_text": "JDK 21, Android SDK, Gradle 8.14+: esegui `gradle assembleRelease`. L'APK compare in `app/build/outputs/apk/release/`. Il workflow Build APK compila a ogni push e pubblica una release sui tag `v*`. L'APK di release è firmato con la chiave di debug (adatto all'installazione diretta); per la distribuzione pubblica aggiungi una chiave tua.",
+    "build_text": "JDK 21, Android SDK, Gradle 8.14+: esegui `gradle assembleRelease` (`gradle testDebugUnitTest` esegue i test unitari). L'APK compare in `app/build/outputs/apk/release/`. Il workflow Build APK testa, compila e pubblica una release per ogni nuova versione su main. Gli APK sono firmati con una chiave pubblica stabile nel repository (`tools/lustrum-public.jks`), quindi gli aggiornamenti si installano sopra; per una tua distribuzione aggiungi la tua chiave come secret del repository (`LUSTRUM_KEYSTORE_B64`, `LUSTRUM_STORE_PASS`, `LUSTRUM_KEY_PASS`, `LUSTRUM_KEY_ALIAS`).",
     "status_title": "Stato",
-    "status_text": "Beta. Compila in CI; non ancora provato su un telefono reale. Segnala i problemi come issue.",
+    "status_text": "Beta. 8 test unitari e la compilazione girano in CI; non ancora provata su un telefono fisico. Aggiornando da 0.3.0 o precedenti: disinstalla una volta, perché quelle versioni usavano un'altra chiave di firma; da 0.4.0 gli aggiornamenti si installano sopra.",
     "ver": "Versione",
     "upd": "Ultimo aggiornamento"
   },
@@ -297,39 +673,91 @@
     "sub": "LUSTRUM encuentra archivos basura, duplicados, fotos parecidas y restos de aplicaciones, y los elimina solo con tu permiso. No tiene el permiso INTERNET, así que no puede enviar nada a ningún sitio.",
     "cta1": "Descargar APK",
     "cta2": "Código fuente",
-    "stats": ["anuncios", "permiso INTERNET", "rastreadores", "idiomas"],
-    "nav": ["Funciones", "Comparación", "Privacidad", "Descargar"],
+    "stats": [
+      "anuncios",
+      "permiso INTERNET",
+      "rastreadores",
+      "idiomas"
+    ],
+    "nav": [
+      "Funciones",
+      "Comparación",
+      "Privacidad",
+      "Descargar"
+    ],
     "f_title": "Qué hace",
     "features": [
-      ["El almacenamiento de un vistazo", "Espacio usado y libre, desglosado en imágenes, vídeo, audio, documentos y archivos comprimidos."],
-      ["Archivos grandes, antiguos y basura", "Archivos de más de 50 MB, sin tocar desde hace un año, temporales, miniaturas, papelera y descargas interrumpidas."],
-      ["Duplicados exactos", "Comparados por tamaño, luego huella rápida y después SHA-256 completo. Por defecto se conserva la copia más antigua."],
-      ["Fotos parecidas", "El hash perceptual encuentra imágenes redimensionadas, guardadas de nuevo o repetidas. Tú revisas cada grupo."],
-      ["Restos de aplicaciones", "Carpetas que dejaron apps desinstaladas hace tiempo, y carpetas vacías."],
-      ["Compresión de fotos", "Recodifica JPEG grandes y los sustituye solo si el resultado pesa al menos un 20 % menos. Se conserva el EXIF."],
-      ["Apps, cachés y sin uso", "Tamaño de la caché por app, fecha del último uso y acceso directo a sus ajustes o a la desinstalación."],
-      ["Estado del dispositivo", "RAM, nivel y temperatura de la batería — solo lectura, a título informativo."]
+      [
+        "El almacenamiento de un vistazo",
+        "Espacio usado y libre, desglosado en imágenes, vídeo, audio, documentos y archivos comprimidos."
+      ],
+      [
+        "Archivos grandes, antiguos y basura",
+        "Archivos de más de 50 MB, sin tocar desde hace un año, temporales, miniaturas, papelera y descargas interrumpidas."
+      ],
+      [
+        "Duplicados exactos",
+        "Comparados por tamaño, luego huella rápida y después SHA-256 completo. Por defecto se conserva la copia más antigua."
+      ],
+      [
+        "Fotos parecidas",
+        "El hash perceptual encuentra fotos redimensionadas, guardadas de nuevo o repetidas, agrupadas sin encadenar. Revisas cada grupo; por defecto se conserva la copia más grande."
+      ],
+      [
+        "Restos de aplicaciones",
+        "Carpetas que dejaron apps desinstaladas hace tiempo, y carpetas vacías."
+      ],
+      [
+        "Compresión de fotos",
+        "Recodifica los JPEG grandes y los sustituye solo si el resultado pesa al menos un 20 % menos. Se conserva el EXIF; las Motion Photos y las fotos HDR se omiten."
+      ],
+      [
+        "Apps, cachés y sin uso",
+        "Tamaño de la caché por app, fecha del último uso y acceso directo a sus ajustes o a la desinstalación."
+      ],
+      [
+        "Estado del dispositivo",
+        "RAM, nivel y temperatura de la batería — solo lectura, a título informativo."
+      ]
     ],
     "p_title": "Privado por diseño",
     "p_text": "La mayoría de los limpiadores viven de anuncios y datos. LUSTRUM está hecho al revés.",
     "points": [
       "Sin permiso INTERNET en el manifiesto — puedes comprobarlo en la información de la app del sistema.",
       "Sin cuentas, analíticas, anuncios ni avisos de pago.",
-      "Cada borrado se confirma; en los archivos multimedia lo hace el cuadro de diálogo del propio Android."
+      "Cada borrado se confirma; en los archivos multimedia lo hace el cuadro de diálogo del propio Android.",
+      "Comprobaciones de seguridad integradas: las Motion Photos y las fotos HDR nunca se recomprimen, los archivos modificados en las últimas 24 horas nunca se consideran basura y no se puede borrar nada fuera del almacenamiento compartido."
     ],
     "c_title": "Cómo se compara",
     "c_sub": "Frente a los limpiadores más conocidos, según sus descripciones públicas (noviembre de 2026).",
-    "rows": ["Sin anuncios", "Sin acceso a internet ni telemetría", "Código abierto", "Duplicados y fotos parecidas", "Restos de apps desinstaladas", "Compresión de fotos", "Limpieza programada", "«Boost de RAM»"],
+    "rows": [
+      "Sin anuncios",
+      "Sin acceso a internet ni telemetría",
+      "Código abierto",
+      "Duplicados y fotos parecidas",
+      "Restos de apps desinstaladas",
+      "Compresión de fotos",
+      "Limpieza programada",
+      "«Boost de RAM»",
+      "Soporte root / Shizuku"
+    ],
     "legend": "✓ sí · ~ parcial o de pago · ✗ no · — no lo ofrece, a propósito",
-    "sr": ["sí", "parcial o de pago", "no", "no lo ofrece"],
+    "sr": [
+      "sí",
+      "parcial o de pago",
+      "no",
+      "no lo ofrece"
+    ],
     "n_title": "Lo que no hace — a propósito",
     "n_items": [
       "El «boost de RAM» y los cierra-apps en segundo plano. Android gestiona la memoria por sí solo; esos botones no ayudan y gastan batería.",
       "Vaciar la caché de otras apps con un toque. Android lo prohíbe sin privilegios especiales, así que LUSTRUM te lleva directo a la pantalla de almacenamiento de cada app.",
-      "iOS. El sistema no permite limpiar fuera del espacio propio de la app."
+      "iOS. El sistema no permite limpiar fuera del espacio propio de la app.",
+      "Deshacer. Todavía no hay papelera ni vista previa: las eliminaciones son definitivas, por eso cada acción se confirma antes.",
+      "Mirar dentro de la carpeta Android/data de otras apps. Android 11+ lo bloquea a cualquier app normal; solo root o Shizuku pueden, y LUSTRUM aún no los admite."
     ],
     "d_title": "Consigue LUSTRUM",
-    "d_sub": "Beta — versión 0.3.0. Se instala directamente, sin cuenta de tienda.",
+    "d_sub": "Beta — versión 0.4.0. Se instala directamente, sin cuenta de tienda.",
     "steps": [
       "Descarga el APK de la última versión publicada.",
       "Permite la instalación desde esta fuente cuando Android te lo pida.",
@@ -337,25 +765,67 @@
     ],
     "d_btn": "Descargar APK",
     "perm_title": "Los permisos, en cristiano",
-    "perm_cols": ["Permiso", "Para qué"],
+    "perm_cols": [
+      "Permiso",
+      "Para qué"
+    ],
     "perms": [
-      ["Multimedia", "Escanea fotos, vídeo y audio. Para borrar, Android pide confirmación."],
-      ["Acceso a todos los archivos (opcional)", "Documentos, basura, restos, carpetas vacías y compresión."],
-      ["Acceso al uso de aplicaciones (opcional)", "Tamaño de la caché por app y cuándo se usó por última vez."],
-      ["Eliminación de paquetes", "Permite desinstalar una app desde la lista."]
+      [
+        "Multimedia",
+        "Escanea fotos, vídeo y audio. Para borrar, Android pide confirmación."
+      ],
+      [
+        "Acceso a todos los archivos (opcional)",
+        "Documentos, basura, restos, carpetas vacías y compresión."
+      ],
+      [
+        "Acceso al uso de aplicaciones (opcional)",
+        "Tamaño de la caché por app y cuándo se usó por última vez."
+      ],
+      [
+        "Eliminación de paquetes",
+        "Permite desinstalar una app desde la lista."
+      ]
     ],
     "lic": "Publicado bajo licencia MIT.",
     "share": "Compartir",
-    "a11y": ["Accesibilidad", "Alto contraste", "Fuente legible", "Más espaciado", "Reducir animaciones", "Subrayar enlaces", "Restablecer", "Cerrar"],
+    "a11y": [
+      "Accesibilidad",
+      "Alto contraste",
+      "Fuente legible",
+      "Más espaciado",
+      "Reducir animaciones",
+      "Subrayar enlaces",
+      "Restablecer",
+      "Cerrar"
+    ],
     "scroll": "Volver arriba",
-    "zoom": ["Acercar", "Alejar", "Ajustar a la pantalla"],
-    "mock": ["Usado", "libre", "Se puede liberar", "liberados"],
-    "cats": ["Imágenes", "Vídeo", "Audio", "Documentos", "Comprimidos"],
-    "support": ["Apoya el proyecto", "Invítame a un café"],
+    "zoom": [
+      "Acercar",
+      "Alejar",
+      "Ajustar a la pantalla"
+    ],
+    "mock": [
+      "Usado",
+      "libre",
+      "Se puede liberar",
+      "liberados"
+    ],
+    "cats": [
+      "Imágenes",
+      "Vídeo",
+      "Audio",
+      "Documentos",
+      "Comprimidos"
+    ],
+    "support": [
+      "Apoya el proyecto",
+      "Invítame a un café"
+    ],
     "build_title": "Compilación",
-    "build_text": "JDK 21, Android SDK, Gradle 8.14+: ejecuta `gradle assembleRelease`. El APK aparece en `app/build/outputs/apk/release/`. El workflow Build APK compila en cada push y publica una versión con las etiquetas `v*`. El APK de release está firmado con la clave de depuración (válido para instalación directa); añade tu propia clave para distribución pública.",
+    "build_text": "JDK 21, SDK de Android, Gradle 8.14+: ejecuta `gradle assembleRelease` (`gradle testDebugUnitTest` ejecuta las pruebas unitarias). El APK aparece en `app/build/outputs/apk/release/`. El flujo Build APK prueba, compila y publica una versión por cada versión nueva en main. Los APK se firman con una clave pública estable del repositorio (`tools/lustrum-public.jks`), así las actualizaciones se instalan encima; para tu propia distribución añade tu clave como secretos del repositorio (`LUSTRUM_KEYSTORE_B64`, `LUSTRUM_STORE_PASS`, `LUSTRUM_KEY_PASS`, `LUSTRUM_KEY_ALIAS`).",
     "status_title": "Estado",
-    "status_text": "Beta. Compila en CI; aún sin probar en un teléfono real. Informa de los problemas como issues.",
+    "status_text": "Beta. 8 pruebas unitarias y la compilación corren en CI; aún sin probar en un teléfono físico. Al actualizar desde 0.3.0 o anterior: desinstala una vez, porque esas versiones usaban otra clave de firma; desde 0.4.0 las actualizaciones se instalan encima.",
     "ver": "Versión",
     "upd": "Última actualización"
   },
@@ -369,39 +839,91 @@
     "sub": "O LUSTRUM encontra arquivos inúteis, duplicatas, fotos parecidas e sobras de aplicativos, e só os apaga com a sua autorização. Ele não tem a permissão INTERNET, então não consegue enviar nada para lugar nenhum.",
     "cta1": "Baixar APK",
     "cta2": "Código-fonte",
-    "stats": ["anúncios", "permissão INTERNET", "rastreadores", "idiomas"],
-    "nav": ["Funções", "Comparação", "Privacidade", "Baixar"],
+    "stats": [
+      "anúncios",
+      "permissão INTERNET",
+      "rastreadores",
+      "idiomas"
+    ],
+    "nav": [
+      "Funções",
+      "Comparação",
+      "Privacidade",
+      "Baixar"
+    ],
     "f_title": "O que faz",
     "features": [
-      ["Armazenamento num relance", "Espaço usado e livre, dividido em imagens, vídeo, áudio, documentos e arquivos compactados."],
-      ["Arquivos grandes, antigos e inúteis", "Arquivos acima de 50 MB, parados há um ano, temporários, miniaturas, lixeira e downloads interrompidos."],
-      ["Duplicatas exatas", "Comparadas por tamanho, depois impressão rápida e depois SHA-256 completo. Por padrão, a cópia mais antiga é mantida."],
-      ["Fotos parecidas", "O hash perceptual encontra imagens redimensionadas, salvas de novo ou repetidas. Você revisa cada grupo."],
-      ["Sobras de aplicativos", "Pastas deixadas por aplicativos desinstalados há muito tempo, além de pastas vazias."],
-      ["Compressão de fotos", "Recodifica JPEGs grandes e só os substitui se o resultado for pelo menos 20% menor. O EXIF é preservado."],
-      ["Apps, caches e sem uso", "Tamanho do cache por app, data do último uso e acesso direto às configurações ou à desinstalação."],
-      ["Estado do dispositivo", "RAM, nível e temperatura da bateria — somente leitura, apenas informativo."]
+      [
+        "Armazenamento num relance",
+        "Espaço usado e livre, dividido em imagens, vídeo, áudio, documentos e arquivos compactados."
+      ],
+      [
+        "Arquivos grandes, antigos e inúteis",
+        "Arquivos acima de 50 MB, parados há um ano, temporários, miniaturas, lixeira e downloads interrompidos."
+      ],
+      [
+        "Duplicatas exatas",
+        "Comparadas por tamanho, depois impressão rápida e depois SHA-256 completo. Por padrão, a cópia mais antiga é mantida."
+      ],
+      [
+        "Fotos parecidas",
+        "O hash perceptual encontra fotos redimensionadas, salvas de novo ou repetidas, agrupadas sem encadeamento. Você revisa cada grupo; por padrão a maior cópia é mantida."
+      ],
+      [
+        "Sobras de aplicativos",
+        "Pastas deixadas por aplicativos desinstalados há muito tempo, além de pastas vazias."
+      ],
+      [
+        "Compressão de fotos",
+        "Recodifica JPEGs grandes e só os substitui se o resultado for pelo menos 20% menor. O EXIF é mantido; Motion Photos e fotos HDR são ignoradas."
+      ],
+      [
+        "Apps, caches e sem uso",
+        "Tamanho do cache por app, data do último uso e acesso direto às configurações ou à desinstalação."
+      ],
+      [
+        "Estado do dispositivo",
+        "RAM, nível e temperatura da bateria — somente leitura, apenas informativo."
+      ]
     ],
     "p_title": "Privado por construção",
     "p_text": "A maioria dos limpadores vive de anúncios e dados. O LUSTRUM foi feito ao contrário.",
     "points": [
       "Sem a permissão INTERNET no manifesto — você confere nas informações do app no sistema.",
       "Sem contas, análises, anúncios ou pedidos de pagamento.",
-      "Toda exclusão é confirmada; nas mídias, quem confirma é a caixa de diálogo do próprio Android."
+      "Toda exclusão é confirmada; nas mídias, quem confirma é a caixa de diálogo do próprio Android.",
+      "Verificações de segurança integradas: Motion Photos e fotos HDR nunca são recomprimidas, arquivos alterados nas últimas 24 horas nunca são tratados como lixo e nada fora do armazenamento compartilhado pode ser excluído."
     ],
     "c_title": "Como se compara",
     "c_sub": "Com os limpadores mais conhecidos, com base nas descrições públicas deles (novembro de 2026).",
-    "rows": ["Sem anúncios", "Sem acesso à internet nem telemetria", "Código aberto", "Duplicatas e fotos parecidas", "Sobras de apps desinstalados", "Compressão de fotos", "Limpeza agendada", "“Turbo de RAM”"],
+    "rows": [
+      "Sem anúncios",
+      "Sem acesso à internet nem telemetria",
+      "Código aberto",
+      "Duplicatas e fotos parecidas",
+      "Sobras de apps desinstalados",
+      "Compressão de fotos",
+      "Limpeza agendada",
+      "“Turbo de RAM”",
+      "Suporte a root / Shizuku"
+    ],
     "legend": "✓ sim · ~ parcial ou pago · ✗ não · — não oferece, de propósito",
-    "sr": ["sim", "parcial ou pago", "não", "não oferece"],
+    "sr": [
+      "sim",
+      "parcial ou pago",
+      "não",
+      "não oferece"
+    ],
     "n_title": "O que ele não faz — de propósito",
     "n_items": [
       "“Turbo de RAM” e fechadores de apps em segundo plano. O Android gerencia a memória sozinho; esses botões não ajudam e gastam bateria.",
       "Limpar o cache de outros apps com um toque. O Android proíbe isso sem privilégios especiais, então o LUSTRUM leva você direto à tela de armazenamento de cada app.",
-      "iOS. O sistema não permite limpeza fora do espaço do próprio app."
+      "iOS. O sistema não permite limpeza fora do espaço do próprio app.",
+      "Desfazer. Ainda não há lixeira nem pré-visualização: as exclusões são definitivas, por isso cada ação é confirmada antes.",
+      "Olhar dentro da pasta Android/data de outros apps. O Android 11+ bloqueia isso para qualquer app comum; só root ou Shizuku conseguem, e o LUSTRUM ainda não os suporta."
     ],
     "d_title": "Baixe o LUSTRUM",
-    "d_sub": "Beta — versão 0.3.0. Instalação direta, sem conta de loja.",
+    "d_sub": "Beta — versão 0.4.0. Instalação direta, sem conta de loja.",
     "steps": [
       "Baixe o APK na última versão publicada.",
       "Permita a instalação desta fonte quando o Android perguntar.",
@@ -409,25 +931,67 @@
     ],
     "d_btn": "Baixar APK",
     "perm_title": "As permissões, em palavras simples",
-    "perm_cols": ["Permissão", "Para quê"],
+    "perm_cols": [
+      "Permissão",
+      "Para quê"
+    ],
     "perms": [
-      ["Mídia", "Verifica fotos, vídeo e áudio. Para apagar, o Android pede confirmação."],
-      ["Acesso a todos os arquivos (opcional)", "Documentos, lixo, sobras, pastas vazias e compressão."],
-      ["Acesso ao uso de apps (opcional)", "Tamanho do cache por app e quando foi usado pela última vez."],
-      ["Remoção de pacotes", "Permite desinstalar um app pela lista."]
+      [
+        "Mídia",
+        "Verifica fotos, vídeo e áudio. Para apagar, o Android pede confirmação."
+      ],
+      [
+        "Acesso a todos os arquivos (opcional)",
+        "Documentos, lixo, sobras, pastas vazias e compressão."
+      ],
+      [
+        "Acesso ao uso de apps (opcional)",
+        "Tamanho do cache por app e quando foi usado pela última vez."
+      ],
+      [
+        "Remoção de pacotes",
+        "Permite desinstalar um app pela lista."
+      ]
     ],
     "lic": "Publicado sob a licença MIT.",
     "share": "Compartilhar",
-    "a11y": ["Acessibilidade", "Alto contraste", "Fonte legível", "Mais espaçamento", "Reduzir animações", "Sublinhar links", "Redefinir", "Fechar"],
+    "a11y": [
+      "Acessibilidade",
+      "Alto contraste",
+      "Fonte legível",
+      "Mais espaçamento",
+      "Reduzir animações",
+      "Sublinhar links",
+      "Redefinir",
+      "Fechar"
+    ],
     "scroll": "Voltar ao topo",
-    "zoom": ["Ampliar", "Reduzir", "Ajustar à tela"],
-    "mock": ["Usado", "livre", "Pode ser liberado", "liberados"],
-    "cats": ["Imagens", "Vídeo", "Áudio", "Documentos", "Compactados"],
-    "support": ["Apoie o projeto", "Me pague um café"],
+    "zoom": [
+      "Ampliar",
+      "Reduzir",
+      "Ajustar à tela"
+    ],
+    "mock": [
+      "Usado",
+      "livre",
+      "Pode ser liberado",
+      "liberados"
+    ],
+    "cats": [
+      "Imagens",
+      "Vídeo",
+      "Áudio",
+      "Documentos",
+      "Compactados"
+    ],
+    "support": [
+      "Apoie o projeto",
+      "Me pague um café"
+    ],
     "build_title": "Compilação",
-    "build_text": "JDK 21, Android SDK, Gradle 8.14+: execute `gradle assembleRelease`. O APK aparece em `app/build/outputs/apk/release/`. O workflow Build APK compila a cada push e publica uma versão nas tags `v*`. O APK de release é assinado com a chave de depuração (serve para instalação direta); para distribuição pública, adicione sua própria chave.",
+    "build_text": "JDK 21, Android SDK, Gradle 8.14+: execute `gradle assembleRelease` (`gradle testDebugUnitTest` roda os testes unitários). O APK aparece em `app/build/outputs/apk/release/`. O workflow Build APK testa, compila e publica uma versão a cada nova versão enviada para main. Os APKs são assinados com uma chave pública estável do repositório (`tools/lustrum-public.jks`), então as atualizações se instalam por cima; para sua própria distribuição, adicione sua chave como segredos do repositório (`LUSTRUM_KEYSTORE_B64`, `LUSTRUM_STORE_PASS`, `LUSTRUM_KEY_PASS`, `LUSTRUM_KEY_ALIAS`).",
     "status_title": "Situação",
-    "status_text": "Beta. Compila no CI; ainda não testado em um celular real. Relate problemas como issues.",
+    "status_text": "Beta. 8 testes unitários e a compilação rodam no CI; ainda não testado em um celular físico. Ao atualizar da 0.3.0 ou anterior: desinstale uma vez, pois essas versões usavam outra chave de assinatura; a partir da 0.4.0 as atualizações se instalam por cima.",
     "ver": "Versão",
     "upd": "Última atualização"
   },
@@ -441,39 +1005,91 @@
     "sub": "LUSTRUM findet Datenmüll, Duplikate, ähnliche Fotos und App-Reste und löscht sie nur mit Ihrer Zustimmung. Es hat keine INTERNET-Berechtigung und kann daher nichts irgendwohin senden.",
     "cta1": "APK herunterladen",
     "cta2": "Quellcode",
-    "stats": ["Werbung", "INTERNET-Berechtigung", "Tracker", "Sprachen"],
-    "nav": ["Funktionen", "Vergleich", "Datenschutz", "Download"],
+    "stats": [
+      "Werbung",
+      "INTERNET-Berechtigung",
+      "Tracker",
+      "Sprachen"
+    ],
+    "nav": [
+      "Funktionen",
+      "Vergleich",
+      "Datenschutz",
+      "Download"
+    ],
     "f_title": "Was es kann",
     "features": [
-      ["Speicher auf einen Blick", "Belegter und freier Platz, aufgeteilt in Bilder, Videos, Audio, Dokumente und Archive."],
-      ["Große, alte und überflüssige Dateien", "Dateien über 50 MB, seit einem Jahr unberührt, temporäre Dateien, Vorschaubilder, Papierkorb und abgebrochene Downloads."],
-      ["Exakte Duplikate", "Verglichen nach Größe, dann schnellem Fingerabdruck, dann vollständigem SHA-256. Standardmäßig bleibt die älteste Kopie."],
-      ["Ähnliche Fotos", "Wahrnehmungs-Hash findet skalierte, neu gespeicherte und wiederholte Bilder. Jede Gruppe prüfen Sie selbst."],
-      ["App-Reste", "Ordner, die längst deinstallierte Apps hinterlassen haben, sowie leere Ordner."],
-      ["Foto-Komprimierung", "Kodiert große JPEGs neu und ersetzt sie nur, wenn das Ergebnis mindestens 20 % kleiner ist. EXIF bleibt erhalten."],
-      ["Apps, Caches und Ungenutztes", "Cache-Größe pro App, Datum der letzten Nutzung, direkt zu den Einstellungen oder zur Deinstallation."],
-      ["Gerätestatus", "RAM, Akkustand und Temperatur — nur lesend, zur Information."]
+      [
+        "Speicher auf einen Blick",
+        "Belegter und freier Platz, aufgeteilt in Bilder, Videos, Audio, Dokumente und Archive."
+      ],
+      [
+        "Große, alte und überflüssige Dateien",
+        "Dateien über 50 MB, seit einem Jahr unberührt, temporäre Dateien, Vorschaubilder, Papierkorb und abgebrochene Downloads."
+      ],
+      [
+        "Exakte Duplikate",
+        "Verglichen nach Größe, dann schnellem Fingerabdruck, dann vollständigem SHA-256. Standardmäßig bleibt die älteste Kopie."
+      ],
+      [
+        "Ähnliche Fotos",
+        "Wahrnehmungs-Hashing findet verkleinerte, neu gespeicherte und wiederholte Aufnahmen, ohne Kettenbildung gruppiert. Sie prüfen jede Gruppe; standardmäßig bleibt die größte Kopie erhalten."
+      ],
+      [
+        "App-Reste",
+        "Ordner, die längst deinstallierte Apps hinterlassen haben, sowie leere Ordner."
+      ],
+      [
+        "Foto-Komprimierung",
+        "Kodiert große JPEGs neu und ersetzt sie nur, wenn das Ergebnis mindestens 20 % kleiner ist. EXIF bleibt erhalten; Motion Photos und HDR-Aufnahmen werden übersprungen."
+      ],
+      [
+        "Apps, Caches und Ungenutztes",
+        "Cache-Größe pro App, Datum der letzten Nutzung, direkt zu den Einstellungen oder zur Deinstallation."
+      ],
+      [
+        "Gerätestatus",
+        "RAM, Akkustand und Temperatur — nur lesend, zur Information."
+      ]
     ],
     "p_title": "Privat von Grund auf",
     "p_text": "Die meisten Reiniger leben von Werbung und Daten. LUSTRUM ist umgekehrt gebaut.",
     "points": [
       "Keine INTERNET-Berechtigung im Manifest — prüfbar in den App-Infos des Systems.",
       "Keine Konten, keine Analyse, keine Werbung, keine Kaufaufforderungen.",
-      "Jedes Löschen wird bestätigt; bei Mediendateien übernimmt das den Systemdialog von Android."
+      "Jedes Löschen wird bestätigt; bei Mediendateien übernimmt das den Systemdialog von Android.",
+      "Eingebaute Sicherheitsprüfungen: Motion Photos und HDR-Fotos werden nie neu komprimiert, in den letzten 24 Stunden geänderte Dateien gelten nie als Datenmüll, und außerhalb des gemeinsamen Speichers lässt sich nichts löschen."
     ],
     "c_title": "Der Vergleich",
     "c_sub": "Mit den bekanntesten Reinigern, nach deren öffentlichen Beschreibungen (November 2026).",
-    "rows": ["Werbefrei", "Kein Internetzugriff, keine Telemetrie", "Open Source", "Duplikate und ähnliche Fotos", "Reste deinstallierter Apps", "Foto-Komprimierung", "Geplante Reinigung", "„RAM-Boost“"],
+    "rows": [
+      "Werbefrei",
+      "Kein Internetzugriff, keine Telemetrie",
+      "Open Source",
+      "Duplikate und ähnliche Fotos",
+      "Reste deinstallierter Apps",
+      "Foto-Komprimierung",
+      "Geplante Reinigung",
+      "„RAM-Boost“",
+      "Root-/Shizuku-Unterstützung"
+    ],
     "legend": "✓ ja · ~ teilweise oder kostenpflichtig · ✗ nein · — bewusst nicht vorhanden",
-    "sr": ["ja", "teilweise oder kostenpflichtig", "nein", "nicht vorhanden"],
+    "sr": [
+      "ja",
+      "teilweise oder kostenpflichtig",
+      "nein",
+      "nicht vorhanden"
+    ],
     "n_title": "Was es bewusst nicht tut",
     "n_items": [
       "„RAM-Boost“ und das Beenden von Hintergrund-Apps. Android verwaltet den Speicher selbst; diese Schaltflächen helfen nicht und kosten Akku.",
       "Den Cache anderer Apps mit einem Tipp leeren. Android verbietet das ohne Sonderrechte, daher führt LUSTRUM direkt zum Speicherbildschirm jeder App.",
-      "iOS. Das System erlaubt keine Bereinigung außerhalb des eigenen Bereichs einer App."
+      "iOS. Das System erlaubt keine Bereinigung außerhalb des eigenen Bereichs einer App.",
+      "Rückgängig machen. Es gibt noch keinen Papierkorb und keine Vorschau: Löschungen sind endgültig, deshalb wird jede Aktion vorher bestätigt.",
+      "In den Ordner Android/data anderer Apps schauen. Android 11+ sperrt das für jede normale App; nur Root oder Shizuku können es, und LUSTRUM unterstützt sie noch nicht."
     ],
     "d_title": "LUSTRUM holen",
-    "d_sub": "Beta — Version 0.3.0. Direkte Installation, ohne Store-Konto.",
+    "d_sub": "Beta — Version 0.4.0. Direkte Installation, ohne Store-Konto.",
     "steps": [
       "Laden Sie die APK aus der neuesten veröffentlichten Version herunter.",
       "Erlauben Sie die Installation aus dieser Quelle, wenn Android fragt.",
@@ -481,25 +1097,67 @@
     ],
     "d_btn": "APK herunterladen",
     "perm_title": "Berechtigungen in einfachen Worten",
-    "perm_cols": ["Berechtigung", "Wofür"],
+    "perm_cols": [
+      "Berechtigung",
+      "Wofür"
+    ],
     "perms": [
-      ["Medien", "Durchsucht Fotos, Videos und Audio. Zum Löschen fragt Android nach Bestätigung."],
-      ["Zugriff auf alle Dateien (optional)", "Dokumente, Datenmüll, Reste, leere Ordner und Komprimierung."],
-      ["Nutzungszugriff (optional)", "Cache-Größe pro App und letzte Nutzung."],
-      ["Paketentfernung", "Erlaubt das Deinstallieren einer App aus der Liste."]
+      [
+        "Medien",
+        "Durchsucht Fotos, Videos und Audio. Zum Löschen fragt Android nach Bestätigung."
+      ],
+      [
+        "Zugriff auf alle Dateien (optional)",
+        "Dokumente, Datenmüll, Reste, leere Ordner und Komprimierung."
+      ],
+      [
+        "Nutzungszugriff (optional)",
+        "Cache-Größe pro App und letzte Nutzung."
+      ],
+      [
+        "Paketentfernung",
+        "Erlaubt das Deinstallieren einer App aus der Liste."
+      ]
     ],
     "lic": "Veröffentlicht unter der MIT-Lizenz.",
     "share": "Teilen",
-    "a11y": ["Barrierefreiheit", "Hoher Kontrast", "Gut lesbare Schrift", "Mehr Abstand", "Animationen reduzieren", "Links unterstreichen", "Zurücksetzen", "Schließen"],
+    "a11y": [
+      "Barrierefreiheit",
+      "Hoher Kontrast",
+      "Gut lesbare Schrift",
+      "Mehr Abstand",
+      "Animationen reduzieren",
+      "Links unterstreichen",
+      "Zurücksetzen",
+      "Schließen"
+    ],
     "scroll": "Nach oben",
-    "zoom": ["Vergrößern", "Verkleinern", "An Bildschirm anpassen"],
-    "mock": ["Belegt", "frei", "Kann freigegeben werden", "freigegeben"],
-    "cats": ["Bilder", "Videos", "Audio", "Dokumente", "Archive"],
-    "support": ["Projekt unterstützen", "Spendiere mir einen Kaffee"],
+    "zoom": [
+      "Vergrößern",
+      "Verkleinern",
+      "An Bildschirm anpassen"
+    ],
+    "mock": [
+      "Belegt",
+      "frei",
+      "Kann freigegeben werden",
+      "freigegeben"
+    ],
+    "cats": [
+      "Bilder",
+      "Videos",
+      "Audio",
+      "Dokumente",
+      "Archive"
+    ],
+    "support": [
+      "Projekt unterstützen",
+      "Spendiere mir einen Kaffee"
+    ],
     "build_title": "Bauen",
-    "build_text": "JDK 21, Android SDK, Gradle 8.14+: `gradle assembleRelease` ausführen. Die APK erscheint in `app/build/outputs/apk/release/`. Der Workflow Build APK baut bei jedem Push und veröffentlicht bei `v*`-Tags ein Release. Die Release-APK ist mit dem Debug-Schlüssel signiert (für direkte Installation ausreichend); für die öffentliche Verteilung einen eigenen Schlüssel hinzufügen.",
+    "build_text": "JDK 21, Android SDK, Gradle 8.14+: `gradle assembleRelease` ausführen (`gradle testDebugUnitTest` startet die Unit-Tests). Die APK liegt in `app/build/outputs/apk/release/`. Der Workflow Build APK testet, baut und veröffentlicht für jede neue Version auf main ein Release. APKs werden mit einem stabilen öffentlichen Schlüssel aus dem Repository signiert (`tools/lustrum-public.jks`), Updates lassen sich also drüber installieren; für eigene Verteilung den eigenen Schlüssel als Repository-Secrets hinterlegen (`LUSTRUM_KEYSTORE_B64`, `LUSTRUM_STORE_PASS`, `LUSTRUM_KEY_PASS`, `LUSTRUM_KEY_ALIAS`).",
     "status_title": "Stand",
-    "status_text": "Beta. Baut in der CI; noch nicht auf einem echten Handy getestet. Probleme bitte als Issues melden.",
+    "status_text": "Beta. 8 Unit-Tests und der Build laufen in CI; noch nicht auf einem echten Handy getestet. Update von 0.3.0 oder älter: einmal deinstallieren, da diese Versionen einen anderen Signaturschlüssel nutzten; ab 0.4.0 lassen sich Updates drüber installieren.",
     "ver": "Version",
     "upd": "Zuletzt aktualisiert"
   },
@@ -513,39 +1171,91 @@
     "sub": "A LUSTRUM megtalálja a felesleges fájlokat, duplikátumokat, hasonló fotókat és az alkalmazások maradványait, és csak a jóváhagyásoddal törli őket. Nincs INTERNET-engedélye, így fizikailag sem tud semmit sehová küldeni.",
     "cta1": "APK letöltése",
     "cta2": "Forráskód",
-    "stats": ["reklám", "INTERNET-engedély", "nyomkövető", "nyelv"],
-    "nav": ["Funkciók", "Összehasonlítás", "Adatvédelem", "Letöltés"],
+    "stats": [
+      "reklám",
+      "INTERNET-engedély",
+      "nyomkövető",
+      "nyelv"
+    ],
+    "nav": [
+      "Funkciók",
+      "Összehasonlítás",
+      "Adatvédelem",
+      "Letöltés"
+    ],
     "f_title": "Mit tud",
     "features": [
-      ["Tárhely egy pillantásra", "Használt és szabad hely, képekre, videókra, hangra, dokumentumokra és archívumokra bontva."],
-      ["Nagy, régi és felesleges fájlok", "50 MB feletti, egy éve érintetlen, ideiglenes fájlok, bélyegképek, kuka és megszakadt letöltések."],
-      ["Pontos duplikátumok", "Méret, majd gyors ujjlenyomat, majd teljes SHA-256 alapján. Alapértelmezés szerint a legrégebbi másolat marad."],
-      ["Hasonló fotók", "Az észlelési hash megtalálja az átméretezett, újramentett és ismételt képeket. Minden csoportot te nézel át."],
-      ["Alkalmazásmaradványok", "Régen eltávolított alkalmazások hátrahagyott mappái, valamint az üres mappák."],
-      ["Fotótömörítés", "Újrakódolja a nagy JPEG-eket, és csak akkor cseréli le őket, ha az eredmény legalább 20%-kal kisebb. Az EXIF megmarad."],
-      ["Alkalmazások, gyorsítótárak, nem használtak", "Alkalmazásonkénti gyorsítótár-méret, utolsó használat dátuma, közvetlen ugrás a beállításokhoz vagy az eltávolításhoz."],
-      ["Eszközállapot", "RAM, akkumulátorszint és hőmérséklet — csak olvasható, tájékoztató jellegű."]
+      [
+        "Tárhely egy pillantásra",
+        "Használt és szabad hely, képekre, videókra, hangra, dokumentumokra és archívumokra bontva."
+      ],
+      [
+        "Nagy, régi és felesleges fájlok",
+        "50 MB feletti, egy éve érintetlen, ideiglenes fájlok, bélyegképek, kuka és megszakadt letöltések."
+      ],
+      [
+        "Pontos duplikátumok",
+        "Méret, majd gyors ujjlenyomat, majd teljes SHA-256 alapján. Alapértelmezés szerint a legrégebbi másolat marad."
+      ],
+      [
+        "Hasonló fotók",
+        "Az észlelési hash megtalálja az átméretezett, újramentett és ismételt felvételeket, láncolás nélkül csoportosítva. Te nézed át a csoportokat; alapból a legnagyobb másolat marad meg."
+      ],
+      [
+        "Alkalmazásmaradványok",
+        "Régen eltávolított alkalmazások hátrahagyott mappái, valamint az üres mappák."
+      ],
+      [
+        "Fotótömörítés",
+        "Újrakódolja a nagy JPEG-eket, és csak akkor cseréli le őket, ha az eredmény legalább 20%-kal kisebb. Az EXIF megmarad; a mozgó fényképeket és a HDR-felvételeket kihagyja."
+      ],
+      [
+        "Alkalmazások, gyorsítótárak, nem használtak",
+        "Alkalmazásonkénti gyorsítótár-méret, utolsó használat dátuma, közvetlen ugrás a beállításokhoz vagy az eltávolításhoz."
+      ],
+      [
+        "Eszközállapot",
+        "RAM, akkumulátorszint és hőmérséklet — csak olvasható, tájékoztató jellegű."
+      ]
     ],
     "p_title": "Magánszféra-barát felépítés",
     "p_text": "A legtöbb tisztító reklámokból és adatokból él. A LUSTRUM fordítva készült.",
     "points": [
       "Nincs INTERNET-engedély a jegyzékben — ellenőrizheted a rendszer alkalmazásinfóiban.",
       "Nincs fiók, analitika, reklám vagy fizetési felszólítás.",
-      "Minden törlést megerősítesz; a médiafájloknál az Android saját párbeszédablaka kér jóváhagyást."
+      "Minden törlést megerősítesz; a médiafájloknál az Android saját párbeszédablaka kér jóváhagyást.",
+      "Beépített biztonsági ellenőrzések: a mozgó fényképeket (Motion Photo) és a HDR-fotókat soha nem tömöríti újra, a 24 órán belül módosított fájlokat soha nem tekinti feleslegesnek, és a megosztott tárhelyen kívül semmi nem törölhető."
     ],
     "c_title": "Összehasonlítás",
     "c_sub": "A legismertebb tisztítókkal szemben, nyilvános leírásaik alapján (2026. november).",
-    "rows": ["Reklámmentes", "Nincs internet-hozzáférés, nincs telemetria", "Nyílt forráskód", "Duplikátumok és hasonló fotók", "Eltávolított alkalmazások maradványai", "Fotótömörítés", "Ütemezett tisztítás", "„RAM-gyorsítás”"],
+    "rows": [
+      "Reklámmentes",
+      "Nincs internet-hozzáférés, nincs telemetria",
+      "Nyílt forráskód",
+      "Duplikátumok és hasonló fotók",
+      "Eltávolított alkalmazások maradványai",
+      "Fotótömörítés",
+      "Ütemezett tisztítás",
+      "„RAM-gyorsítás”",
+      "Root-/Shizuku-támogatás"
+    ],
     "legend": "✓ igen · ~ részben vagy fizetős · ✗ nem · — szándékosan nincs",
-    "sr": ["igen", "részben vagy fizetős", "nem", "nincs"],
+    "sr": [
+      "igen",
+      "részben vagy fizetős",
+      "nem",
+      "nincs"
+    ],
     "n_title": "Amit szándékosan nem tesz",
     "n_items": [
       "„RAM-gyorsítás” és a háttérben futó alkalmazások leállítása. Az Android magától kezeli a memóriát; ezek a gombok nem segítenek, és merítik az akkumulátort.",
       "Más alkalmazások gyorsítótárának egy koppintásos ürítése. Az Android különleges jogosultság nélkül tiltja, ezért a LUSTRUM közvetlenül az adott alkalmazás tárhely-képernyőjére visz.",
-      "iOS. A rendszer nem engedi a tisztítást az alkalmazás saját területén kívül."
+      "iOS. A rendszer nem engedi a tisztítást az alkalmazás saját területén kívül.",
+      "Visszavonás. Még nincs kuka és előnézet: a törlés végleges, ezért minden műveletet előre megerősítesz.",
+      "Más alkalmazások Android/data mappájába belenézni. Az Android 11+ ezt minden átlagos alkalmazástól megtiltja; csak a root vagy a Shizuku tudja, a LUSTRUM pedig még nem támogatja őket."
     ],
     "d_title": "Szerezd meg a LUSTRUM-ot",
-    "d_sub": "Béta — 0.3.0 verzió. Közvetlenül telepíthető, áruházi fiók nélkül.",
+    "d_sub": "Béta — 0.4.0 verzió. Közvetlenül telepíthető, áruházi fiók nélkül.",
     "steps": [
       "Töltsd le az APK-t a legújabb kiadásból.",
       "Engedélyezd a telepítést erről a forrásról, amikor az Android rákérdez.",
@@ -553,25 +1263,67 @@
     ],
     "d_btn": "APK letöltése",
     "perm_title": "Az engedélyek, egyszerűen",
-    "perm_cols": ["Engedély", "Miért"],
+    "perm_cols": [
+      "Engedély",
+      "Miért"
+    ],
     "perms": [
-      ["Média", "Fotókat, videókat és hangfájlokat keres. Törléskor az Android megerősítést kér."],
-      ["Hozzáférés minden fájlhoz (választható)", "Dokumentumok, felesleges fájlok, maradványok, üres mappák és tömörítés."],
-      ["Használati hozzáférés (választható)", "Alkalmazásonkénti gyorsítótár-méret és az utolsó használat ideje."],
-      ["Csomag eltávolítása", "Lehetővé teszi egy alkalmazás eltávolítását a listából."]
+      [
+        "Média",
+        "Fotókat, videókat és hangfájlokat keres. Törléskor az Android megerősítést kér."
+      ],
+      [
+        "Hozzáférés minden fájlhoz (választható)",
+        "Dokumentumok, felesleges fájlok, maradványok, üres mappák és tömörítés."
+      ],
+      [
+        "Használati hozzáférés (választható)",
+        "Alkalmazásonkénti gyorsítótár-méret és az utolsó használat ideje."
+      ],
+      [
+        "Csomag eltávolítása",
+        "Lehetővé teszi egy alkalmazás eltávolítását a listából."
+      ]
     ],
     "lic": "MIT licenc alatt kiadva.",
     "share": "Megosztás",
-    "a11y": ["Akadálymentesítés", "Magas kontraszt", "Olvasható betűtípus", "Nagyobb térköz", "Animációk csökkentése", "Hivatkozások aláhúzása", "Visszaállítás", "Bezárás"],
+    "a11y": [
+      "Akadálymentesítés",
+      "Magas kontraszt",
+      "Olvasható betűtípus",
+      "Nagyobb térköz",
+      "Animációk csökkentése",
+      "Hivatkozások aláhúzása",
+      "Visszaállítás",
+      "Bezárás"
+    ],
     "scroll": "Vissza a tetejére",
-    "zoom": ["Nagyítás", "Kicsinyítés", "Képernyőhöz igazítás"],
-    "mock": ["Használt", "szabad", "Felszabadítható", "felszabadítva"],
-    "cats": ["Képek", "Videók", "Hang", "Dokumentumok", "Archívumok"],
-    "support": ["Támogasd a projektet", "Hívj meg egy kávéra"],
+    "zoom": [
+      "Nagyítás",
+      "Kicsinyítés",
+      "Képernyőhöz igazítás"
+    ],
+    "mock": [
+      "Használt",
+      "szabad",
+      "Felszabadítható",
+      "felszabadítva"
+    ],
+    "cats": [
+      "Képek",
+      "Videók",
+      "Hang",
+      "Dokumentumok",
+      "Archívumok"
+    ],
+    "support": [
+      "Támogasd a projektet",
+      "Hívj meg egy kávéra"
+    ],
     "build_title": "Fordítás",
-    "build_text": "JDK 21, Android SDK, Gradle 8.14+: futtasd a `gradle assembleRelease` parancsot. Az APK az `app/build/outputs/apk/release/` mappában jelenik meg. A Build APK munkafolyamat minden push-nál fordít, és a `v*` címkéknél kiadást tesz közzé. A kiadási APK a hibakeresési kulccsal van aláírva (közvetlen telepítéshez elég); nyilvános terjesztéshez adj hozzá saját kulcsot.",
+    "build_text": "JDK 21, Android SDK, Gradle 8.14+: futtasd a `gradle assembleRelease` parancsot (a `gradle testDebugUnitTest` az egységteszteket futtatja). Az APK az `app/build/outputs/apk/release/` mappában jelenik meg. A Build APK munkafolyamat teszteli, lefordítja és kiadásként közzéteszi a main ágra érkező minden új verziót. Az APK-kat a tárolóban lévő stabil, nyilvános kulccsal írjuk alá (`tools/lustrum-public.jks`), így a frissítések a régi verzió fölé települnek; saját terjesztéshez add meg a saját kulcsodat tárolótitokként (`LUSTRUM_KEYSTORE_B64`, `LUSTRUM_STORE_PASS`, `LUSTRUM_KEY_PASS`, `LUSTRUM_KEY_ALIAS`).",
     "status_title": "Állapot",
-    "status_text": "Béta. A CI-ben lefordul; valódi telefonon még nem tesztelt. A hibákat issue-ként jelezd.",
+    "status_text": "Béta. 8 egységteszt és a fordítás CI-ben fut; valódi telefonon még nem tesztelt. Frissítés a 0.3.0-s vagy régebbi verzióról: egyszer távolítsd el, mert azok más aláírókulcsot használtak; a 0.4.0-tól a frissítések a régi verzió fölé települnek.",
     "ver": "Verzió",
     "upd": "Utolsó frissítés"
   }

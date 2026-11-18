@@ -6,7 +6,7 @@
 
 O LUSTRUM encontra arquivos inúteis, duplicatas, fotos parecidas e sobras de aplicativos, e só os apaga com a sua autorização. Ele não tem a permissão INTERNET, então não consegue enviar nada para lugar nenhum.
 
-**Versão: 0.3.0 · Última atualização: 2026-11-18**
+**Versão: 0.4.0 · Última atualização: 2026-11-18**
 
 [lustrum.chiuta.ro/](https://lustrum.chiuta.ro/)
 
@@ -15,9 +15,9 @@ O LUSTRUM encontra arquivos inúteis, duplicatas, fotos parecidas e sobras de ap
 - **Armazenamento num relance** — Espaço usado e livre, dividido em imagens, vídeo, áudio, documentos e arquivos compactados.
 - **Arquivos grandes, antigos e inúteis** — Arquivos acima de 50 MB, parados há um ano, temporários, miniaturas, lixeira e downloads interrompidos.
 - **Duplicatas exatas** — Comparadas por tamanho, depois impressão rápida e depois SHA-256 completo. Por padrão, a cópia mais antiga é mantida.
-- **Fotos parecidas** — O hash perceptual encontra imagens redimensionadas, salvas de novo ou repetidas. Você revisa cada grupo.
+- **Fotos parecidas** — O hash perceptual encontra fotos redimensionadas, salvas de novo ou repetidas, agrupadas sem encadeamento. Você revisa cada grupo; por padrão a maior cópia é mantida.
 - **Sobras de aplicativos** — Pastas deixadas por aplicativos desinstalados há muito tempo, além de pastas vazias.
-- **Compressão de fotos** — Recodifica JPEGs grandes e só os substitui se o resultado for pelo menos 20% menor. O EXIF é preservado.
+- **Compressão de fotos** — Recodifica JPEGs grandes e só os substitui se o resultado for pelo menos 20% menor. O EXIF é mantido; Motion Photos e fotos HDR são ignoradas.
 - **Apps, caches e sem uso** — Tamanho do cache por app, data do último uso e acesso direto às configurações ou à desinstalação.
 - **Estado do dispositivo** — RAM, nível e temperatura da bateria — somente leitura, apenas informativo.
 
@@ -28,6 +28,7 @@ A maioria dos limpadores vive de anúncios e dados. O LUSTRUM foi feito ao contr
 - Sem a permissão INTERNET no manifesto — você confere nas informações do app no sistema.
 - Sem contas, análises, anúncios ou pedidos de pagamento.
 - Toda exclusão é confirmada; nas mídias, quem confirma é a caixa de diálogo do próprio Android.
+- Verificações de segurança integradas: Motion Photos e fotos HDR nunca são recomprimidas, arquivos alterados nas últimas 24 horas nunca são tratados como lixo e nada fora do armazenamento compartilhado pode ser excluído.
 
 ## Como se compara
 
@@ -43,6 +44,7 @@ Com os limpadores mais conhecidos, com base nas descrições públicas deles (no
 | Compressão de fotos | ✓ | ✓ | ✓ | ✗ | ~ |
 | Limpeza agendada | ✗ | ~ | ✓ | ✗ | ✓ |
 | “Turbo de RAM” | — | ✓ | ✗ | ✗ | ✓ |
+| Suporte a root / Shizuku | ✗ | ✗ | ✓ | ✗ | ✗ |
 
 ✓ sim · ~ parcial ou pago · ✗ não · — não oferece, de propósito
 
@@ -51,6 +53,8 @@ Com os limpadores mais conhecidos, com base nas descrições públicas deles (no
 - “Turbo de RAM” e fechadores de apps em segundo plano. O Android gerencia a memória sozinho; esses botões não ajudam e gastam bateria.
 - Limpar o cache de outros apps com um toque. O Android proíbe isso sem privilégios especiais, então o LUSTRUM leva você direto à tela de armazenamento de cada app.
 - iOS. O sistema não permite limpeza fora do espaço do próprio app.
+- Desfazer. Ainda não há lixeira nem pré-visualização: as exclusões são definitivas, por isso cada ação é confirmada antes.
+- Olhar dentro da pasta Android/data de outros apps. O Android 11+ bloqueia isso para qualquer app comum; só root ou Shizuku conseguem, e o LUSTRUM ainda não os suporta.
 
 ## As permissões, em palavras simples
 
@@ -63,7 +67,7 @@ Com os limpadores mais conhecidos, com base nas descrições públicas deles (no
 
 ## Baixe o LUSTRUM
 
-Beta — versão 0.3.0. Instalação direta, sem conta de loja.
+Beta — versão 0.4.0. Instalação direta, sem conta de loja.
 
 1. Baixe o APK na última versão publicada.
 2. Permita a instalação desta fonte quando o Android perguntar.
@@ -71,11 +75,11 @@ Beta — versão 0.3.0. Instalação direta, sem conta de loja.
 
 ## Compilação
 
-JDK 21, Android SDK, Gradle 8.14+: execute `gradle assembleRelease`. O APK aparece em `app/build/outputs/apk/release/`. O workflow Build APK compila a cada push e publica uma versão nas tags `v*`. O APK de release é assinado com a chave de depuração (serve para instalação direta); para distribuição pública, adicione sua própria chave.
+JDK 21, Android SDK, Gradle 8.14+: execute `gradle assembleRelease` (`gradle testDebugUnitTest` roda os testes unitários). O APK aparece em `app/build/outputs/apk/release/`. O workflow Build APK testa, compila e publica uma versão a cada nova versão enviada para main. Os APKs são assinados com uma chave pública estável do repositório (`tools/lustrum-public.jks`), então as atualizações se instalam por cima; para sua própria distribuição, adicione sua chave como segredos do repositório (`LUSTRUM_KEYSTORE_B64`, `LUSTRUM_STORE_PASS`, `LUSTRUM_KEY_PASS`, `LUSTRUM_KEY_ALIAS`).
 
 ## Situação
 
-Beta. Compila no CI; ainda não testado em um celular real. Relate problemas como issues.
+Beta. 8 testes unitários e a compilação rodam no CI; ainda não testado em um celular físico. Ao atualizar da 0.3.0 ou anterior: desinstale uma vez, pois essas versões usavam outra chave de assinatura; a partir da 0.4.0 as atualizações se instalam por cima.
 
 ---
 

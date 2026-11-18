@@ -8,7 +8,7 @@ const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
 const T = JSON.parse(readFileSync(join(here, "i18n.json"), "utf8"));
 const ORDER = ["en", "ro", "fr", "it", "es", "pt", "de", "hu"];
-const VERSION = "0.3.0";
+const VERSION = "0.4.0";
 const DATE = process.env.LUSTRUM_DATE || new Date().toISOString().slice(0, 10);
 const SITE = "https://lustrum.chiuta.ro/";
 
@@ -18,12 +18,13 @@ const hreflang = ORDER.map(c => `<link rel="alternate" hreflang="${c}" href="${S
 const json = JSON.stringify(T).replace(/</g, "\\u003c");
 let html = readFileSync(join(here, "template.html"), "utf8")
   .replace("<!--HREFLANG-->", hreflang)
+  .replaceAll("__VERSION__", VERSION)
   .replace('"__I18N__"', () => json);
 writeFileSync(join(root, "index.html"), html);
 
 // ── documentație ──
 const COLS = ["LUSTRUM", "CCleaner", "SD Maid SE", "Files by Google", "Norton Clean / Avast Cleanup"];
-const M = [["y","n","y","y","n"],["y","n","p","n","n"],["y","n","y","n","n"],["y","p","y","p","y"],["p","y","y","n","p"],["y","y","y","n","p"],["n","p","y","n","y"],["x","y","n","n","y"]];
+const M = [["y","n","y","y","n"],["y","n","p","n","n"],["y","n","y","n","n"],["y","p","y","p","y"],["p","y","y","n","p"],["y","y","y","n","p"],["n","p","y","n","y"],["x","y","n","n","y"],["n","n","y","n","n"]];
 const SYM = { y: "✓", p: "~", n: "✗", x: "—" };
 
 for (const c of ORDER) {
