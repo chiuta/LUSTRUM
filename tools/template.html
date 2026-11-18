@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LUSTRUM — Android storage cleaner. No ads. No internet.</title>
+<meta name="description" content="LUSTRUM finds junk, duplicates, look-alike photos and app leftovers on your Android phone. Open source, ad-free, and it cannot go online.">
+<meta name="theme-color" content="#06110f">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LUSTRUM — Android storage cleaner">
+<meta property="og:description" content="No ads. No internet permission. Open source.">
+<meta property="og:url" content="https://lustrum.chiuta.ro/">
+<link rel="canonical" href="https://lustrum.chiuta.ro/">
+<!--HREFLANG-->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 108 108'%3E%3Crect width='108' height='108' rx='24' fill='%2300796B'/%3E%3Cpath fill='white' d='M66,26 L72,32 L54,56 L47,50 Z'/%3E%3Cpath fill='white' d='M45,52 L58,64 L42,82 Q36,85 31,80 Q26,75 29,69 Z'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#06110f;--bg2:#0b1f1b;--fg:#e8fbf6;--mut:#9bb8b0;--card:rgba(255,255,255,.06);--bd:rgba(255,255,255,.13);--a:#2dd4bf;--b:#8b5cf6;--ok:#34d399;--warn:#fbbf24;--bad:#fb7185;--shadow:0 20px 60px rgba(0,0,0,.45)}
+@media (prefers-color-scheme:light){:root{--bg:#f2fbf8;--bg2:#dff4ee;--fg:#0a1f1a;--mut:#3d5d55;--card:rgba(255,255,255,.78);--bd:rgba(0,0,0,.12);--a:#0d9488;--b:#6d28d9;--ok:#047857;--warn:#b45309;--bad:#be123c;--shadow:0 20px 60px rgba(13,148,136,.18)}}
+html.hc{--bg:#000;--bg2:#000;--fg:#fff;--mut:#fff;--card:#000;--bd:#fff;--a:#ffe600;--b:#ffe600;--ok:#7CFF7C;--warn:#ffe600;--bad:#ff9a9a;--shadow:none}
+*{box-sizing:border-box}
+html{font-size:calc(100% * var(--z,1));scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;color:var(--fg);background:var(--bg);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;overflow-x:hidden}
+html.rf body{font-family:Verdana,Tahoma,"Trebuchet MS",sans-serif;letter-spacing:.02em}
+html.sp body{line-height:1.95;word-spacing:.14em}
+html.ul a{text-decoration:underline}
+html.nm *{animation:none!important;transition:none!important}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+a{color:inherit}
+.bg{position:fixed;inset:0;z-index:-1;background:radial-gradient(60rem 40rem at 15% -10%,color-mix(in srgb,var(--a) 28%,transparent),transparent 60%),radial-gradient(50rem 36rem at 95% 10%,color-mix(in srgb,var(--b) 26%,transparent),transparent 60%),linear-gradient(180deg,var(--bg),var(--bg2))}
+html.hc .bg{background:#000}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.25rem}
+@media (min-width:1000px){.wrap{padding:0 4.5rem}}
+header.nav{position:sticky;top:0;z-index:30;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 70%,transparent);border-bottom:1px solid var(--bd)}
+html.hc header.nav{background:#000}
+.nav .in{display:flex;align-items:center;gap:1rem;height:3.6rem}
+.brand{display:flex;align-items:center;gap:.6rem;font-weight:800;letter-spacing:.14em;text-decoration:none}
+.brand svg{width:2rem;height:2rem}
+.links{display:none;gap:1.2rem;margin-left:auto}
+.links a{text-decoration:none;color:var(--mut);font-size:.92rem}
+.links a:hover{color:var(--fg)}
+@media (min-width:760px){.links{display:flex}}
+select.lang{margin-left:auto;background:var(--card);color:var(--fg);border:1px solid var(--bd);border-radius:.7rem;padding:.4rem .6rem;font:inherit;font-size:.9rem}
+@media (min-width:760px){select.lang{margin-left:0}}
+section{padding:4.5rem 0}
+.badge{display:inline-flex;gap:.5rem;align-items:center;padding:.4rem .9rem;border:1px solid var(--bd);border-radius:99px;background:var(--card);font-size:.85rem;color:var(--mut)}
+.badge i{width:.5rem;height:.5rem;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 var(--ok);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 .6rem transparent}100%{box-shadow:0 0 0 0 transparent}}
+.hero{padding:3.5rem 0 3rem}
+.hero .grid{display:grid;gap:3rem;align-items:center}
+@media (min-width:900px){.hero .grid{grid-template-columns:1.15fr .85fr}}
+h1{font-size:clamp(2.3rem,5.4vw,3.7rem);line-height:1.04;margin:1.1rem 0 1rem;letter-spacing:-.03em}
+.grad{background:linear-gradient(100deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
+html.hc .grad{color:var(--a);background:none}
+.lead{font-size:1.15rem;color:var(--mut);max-width:38rem}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem}
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.5rem;border-radius:.9rem;font-weight:700;text-decoration:none;border:1px solid var(--bd);transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.pri{background:linear-gradient(100deg,var(--a),var(--b));color:#041310;border:0;box-shadow:0 10px 30px color-mix(in srgb,var(--a) 35%,transparent)}
+html.hc .btn.pri{background:var(--a);color:#000}
+.btn.sec{background:var(--card);color:var(--fg)}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:2.6rem;max-width:34rem}
+@media (min-width:560px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat b{display:block;font-size:2rem;line-height:1.1}
+.stat span{font-size:.8rem;color:var(--mut)}
+/* phone */
+.phone-wrap{display:flex;justify-content:center;perspective:60rem}
+.phone{width:16.5rem;aspect-ratio:9/19;border-radius:2.4rem;padding:.55rem;background:linear-gradient(160deg,#2b3a37,#0c1513);box-shadow:var(--shadow),inset 0 0 0 2px rgba(255,255,255,.08);animation:float 6s ease-in-out infinite;transform:rotateY(-8deg) rotateX(3deg)}
+@keyframes float{50%{transform:rotateY(-8deg) rotateX(3deg) translateY(-.8rem)}}
+.screen{height:100%;border-radius:1.9rem;background:linear-gradient(180deg,#0b1f1b,#06110f);color:#e8fbf6;padding:1.1rem .95rem;display:flex;flex-direction:column;gap:.7rem;overflow:hidden;position:relative}
+.screen:before{content:"";position:absolute;top:.4rem;left:50%;width:4.2rem;height:.9rem;border-radius:99px;background:#000;transform:translateX(-50%)}
+.mt{margin-top:.8rem;font-weight:800;letter-spacing:.2em;font-size:.8rem;text-align:center;color:#2dd4bf}
+.ring{position:relative;width:9rem;height:9rem;margin:0 auto}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:9;stroke-linecap:round}
+.ring .trk{stroke:rgba(255,255,255,.1)}
+.ring .val{stroke:url(#g);stroke-dasharray:352;stroke-dashoffset:352;transition:stroke-dashoffset 2.2s cubic-bezier(.2,.8,.2,1)}
+.ring .ctr{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.ring .ctr b{font-size:1.5rem;line-height:1}
+.ring .ctr small{font-size:.65rem;color:#9bb8b0}
+.cat{display:grid;grid-template-columns:4.4rem 1fr;gap:.6rem;align-items:center;font-size:.72rem;color:#9bb8b0;margin:.42rem 0}
+.cat i{display:block;height:.55rem;border-radius:9px;background:linear-gradient(90deg,#2dd4bf,#8b5cf6);width:0;transition:width 1.6s cubic-bezier(.2,.8,.2,1)}
+.freed{margin-top:auto;padding:.7rem;border-radius:.9rem;background:rgba(45,212,191,.14);border:1px solid rgba(45,212,191,.35);text-align:center;font-size:.72rem}
+.freed b{display:block;font-size:1.2rem;color:#2dd4bf}
+/* cards */
+h2{font-size:clamp(1.7rem,4vw,2.6rem);margin:0 0 .6rem;letter-spacing:-.02em}
+.sub2{color:var(--mut);max-width:40rem;margin:0 0 2.2rem}
+.cards{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(15.5rem,1fr))}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:1.2rem;padding:1.3rem;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-4px);border-color:var(--a)}
+.card .ic{width:2.6rem;height:2.6rem;display:grid;place-items:center;border-radius:.8rem;background:linear-gradient(135deg,color-mix(in srgb,var(--a) 30%,transparent),color-mix(in srgb,var(--b) 30%,transparent));font-size:1.3rem;margin-bottom:.8rem}
+.card h3{margin:.1rem 0 .35rem;font-size:1.05rem}
+.card p{margin:0;color:var(--mut);font-size:.93rem}
+.split{display:grid;gap:2rem;align-items:start}
+@media (min-width:860px){.split{grid-template-columns:1fr 1fr}}
+.pts{list-style:none;padding:0;margin:0;display:grid;gap:.8rem}
+.pts li{display:flex;gap:.8rem;padding:1rem;border:1px solid var(--bd);border-radius:1rem;background:var(--card)}
+.pts li:before{content:"✓";flex:none;width:1.6rem;height:1.6rem;border-radius:50%;display:grid;place-items:center;background:var(--ok);color:#04130e;font-weight:800;font-size:.85rem}
+.shield{display:grid;place-items:center;min-height:15rem;border-radius:1.6rem;border:1px solid var(--bd);background:radial-gradient(circle at 50% 40%,color-mix(in srgb,var(--a) 22%,transparent),transparent 65%),var(--card);text-align:center;padding:1.5rem}
+.shield b{font-size:clamp(3rem,8vw,5rem);line-height:1}
+.shield span{display:block;color:var(--mut);margin-top:.5rem}
+.tw{overflow-x:auto;border:1px solid var(--bd);border-radius:1.2rem;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:42rem;font-size:.92rem}
+th,td{padding:.75rem .9rem;text-align:center;border-bottom:1px solid var(--bd)}
+th:first-child,td:first-child{text-align:left;position:sticky;left:0;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(6px)}
+html.hc th:first-child,html.hc td:first-child{background:#000}
+thead th{font-size:.78rem;color:var(--mut);font-weight:600}
+th.me,td.me{background:color-mix(in srgb,var(--a) 14%,transparent)}
+th.me{color:var(--a);font-weight:800}
+tr:last-child td{border-bottom:0}
+.y{color:var(--ok);font-weight:800}.p{color:var(--warn);font-weight:800}.n{color:var(--bad);font-weight:800}.x{color:var(--mut)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.legend{color:var(--mut);font-size:.85rem;margin-top:.8rem}
+.not{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+.not .card:before{content:"—";display:block;font-size:1.6rem;font-weight:800;color:var(--bad);margin-bottom:.3rem}
+.steps{counter-reset:s;display:grid;gap:.9rem;padding:0;margin:0;list-style:none}
+.steps li{counter-increment:s;display:flex;gap:1rem;align-items:flex-start;padding:1rem 1.1rem;border:1px solid var(--bd);border-radius:1rem;background:var(--card)}
+.steps li:before{content:counter(s);flex:none;width:2rem;height:2rem;border-radius:50%;display:grid;place-items:center;font-weight:800;background:linear-gradient(135deg,var(--a),var(--b));color:#041310}
+.perm{display:grid;gap:.7rem;margin-top:2rem}
+.perm div{padding:.9rem 1.1rem;border:1px solid var(--bd);border-radius:1rem;background:var(--card)}
+.perm b{display:block}.perm span{color:var(--mut);font-size:.92rem}
+footer{border-top:1px solid var(--bd);padding:2.2rem 0 6rem;color:var(--mut);font-size:.92rem}
+.foot{display:grid;gap:1.4rem}
+@media (min-width:760px){.foot{grid-template-columns:1fr auto;align-items:center}}
+.share-row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.sh{width:2.4rem;height:2.4rem;border-radius:50%;display:grid;place-items:center;border:1px solid var(--bd);background:var(--card);text-decoration:none;font-weight:800;font-size:.8rem;color:var(--fg);cursor:pointer;font-family:inherit}
+.sh:hover{border-color:var(--a);color:var(--a)}
+.bmc{display:inline-flex;gap:.5rem;align-items:center;padding:.6rem 1.1rem;border-radius:.8rem;background:#ffdd00;color:#201a00;font-weight:800;text-decoration:none}
+html.hc .bmc{background:#ffe600;color:#000;border:2px solid #fff}
+/* rails and floating controls (outside content gutters) */
+.rail{position:fixed;top:50%;transform:translateY(-50%);z-index:40;display:none;flex-direction:column;gap:.5rem}
+.rail.l{left:.9rem}.rail.r{right:.9rem}
+@media (min-width:1000px){.rail{display:flex}}
+.rb{width:2.6rem;height:2.6rem;border-radius:50%;border:1px solid var(--bd);background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--fg);display:grid;place-items:center;font:700 1rem/1 inherit;cursor:pointer;text-decoration:none}
+html.hc .rb{background:#000}
+.rb:hover,.rb:focus-visible{border-color:var(--a);color:var(--a)}
+#up{position:fixed;right:1rem;bottom:1rem;z-index:40;opacity:0;pointer-events:none;transition:opacity .25s}
+#up.on{opacity:1;pointer-events:auto}
+#aa{position:fixed;left:1rem;bottom:1rem;z-index:41}
+#panel{position:fixed;left:1rem;bottom:4.2rem;z-index:41;width:min(18rem,calc(100vw - 2rem));padding:1rem;border-radius:1.1rem;border:1px solid var(--bd);background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:var(--shadow);display:none}
+html.hc #panel{background:#000}
+#panel.on{display:block}
+#panel h4{margin:0 0 .6rem}
+.opt{display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:.45rem 0;font-size:.92rem}
+.sw{appearance:none;width:2.6rem;height:1.5rem;border-radius:99px;border:1px solid var(--bd);background:var(--card);position:relative;cursor:pointer;flex:none}
+.sw:after{content:"";position:absolute;top:.15rem;left:.15rem;width:1.05rem;height:1.05rem;border-radius:50%;background:var(--mut);transition:transform .2s}
+.sw:checked{background:var(--a)}.sw:checked:after{transform:translateX(1.1rem);background:#041310}
+.pr{display:flex;gap:.5rem;margin-top:.6rem}
+.pr button{flex:1;padding:.5rem;border-radius:.7rem;border:1px solid var(--bd);background:var(--card);color:var(--fg);font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--a);outline-offset:2px}
+.reveal{opacity:0;transform:translateY(1.4rem);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+
+<header class="nav"><div class="wrap in">
+  <a class="brand" href="#top" aria-label="LUSTRUM">
+    <svg viewBox="0 0 108 108" aria-hidden="true"><rect width="108" height="108" rx="24" fill="#00796B"/><path fill="#fff" d="M66,26 L72,32 L54,56 L47,50 Z"/><path fill="#fff" d="M45,52 L58,64 L42,82 Q36,85 31,80 Q26,75 29,69 Z"/></svg>
+    LUSTRUM
+  </a>
+  <nav class="links" aria-label="Main"><a href="#features" data-n="0"></a><a href="#compare" data-n="1"></a><a href="#privacy" data-n="2"></a><a href="#download" data-n="3"></a></nav>
+  <select class="lang" id="lang" aria-label="Language"></select>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap grid">
+  <div>
+    <span class="badge reveal"><i></i><span data-k="badge"></span></span>
+    <h1 class="reveal"><span data-k="h1a"></span><br><span class="grad" data-k="h1b"></span></h1>
+    <p class="lead reveal" data-k="sub"></p>
+    <div class="cta reveal">
+      <a class="btn pri" id="dl1" href="https://github.com/chiuta/LUSTRUM/releases/latest">⬇ <span data-k="cta1"></span></a>
+      <a class="btn sec" href="https://github.com/chiuta/LUSTRUM">{ } <span data-k="cta2"></span></a>
+    </div>
+    <div class="stats reveal" id="stats"></div>
+  </div>
+  <div class="phone-wrap reveal" aria-hidden="true">
+    <div class="phone"><div class="screen">
+      <div class="mt">LUSTRUM</div>
+      <div class="ring">
+        <svg viewBox="0 0 130 130"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><circle class="trk" cx="65" cy="65" r="56"/><circle class="val" id="ringv" cx="65" cy="65" r="56"/></svg>
+        <div class="ctr"><b>72%</b><small id="m_used"></small></div>
+      </div>
+      <div id="mcats"></div>
+      <div class="freed"><span id="m_clr"></span><b><span id="cnt">0.0</span> GB</b><span id="m_fr"></span></div>
+    </div></div>
+  </div>
+</div></section>
+
+<section id="features"><div class="wrap">
+  <h2 class="reveal" data-k="f_title"></h2>
+  <div class="cards" id="fcards"></div>
+</div></section>
+
+<section id="privacy"><div class="wrap split">
+  <div>
+    <h2 class="reveal" data-k="p_title"></h2>
+    <p class="sub2 reveal" data-k="p_text"></p>
+    <ul class="pts" id="pts"></ul>
+  </div>
+  <div class="shield reveal"><div><b>0</b><span data-k="shield"></span></div></div>
+</div></section>
+
+<section id="compare"><div class="wrap">
+  <h2 class="reveal" data-k="c_title"></h2>
+  <p class="sub2 reveal" data-k="c_sub"></p>
+  <div class="tw reveal"><table id="tbl"></table></div>
+  <p class="legend" data-k="legend"></p>
+</div></section>
+
+<section><div class="wrap">
+  <h2 class="reveal" data-k="n_title"></h2>
+  <div class="not" id="notdo"></div>
+</div></section>
+
+<section id="download"><div class="wrap split">
+  <div>
+    <h2 class="reveal" data-k="d_title"></h2>
+    <p class="sub2 reveal" data-k="d_sub"></p>
+    <ol class="steps" id="steps"></ol>
+    <div class="cta"><a class="btn pri" href="https://github.com/chiuta/LUSTRUM/releases/latest">⬇ <span data-k="d_btn"></span></a></div>
+  </div>
+  <div>
+    <h2 class="reveal" data-k="perm_title" style="font-size:1.5rem"></h2>
+    <div class="perm" id="perms"></div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap foot">
+  <div>
+    <p style="margin:0 0 .4rem"><b>LUSTRUM</b> · v0.2.0 · <span data-k="lic"></span></p>
+    <p style="margin:0">© 2026 Alexandru-Ionuț Chiuță (Alexio)</p>
+  </div>
+  <div>
+    <div class="share-row" id="share-row"></div>
+    <p style="margin:.9rem 0 0"><a class="bmc" href="https://buymeacoffee.com/echo.of.the.strings">☕ <span data-k="coffee"></span></a></p>
+  </div>
+</div></footer>
+
+<!-- left rail: vertical share buttons -->
+<aside class="rail l" id="share-rail" aria-label="Share"></aside>
+<!-- right rail: zoom / fit, vertically centred -->
+<aside class="rail r" aria-label="Zoom">
+  <button class="rb" id="zin" type="button">+</button>
+  <button class="rb" id="zfit" type="button">⤢</button>
+  <button class="rb" id="zout" type="button">−</button>
+</aside>
+<a class="rb" id="up" href="#top" aria-label="Back to top">↑</a>
+
+<button class="rb" id="aa" type="button" aria-expanded="false" aria-controls="panel">Aa</button>
+<div id="panel" role="dialog" aria-labelledby="ptitle">
+  <h4 id="ptitle"></h4>
+  <label class="opt"><span data-a="1"></span><input class="sw" type="checkbox" data-f="hc"></label>
+  <label class="opt"><span data-a="2"></span><input class="sw" type="checkbox" data-f="rf"></label>
+  <label class="opt"><span data-a="3"></span><input class="sw" type="checkbox" data-f="sp"></label>
+  <label class="opt"><span data-a="4"></span><input class="sw" type="checkbox" data-f="nm"></label>
+  <label class="opt"><span data-a="5"></span><input class="sw" type="checkbox" data-f="ul"></label>
+  <div class="pr"><button type="button" id="areset" data-a="6"></button><button type="button" id="aclose" data-a="7"></button></div>
+</div>
+
+<noscript><div class="wrap" style="padding:2rem 1.25rem"><h1>LUSTRUM</h1><p>Android storage cleaner. No ads, no INTERNET permission, open source. <a href="https://github.com/chiuta/LUSTRUM">github.com/chiuta/LUSTRUM</a></p></div></noscript>
+
+<script>
+const T = "__I18N__";
+const ORDER = ["en","ro","fr","it","es","pt","de","hu"];
+const SITE = "https://lustrum.chiuta.ro/";
+const COLS = ["LUSTRUM","CCleaner","SD Maid SE","Files by Google","Norton Clean / Avast Cleanup"];
+const M = [["y","n","y","y","n"],["y","n","p","n","n"],["y","n","y","n","n"],["y","p","y","p","y"],["p","y","y","n","p"],["y","y","y","n","p"],["n","p","y","n","y"],["x","y","n","n","y"]];
+const ICONS = ["📊","🗂️","👯","🖼️","🧹","🗜️","📱","🔋"];
+const CATW = [38,24,14,16,8];
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const store = {get(k){try{return localStorage.getItem(k)}catch(e){return null}}, set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+let lang = "en", t = T.en;
+
+function pick(){
+  const q = new URLSearchParams(location.search).get("lang");
+  if (q && T[q]) return q;
+  const s = store.get("lustrum-lang");
+  if (s && T[s]) return s;
+  for (const l of (navigator.languages || [navigator.language || "en"])) {
+    const c = String(l).slice(0,2).toLowerCase();
+    if (T[c]) return c;
+  }
+  return "en";
+}
+function el(tag, cls, html){ const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+
+function render(l){
+  lang = l; t = T[l]; store.set("lustrum-lang", l);
+  document.documentElement.lang = l;
+  document.title = t.title;
+  $('meta[name="description"]').setAttribute("content", t.meta);
+  $('meta[property="og:title"]').setAttribute("content", t.title);
+  $$("[data-k]").forEach(n => { const k = n.dataset.k; n.textContent = k === "shield" ? t.stats[1] : k === "coffee" ? t.support[1] : t[k]; });
+  $$("[data-n]").forEach(n => n.textContent = t.nav[+n.dataset.n]);
+  $$("[data-a]").forEach(n => n.textContent = t.a11y[+n.dataset.a]);
+  $("#ptitle").textContent = t.a11y[0];
+  $("#stats").innerHTML = ["0","0","0","8"].map((n,i) => `<div class="stat"><b>${n}</b><span>${esc(t.stats[i])}</span></div>`).join("");
+  $("#fcards").innerHTML = t.features.map((f,i) => `<article class="card reveal"><div class="ic" aria-hidden="true">${ICONS[i]}</div><h3>${esc(f[0])}</h3><p>${esc(f[1])}</p></article>`).join("");
+  $("#pts").innerHTML = t.points.map(p => `<li class="reveal">${esc(p)}</li>`).join("");
+  $("#notdo").innerHTML = t.n_items.map(p => `<div class="card reveal"><p>${esc(p)}</p></div>`).join("");
+  $("#steps").innerHTML = t.steps.map(p => `<li class="reveal">${esc(p)}</li>`).join("");
+  $("#perms").innerHTML = t.perms.map(p => `<div class="reveal"><b>${esc(p[0])}</b><span>${esc(p[1])}</span></div>`).join("");
+  const sym = {y:"✓",p:"~",n:"✗",x:"—"}, srI = {y:0,p:1,n:2,x:3};
+  $("#tbl").innerHTML = "<thead><tr><th></th>" + COLS.map((c,i) => `<th class="${i?"":"me"}">${esc(c)}</th>`).join("") + "</tr></thead><tbody>" +
+    M.map((r,ri) => `<tr><td>${esc(t.rows[ri])}</td>` + r.map((v,i) => `<td class="${i?"":"me"} ${v}"><span aria-hidden="true">${sym[v]}</span><span class="sr">${esc(t.sr[srI[v]])}</span></td>`).join("") + "</tr>").join("") + "</tbody>";
+  $("#m_used").textContent = t.mock[0];
+  $("#m_clr").textContent = t.mock[2];
+  $("#m_fr").textContent = t.mock[3];
+  $("#mcats").innerHTML = t.cats.map((c,i) => `<div class="cat"><span>${esc(c)}</span><i data-w="${CATW[i]}"></i></div>`).join("");
+  $("#up").setAttribute("aria-label", t.scroll);
+  $("#zin").setAttribute("aria-label", t.zoom[0]); $("#zin").title = t.zoom[0];
+  $("#zout").setAttribute("aria-label", t.zoom[1]); $("#zout").title = t.zoom[1];
+  $("#zfit").setAttribute("aria-label", t.zoom[2]); $("#zfit").title = t.zoom[2];
+  buildShare();
+  observe();
+  runMock();
+}
+
+function buildShare(){
+  const u = encodeURIComponent(SITE), tx = encodeURIComponent(t.title);
+  const items = [
+    ["X", "https://twitter.com/intent/tweet?url="+u+"&text="+tx],
+    ["f", "https://www.facebook.com/sharer/sharer.php?u="+u],
+    ["in", "https://www.linkedin.com/sharing/share-offsite/?url="+u],
+    ["WA", "https://wa.me/?text="+tx+"%20"+u],
+    ["TG", "https://t.me/share/url?url="+u+"&text="+tx],
+    ["✉", "mailto:?subject="+tx+"&body="+u]
+  ];
+  const mk = () => {
+    const f = document.createDocumentFragment();
+    items.forEach(([l,h]) => { const a = el("a","rb sh",esc(l)); a.href = h; a.target = "_blank"; a.rel = "noopener noreferrer"; a.setAttribute("aria-label", t.share+": "+l); f.appendChild(a); });
+    const c = el("button","rb sh","🔗"); c.type = "button"; c.setAttribute("aria-label", t.share+": link");
+    c.onclick = () => { try { navigator.clipboard.writeText(SITE); c.textContent = "✓"; setTimeout(() => c.textContent = "🔗", 1400); } catch(e) {} };
+    f.appendChild(c);
+    return f;
+  };
+  $("#share-rail").replaceChildren(mk());
+  const row = $("#share-row"); row.replaceChildren(el("span","",esc(t.share)+":"));
+  row.appendChild(mk());
+}
+
+let io;
+function observe(){
+  const els = $$(".reveal");
+  if (!("IntersectionObserver" in window)) { els.forEach(e => e.classList.add("in")); return; }
+  if (io) io.disconnect();
+  io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold:.12});
+  els.forEach(e => io.observe(e));
+}
+
+let counted = false;
+function runMock(){
+  const reduce = document.documentElement.classList.contains("nm") || matchMedia("(prefers-reduced-motion:reduce)").matches;
+  const ring = $("#ringv");
+  const go = () => {
+    ring.style.strokeDashoffset = String(352 * (1 - .72));
+    $$("#mcats i").forEach(i => i.style.width = i.dataset.w + "%");
+    const out = $("#cnt"), target = 4.2;
+    if (reduce) { out.textContent = target.toFixed(1); return; }
+    if (counted) { out.textContent = target.toFixed(1); return; }
+    counted = true;
+    const t0 = performance.now();
+    const step = now => { const p = Math.min(1, (now - t0) / 2200); out.textContent = (target * (1 - Math.pow(1 - p, 3))).toFixed(1); if (p < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  };
+  setTimeout(go, 350);
+}
+
+/* language selector */
+const sel = $("#lang");
+ORDER.forEach(c => { const o = el("option","",esc(T[c].name)); o.value = c; sel.appendChild(o); });
+sel.onchange = () => render(sel.value);
+
+/* accessibility + zoom, persisted */
+const S = {z:1, hc:0, rf:0, sp:0, nm:0, ul:0};
+try { Object.assign(S, JSON.parse(store.get("lustrum-a11y") || "{}")); } catch(e) {}
+function applyA(){
+  const r = document.documentElement;
+  r.style.setProperty("--z", S.z);
+  ["hc","rf","sp","nm","ul"].forEach(k => r.classList.toggle(k, !!S[k]));
+  $$("#panel input[data-f]").forEach(i => i.checked = !!S[i.dataset.f]);
+  store.set("lustrum-a11y", JSON.stringify(S));
+}
+$("#zin").onclick = () => { S.z = Math.min(1.6, +(S.z + .1).toFixed(2)); applyA(); };
+$("#zout").onclick = () => { S.z = Math.max(.8, +(S.z - .1).toFixed(2)); applyA(); };
+$("#zfit").onclick = () => { S.z = 1; applyA(); };
+$$("#panel input[data-f]").forEach(i => i.onchange = () => { S[i.dataset.f] = i.checked ? 1 : 0; applyA(); });
+$("#areset").onclick = () => { Object.assign(S, {z:1,hc:0,rf:0,sp:0,nm:0,ul:0}); applyA(); };
+const panel = $("#panel"), aa = $("#aa");
+function tp(on){ panel.classList.toggle("on", on); aa.setAttribute("aria-expanded", String(on)); }
+aa.onclick = () => tp(!panel.classList.contains("on"));
+$("#aclose").onclick = () => { tp(false); aa.focus(); };
+document.addEventListener("keydown", e => { if (e.key === "Escape") tp(false); });
+
+/* scroll-up arrow */
+addEventListener("scroll", () => $("#up").classList.toggle("on", scrollY > 500), {passive:true});
+
+applyA();
+const start = pick(); sel.value = start; render(start);
+</script>
+</body>
+</html>

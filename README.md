@@ -1,64 +1,82 @@
+**English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
+
 # LUSTRUM
 
-Curățător de stocare pentru Android, **trade-free**: fără reclame, fără cont, fără telemetrie și **fără permisiunea INTERNET** (nu poate trimite nimic nicăieri). Scris de la zero (clean-room), pe baza documentației publice Android și a unei analize a funcțiilor oferite de aplicațiile concurente.
+> **Reclaim your phone. Nothing leaves it.**
 
-## Funcții
+LUSTRUM finds junk, duplicates, look-alike photos and app leftovers — and clears them only with your approval. It has no INTERNET permission, so it physically cannot send anything anywhere.
 
-- **Stocare**: spațiu folosit/liber, defalcare pe categorii.
-- **Fișiere**: mari (>50 MB), vechi (>1 an), resturi (temporare, miniaturi, coș, descărcări întrerupte), capturi de ecran, instalatoare, foldere goale.
-- **Rămășițe aplicații**: foldere rămase în spațiul partajat de la aplicații dezinstalate.
-- **Comprimare foto**: JPEG la calitate 80, înlocuit doar dacă rezultatul e cu ≥20% mai mic; păstrează data și etichetele EXIF principale.
-- **Duplicate**: fișiere identice (mărime → hash 64 KB → SHA-256) și imagini asemănătoare (hash perceptual). Păstrează implicit cel mai vechi exemplar și blochează ștergerea tuturor copiilor dintr-un grup.
-- **Aplicații**: cache și mărime per aplicație, aplicații nefolosite, scurtătură spre ecranul aplicației, dezinstalare.
-- **Starea dispozitivului**: RAM, nivel și temperatură baterie (informativ).
+**Version: 0.2.0 · Last updated: 2026-11-18**
 
-## Comparație cu aplicațiile concurente
+[lustrum.chiuta.ro/](https://lustrum.chiuta.ro/)
 
-| Funcție | LUSTRUM | CCleaner | SD Maid SE | Files by Google | Norton Clean / Avast Cleanup |
-|---|---|---|---|---|---|
-| Fără reclame | da | nu în versiunea gratuită | da | da | nu / abonament |
-| Fără permisiunea INTERNET, fără telemetrie | da | nu | parțial | nu | nu |
-| Cod sursă deschis | da | nu | da (GPLv3) | nu | nu |
-| Analiză stocare | da | da (în abonament) | da | da | da |
-| Fișiere mari / vechi | da | da | da (filtre) | da | da |
-| Duplicate identice | da | parțial | da | da | da |
-| Imagini asemănătoare | da | da | da | parțial | da |
-| Capturi, instalatoare, foldere goale | da | parțial | da | da | parțial |
-| Rămășițe de la aplicații dezinstalate | da (limitat de Android) | da | da (cel mai bun) | nu | parțial |
-| Comprimare foto | da | da | da | nu | parțial |
-| Manager aplicații / nefolosite | da | da | da | da | da |
-| Cache ale altor aplicații într-un clic | nu (blocat de Android) | prin accesibilitate | prin accesibilitate / root | nu | prin accesibilitate |
-| Programare automată | nu încă | în abonament | da | nu | da |
-| „Boost RAM” | nu, intenționat | da | nu | nu | da |
-| Curățare cu root / Shizuku | nu | nu | da | nu | nu |
+## What it does
 
-Sursele comparației: descrierile publice ale aplicațiilor și ale proiectului SD Maid SE. Tabelul reflectă starea din noiembrie 2026 și poate deveni depășit.
+- **Storage at a glance** — Used and free space, broken down by images, video, audio, documents and archives.
+- **Large, old & junk files** — Files over 50 MB, untouched for a year, temp files, thumbnails, trash and interrupted downloads.
+- **Exact duplicates** — Matched by size, then a quick fingerprint, then full SHA-256. The oldest copy is kept by default.
+- **Look-alike photos** — Perceptual hashing finds resized, re-saved and repeated shots. You review each group.
+- **App leftovers** — Folders left behind by apps you uninstalled long ago, plus empty folders.
+- **Photo compression** — Re-encodes big JPEGs and replaces them only if the result is at least 20% smaller. EXIF is kept.
+- **Apps, caches & unused** — Cache size per app, last-used date, one tap to its settings or to uninstall.
+- **Device status** — RAM, battery level and temperature — read-only, for information.
 
-## Ce NU face (intenționat)
+## Private by construction
 
-- **„Boost RAM” / „oprește aplicațiile din fundal”**: Android gestionează memoria singur; astfel de butoane nu ajută și consumă baterie.
-- **Cache-ul altor aplicații dintr-un clic**: Android a interzis asta fără privilegii speciale. Aplicația arată cât ocupă fiecare și te duce în setările aplicației.
-- **iOS**: sistemul nu permite nicio curățare în afara propriei aplicații.
+Most cleaners earn their keep from ads and data. LUSTRUM is built the other way around.
 
-## Permisiuni
+- No INTERNET permission in the manifest — you can verify it in your system's app info.
+- No accounts, no analytics, no ads, no purchase prompts.
+- Every deletion is confirmed first; media deletions go through Android's own system dialog.
 
-| Permisiune | La ce folosește |
+## How it compares
+
+Against the best-known cleaners, based on their public descriptions (November 2026).
+
+| | LUSTRUM | CCleaner | SD Maid SE | Files by Google | Norton Clean / Avast Cleanup |
+|---|:---:|:---:|:---:|:---:|:---:|
+| No ads | ✓ | ✗ | ✓ | ✓ | ✗ |
+| No internet access or telemetry | ✓ | ✗ | ~ | ✗ | ✗ |
+| Open source | ✓ | ✗ | ✓ | ✗ | ✗ |
+| Duplicates & look-alike photos | ✓ | ~ | ✓ | ~ | ✓ |
+| Leftovers of uninstalled apps | ~ | ✓ | ✓ | ✗ | ~ |
+| Photo compression | ✓ | ✓ | ✓ | ✗ | ~ |
+| Scheduled cleaning | ✗ | ~ | ✓ | ✗ | ✓ |
+| “RAM boost” | — | ✓ | ✗ | ✗ | ✓ |
+
+✓ yes · ~ partial or paid · ✗ no · — not offered, on purpose
+
+## What it will not do — on purpose
+
+- “RAM boost” and background-app killers. Android manages memory itself; these buttons don't help and drain the battery.
+- Clearing other apps' caches in one tap. Android forbids it without special privileges, so LUSTRUM takes you straight to each app's storage screen.
+- iOS. The system does not allow cleaning outside an app's own sandbox.
+
+## Permissions, in plain words
+
+| Permission | Why |
 |---|---|
-| Media (imagini/video/audio) | scanare de bază, ștergere cu confirmare de sistem |
-| Acces la toate fișierele | documente, resturi, rămășițe, foldere goale, comprimare; opțional |
-| Acces la utilizare | cache per aplicație și „ultima folosire”; opțional |
-| Ștergere pachete | dezinstalare din listă |
+| Media | Scans photos, video and audio. Deleting asks Android for confirmation. |
+| All files access (optional) | Documents, junk, leftovers, empty folders and compression. |
+| Usage access (optional) | Cache size per app and when each app was last used. |
+| Package removal | Lets you uninstall an app from the list. |
 
-## Construire
+## Get LUSTRUM
 
-JDK 21, Android SDK, Gradle 8.14+:
+Beta — version 0.2.0. Installs directly; no store account needed.
 
-```
-gradle assembleRelease
-```
+1. Download the APK from the latest release.
+2. Allow installation from this source when Android asks.
+3. Open LUSTRUM, grant media access and tap Scan. Optional extra access unlocks documents, leftovers and compression.
 
-APK-ul apare în `app/build/outputs/apk/release/`. Workflow-ul `Build APK` îl construiește la fiecare push și îl publică la etichete `v*`. APK-ul este semnat cu cheia de debug (instalare directă); pentru distribuție publică adaugă o cheie proprie.
+## Building
 
-## Stare
+JDK 21, Android SDK, Gradle 8.14+: run `gradle assembleRelease`. The APK appears in `app/build/outputs/apk/release/`. The Build APK workflow builds on every push and publishes a release on `v*` tags. The release APK is signed with the debug key (fine for direct installs); add your own key for public distribution.
 
-v0.2.0. Se compilează în CI; nu a fost încă testat pe un telefon real.
+## Status
+
+Beta. Builds in CI; not yet tested on a physical phone. Report problems as issues.
+
+---
+
+Released under the MIT licence. © 2026 Alexandru-Ionuț Chiuță (Alexio)
