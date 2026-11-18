@@ -7,13 +7,13 @@ import java.io.InputStream
 import java.text.DateFormat
 import java.util.Date
 
-enum class Category(val label: String) {
-    IMAGINI("Imagini"),
-    VIDEO("Video"),
-    AUDIO("Audio"),
-    DOCUMENTE("Documente"),
-    ARHIVE("Arhive și instalări"),
-    ALTELE("Altele"),
+enum class Category(val labelRes: Int) {
+    IMAGINI(R.string.cat_images),
+    VIDEO(R.string.cat_video),
+    AUDIO(R.string.cat_audio),
+    DOCUMENTE(R.string.cat_docs),
+    ARHIVE(R.string.cat_archives),
+    ALTELE(R.string.cat_other),
 }
 
 /** Un fișier găsit la scanare. `uri` există doar pentru fișierele din MediaStore. */

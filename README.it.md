@@ -6,7 +6,7 @@
 
 LUSTRUM trova file inutili, duplicati, foto simili e residui di app, e li elimina solo con il tuo consenso. Non ha il permesso INTERNET, quindi non può inviare nulla da nessuna parte.
 
-**Versione: 0.2.0 · Ultimo aggiornamento: 2026-11-18**
+**Versione: 0.3.0 · Ultimo aggiornamento: 2026-11-18**
 
 [lustrum.chiuta.ro/](https://lustrum.chiuta.ro/)
 
@@ -63,7 +63,7 @@ Con i pulitori più noti, in base alle loro descrizioni pubbliche (novembre 2026
 
 ## Ottieni LUSTRUM
 
-Beta — versione 0.2.0. Si installa direttamente, senza account di uno store.
+Beta — versione 0.3.0. Si installa direttamente, senza account di uno store.
 
 1. Scarica l'APK dall'ultima versione pubblicata.
 2. Consenti l'installazione da questa fonte quando Android lo chiede.

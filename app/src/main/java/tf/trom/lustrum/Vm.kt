@@ -95,17 +95,17 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
     fun scan() {
         if (scanning) return
         scanning = true
-        progress = "Se scanează…"
+        progress = app.getString(R.string.vm_scanning)
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val found = if (perms.allFiles) {
-                    Scanner.scanFs { n -> progress = "Se scanează… $n fișiere" }
+                    Scanner.scanFs { n -> progress = app.getString(R.string.vm_scanning_n, n) }
                 } else {
-                    Scanner.scanMedia(app) { n -> progress = "Se scanează… $n fișiere" }
+                    Scanner.scanMedia(app) { n -> progress = app.getString(R.string.vm_scanning_n, n) }
                 }
                 items = found
                 if (perms.allFiles) {
-                    progress = "Caut resturi de la aplicații dezinstalate…"
+                    progress = app.getString(R.string.vm_orphans)
                     orphans = Scanner.orphans(app)
                     emptyDirs = Scanner.emptyDirs()
                 } else {
@@ -117,7 +117,7 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
                 exactDone = false; similarDone = false
                 updateStorage()
             } catch (e: Exception) {
-                message = "Eroare la scanare: ${e.message}"
+                message = app.getString(R.string.vm_err_scan, e.message ?: "")
             } finally {
                 scanning = false
             }
@@ -127,10 +127,10 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
     fun findDupes(similar: Boolean) {
         if (dupBusy) return
         dupBusy = true
-        dupProgress = "Se analizează…"
+        dupProgress = app.getString(R.string.vm_analyzing)
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val progress: (Int, Int) -> Unit = { d, t -> dupProgress = "Se analizează… $d / $t" }
+                val progress: (Int, Int) -> Unit = { d, t -> dupProgress = app.getString(R.string.vm_analyzing_n, d, t) }
                 if (similar) {
                     similarGroups = Dupes.similar(app, items, progress)
                     similarDone = true
@@ -139,7 +139,7 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
                     exactDone = true
                 }
             } catch (e: Exception) {
-                message = "Eroare la analiză: ${e.message}"
+                message = app.getString(R.string.vm_err_analyze, e.message ?: "")
             } finally {
                 dupBusy = false
             }
@@ -153,7 +153,7 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
             try {
                 apps = Apps.load(app)
             } catch (e: Exception) {
-                message = "Nu am putut citi aplicațiile: ${e.message}"
+                message = app.getString(R.string.vm_err_apps, e.message ?: "")
             } finally {
                 appsBusy = false
             }
@@ -170,7 +170,7 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
         emptyDirs = emptyDirs.filter { it.path !in keys }
         selected = selected - keys
         updateStorage()
-        message = "Șterse ${done.size} fișiere · ${fmtSize(done.sumOf { it.size })} eliberați"
+        message = app.getString(R.string.vm_deleted, done.size, fmtSize(done.sumOf { it.size }))
     }
 
     /** Ștergere directă (necesită „Acces la toate fișierele”). */
@@ -182,7 +182,7 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
                 MediaScannerConnection.scanFile(app, files.map { it.path }.toTypedArray(), null, null)
             }
             removed(ok)
-            if (ok.size < list.size) message = "${list.size - ok.size} fișiere nu au putut fi șterse"
+            if (ok.size < list.size) message = app.getString(R.string.vm_cant_delete, list.size - ok.size)
         }
     }
 
@@ -196,7 +196,7 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
             val newSizes = HashMap<String, Long>()
             try {
                 for ((i, it) in list.withIndex()) {
-                    progress = "Comprim ${i + 1} / ${list.size}…"
+                    progress = app.getString(R.string.vm_compressing, i + 1, list.size)
                     val after = Compressor.compress(it) ?: continue
                     saved += it.size - after
                     n++
@@ -208,7 +208,7 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
                     updateStorage()
                 }
                 selected = selected - list.map { it.path }.toSet()
-                message = "Comprimate $n din ${list.size} imagini · ${fmtSize(saved)} eliberați"
+                message = app.getString(R.string.vm_compressed, n, list.size, fmtSize(saved))
             } finally {
                 compressing = false
             }
@@ -223,7 +223,7 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
                 freed += d.walkTopDown().filter { it.isFile }.sumOf { it.length() }
                 d.listFiles()?.forEach { it.deleteRecursively() }
             }
-            message = "Cache propriu golit · ${fmtSize(freed)}"
+            message = app.getString(R.string.vm_cache_cleared, fmtSize(freed))
         }
     }
 }

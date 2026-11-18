@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
     private val deleteLauncher = registerForActivityResult(
         ActivityResultContracts.StartIntentSenderForResult()
     ) { r ->
-        if (r.resultCode == RESULT_OK) vm.removed(pending) else vm.message = "Ștergerea a fost anulată"
+        if (r.resultCode == RESULT_OK) vm.removed(pending) else vm.message = getString(R.string.vm_cancelled)
         pending = emptyList()
     }
 

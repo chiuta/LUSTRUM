@@ -6,7 +6,7 @@
 
 LUSTRUM găsește resturi, duplicate, fotografii asemănătoare și rămășițe de aplicații și le șterge doar cu acordul tău. Nu are permisiunea INTERNET, deci nu poate trimite nimic nicăieri.
 
-**Versiune: 0.2.0 · Ultima actualizare: 2026-11-18**
+**Versiune: 0.3.0 · Ultima actualizare: 2026-11-18**
 
 [lustrum.chiuta.ro/](https://lustrum.chiuta.ro/)
 
@@ -63,7 +63,7 @@ Față de cele mai cunoscute curățătoare, pe baza descrierilor lor publice (n
 
 ## Obține LUSTRUM
 
-Beta — versiunea 0.2.0. Se instalează direct; nu ai nevoie de cont de magazin.
+Beta — versiunea 0.3.0. Se instalează direct; nu ai nevoie de cont de magazin.
 
 1. Descarcă APK-ul din ultima versiune publicată.
 2. Permite instalarea din această sursă când Android te întreabă.

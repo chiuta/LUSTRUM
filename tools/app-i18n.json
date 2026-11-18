@@ -1,0 +1,882 @@
+{
+ "tab_home": {
+  "en": "Home",
+  "ro": "Acasă",
+  "fr": "Accueil",
+  "it": "Home",
+  "es": "Inicio",
+  "pt": "Início",
+  "de": "Start",
+  "hu": "Kezdőlap"
+ },
+ "tab_files": {
+  "en": "Files",
+  "ro": "Fișiere",
+  "fr": "Fichiers",
+  "it": "File",
+  "es": "Archivos",
+  "pt": "Arquivos",
+  "de": "Dateien",
+  "hu": "Fájlok"
+ },
+ "tab_dupes": {
+  "en": "Duplicates",
+  "ro": "Duplicate",
+  "fr": "Doublons",
+  "it": "Duplicati",
+  "es": "Duplicados",
+  "pt": "Duplicatas",
+  "de": "Duplikate",
+  "hu": "Duplikátumok"
+ },
+ "tab_apps": {
+  "en": "Apps",
+  "ro": "Aplicații",
+  "fr": "Applications",
+  "it": "App",
+  "es": "Aplicaciones",
+  "pt": "Apps",
+  "de": "Apps",
+  "hu": "Alkalmazások"
+ },
+ "tagline": {
+  "en": "Cleaning without ads, without internet, without tracking.",
+  "ro": "Curățare fără reclame, fără internet, fără urmărire.",
+  "fr": "Un nettoyage sans pub, sans internet, sans pistage.",
+  "it": "Pulizia senza pubblicità, senza internet, senza tracciamento.",
+  "es": "Limpieza sin anuncios, sin internet, sin rastreo.",
+  "pt": "Limpeza sem anúncios, sem internet, sem rastreamento.",
+  "de": "Reinigen ohne Werbung, ohne Internet, ohne Tracking.",
+  "hu": "Tisztítás reklám, internet és nyomkövetés nélkül."
+ },
+ "storage": {
+  "en": "Storage",
+  "ro": "Stocare",
+  "fr": "Stockage",
+  "it": "Archiviazione",
+  "es": "Almacenamiento",
+  "pt": "Armazenamento",
+  "de": "Speicher",
+  "hu": "Tárhely"
+ },
+ "storage_line": {
+  "en": "Used %1$s of %2$s · free %3$s",
+  "ro": "Folosit %1$s din %2$s · liber %3$s",
+  "fr": "Utilisé : %1$s sur %2$s · libre : %3$s",
+  "it": "Usato %1$s di %2$s · libero %3$s",
+  "es": "Usado %1$s de %2$s · libre %3$s",
+  "pt": "Usado %1$s de %2$s · livre %3$s",
+  "de": "Belegt %1$s von %2$s · frei %3$s",
+  "hu": "Használt: %1$s / %2$s · szabad: %3$s"
+ },
+ "media_only_note": {
+  "en": "Only images, video and audio are visible. For documents, downloads and junk, grant “All files access”.",
+  "ro": "Se văd doar imagini, video și audio. Pentru documente, descărcări și resturi acordă „Acces la toate fișierele”.",
+  "fr": "Seuls les images, vidéos et fichiers audio sont visibles. Pour les documents, téléchargements et fichiers inutiles, accordez « Accès à tous les fichiers ».",
+  "it": "Sono visibili solo immagini, video e audio. Per documenti, download e file inutili concedi «Accesso a tutti i file».",
+  "es": "Solo se ven imágenes, vídeo y audio. Para documentos, descargas y basura, concede «Acceso a todos los archivos».",
+  "pt": "Só aparecem imagens, vídeo e áudio. Para documentos, downloads e lixo, conceda “Acesso a todos os arquivos”.",
+  "de": "Sichtbar sind nur Bilder, Videos und Audio. Für Dokumente, Downloads und Datenmüll „Zugriff auf alle Dateien“ gewähren.",
+  "hu": "Csak képek, videók és hangfájlok láthatók. Dokumentumokhoz, letöltésekhez és felesleges fájlokhoz add meg a „Hozzáférés minden fájlhoz” engedélyt."
+ },
+ "scan_grant": {
+  "en": "Grant access and scan",
+  "ro": "Acordă acces și scanează",
+  "fr": "Accorder l'accès et analyser",
+  "it": "Concedi l'accesso e scansiona",
+  "es": "Conceder acceso y escanear",
+  "pt": "Conceder acesso e verificar",
+  "de": "Zugriff gewähren und scannen",
+  "hu": "Hozzáférés megadása és keresés"
+ },
+ "scan_again": {
+  "en": "Scan again",
+  "ro": "Scanează din nou",
+  "fr": "Analyser à nouveau",
+  "it": "Scansiona di nuovo",
+  "es": "Escanear de nuevo",
+  "pt": "Verificar novamente",
+  "de": "Erneut scannen",
+  "hu": "Újabb keresés"
+ },
+ "scan_phone": {
+  "en": "Scan phone",
+  "ro": "Scanează telefonul",
+  "fr": "Analyser le téléphone",
+  "it": "Scansiona il telefono",
+  "es": "Escanear el teléfono",
+  "pt": "Verificar o celular",
+  "de": "Handy scannen",
+  "hu": "Telefon átvizsgálása"
+ },
+ "junk_title": {
+  "en": "Junk",
+  "ro": "Resturi",
+  "fr": "Fichiers inutiles",
+  "it": "File inutili",
+  "es": "Basura",
+  "pt": "Lixo",
+  "de": "Datenmüll",
+  "hu": "Felesleges fájlok"
+ },
+ "junk_line": {
+  "en": "Files: %1$d · %2$s (temporary, thumbnails, interrupted downloads)",
+  "ro": "Fișiere: %1$d · %2$s (temporare, miniaturi, descărcări întrerupte)",
+  "fr": "Fichiers : %1$d · %2$s (temporaires, miniatures, téléchargements interrompus)",
+  "it": "File: %1$d · %2$s (temporanei, miniature, download interrotti)",
+  "es": "Archivos: %1$d · %2$s (temporales, miniaturas, descargas interrumpidas)",
+  "pt": "Arquivos: %1$d · %2$s (temporários, miniaturas, downloads interrompidos)",
+  "de": "Dateien: %1$d · %2$s (temporär, Vorschaubilder, abgebrochene Downloads)",
+  "hu": "Fájlok: %1$d · %2$s (ideiglenes, bélyegképek, megszakadt letöltések)"
+ },
+ "junk_btn": {
+  "en": "View and clean",
+  "ro": "Vezi și curăță",
+  "fr": "Voir et nettoyer",
+  "it": "Vedi e pulisci",
+  "es": "Ver y limpiar",
+  "pt": "Ver e limpar",
+  "de": "Ansehen und bereinigen",
+  "hu": "Megtekintés és tisztítás"
+ },
+ "health_title": {
+  "en": "Device status",
+  "ro": "Starea dispozitivului",
+  "fr": "État de l'appareil",
+  "it": "Stato del dispositivo",
+  "es": "Estado del dispositivo",
+  "pt": "Estado do dispositivo",
+  "de": "Gerätestatus",
+  "hu": "Eszközállapot"
+ },
+ "health_ram": {
+  "en": "RAM: %1$s used of %2$s",
+  "ro": "Memorie RAM: %1$s folosiți din %2$s",
+  "fr": "RAM : %1$s utilisés sur %2$s",
+  "it": "RAM: %1$s usati su %2$s",
+  "es": "RAM: %1$s usados de %2$s",
+  "pt": "RAM: %1$s usados de %2$s",
+  "de": "RAM: %1$s belegt von %2$s",
+  "hu": "RAM: %1$s használt / %2$s"
+ },
+ "health_batt": {
+  "en": "Battery: %1$s · %2$s °C",
+  "ro": "Baterie: %1$s · %2$s °C",
+  "fr": "Batterie : %1$s · %2$s °C",
+  "it": "Batteria: %1$s · %2$s °C",
+  "es": "Batería: %1$s · %2$s °C",
+  "pt": "Bateria: %1$s · %2$s °C",
+  "de": "Akku: %1$s · %2$s °C",
+  "hu": "Akkumulátor: %1$s · %2$s °C"
+ },
+ "health_batt_chg": {
+  "en": "Battery: %1$s · charging · %2$s °C",
+  "ro": "Baterie: %1$s · se încarcă · %2$s °C",
+  "fr": "Batterie : %1$s · en charge · %2$s °C",
+  "it": "Batteria: %1$s · in carica · %2$s °C",
+  "es": "Batería: %1$s · cargando · %2$s °C",
+  "pt": "Bateria: %1$s · carregando · %2$s °C",
+  "de": "Akku: %1$s · lädt · %2$s °C",
+  "hu": "Akkumulátor: %1$s · töltődik · %2$s °C"
+ },
+ "health_note": {
+  "en": "For information only: Android manages memory by itself, and “RAM boost” doesn't help.",
+  "ro": "Doar informativ: Android gestionează singur memoria, iar „eliberarea RAM” nu ajută.",
+  "fr": "À titre informatif : Android gère la mémoire seul, et le « boost RAM » n'aide pas.",
+  "it": "Solo informativo: Android gestisce da solo la memoria e il «boost RAM» non serve.",
+  "es": "Solo informativo: Android gestiona la memoria por sí solo y el «boost de RAM» no ayuda.",
+  "pt": "Apenas informativo: o Android gerencia a memória sozinho e o “turbo de RAM” não ajuda.",
+  "de": "Nur zur Information: Android verwaltet den Speicher selbst, ein „RAM-Boost“ hilft nicht.",
+  "hu": "Csak tájékoztatásul: az Android magától kezeli a memóriát, a „RAM-gyorsítás” nem segít."
+ },
+ "perm_title": {
+  "en": "Permissions",
+  "ro": "Permisiuni",
+  "fr": "Permissions",
+  "it": "Permessi",
+  "es": "Permisos",
+  "pt": "Permissões",
+  "de": "Berechtigungen",
+  "hu": "Engedélyek"
+ },
+ "perm_media": {
+  "en": "Media access",
+  "ro": "Acces la media",
+  "fr": "Accès aux médias",
+  "it": "Accesso ai contenuti multimediali",
+  "es": "Acceso a multimedia",
+  "pt": "Acesso às mídias",
+  "de": "Medienzugriff",
+  "hu": "Médiahozzáférés"
+ },
+ "perm_all": {
+  "en": "All files access",
+  "ro": "Acces la toate fișierele",
+  "fr": "Accès à tous les fichiers",
+  "it": "Accesso a tutti i file",
+  "es": "Acceso a todos los archivos",
+  "pt": "Acesso a todos os arquivos",
+  "de": "Zugriff auf alle Dateien",
+  "hu": "Hozzáférés minden fájlhoz"
+ },
+ "perm_usage": {
+  "en": "App usage access",
+  "ro": "Acces la utilizare aplicații",
+  "fr": "Accès aux données d'utilisation",
+  "it": "Accesso ai dati di utilizzo",
+  "es": "Acceso al uso de aplicaciones",
+  "pt": "Acesso ao uso de apps",
+  "de": "Nutzungszugriff",
+  "hu": "Használati hozzáférés"
+ },
+ "perm_grant": {
+  "en": "Grant",
+  "ro": "Acordă",
+  "fr": "Accorder",
+  "it": "Concedi",
+  "es": "Conceder",
+  "pt": "Conceder",
+  "de": "Gewähren",
+  "hu": "Megadás"
+ },
+ "perm_settings": {
+  "en": "Settings",
+  "ro": "Setări",
+  "fr": "Réglages",
+  "it": "Impostazioni",
+  "es": "Ajustes",
+  "pt": "Configurações",
+  "de": "Einstellungen",
+  "hu": "Beállítások"
+ },
+ "no_internet": {
+  "en": "The app has no INTERNET permission: nothing leaves your phone.",
+  "ro": "Aplicația nu are permisiunea INTERNET: nimic nu pleacă de pe telefon.",
+  "fr": "L'application n'a pas la permission INTERNET : rien ne quitte votre téléphone.",
+  "it": "L'app non ha il permesso INTERNET: nulla lascia il telefono.",
+  "es": "La app no tiene el permiso INTERNET: nada sale de tu teléfono.",
+  "pt": "O app não tem a permissão INTERNET: nada sai do seu celular.",
+  "de": "Die App hat keine INTERNET-Berechtigung: Nichts verlässt Ihr Handy.",
+  "hu": "Az alkalmazásnak nincs INTERNET-engedélye: semmi nem hagyja el a telefont."
+ },
+ "clear_own_cache": {
+  "en": "Clear the app's own cache",
+  "ro": "Golește cache-ul propriu",
+  "fr": "Vider le cache de l'application",
+  "it": "Svuota la cache dell'app",
+  "es": "Vaciar la caché de la app",
+  "pt": "Limpar o cache do app",
+  "de": "App-Cache leeren",
+  "hu": "Az alkalmazás gyorsítótárának ürítése"
+ },
+ "del_bar": {
+  "en": "Delete selected (%1$d) · %2$s",
+  "ro": "Șterge selectate (%1$d) · %2$s",
+  "fr": "Supprimer la sélection (%1$d) · %2$s",
+  "it": "Elimina selezionati (%1$d) · %2$s",
+  "es": "Eliminar seleccionados (%1$d) · %2$s",
+  "pt": "Excluir selecionados (%1$d) · %2$s",
+  "de": "Auswahl löschen (%1$d) · %2$s",
+  "hu": "Kijelöltek törlése (%1$d) · %2$s"
+ },
+ "confirm_del_title": {
+  "en": "Delete the selected items (%1$d)?",
+  "ro": "Ștergi elementele selectate (%1$d)?",
+  "fr": "Supprimer les éléments sélectionnés (%1$d) ?",
+  "it": "Eliminare gli elementi selezionati (%1$d)?",
+  "es": "¿Eliminar los elementos seleccionados (%1$d)?",
+  "pt": "Excluir os itens selecionados (%1$d)?",
+  "de": "Ausgewählte Elemente löschen (%1$d)?",
+  "hu": "Törlöd a kijelölt elemeket (%1$d)?"
+ },
+ "confirm_del_text": {
+  "en": "This frees %1$s. This cannot be undone.",
+  "ro": "Se eliberează %1$s. Acțiunea nu se poate anula.",
+  "fr": "Cela libère %1$s. Action irréversible.",
+  "it": "Libera %1$s. L'azione non può essere annullata.",
+  "es": "Libera %1$s. No se puede deshacer.",
+  "pt": "Libera %1$s. Não é possível desfazer.",
+  "de": "Gibt %1$s frei. Dies kann nicht rückgängig gemacht werden.",
+  "hu": "%1$s szabadul fel. A művelet nem vonható vissza."
+ },
+ "delete": {
+  "en": "Delete",
+  "ro": "Șterge",
+  "fr": "Supprimer",
+  "it": "Elimina",
+  "es": "Eliminar",
+  "pt": "Excluir",
+  "de": "Löschen",
+  "hu": "Törlés"
+ },
+ "cancel": {
+  "en": "Cancel",
+  "ro": "Anulează",
+  "fr": "Annuler",
+  "it": "Annulla",
+  "es": "Cancelar",
+  "pt": "Cancelar",
+  "de": "Abbrechen",
+  "hu": "Mégse"
+ },
+ "f_big": {
+  "en": "Large >50 MB",
+  "ro": "Mari >50 MB",
+  "fr": "Gros >50 Mo",
+  "it": "Grandi >50 MB",
+  "es": "Grandes >50 MB",
+  "pt": "Grandes >50 MB",
+  "de": "Groß >50 MB",
+  "hu": "Nagy >50 MB"
+ },
+ "f_old": {
+  "en": "Old >1 year",
+  "ro": "Vechi >1 an",
+  "fr": "Anciens >1 an",
+  "it": "Vecchi >1 anno",
+  "es": "Antiguos >1 año",
+  "pt": "Antigos >1 ano",
+  "de": "Alt >1 Jahr",
+  "hu": "Régi >1 év"
+ },
+ "f_junk": {
+  "en": "Junk",
+  "ro": "Resturi",
+  "fr": "Fichiers inutiles",
+  "it": "Inutili",
+  "es": "Basura",
+  "pt": "Lixo",
+  "de": "Datenmüll",
+  "hu": "Felesleges"
+ },
+ "f_shots": {
+  "en": "Screenshots",
+  "ro": "Capturi de ecran",
+  "fr": "Captures d'écran",
+  "it": "Screenshot",
+  "es": "Capturas de pantalla",
+  "pt": "Capturas de tela",
+  "de": "Screenshots",
+  "hu": "Képernyőképek"
+ },
+ "f_apk": {
+  "en": "Installers",
+  "ro": "Instalatoare",
+  "fr": "Installateurs",
+  "it": "Installatori",
+  "es": "Instaladores",
+  "pt": "Instaladores",
+  "de": "Installationsdateien",
+  "hu": "Telepítők"
+ },
+ "f_compress": {
+  "en": "Photo compression",
+  "ro": "Comprimare foto",
+  "fr": "Compression photo",
+  "it": "Compressione foto",
+  "es": "Compresión de fotos",
+  "pt": "Compressão de fotos",
+  "de": "Foto-Komprimierung",
+  "hu": "Fotótömörítés"
+ },
+ "f_orphans": {
+  "en": "App leftovers",
+  "ro": "Rămășițe aplicații",
+  "fr": "Restes d'applications",
+  "it": "Residui di app",
+  "es": "Restos de apps",
+  "pt": "Sobras de apps",
+  "de": "App-Reste",
+  "hu": "Alkalmazásmaradványok"
+ },
+ "f_empty": {
+  "en": "Empty folders",
+  "ro": "Foldere goale",
+  "fr": "Dossiers vides",
+  "it": "Cartelle vuote",
+  "es": "Carpetas vacías",
+  "pt": "Pastas vazias",
+  "de": "Leere Ordner",
+  "hu": "Üres mappák"
+ },
+ "compress_note": {
+  "en": "Re-encodes JPEGs at quality 80, only if the result is smaller by at least 20%. This is irreversible (date and main EXIF tags are kept).",
+  "ro": "Recomprimă JPEG-uri la calitate 80, doar dacă rezultatul e cu cel puțin 20% mai mic. Operația este ireversibilă (se păstrează data și etichetele EXIF principale).",
+  "fr": "Réencode les JPEG en qualité 80, seulement si le résultat est au moins 20 % plus léger. Irréversible (la date et les principales balises EXIF sont conservées).",
+  "it": "Ricodifica i JPEG a qualità 80, solo se il risultato è almeno il 20% più leggero. Irreversibile (si conservano la data e i principali tag EXIF).",
+  "es": "Recodifica JPEG a calidad 80, solo si el resultado pesa al menos un 20 % menos. Es irreversible (se conservan la fecha y las etiquetas EXIF principales).",
+  "pt": "Recodifica JPEGs na qualidade 80, apenas se o resultado for pelo menos 20% menor. É irreversível (a data e as principais tags EXIF são mantidas).",
+  "de": "Kodiert JPEGs mit Qualität 80 neu, nur wenn das Ergebnis mindestens 20 % kleiner ist. Unwiderruflich (Datum und wichtigste EXIF-Tags bleiben erhalten).",
+  "hu": "A JPEG-eket 80-as minőségben újrakódolja, csak ha az eredmény legalább 20%-kal kisebb. Visszafordíthatatlan (a dátum és a fő EXIF-címkék megmaradnak)."
+ },
+ "need_all": {
+  "en": "Requires “All files access” (from Home).",
+  "ro": "Necesită „Acces la toate fișierele” (din Acasă).",
+  "fr": "Nécessite « Accès à tous les fichiers » (depuis Accueil).",
+  "it": "Richiede «Accesso a tutti i file» (da Home).",
+  "es": "Requiere «Acceso a todos los archivos» (desde Inicio).",
+  "pt": "Requer “Acesso a todos os arquivos” (em Início).",
+  "de": "Erfordert „Zugriff auf alle Dateien“ (auf der Startseite).",
+  "hu": "„Hozzáférés minden fájlhoz” szükséges (a Kezdőlapon)."
+ },
+ "scan_first": {
+  "en": "Scan first from Home.",
+  "ro": "Scanează mai întâi din Acasă.",
+  "fr": "Lancez d'abord l'analyse depuis Accueil.",
+  "it": "Scansiona prima da Home.",
+  "es": "Escanea primero desde Inicio.",
+  "pt": "Verifique primeiro em Início.",
+  "de": "Zuerst auf der Startseite scannen.",
+  "hu": "Előbb keress a Kezdőlapon."
+ },
+ "nothing": {
+  "en": "Nothing to show here.",
+  "ro": "Nimic de arătat aici.",
+  "fr": "Rien à afficher ici.",
+  "it": "Niente da mostrare qui.",
+  "es": "Nada que mostrar aquí.",
+  "pt": "Nada para mostrar aqui.",
+  "de": "Hier gibt es nichts anzuzeigen.",
+  "hu": "Itt nincs mit mutatni."
+ },
+ "items_line": {
+  "en": "Items: %1$d · %2$s",
+  "ro": "Elemente: %1$d · %2$s",
+  "fr": "Éléments : %1$d · %2$s",
+  "it": "Elementi: %1$d · %2$s",
+  "es": "Elementos: %1$d · %2$s",
+  "pt": "Itens: %1$d · %2$s",
+  "de": "Elemente: %1$d · %2$s",
+  "hu": "Elemek: %1$d · %2$s"
+ },
+ "compress_btn": {
+  "en": "Compress selected (%1$d)",
+  "ro": "Comprimă selectate (%1$d)",
+  "fr": "Compresser la sélection (%1$d)",
+  "it": "Comprimi selezionati (%1$d)",
+  "es": "Comprimir seleccionados (%1$d)",
+  "pt": "Comprimir selecionados (%1$d)",
+  "de": "Auswahl komprimieren (%1$d)",
+  "hu": "Kijelöltek tömörítése (%1$d)"
+ },
+ "confirm_cmp_title": {
+  "en": "Compress the selected images (%1$d)?",
+  "ro": "Comprimi imaginile selectate (%1$d)?",
+  "fr": "Compresser les images sélectionnées (%1$d) ?",
+  "it": "Comprimere le immagini selezionate (%1$d)?",
+  "es": "¿Comprimir las imágenes seleccionadas (%1$d)?",
+  "pt": "Comprimir as imagens selecionadas (%1$d)?",
+  "de": "Ausgewählte Bilder komprimieren (%1$d)?",
+  "hu": "Tömörítsd a kijelölt képeket (%1$d)?"
+ },
+ "confirm_cmp_text": {
+  "en": "Originals are replaced only if the new file is smaller by at least 20%. This cannot be undone.",
+  "ro": "Originalele sunt înlocuite doar dacă fișierul nou e cu cel puțin 20% mai mic. Nu se poate anula.",
+  "fr": "Les originaux ne sont remplacés que si le nouveau fichier est au moins 20 % plus léger. Irréversible.",
+  "it": "Gli originali vengono sostituiti solo se il nuovo file è almeno il 20% più leggero. Non si può annullare.",
+  "es": "Los originales solo se sustituyen si el archivo nuevo pesa al menos un 20 % menos. No se puede deshacer.",
+  "pt": "Os originais só são substituídos se o novo arquivo for pelo menos 20% menor. Não é possível desfazer.",
+  "de": "Originale werden nur ersetzt, wenn die neue Datei mindestens 20 % kleiner ist. Nicht rückgängig zu machen.",
+  "hu": "Az eredetit csak akkor cseréli le, ha az új fájl legalább 20%-kal kisebb. Nem vonható vissza."
+ },
+ "compress": {
+  "en": "Compress",
+  "ro": "Comprimă",
+  "fr": "Compresser",
+  "it": "Comprimi",
+  "es": "Comprimir",
+  "pt": "Comprimir",
+  "de": "Komprimieren",
+  "hu": "Tömörítés"
+ },
+ "d_identical": {
+  "en": "Identical",
+  "ro": "Identice",
+  "fr": "Identiques",
+  "it": "Identici",
+  "es": "Idénticos",
+  "pt": "Idênticos",
+  "de": "Identisch",
+  "hu": "Azonosak"
+ },
+ "d_similar": {
+  "en": "Similar images",
+  "ro": "Imagini asemănătoare",
+  "fr": "Images similaires",
+  "it": "Immagini simili",
+  "es": "Imágenes parecidas",
+  "pt": "Imagens parecidas",
+  "de": "Ähnliche Bilder",
+  "hu": "Hasonló képek"
+ },
+ "d_find_exact": {
+  "en": "Find identical files",
+  "ro": "Caută fișiere identice",
+  "fr": "Trouver les fichiers identiques",
+  "it": "Trova file identici",
+  "es": "Buscar archivos idénticos",
+  "pt": "Buscar arquivos idênticos",
+  "de": "Identische Dateien suchen",
+  "hu": "Azonos fájlok keresése"
+ },
+ "d_find_similar": {
+  "en": "Find similar images",
+  "ro": "Caută imagini asemănătoare",
+  "fr": "Trouver les images similaires",
+  "it": "Trova immagini simili",
+  "es": "Buscar imágenes parecidas",
+  "pt": "Buscar imagens parecidas",
+  "de": "Ähnliche Bilder suchen",
+  "hu": "Hasonló képek keresése"
+ },
+ "d_groups": {
+  "en": "Groups: %1$d · %2$s recoverable",
+  "ro": "Grupuri: %1$d · %2$s recuperabili",
+  "fr": "Groupes : %1$d · %2$s récupérables",
+  "it": "Gruppi: %1$d · %2$s recuperabili",
+  "es": "Grupos: %1$d · %2$s recuperables",
+  "pt": "Grupos: %1$d · %2$s recuperáveis",
+  "de": "Gruppen: %1$d · %2$s zurückgewinnbar",
+  "hu": "Csoportok: %1$d · %2$s visszanyerhető"
+ },
+ "d_autoselect": {
+  "en": "Select the copies (keep the oldest)",
+  "ro": "Bifează copiile (păstrează cel mai vechi)",
+  "fr": "Cocher les copies (garder la plus ancienne)",
+  "it": "Seleziona le copie (tieni la più vecchia)",
+  "es": "Marcar las copias (conservar la más antigua)",
+  "pt": "Marcar as cópias (manter a mais antiga)",
+  "de": "Kopien markieren (älteste behalten)",
+  "hu": "Másolatok kijelölése (a legrégebbi marad)"
+ },
+ "d_risky": {
+  "en": "Groups where every copy is selected: %1$d. Keep at least one copy in each.",
+  "ro": "Grupuri cu toate copiile bifate: %1$d. Păstrează cel puțin una în fiecare.",
+  "fr": "Groupes dont toutes les copies sont cochées : %1$d. Gardez-en au moins une dans chacun.",
+  "it": "Gruppi con tutte le copie selezionate: %1$d. Tienine almeno una per gruppo.",
+  "es": "Grupos con todas las copias marcadas: %1$d. Conserva al menos una en cada uno.",
+  "pt": "Grupos com todas as cópias marcadas: %1$d. Mantenha pelo menos uma em cada.",
+  "de": "Gruppen mit allen Kopien markiert: %1$d. Behalten Sie in jeder mindestens eine.",
+  "hu": "Olyan csoportok, ahol minden másolat ki van jelölve: %1$d. Mindegyikben hagyj meg legalább egyet."
+ },
+ "d_group_head": {
+  "en": "Copies: %1$d · %2$s each",
+  "ro": "Copii: %1$d · %2$s fiecare",
+  "fr": "Copies : %1$d · %2$s chacune",
+  "it": "Copie: %1$d · %2$s ciascuna",
+  "es": "Copias: %1$d · %2$s cada una",
+  "pt": "Cópias: %1$d · %2$s cada",
+  "de": "Kopien: %1$d · je %2$s",
+  "hu": "Másolatok: %1$d · egyenként %2$s"
+ },
+ "a_need_usage": {
+  "en": "For cache size and last-used date, Android requires “Usage access”.",
+  "ro": "Pentru mărimea cache-ului și ultima folosire, Android cere „Acces la utilizare”.",
+  "fr": "Pour la taille du cache et la dernière utilisation, Android exige l'« Accès aux données d'utilisation ».",
+  "it": "Per la dimensione della cache e l'ultimo utilizzo, Android richiede l'«Accesso ai dati di utilizzo».",
+  "es": "Para el tamaño de la caché y el último uso, Android exige el «Acceso al uso de aplicaciones».",
+  "pt": "Para o tamanho do cache e o último uso, o Android exige o “Acesso ao uso de apps”.",
+  "de": "Für Cache-Größe und letzte Nutzung verlangt Android den „Nutzungszugriff“.",
+  "hu": "A gyorsítótár méretéhez és az utolsó használathoz az Android „Használati hozzáférést” kér."
+ },
+ "a_open_settings": {
+  "en": "Open settings",
+  "ro": "Deschide setările",
+  "fr": "Ouvrir les réglages",
+  "it": "Apri le impostazioni",
+  "es": "Abrir ajustes",
+  "pt": "Abrir configurações",
+  "de": "Einstellungen öffnen",
+  "hu": "Beállítások megnyitása"
+ },
+ "a_cache": {
+  "en": "Cache",
+  "ro": "Cache",
+  "fr": "Cache",
+  "it": "Cache",
+  "es": "Caché",
+  "pt": "Cache",
+  "de": "Cache",
+  "hu": "Gyorsítótár"
+ },
+ "a_unused": {
+  "en": "Unused",
+  "ro": "Nefolosite",
+  "fr": "Inutilisées",
+  "it": "Inutilizzate",
+  "es": "Sin uso",
+  "pt": "Sem uso",
+  "de": "Ungenutzt",
+  "hu": "Nem használtak"
+ },
+ "a_size": {
+  "en": "Size",
+  "ro": "Mărime",
+  "fr": "Taille",
+  "it": "Dimensione",
+  "es": "Tamaño",
+  "pt": "Tamanho",
+  "de": "Größe",
+  "hu": "Méret"
+ },
+ "a_reading": {
+  "en": "Reading apps…",
+  "ro": "Se citesc aplicațiile…",
+  "fr": "Lecture des applications…",
+  "it": "Lettura delle app…",
+  "es": "Leyendo aplicaciones…",
+  "pt": "Lendo aplicativos…",
+  "de": "Apps werden gelesen…",
+  "hu": "Alkalmazások beolvasása…"
+ },
+ "a_cache_note": {
+  "en": "Total cache: %1$s. Android does not let an app clear other apps' caches; “Cache” takes you to the app's screen (Storage → Clear cache).",
+  "ro": "Cache total: %1$s. Android nu permite unei aplicații să șteargă cache-ul altora; „Cache” te duce la ecranul aplicației (Stocare → Golește cache-ul).",
+  "fr": "Cache total : %1$s. Android interdit à une application de vider le cache des autres ; « Cache » ouvre l'écran de l'application (Stockage → Vider le cache).",
+  "it": "Cache totale: %1$s. Android non consente a un'app di svuotare la cache delle altre; «Cache» apre la schermata dell'app (Archiviazione → Svuota cache).",
+  "es": "Caché total: %1$s. Android no permite que una app vacíe la caché de otras; «Caché» abre la pantalla de la app (Almacenamiento → Borrar caché).",
+  "pt": "Cache total: %1$s. O Android não permite que um app limpe o cache de outros; “Cache” abre a tela do app (Armazenamento → Limpar cache).",
+  "de": "Cache gesamt: %1$s. Android erlaubt einer App nicht, den Cache anderer Apps zu leeren; „Cache“ öffnet den App-Bildschirm (Speicher → Cache leeren).",
+  "hu": "Összes gyorsítótár: %1$s. Az Android nem engedi, hogy egy alkalmazás más alkalmazások gyorsítótárát ürítse; a „Gyorsítótár” az alkalmazás képernyőjére visz (Tárhely → Gyorsítótár törlése)."
+ },
+ "a_last_unknown": {
+  "en": "last use unknown",
+  "ro": "folosire necunoscută",
+  "fr": "dernière utilisation inconnue",
+  "it": "ultimo utilizzo sconosciuto",
+  "es": "último uso desconocido",
+  "pt": "último uso desconhecido",
+  "de": "letzte Nutzung unbekannt",
+  "hu": "utolsó használat ismeretlen"
+ },
+ "a_last": {
+  "en": "last used: %1$s",
+  "ro": "folosită: %1$s",
+  "fr": "utilisée : %1$s",
+  "it": "usata: %1$s",
+  "es": "usada: %1$s",
+  "pt": "usado: %1$s",
+  "de": "zuletzt genutzt: %1$s",
+  "hu": "utoljára használva: %1$s"
+ },
+ "a_line": {
+  "en": "cache %1$s · total %2$s · %3$s",
+  "ro": "cache %1$s · total %2$s · %3$s",
+  "fr": "cache %1$s · total %2$s · %3$s",
+  "it": "cache %1$s · totale %2$s · %3$s",
+  "es": "caché %1$s · total %2$s · %3$s",
+  "pt": "cache %1$s · total %2$s · %3$s",
+  "de": "Cache %1$s · gesamt %2$s · %3$s",
+  "hu": "gyorsítótár %1$s · összesen %2$s · %3$s"
+ },
+ "a_uninstall": {
+  "en": "Uninstall",
+  "ro": "Dezinstalează",
+  "fr": "Désinstaller",
+  "it": "Disinstalla",
+  "es": "Desinstalar",
+  "pt": "Desinstalar",
+  "de": "Deinstallieren",
+  "hu": "Eltávolítás"
+ },
+ "vm_scanning": {
+  "en": "Scanning…",
+  "ro": "Se scanează…",
+  "fr": "Analyse en cours…",
+  "it": "Scansione in corso…",
+  "es": "Escaneando…",
+  "pt": "Verificando…",
+  "de": "Scanne…",
+  "hu": "Keresés…"
+ },
+ "vm_scanning_n": {
+  "en": "Scanning… files: %1$d",
+  "ro": "Se scanează… fișiere: %1$d",
+  "fr": "Analyse… fichiers : %1$d",
+  "it": "Scansione… file: %1$d",
+  "es": "Escaneando… archivos: %1$d",
+  "pt": "Verificando… arquivos: %1$d",
+  "de": "Scanne… Dateien: %1$d",
+  "hu": "Keresés… fájlok: %1$d"
+ },
+ "vm_orphans": {
+  "en": "Looking for leftovers of uninstalled apps…",
+  "ro": "Caut resturi de la aplicații dezinstalate…",
+  "fr": "Recherche des restes d'applications désinstallées…",
+  "it": "Cerco i residui di app disinstallate…",
+  "es": "Buscando restos de apps desinstaladas…",
+  "pt": "Procurando sobras de apps desinstalados…",
+  "de": "Suche Reste deinstallierter Apps…",
+  "hu": "Eltávolított alkalmazások maradványainak keresése…"
+ },
+ "vm_err_scan": {
+  "en": "Scan error: %1$s",
+  "ro": "Eroare la scanare: %1$s",
+  "fr": "Erreur d'analyse : %1$s",
+  "it": "Errore di scansione: %1$s",
+  "es": "Error al escanear: %1$s",
+  "pt": "Erro na verificação: %1$s",
+  "de": "Scanfehler: %1$s",
+  "hu": "Keresési hiba: %1$s"
+ },
+ "vm_analyzing": {
+  "en": "Analyzing…",
+  "ro": "Se analizează…",
+  "fr": "Analyse…",
+  "it": "Analisi…",
+  "es": "Analizando…",
+  "pt": "Analisando…",
+  "de": "Analysiere…",
+  "hu": "Elemzés…"
+ },
+ "vm_analyzing_n": {
+  "en": "Analyzing… %1$d / %2$d",
+  "ro": "Se analizează… %1$d / %2$d",
+  "fr": "Analyse… %1$d / %2$d",
+  "it": "Analisi… %1$d / %2$d",
+  "es": "Analizando… %1$d / %2$d",
+  "pt": "Analisando… %1$d / %2$d",
+  "de": "Analysiere… %1$d / %2$d",
+  "hu": "Elemzés… %1$d / %2$d"
+ },
+ "vm_err_analyze": {
+  "en": "Analysis error: %1$s",
+  "ro": "Eroare la analiză: %1$s",
+  "fr": "Erreur d'analyse : %1$s",
+  "it": "Errore di analisi: %1$s",
+  "es": "Error de análisis: %1$s",
+  "pt": "Erro na análise: %1$s",
+  "de": "Analysefehler: %1$s",
+  "hu": "Elemzési hiba: %1$s"
+ },
+ "vm_err_apps": {
+  "en": "Could not read apps: %1$s",
+  "ro": "Nu am putut citi aplicațiile: %1$s",
+  "fr": "Impossible de lire les applications : %1$s",
+  "it": "Impossibile leggere le app: %1$s",
+  "es": "No se pudieron leer las apps: %1$s",
+  "pt": "Não foi possível ler os apps: %1$s",
+  "de": "Apps konnten nicht gelesen werden: %1$s",
+  "hu": "Nem sikerült beolvasni az alkalmazásokat: %1$s"
+ },
+ "vm_deleted": {
+  "en": "Deleted: %1$d · %2$s freed",
+  "ro": "Șterse: %1$d · %2$s eliberați",
+  "fr": "Supprimés : %1$d · %2$s libérés",
+  "it": "Eliminati: %1$d · %2$s liberati",
+  "es": "Eliminados: %1$d · %2$s liberados",
+  "pt": "Excluídos: %1$d · %2$s liberados",
+  "de": "Gelöscht: %1$d · %2$s freigegeben",
+  "hu": "Törölve: %1$d · %2$s felszabadítva"
+ },
+ "vm_cant_delete": {
+  "en": "Could not delete: %1$d",
+  "ro": "Nu au putut fi șterse: %1$d",
+  "fr": "Suppression impossible : %1$d",
+  "it": "Impossibile eliminare: %1$d",
+  "es": "No se pudieron eliminar: %1$d",
+  "pt": "Não foi possível excluir: %1$d",
+  "de": "Nicht löschbar: %1$d",
+  "hu": "Nem törölhető: %1$d"
+ },
+ "vm_compressing": {
+  "en": "Compressing %1$d / %2$d…",
+  "ro": "Comprim %1$d / %2$d…",
+  "fr": "Compression %1$d / %2$d…",
+  "it": "Compressione %1$d / %2$d…",
+  "es": "Comprimiendo %1$d / %2$d…",
+  "pt": "Comprimindo %1$d / %2$d…",
+  "de": "Komprimiere %1$d / %2$d…",
+  "hu": "Tömörítés %1$d / %2$d…"
+ },
+ "vm_compressed": {
+  "en": "Compressed: %1$d of %2$d · %3$s freed",
+  "ro": "Comprimate: %1$d din %2$d · %3$s eliberați",
+  "fr": "Compressées : %1$d sur %2$d · %3$s libérés",
+  "it": "Compresse: %1$d su %2$d · %3$s liberati",
+  "es": "Comprimidas: %1$d de %2$d · %3$s liberados",
+  "pt": "Comprimidas: %1$d de %2$d · %3$s liberados",
+  "de": "Komprimiert: %1$d von %2$d · %3$s freigegeben",
+  "hu": "Tömörítve: %1$d / %2$d · %3$s felszabadítva"
+ },
+ "vm_cache_cleared": {
+  "en": "Own cache cleared · %1$s",
+  "ro": "Cache propriu golit · %1$s",
+  "fr": "Cache propre vidé · %1$s",
+  "it": "Cache dell'app svuotata · %1$s",
+  "es": "Caché propia vaciada · %1$s",
+  "pt": "Cache próprio limpo · %1$s",
+  "de": "Eigener Cache geleert · %1$s",
+  "hu": "Saját gyorsítótár kiürítve · %1$s"
+ },
+ "vm_cancelled": {
+  "en": "Deletion was cancelled",
+  "ro": "Ștergerea a fost anulată",
+  "fr": "Suppression annulée",
+  "it": "Eliminazione annullata",
+  "es": "Eliminación cancelada",
+  "pt": "Exclusão cancelada",
+  "de": "Löschen abgebrochen",
+  "hu": "A törlés megszakadt"
+ },
+ "cat_images": {
+  "en": "Images",
+  "ro": "Imagini",
+  "fr": "Images",
+  "it": "Immagini",
+  "es": "Imágenes",
+  "pt": "Imagens",
+  "de": "Bilder",
+  "hu": "Képek"
+ },
+ "cat_video": {
+  "en": "Video",
+  "ro": "Video",
+  "fr": "Vidéos",
+  "it": "Video",
+  "es": "Vídeo",
+  "pt": "Vídeo",
+  "de": "Videos",
+  "hu": "Videók"
+ },
+ "cat_audio": {
+  "en": "Audio",
+  "ro": "Audio",
+  "fr": "Audio",
+  "it": "Audio",
+  "es": "Audio",
+  "pt": "Áudio",
+  "de": "Audio",
+  "hu": "Hang"
+ },
+ "cat_docs": {
+  "en": "Documents",
+  "ro": "Documente",
+  "fr": "Documents",
+  "it": "Documenti",
+  "es": "Documentos",
+  "pt": "Documentos",
+  "de": "Dokumente",
+  "hu": "Dokumentumok"
+ },
+ "cat_archives": {
+  "en": "Archives and installers",
+  "ro": "Arhive și instalări",
+  "fr": "Archives et installateurs",
+  "it": "Archivi e installatori",
+  "es": "Archivos y instaladores",
+  "pt": "Arquivos compactados e instaladores",
+  "de": "Archive und Installer",
+  "hu": "Archívumok és telepítők"
+ },
+ "cat_other": {
+  "en": "Other",
+  "ro": "Altele",
+  "fr": "Autres",
+  "it": "Altro",
+  "es": "Otros",
+  "pt": "Outros",
+  "de": "Sonstiges",
+  "hu": "Egyéb"
+ }
+}

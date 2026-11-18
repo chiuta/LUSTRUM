@@ -46,6 +46,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import android.text.format.DateUtils
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 
@@ -81,7 +83,7 @@ fun LustrumApp(vm: LustrumVm, a: Actions) {
         if ((vm.perms.media || vm.perms.allFiles) && !vm.scanned && !vm.scanning) vm.scan()
     }
 
-    val tabs = listOf("Acasă" to "🏠", "Fișiere" to "📦", "Duplicate" to "👯", "Aplicații" to "📱")
+    val tabs = listOf(R.string.tab_home to "🏠", R.string.tab_files to "📦", R.string.tab_dupes to "👯", R.string.tab_apps to "📱")
     Scaffold(
         snackbarHost = { SnackbarHost(snack) },
         bottomBar = {
@@ -91,7 +93,7 @@ fun LustrumApp(vm: LustrumVm, a: Actions) {
                         selected = tab == i,
                         onClick = { tab = i },
                         icon = { Text(emoji) },
-                        label = { Text(label) },
+                        label = { Text(stringResource(label)) },
                     )
                 }
             }
@@ -124,25 +126,25 @@ fun HomeScreen(vm: LustrumVm, a: Actions, openJunk: () -> Unit) {
         item {
             Text("LUSTRUM", style = MaterialTheme.typography.headlineMedium, modifier = Modifier.padding(top = 16.dp))
             Text(
-                "Curățare fără reclame, fără internet, fără urmărire.",
+                stringResource(R.string.tagline),
                 style = MaterialTheme.typography.bodyMedium,
             )
         }
         item {
             Card(Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Text("Stocare", style = MaterialTheme.typography.titleMedium)
+                    Text(stringResource(R.string.storage), style = MaterialTheme.typography.titleMedium)
                     LinearProgressIndicator(
                         progress = { if (vm.totalBytes > 0) used.toFloat() / vm.totalBytes else 0f },
                         modifier = Modifier.fillMaxWidth(),
                     )
-                    Text("Folosit ${fmtSize(used)} din ${fmtSize(vm.totalBytes)} · liber ${fmtSize(vm.freeBytes)}")
+                    Text(stringResource(R.string.storage_line, fmtSize(used), fmtSize(vm.totalBytes), fmtSize(vm.freeBytes)))
                     if (byCat.isNotEmpty()) {
                         Category.entries.forEach { c ->
                             val s = byCat[c] ?: 0L
                             if (s > 0) {
                                 Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                                    Text(c.label)
+                                    Text(stringResource(c.labelRes))
                                     Text(fmtSize(s))
                                 }
                                 LinearProgressIndicator(
@@ -153,7 +155,7 @@ fun HomeScreen(vm: LustrumVm, a: Actions, openJunk: () -> Unit) {
                         }
                         if (!p.allFiles) {
                             Text(
-                                "Se văd doar imagini, video și audio. Pentru documente, descărcări și resturi acordă „Acces la toate fișierele”.",
+                                stringResource(R.string.media_only_note),
                                 style = MaterialTheme.typography.bodySmall,
                             )
                         }
@@ -170,9 +172,9 @@ fun HomeScreen(vm: LustrumVm, a: Actions, openJunk: () -> Unit) {
                 Text(
                     when {
                         vm.scanning -> vm.progress
-                        !(p.media || p.allFiles) -> "Acordă acces și scanează"
-                        vm.scanned -> "Scanează din nou"
-                        else -> "Scanează telefonul"
+                        !(p.media || p.allFiles) -> stringResource(R.string.scan_grant)
+                        vm.scanned -> stringResource(R.string.scan_again)
+                        else -> stringResource(R.string.scan_phone)
                     }
                 )
             }
@@ -181,9 +183,9 @@ fun HomeScreen(vm: LustrumVm, a: Actions, openJunk: () -> Unit) {
             item {
                 Card(Modifier.fillMaxWidth()) {
                     Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                        Text("Resturi", style = MaterialTheme.typography.titleMedium)
-                        Text("${junk.size} fișiere · ${fmtSize(junk.sumOf { it.size })} (temporare, miniaturi, descărcări întrerupte)")
-                        OutlinedButton(onClick = openJunk, enabled = junk.isNotEmpty()) { Text("Vezi și curăță") }
+                        Text(stringResource(R.string.junk_title), style = MaterialTheme.typography.titleMedium)
+                        Text(stringResource(R.string.junk_line, junk.size, fmtSize(junk.sumOf { it.size })))
+                        OutlinedButton(onClick = openJunk, enabled = junk.isNotEmpty()) { Text(stringResource(R.string.junk_btn)) }
                     }
                 }
             }
@@ -193,15 +195,12 @@ fun HomeScreen(vm: LustrumVm, a: Actions, openJunk: () -> Unit) {
             val h = remember(vm.scanning, vm.scanned) { HealthReader.read(ctx) }
             Card(Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                    Text("Starea dispozitivului", style = MaterialTheme.typography.titleMedium)
-                    Text("Memorie RAM: ${fmtSize(h.ramTotal - h.ramFree)} folosiți din ${fmtSize(h.ramTotal)}")
+                    Text(stringResource(R.string.health_title), style = MaterialTheme.typography.titleMedium)
+                    Text(stringResource(R.string.health_ram, fmtSize(h.ramTotal - h.ramFree), fmtSize(h.ramTotal)))
+                    val pct = if (h.batteryPct >= 0) "${h.batteryPct}%" else "?"
+                    Text(stringResource(if (h.charging) R.string.health_batt_chg else R.string.health_batt, pct, "%.1f".format(h.batteryTemp)))
                     Text(
-                        "Baterie: ${if (h.batteryPct >= 0) "${h.batteryPct}%" else "?"}" +
-                            (if (h.charging) " · se încarcă" else "") +
-                            " · ${"%.1f".format(h.batteryTemp)} °C"
-                    )
-                    Text(
-                        "Doar informativ: Android gestionează singur memoria, iar „eliberarea RAM” nu ajută.",
+                        stringResource(R.string.health_note),
                         style = MaterialTheme.typography.bodySmall,
                     )
                 }
@@ -210,12 +209,12 @@ fun HomeScreen(vm: LustrumVm, a: Actions, openJunk: () -> Unit) {
         item {
             Card(Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Text("Permisiuni", style = MaterialTheme.typography.titleMedium)
-                    PermRow("Acces la media", p.media, "Acordă", a.requestMedia)
-                    PermRow("Acces la toate fișierele", p.allFiles, "Setări", a.openAllFiles)
-                    PermRow("Acces la utilizare aplicații", p.usage, "Setări", a.openUsage)
+                    Text(stringResource(R.string.perm_title), style = MaterialTheme.typography.titleMedium)
+                    PermRow(stringResource(R.string.perm_media), p.media, stringResource(R.string.perm_grant), a.requestMedia)
+                    PermRow(stringResource(R.string.perm_all), p.allFiles, stringResource(R.string.perm_settings), a.openAllFiles)
+                    PermRow(stringResource(R.string.perm_usage), p.usage, stringResource(R.string.perm_settings), a.openUsage)
                     Text(
-                        "Aplicația nu are permisiunea INTERNET: nimic nu pleacă de pe telefon.",
+                        stringResource(R.string.no_internet),
                         style = MaterialTheme.typography.bodySmall,
                     )
                 }
@@ -223,7 +222,7 @@ fun HomeScreen(vm: LustrumVm, a: Actions, openJunk: () -> Unit) {
         }
         item {
             OutlinedButton(onClick = vm::clearOwnCache, modifier = Modifier.fillMaxWidth()) {
-                Text("Golește cache-ul propriu")
+                Text(stringResource(R.string.clear_own_cache))
             }
             Box(Modifier.padding(bottom = 16.dp))
         }
@@ -271,7 +270,7 @@ private fun DeleteBar(chosen: List<Item>, enabled: Boolean = true, onClick: () -
             onClick = onClick,
             enabled = enabled,
             modifier = Modifier.fillMaxWidth().padding(12.dp),
-        ) { Text("Șterge ${chosen.size} selectate · ${fmtSize(chosen.sumOf { it.size })}") }
+        ) { Text(stringResource(R.string.del_bar, chosen.size, fmtSize(chosen.sumOf { it.size }))) }
     }
 }
 
@@ -279,24 +278,25 @@ private fun DeleteBar(chosen: List<Item>, enabled: Boolean = true, onClick: () -
 private fun ConfirmDelete(list: List<Item>, onDismiss: () -> Unit, onOk: () -> Unit) {
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text("Ștergi ${list.size} fișiere?") },
-        text = { Text("Se eliberează ${fmtSize(list.sumOf { it.size })}. Acțiunea nu se poate anula.") },
-        confirmButton = { TextButton(onClick = onOk) { Text("Șterge") } },
-        dismissButton = { TextButton(onClick = onDismiss) { Text("Anulează") } },
+        title = { Text(stringResource(R.string.confirm_del_title, list.size)) },
+        text = { Text(stringResource(R.string.confirm_del_text, fmtSize(list.sumOf { it.size }))) },
+        confirmButton = { TextButton(onClick = onOk) { Text(stringResource(R.string.delete)) } },
+        dismissButton = { TextButton(onClick = onDismiss) { Text(stringResource(R.string.cancel)) } },
     )
 }
 
 // ───────────────────────── Fișiere mari / vechi / resturi ─────────────────────────
 
-private fun filterLabel(f: Filter) = when (f) {
-    Filter.MARI -> "Mari >50 MB"
-    Filter.VECHI -> "Vechi >1 an"
-    Filter.RESTURI -> "Resturi"
-    Filter.CAPTURI -> "Capturi de ecran"
-    Filter.INSTALATOARE -> "Instalatoare"
-    Filter.COMPRIMARE -> "Comprimare foto"
-    Filter.ORFANE -> "Rămășițe aplicații"
-    Filter.GOALE -> "Foldere goale"
+@Composable
+private fun filterLabel(f: Filter): String = when (f) {
+    Filter.MARI -> stringResource(R.string.f_big)
+    Filter.VECHI -> stringResource(R.string.f_old)
+    Filter.RESTURI -> stringResource(R.string.f_junk)
+    Filter.CAPTURI -> stringResource(R.string.f_shots)
+    Filter.INSTALATOARE -> stringResource(R.string.f_apk)
+    Filter.COMPRIMARE -> stringResource(R.string.f_compress)
+    Filter.ORFANE -> stringResource(R.string.f_orphans)
+    Filter.GOALE -> stringResource(R.string.f_empty)
 }
 
 @Composable
@@ -318,18 +318,17 @@ fun FilesScreen(vm: LustrumVm, a: Actions) {
         }
         if (compress) {
             Text(
-                "Recomprimă JPEG-uri la calitate 80, doar dacă rezultatul e cu cel puțin 20% mai mic. " +
-                    "Operația este ireversibilă (se păstrează data și etichetele EXIF principale).",
+                stringResource(R.string.compress_note),
                 Modifier.padding(horizontal = 16.dp),
                 style = MaterialTheme.typography.bodySmall,
             )
         }
         when {
-            needsAll && !vm.perms.allFiles -> Text("Necesită „Acces la toate fișierele” (din Acasă).", Modifier.padding(16.dp))
-            !vm.scanned -> Text("Scanează mai întâi din Acasă.", Modifier.padding(16.dp))
-            list.isEmpty() -> Text("Nimic de arătat aici.", Modifier.padding(16.dp))
+            needsAll && !vm.perms.allFiles -> Text(stringResource(R.string.need_all), Modifier.padding(16.dp))
+            !vm.scanned -> Text(stringResource(R.string.scan_first), Modifier.padding(16.dp))
+            list.isEmpty() -> Text(stringResource(R.string.nothing), Modifier.padding(16.dp))
             else -> Text(
-                "${list.size} elemente · ${fmtSize(list.sumOf { it.size })}",
+                stringResource(R.string.items_line, list.size, fmtSize(list.sumOf { it.size })),
                 Modifier.padding(horizontal = 16.dp),
                 style = MaterialTheme.typography.bodySmall,
             )
@@ -346,7 +345,7 @@ fun FilesScreen(vm: LustrumVm, a: Actions) {
                         onClick = { confirm = chosen },
                         enabled = !vm.compressing,
                         modifier = Modifier.fillMaxWidth().padding(12.dp),
-                    ) { Text(if (vm.compressing) vm.progress else "Comprimă ${chosen.size} imagini") }
+                    ) { Text(if (vm.compressing) vm.progress else stringResource(R.string.compress_btn, chosen.size)) }
                 }
             } else {
                 DeleteBar(chosen) { confirm = chosen }
@@ -357,10 +356,10 @@ fun FilesScreen(vm: LustrumVm, a: Actions) {
         if (compress) {
             AlertDialog(
                 onDismissRequest = { confirm = null },
-                title = { Text("Comprimi ${l.size} imagini?") },
-                text = { Text("Originalele sunt înlocuite doar dacă fișierul nou e cu ≥20% mai mic. Nu se poate anula.") },
-                confirmButton = { TextButton(onClick = { vm.compress(l); confirm = null }) { Text("Comprimă") } },
-                dismissButton = { TextButton(onClick = { confirm = null }) { Text("Anulează") } },
+                title = { Text(stringResource(R.string.confirm_cmp_title, l.size)) },
+                text = { Text(stringResource(R.string.confirm_cmp_text)) },
+                confirmButton = { TextButton(onClick = { vm.compress(l); confirm = null }) { Text(stringResource(R.string.compress)) } },
+                dismissButton = { TextButton(onClick = { confirm = null }) { Text(stringResource(R.string.cancel)) } },
             )
         } else {
             ConfirmDelete(l, { confirm = null }) {
@@ -384,8 +383,8 @@ fun DupScreen(vm: LustrumVm, a: Actions) {
 
     Column(Modifier.fillMaxSize()) {
         Row(Modifier.padding(horizontal = 12.dp, vertical = 8.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            FilterChip(vm.dupMode == 0, { vm.dupMode = 0 }, { Text("Identice") })
-            FilterChip(vm.dupMode == 1, { vm.dupMode = 1 }, { Text("Imagini asemănătoare") })
+            FilterChip(vm.dupMode == 0, { vm.dupMode = 0 }, { Text(stringResource(R.string.d_identical)) })
+            FilterChip(vm.dupMode == 1, { vm.dupMode = 1 }, { Text(stringResource(R.string.d_similar)) })
         }
         Column(Modifier.padding(horizontal = 16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
             Button(
@@ -396,23 +395,23 @@ fun DupScreen(vm: LustrumVm, a: Actions) {
                 Text(
                     when {
                         vm.dupBusy -> vm.dupProgress
-                        !vm.scanned -> "Scanează mai întâi din Acasă"
-                        vm.dupMode == 0 -> "Caută fișiere identice"
-                        else -> "Caută imagini asemănătoare"
+                        !vm.scanned -> stringResource(R.string.scan_first)
+                        vm.dupMode == 0 -> stringResource(R.string.d_find_exact)
+                        else -> stringResource(R.string.d_find_similar)
                     }
                 )
             }
             if (vm.groupsDone) {
-                Text("${groups.size} grupuri · ${fmtSize(recoverable)} recuperabili", style = MaterialTheme.typography.bodySmall)
+                Text(stringResource(R.string.d_groups, groups.size, fmtSize(recoverable)), style = MaterialTheme.typography.bodySmall)
                 if (groups.isNotEmpty()) {
                     OutlinedButton(onClick = vm::autoSelect, modifier = Modifier.fillMaxWidth()) {
-                        Text("Bifează copiile (păstrează cel mai vechi)")
+                        Text(stringResource(R.string.d_autoselect))
                     }
                 }
             }
             if (risky > 0) {
                 Text(
-                    "Ai bifat toate copiile din $risky grupuri. Debifează cel puțin una din fiecare grup.",
+                    stringResource(R.string.d_risky, risky),
                     color = MaterialTheme.colorScheme.error,
                     style = MaterialTheme.typography.bodySmall,
                 )
@@ -422,7 +421,7 @@ fun DupScreen(vm: LustrumVm, a: Actions) {
             groups.forEachIndexed { gi, g ->
                 item(key = "h$gi") {
                     Text(
-                        "${g.size} copii · ${fmtSize(g[0].size)} fiecare",
+                        stringResource(R.string.d_group_head, g.size, fmtSize(g[0].size)),
                         Modifier.padding(start = 16.dp, top = 12.dp),
                         style = MaterialTheme.typography.titleSmall,
                     )
@@ -464,21 +463,20 @@ fun AppsScreen(vm: LustrumVm, a: Actions) {
         if (!vm.perms.usage) {
             Card(Modifier.fillMaxWidth().padding(16.dp)) {
                 Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Text("Pentru mărimea cache-ului și ultima folosire, Android cere „Acces la utilizare”.")
-                    Button(onClick = a.openUsage) { Text("Deschide setările") }
+                    Text(stringResource(R.string.a_need_usage))
+                    Button(onClick = a.openUsage) { Text(stringResource(R.string.a_open_settings)) }
                 }
             }
             return@Column
         }
         Row(Modifier.padding(horizontal = 12.dp, vertical = 8.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            FilterChip(sort == 0, { sort = 0 }, { Text("Cache") })
-            FilterChip(sort == 1, { sort = 1 }, { Text("Nefolosite") })
-            FilterChip(sort == 2, { sort = 2 }, { Text("Mărime") })
+            FilterChip(sort == 0, { sort = 0 }, { Text(stringResource(R.string.a_cache)) })
+            FilterChip(sort == 1, { sort = 1 }, { Text(stringResource(R.string.a_unused)) })
+            FilterChip(sort == 2, { sort = 2 }, { Text(stringResource(R.string.a_size)) })
         }
         Text(
-            if (vm.appsBusy) "Se citesc aplicațiile…"
-            else "Cache total: ${fmtSize(apps.sumOf { it.cache })}. Android nu permite unei aplicații să șteargă cache-ul altora; " +
-                "„Cache” te duce la ecranul aplicației (Stocare → Golește cache-ul).",
+            if (vm.appsBusy) stringResource(R.string.a_reading)
+            else stringResource(R.string.a_cache_note, fmtSize(apps.sumOf { it.cache })),
             Modifier.padding(horizontal = 16.dp),
             style = MaterialTheme.typography.bodySmall,
         )
@@ -490,15 +488,15 @@ fun AppsScreen(vm: LustrumVm, a: Actions) {
                 ) {
                     Column(Modifier.weight(1f)) {
                         Text(app.label, maxLines = 1, overflow = TextOverflow.Ellipsis)
-                        val last = if (app.lastUsed <= 0) "folosire necunoscută"
-                        else "folosită acum ${(now - app.lastUsed) / 86_400_000L} zile"
+                        val last = if (app.lastUsed <= 0) stringResource(R.string.a_last_unknown)
+                        else stringResource(R.string.a_last, DateUtils.getRelativeTimeSpanString(app.lastUsed, now, DateUtils.DAY_IN_MILLIS).toString())
                         Text(
-                            "cache ${fmtSize(app.cache)} · total ${fmtSize(app.total)} · $last",
+                            stringResource(R.string.a_line, fmtSize(app.cache), fmtSize(app.total), last),
                             style = MaterialTheme.typography.bodySmall,
                         )
                     }
-                    TextButton(onClick = { a.appSettings(app.pkg) }) { Text("Cache") }
-                    TextButton(onClick = { a.uninstall(app.pkg) }) { Text("Dezinstalează") }
+                    TextButton(onClick = { a.appSettings(app.pkg) }) { Text(stringResource(R.string.a_cache)) }
+                    TextButton(onClick = { a.uninstall(app.pkg) }) { Text(stringResource(R.string.a_uninstall)) }
                 }
             }
         }

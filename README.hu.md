@@ -6,7 +6,7 @@
 
 A LUSTRUM megtalálja a felesleges fájlokat, duplikátumokat, hasonló fotókat és az alkalmazások maradványait, és csak a jóváhagyásoddal törli őket. Nincs INTERNET-engedélye, így fizikailag sem tud semmit sehová küldeni.
 
-**Verzió: 0.2.0 · Utolsó frissítés: 2026-11-18**
+**Verzió: 0.3.0 · Utolsó frissítés: 2026-11-18**
 
 [lustrum.chiuta.ro/](https://lustrum.chiuta.ro/)
 
@@ -63,7 +63,7 @@ A legismertebb tisztítókkal szemben, nyilvános leírásaik alapján (2026. no
 
 ## Szerezd meg a LUSTRUM-ot
 
-Béta — 0.2.0 verzió. Közvetlenül telepíthető, áruházi fiók nélkül.
+Béta — 0.3.0 verzió. Közvetlenül telepíthető, áruházi fiók nélkül.
 
 1. Töltsd le az APK-t a legújabb kiadásból.
 2. Engedélyezd a telepítést erről a forrásról, amikor az Android rákérdez.

@@ -41,7 +41,7 @@
       "iOS. The system does not allow cleaning outside an app's own sandbox."
     ],
     "d_title": "Get LUSTRUM",
-    "d_sub": "Beta — version 0.2.0. Installs directly; no store account needed.",
+    "d_sub": "Beta — version 0.3.0. Installs directly; no store account needed.",
     "steps": [
       "Download the APK from the latest release.",
       "Allow installation from this source when Android asks.",
@@ -113,7 +113,7 @@
       "iOS. Sistemul nu permite curățare în afara propriului spațiu al aplicației."
     ],
     "d_title": "Obține LUSTRUM",
-    "d_sub": "Beta — versiunea 0.2.0. Se instalează direct; nu ai nevoie de cont de magazin.",
+    "d_sub": "Beta — versiunea 0.3.0. Se instalează direct; nu ai nevoie de cont de magazin.",
     "steps": [
       "Descarcă APK-ul din ultima versiune publicată.",
       "Permite instalarea din această sursă când Android te întreabă.",
@@ -185,7 +185,7 @@
       "iOS. Le système interdit tout nettoyage hors du bac à sable de l'application."
     ],
     "d_title": "Obtenir LUSTRUM",
-    "d_sub": "Bêta — version 0.2.0. Installation directe, sans compte de boutique.",
+    "d_sub": "Bêta — version 0.3.0. Installation directe, sans compte de boutique.",
     "steps": [
       "Téléchargez l'APK depuis la dernière version publiée.",
       "Autorisez l'installation depuis cette source lorsque Android le demande.",
@@ -257,7 +257,7 @@
       "iOS. Il sistema non consente pulizie fuori dall'area riservata dell'app."
     ],
     "d_title": "Ottieni LUSTRUM",
-    "d_sub": "Beta — versione 0.2.0. Si installa direttamente, senza account di uno store.",
+    "d_sub": "Beta — versione 0.3.0. Si installa direttamente, senza account di uno store.",
     "steps": [
       "Scarica l'APK dall'ultima versione pubblicata.",
       "Consenti l'installazione da questa fonte quando Android lo chiede.",
@@ -329,7 +329,7 @@
       "iOS. El sistema no permite limpiar fuera del espacio propio de la app."
     ],
     "d_title": "Consigue LUSTRUM",
-    "d_sub": "Beta — versión 0.2.0. Se instala directamente, sin cuenta de tienda.",
+    "d_sub": "Beta — versión 0.3.0. Se instala directamente, sin cuenta de tienda.",
     "steps": [
       "Descarga el APK de la última versión publicada.",
       "Permite la instalación desde esta fuente cuando Android te lo pida.",
@@ -401,7 +401,7 @@
       "iOS. O sistema não permite limpeza fora do espaço do próprio app."
     ],
     "d_title": "Baixe o LUSTRUM",
-    "d_sub": "Beta — versão 0.2.0. Instalação direta, sem conta de loja.",
+    "d_sub": "Beta — versão 0.3.0. Instalação direta, sem conta de loja.",
     "steps": [
       "Baixe o APK na última versão publicada.",
       "Permita a instalação desta fonte quando o Android perguntar.",
@@ -473,7 +473,7 @@
       "iOS. Das System erlaubt keine Bereinigung außerhalb des eigenen Bereichs einer App."
     ],
     "d_title": "LUSTRUM holen",
-    "d_sub": "Beta — Version 0.2.0. Direkte Installation, ohne Store-Konto.",
+    "d_sub": "Beta — Version 0.3.0. Direkte Installation, ohne Store-Konto.",
     "steps": [
       "Laden Sie die APK aus der neuesten veröffentlichten Version herunter.",
       "Erlauben Sie die Installation aus dieser Quelle, wenn Android fragt.",
@@ -545,7 +545,7 @@
       "iOS. A rendszer nem engedi a tisztítást az alkalmazás saját területén kívül."
     ],
     "d_title": "Szerezd meg a LUSTRUM-ot",
-    "d_sub": "Béta — 0.2.0 verzió. Közvetlenül telepíthető, áruházi fiók nélkül.",
+    "d_sub": "Béta — 0.3.0 verzió. Közvetlenül telepíthető, áruházi fiók nélkül.",
     "steps": [
       "Töltsd le az APK-t a legújabb kiadásból.",
       "Engedélyezd a telepítést erről a forrásról, amikor az Android rákérdez.",
