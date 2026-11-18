@@ -3,6 +3,8 @@
 package tf.trom.lustrum
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -43,6 +45,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 
@@ -186,6 +189,25 @@ fun HomeScreen(vm: LustrumVm, a: Actions, openJunk: () -> Unit) {
             }
         }
         item {
+            val ctx = LocalContext.current
+            val h = remember(vm.scanning, vm.scanned) { HealthReader.read(ctx) }
+            Card(Modifier.fillMaxWidth()) {
+                Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    Text("Starea dispozitivului", style = MaterialTheme.typography.titleMedium)
+                    Text("Memorie RAM: ${fmtSize(h.ramTotal - h.ramFree)} folosiți din ${fmtSize(h.ramTotal)}")
+                    Text(
+                        "Baterie: ${if (h.batteryPct >= 0) "${h.batteryPct}%" else "?"}" +
+                            (if (h.charging) " · se încarcă" else "") +
+                            " · ${"%.1f".format(h.batteryTemp)} °C"
+                    )
+                    Text(
+                        "Doar informativ: Android gestionează singur memoria, iar „eliberarea RAM” nu ajută.",
+                        style = MaterialTheme.typography.bodySmall,
+                    )
+                }
+            }
+        }
+        item {
             Card(Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                     Text("Permisiuni", style = MaterialTheme.typography.titleMedium)
@@ -266,23 +288,48 @@ private fun ConfirmDelete(list: List<Item>, onDismiss: () -> Unit, onOk: () -> U
 
 // ───────────────────────── Fișiere mari / vechi / resturi ─────────────────────────
 
+private fun filterLabel(f: Filter) = when (f) {
+    Filter.MARI -> "Mari >50 MB"
+    Filter.VECHI -> "Vechi >1 an"
+    Filter.RESTURI -> "Resturi"
+    Filter.CAPTURI -> "Capturi de ecran"
+    Filter.INSTALATOARE -> "Instalatoare"
+    Filter.COMPRIMARE -> "Comprimare foto"
+    Filter.ORFANE -> "Rămășițe aplicații"
+    Filter.GOALE -> "Foldere goale"
+}
+
 @Composable
 fun FilesScreen(vm: LustrumVm, a: Actions) {
-    val list = remember(vm.items, vm.filter) { vm.list(vm.filter) }
+    val list = remember(vm.items, vm.filter, vm.orphans, vm.emptyDirs) { vm.list(vm.filter) }
     var confirm by remember { mutableStateOf<List<Item>?>(null) }
     val chosen = list.filter { it.path in vm.selected }
+    val needsAll = vm.filter == Filter.ORFANE || vm.filter == Filter.GOALE || vm.filter == Filter.COMPRIMARE
+    val compress = vm.filter == Filter.COMPRIMARE
 
     Column(Modifier.fillMaxSize()) {
-        Row(Modifier.padding(horizontal = 12.dp, vertical = 8.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            FilterChip(vm.filter == Filter.MARI, { vm.filter = Filter.MARI }, { Text("Mari >50 MB") })
-            FilterChip(vm.filter == Filter.VECHI, { vm.filter = Filter.VECHI }, { Text("Vechi >1 an") })
-            FilterChip(vm.filter == Filter.RESTURI, { vm.filter = Filter.RESTURI }, { Text("Resturi") })
+        Row(
+            Modifier.horizontalScroll(rememberScrollState()).padding(horizontal = 12.dp, vertical = 8.dp),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            Filter.entries.forEach { f ->
+                FilterChip(vm.filter == f, { vm.filter = f }, { Text(filterLabel(f)) })
+            }
+        }
+        if (compress) {
+            Text(
+                "Recomprimă JPEG-uri la calitate 80, doar dacă rezultatul e cu cel puțin 20% mai mic. " +
+                    "Operația este ireversibilă (se păstrează data și etichetele EXIF principale).",
+                Modifier.padding(horizontal = 16.dp),
+                style = MaterialTheme.typography.bodySmall,
+            )
         }
         when {
+            needsAll && !vm.perms.allFiles -> Text("Necesită „Acces la toate fișierele” (din Acasă).", Modifier.padding(16.dp))
             !vm.scanned -> Text("Scanează mai întâi din Acasă.", Modifier.padding(16.dp))
             list.isEmpty() -> Text("Nimic de arătat aici.", Modifier.padding(16.dp))
             else -> Text(
-                "${list.size} fișiere · ${fmtSize(list.sumOf { it.size })}",
+                "${list.size} elemente · ${fmtSize(list.sumOf { it.size })}",
                 Modifier.padding(horizontal = 16.dp),
                 style = MaterialTheme.typography.bodySmall,
             )
@@ -292,12 +339,34 @@ fun FilesScreen(vm: LustrumVm, a: Actions) {
                 ItemRow(f, f.path in vm.selected) { vm.toggle(f.path) }
             }
         }
-        if (chosen.isNotEmpty()) DeleteBar(chosen) { confirm = chosen }
+        if (chosen.isNotEmpty()) {
+            if (compress) {
+                Surface(tonalElevation = 3.dp, modifier = Modifier.fillMaxWidth()) {
+                    Button(
+                        onClick = { confirm = chosen },
+                        enabled = !vm.compressing,
+                        modifier = Modifier.fillMaxWidth().padding(12.dp),
+                    ) { Text(if (vm.compressing) vm.progress else "Comprimă ${chosen.size} imagini") }
+                }
+            } else {
+                DeleteBar(chosen) { confirm = chosen }
+            }
+        }
     }
     confirm?.let { l ->
-        ConfirmDelete(l, { confirm = null }) {
-            a.delete(l)
-            confirm = null
+        if (compress) {
+            AlertDialog(
+                onDismissRequest = { confirm = null },
+                title = { Text("Comprimi ${l.size} imagini?") },
+                text = { Text("Originalele sunt înlocuite doar dacă fișierul nou e cu ≥20% mai mic. Nu se poate anula.") },
+                confirmButton = { TextButton(onClick = { vm.compress(l); confirm = null }) { Text("Comprimă") } },
+                dismissButton = { TextButton(onClick = { confirm = null }) { Text("Anulează") } },
+            )
+        } else {
+            ConfirmDelete(l, { confirm = null }) {
+                a.delete(l)
+                confirm = null
+            }
         }
     }
 }

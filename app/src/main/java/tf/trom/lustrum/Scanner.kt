@@ -79,6 +79,59 @@ object Scanner {
         return out
     }
 
+    private val STD_DIRS = setOf(
+        "DCIM", "Download", "Pictures", "Music", "Movies", "Documents", "Alarms",
+        "Notifications", "Ringtones", "Podcasts", "Audiobooks", "Recordings",
+    )
+    private val PKG_NAME = Regex("^[a-z][a-z0-9_]*(\\.[a-z0-9_]+)+$")
+
+    private fun dirSize(d: File): Long = d.walkTopDown().filter { it.isFile }.sumOf { it.length() }
+
+    /** Foldere rămase în spațiul partajat de la aplicații care nu mai sunt instalate. */
+    fun orphans(ctx: Context): List<Item> {
+        val installed = ctx.packageManager.getInstalledPackages(0).map { it.packageName }.toSet()
+        val root = Environment.getExternalStorageDirectory()
+        val candidates = ArrayList<File>()
+        for (sub in listOf("Android/media", "Android/obb")) {
+            File(root, sub).listFiles()?.let { candidates.addAll(it) }
+        }
+        root.listFiles()?.let { candidates.addAll(it.filter { f -> f.name !in STD_DIRS }) }
+        return candidates
+            .filter { it.isDirectory && PKG_NAME.matches(it.name) && it.name !in installed }
+            .map { Item(it.name, it.path, dirSize(it), it.lastModified(), Category.ALTELE, null, true) }
+            .filter { it.size > 0 }
+            .sortedByDescending { it.size }
+    }
+
+    /** Foldere complet goale (fără cele standard ale sistemului). */
+    fun emptyDirs(): List<Item> {
+        val root = Environment.getExternalStorageDirectory()
+        val out = ArrayList<Item>()
+        root.walkTopDown()
+            .maxDepth(12)
+            .onEnter { !(it.parentFile == root && it.name == "Android") }
+            .forEach { d ->
+                if (d.isDirectory && d != root &&
+                    !(d.parentFile == root && d.name in STD_DIRS) &&
+                    d.listFiles()?.isEmpty() == true
+                ) out.add(Item(d.name, d.path, 0, d.lastModified(), Category.ALTELE, null, true))
+            }
+        return out
+    }
+
+    fun isScreenshot(i: Item): Boolean {
+        if (i.category != Category.IMAGINI) return false
+        val p = i.path.lowercase()
+        return "screenshot" in p || "captur" in p
+    }
+
+    fun isInstaller(i: Item): Boolean =
+        i.name.substringAfterLast('.', "").lowercase() in setOf("apk", "xapk", "apks")
+
+    /** Fotografii JPEG mari care pot fi recomprimate. */
+    fun isCompressible(i: Item): Boolean =
+        i.name.substringAfterLast('.', "").lowercase() in setOf("jpg", "jpeg") && i.size >= 1_500_000
+
     private val JUNK_EXT = setOf("tmp", "temp", "log", "bak", "old", "thumbdata", "chk", "dmp", "crdownload", "part")
     private val JUNK_DIRS = setOf(".thumbnails", ".cache", "cache", "lost.dir", ".trash")
 

@@ -24,6 +24,7 @@ data class Item(
     val modified: Long,
     val category: Category,
     val uri: Uri? = null,
+    val dir: Boolean = false,
 ) {
     val folder: String get() = path.substringBeforeLast('/', "")
 

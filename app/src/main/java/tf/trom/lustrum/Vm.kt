@@ -13,7 +13,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.File
 
-enum class Filter { MARI, VECHI, RESTURI }
+enum class Filter { MARI, VECHI, RESTURI, CAPTURI, INSTALATOARE, COMPRIMARE, ORFANE, GOALE }
 
 class LustrumVm(private val app: Application) : AndroidViewModel(app) {
 
@@ -29,6 +29,10 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
 
     // fișiere mari / vechi / resturi
     var filter by mutableStateOf(Filter.MARI)
+
+    var orphans by mutableStateOf<List<Item>>(emptyList())
+    var emptyDirs by mutableStateOf<List<Item>>(emptyList())
+    var compressing by mutableStateOf(false)
 
     // duplicate
     var dupMode by mutableStateOf(0) // 0 = identice, 1 = asemănătoare
@@ -68,6 +72,11 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
                 .sortedByDescending { it.size }
         }
         Filter.RESTURI -> items.filter(Scanner::isJunk).sortedByDescending { it.size }
+        Filter.CAPTURI -> items.filter(Scanner::isScreenshot).sortedByDescending { it.size }
+        Filter.INSTALATOARE -> items.filter(Scanner::isInstaller).sortedByDescending { it.size }
+        Filter.COMPRIMARE -> items.filter(Scanner::isCompressible).sortedByDescending { it.size }
+        Filter.ORFANE -> orphans
+        Filter.GOALE -> emptyDirs
     }
 
     fun toggle(path: String) {
@@ -95,6 +104,13 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
                     Scanner.scanMedia(app) { n -> progress = "Se scanează… $n fișiere" }
                 }
                 items = found
+                if (perms.allFiles) {
+                    progress = "Caut resturi de la aplicații dezinstalate…"
+                    orphans = Scanner.orphans(app)
+                    emptyDirs = Scanner.emptyDirs()
+                } else {
+                    orphans = emptyList(); emptyDirs = emptyList()
+                }
                 scanned = true
                 selected = emptySet()
                 exactGroups = emptyList(); similarGroups = emptyList()
@@ -150,6 +166,8 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
         items = items.filter { it.path !in keys }
         exactGroups = exactGroups.map { g -> g.filter { it.path !in keys } }.filter { it.size > 1 }
         similarGroups = similarGroups.map { g -> g.filter { it.path !in keys } }.filter { it.size > 1 }
+        orphans = orphans.filter { it.path !in keys }
+        emptyDirs = emptyDirs.filter { it.path !in keys }
         selected = selected - keys
         updateStorage()
         message = "Șterse ${done.size} fișiere · ${fmtSize(done.sumOf { it.size })} eliberați"
@@ -158,12 +176,42 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
     /** Ștergere directă (necesită „Acces la toate fișierele”). */
     fun deleteFiles(list: List<Item>) {
         viewModelScope.launch(Dispatchers.IO) {
-            val ok = list.filter { File(it.path).delete() }
-            if (ok.isNotEmpty()) {
-                MediaScannerConnection.scanFile(app, ok.map { it.path }.toTypedArray(), null, null)
+            val ok = list.filter { if (it.dir) File(it.path).deleteRecursively() else File(it.path).delete() }
+            val files = ok.filter { !it.dir }
+            if (files.isNotEmpty()) {
+                MediaScannerConnection.scanFile(app, files.map { it.path }.toTypedArray(), null, null)
             }
             removed(ok)
             if (ok.size < list.size) message = "${list.size - ok.size} fișiere nu au putut fi șterse"
+        }
+    }
+
+    /** Recomprimă JPEG-urile selectate (necesită „Acces la toate fișierele”). */
+    fun compress(list: List<Item>) {
+        if (compressing) return
+        compressing = true
+        viewModelScope.launch(Dispatchers.IO) {
+            var saved = 0L
+            var n = 0
+            val newSizes = HashMap<String, Long>()
+            try {
+                for ((i, it) in list.withIndex()) {
+                    progress = "Comprim ${i + 1} / ${list.size}…"
+                    val after = Compressor.compress(it) ?: continue
+                    saved += it.size - after
+                    n++
+                    newSizes[it.path] = after
+                }
+                if (newSizes.isNotEmpty()) {
+                    MediaScannerConnection.scanFile(app, newSizes.keys.toTypedArray(), null, null)
+                    items = items.map { f -> newSizes[f.path]?.let { s -> f.copy(size = s) } ?: f }
+                    updateStorage()
+                }
+                selected = selected - list.map { it.path }.toSet()
+                message = "Comprimate $n din ${list.size} imagini · ${fmtSize(saved)} eliberați"
+            } finally {
+                compressing = false
+            }
         }
     }
 
