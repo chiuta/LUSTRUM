@@ -83,6 +83,11 @@ fun LustrumApp(vm: LustrumVm, a: Actions) {
         if ((vm.perms.media || vm.perms.allFiles) && !vm.scanned && !vm.scanning) vm.scan()
     }
 
+    // După ce se acordă „Acces la toate fișierele”, scanarea din MediaStore e incompletă: se reia.
+    LaunchedEffect(vm.perms.allFiles) {
+        if (vm.perms.allFiles && vm.scanned && !vm.scannedWithAll && !vm.scanning) vm.scan()
+    }
+
     val tabs = listOf(R.string.tab_home to "🏠", R.string.tab_files to "📦", R.string.tab_dupes to "👯", R.string.tab_apps to "📱")
     Scaffold(
         snackbarHost = { SnackbarHost(snack) },
@@ -91,7 +96,7 @@ fun LustrumApp(vm: LustrumVm, a: Actions) {
                 tabs.forEachIndexed { i, (label, emoji) ->
                     NavigationBarItem(
                         selected = tab == i,
-                        onClick = { tab = i },
+                        onClick = { if (tab != i) vm.clearSelection(); tab = i },
                         icon = { Text(emoji) },
                         label = { Text(stringResource(label)) },
                     )
@@ -101,7 +106,7 @@ fun LustrumApp(vm: LustrumVm, a: Actions) {
     ) { pad ->
         Box(Modifier.padding(pad).statusBarsPadding().fillMaxSize()) {
             when (tab) {
-                0 -> HomeScreen(vm, a) { vm.filter = Filter.RESTURI; tab = 1 }
+                0 -> HomeScreen(vm, a) { vm.clearSelection(); vm.filter = Filter.RESTURI; tab = 1 }
                 1 -> FilesScreen(vm, a)
                 2 -> DupScreen(vm, a)
                 else -> AppsScreen(vm, a)
@@ -313,7 +318,7 @@ fun FilesScreen(vm: LustrumVm, a: Actions) {
             horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             Filter.entries.forEach { f ->
-                FilterChip(vm.filter == f, { vm.filter = f }, { Text(filterLabel(f)) })
+                FilterChip(vm.filter == f, { vm.clearSelection(); vm.filter = f }, { Text(filterLabel(f)) })
             }
         }
         if (compress) {
@@ -383,8 +388,8 @@ fun DupScreen(vm: LustrumVm, a: Actions) {
 
     Column(Modifier.fillMaxSize()) {
         Row(Modifier.padding(horizontal = 12.dp, vertical = 8.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            FilterChip(vm.dupMode == 0, { vm.dupMode = 0 }, { Text(stringResource(R.string.d_identical)) })
-            FilterChip(vm.dupMode == 1, { vm.dupMode = 1 }, { Text(stringResource(R.string.d_similar)) })
+            FilterChip(vm.dupMode == 0, { vm.clearSelection(); vm.dupMode = 0 }, { Text(stringResource(R.string.d_identical)) })
+            FilterChip(vm.dupMode == 1, { vm.clearSelection(); vm.dupMode = 1 }, { Text(stringResource(R.string.d_similar)) })
         }
         Column(Modifier.padding(horizontal = 16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
             Button(
@@ -403,6 +408,9 @@ fun DupScreen(vm: LustrumVm, a: Actions) {
             }
             if (vm.groupsDone) {
                 Text(stringResource(R.string.d_groups, groups.size, fmtSize(recoverable)), style = MaterialTheme.typography.bodySmall)
+                if (groups.isNotEmpty() && vm.dupMode == 1) {
+                    Text(stringResource(R.string.d_similar_note), style = MaterialTheme.typography.bodySmall)
+                }
                 if (groups.isNotEmpty()) {
                     OutlinedButton(onClick = vm::autoSelect, modifier = Modifier.fillMaxWidth()) {
                         Text(stringResource(R.string.d_autoselect))
@@ -488,7 +496,7 @@ fun AppsScreen(vm: LustrumVm, a: Actions) {
                 ) {
                     Column(Modifier.weight(1f)) {
                         Text(app.label, maxLines = 1, overflow = TextOverflow.Ellipsis)
-                        val last = if (app.lastUsed <= 0) stringResource(R.string.a_last_unknown)
+                        val last = if (app.lastUsed <= 0) stringResource(R.string.a_last_old)
                         else stringResource(R.string.a_last, DateUtils.getRelativeTimeSpanString(app.lastUsed, now, DateUtils.DAY_IN_MILLIS).toString())
                         Text(
                             stringResource(R.string.a_line, fmtSize(app.cache), fmtSize(app.total), last),

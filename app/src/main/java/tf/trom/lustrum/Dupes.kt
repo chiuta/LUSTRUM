@@ -83,6 +83,7 @@ object Dupes {
     /** Imagini asemănătoare (aceeași poză redimensionată, recomprimată, capturi repetate). */
     fun similar(ctx: Context, items: List<Item>, progress: (Int, Int) -> Unit): List<List<Item>> {
         val imgs = items.filter { it.category == Category.IMAGINI && it.size >= 10_000 }
+            .sortedWith(compareByDescending<Item> { it.size }.thenBy { it.modified })
         val hashes = LongArray(imgs.size)
         val ok = BooleanArray(imgs.size)
         val done = AtomicInteger()
@@ -105,28 +106,41 @@ object Dupes {
         }
 
         val idx = imgs.indices.filter { ok[it] }
-        val parent = IntArray(imgs.size) { it }
-        fun find(x: Int): Int {
-            var r = x
-            while (parent[r] != r) r = parent[r]
-            var c = x
-            while (parent[c] != r) {
-                val n = parent[c]
-                parent[c] = r
-                c = n
-            }
-            return r
+        return cluster(LongArray(idx.size) { hashes[idx[it]] })
+            .map { g -> g.map { imgs[idx[it]] } } // fiecare grup: cel mai mare (calitate) primul
+            .sortedByDescending { g -> g.sumOf { it.size } }
+    }
+
+    /**
+     * Grupează hash-uri cu distanța Hamming ≤ maxDist față de un „reprezentant” (fără înlănțuire:
+     * A~B și B~C nu înseamnă A~C). Candidații vin din 5 găleți de câte ~13 biți (principiul cutiei:
+     * două hash-uri la distanță ≤ 4 au cel puțin o felie identică), deci nu e comparație n².
+     * Ordinea de intrare = prioritatea reprezentanților. Returnează liste de indici.
+     */
+    fun cluster(hashes: LongArray, maxDist: Int = 4): List<List<Int>> {
+        val slices = 5
+        val buckets = Array(slices) { HashMap<Int, MutableList<Int>>() }
+        fun key(h: Long, s: Int): Int {
+            val w = if (s == slices - 1) 12 else 13
+            return ((h ushr (s * 13)) and ((1L shl w) - 1)).toInt()
         }
-        for (a in idx.indices) {
-            for (b in a + 1 until idx.size) {
-                if (java.lang.Long.bitCount(hashes[idx[a]] xor hashes[idx[b]]) <= 4) {
-                    parent[find(idx[a])] = find(idx[b])
+        for (i in hashes.indices) for (s in 0 until slices) buckets[s].getOrPut(key(hashes[i], s)) { mutableListOf() }.add(i)
+        val used = BooleanArray(hashes.size)
+        val out = ArrayList<List<Int>>()
+        for (i in hashes.indices) {
+            if (used[i]) continue
+            used[i] = true
+            val g = arrayListOf(i)
+            for (s in 0 until slices) {
+                for (j in buckets[s][key(hashes[i], s)].orEmpty()) {
+                    if (!used[j] && java.lang.Long.bitCount(hashes[i] xor hashes[j]) <= maxDist) {
+                        used[j] = true
+                        g.add(j)
+                    }
                 }
             }
+            if (g.size > 1) out.add(g)
         }
-        return idx.groupBy { find(it) }.values
-            .filter { it.size > 1 }
-            .map { g -> g.map { imgs[it] }.sortedBy { it.modified } }
-            .sortedByDescending { g -> g.sumOf { it.size } }
+        return out
     }
 }

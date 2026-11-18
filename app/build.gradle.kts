@@ -12,17 +12,30 @@ android {
         applicationId = "tf.trom.lustrum"
         minSdk = 30
         targetSdk = 35
-        versionCode = 3
-        versionName = "0.3.0"
+        versionCode = 4
+        versionName = "0.4.0"
     }
+
+    // Semnare stabilă: actualizările se instalează peste versiunea veche doar dacă cheia rămâne aceeași.
+    // Cheia proprie se poate da prin variabilele LUSTRUM_KEYSTORE (cale), LUSTRUM_STORE_PASS, LUSTRUM_KEY_PASS,
+    // LUSTRUM_KEY_ALIAS; altfel se folosește tools/lustrum-public.jks (cheie publică, doar pentru sideload).
+    signingConfigs {
+        create("lustrum") {
+            storeFile = file(System.getenv("LUSTRUM_KEYSTORE") ?: "../tools/lustrum-public.jks")
+            storePassword = System.getenv("LUSTRUM_STORE_PASS") ?: "lustrum-public"
+            keyAlias = System.getenv("LUSTRUM_KEY_ALIAS") ?: "lustrum"
+            keyPassword = System.getenv("LUSTRUM_KEY_PASS") ?: "lustrum-public"
+        }
+    }
+
+    testOptions { unitTests.isReturnDefaultValues = true }
 
     buildTypes {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-            // APK pentru instalare directă (sideload); semnat cu cheia de debug până la o cheie proprie.
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName("lustrum")
         }
     }
 
@@ -35,6 +48,7 @@ android {
 }
 
 dependencies {
+    testImplementation("junit:junit:4.13.2")
     implementation(platform("androidx.compose:compose-bom:2024.12.01"))
     implementation("androidx.activity:activity-compose:1.9.3")
     implementation("androidx.compose.material3:material3")

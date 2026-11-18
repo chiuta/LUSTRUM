@@ -54,7 +54,7 @@
     <string name="d_find_exact">Trova file identici</string>
     <string name="d_find_similar">Trova immagini simili</string>
     <string name="d_groups">Gruppi: %1$d · %2$s recuperabili</string>
-    <string name="d_autoselect">Seleziona le copie (tieni la più vecchia)</string>
+    <string name="d_autoselect">Seleziona il surplus (tieni uno per gruppo)</string>
     <string name="d_risky">Gruppi con tutte le copie selezionate: %1$d. Tienine almeno una per gruppo.</string>
     <string name="d_group_head">Copie: %1$d · %2$s ciascuna</string>
     <string name="a_need_usage">Per la dimensione della cache e l\'ultimo utilizzo, Android richiede l\'«Accesso ai dati di utilizzo».</string>
@@ -88,4 +88,6 @@
     <string name="cat_docs">Documenti</string>
     <string name="cat_archives">Archivi e installatori</string>
     <string name="cat_other">Altro</string>
+    <string name="a_last_old">non usata da oltre un anno</string>
+    <string name="d_similar_note">Immagini simili: in ogni gruppo si tiene la più grande (qualità migliore).</string>
 </resources>

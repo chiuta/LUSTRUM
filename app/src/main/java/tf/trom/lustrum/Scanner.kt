@@ -119,10 +119,17 @@ object Scanner {
         return out
     }
 
+    private val SHOT_DIRS = listOf(
+        "screenshot", "capturi de ecran", "capture d", "capturas de pantalla", "capturas de tela",
+        "schermata", "schermate", "bildschirmfoto", "képernyőkép",
+    )
+
+    /** Doar fișiere din foldere de capturi de ecran sau cu nume „Screenshot…”; nu orice „capture”. */
     fun isScreenshot(i: Item): Boolean {
         if (i.category != Category.IMAGINI) return false
-        val p = i.path.lowercase()
-        return "screenshot" in p || "captur" in p
+        val name = i.name.lowercase()
+        if (name.startsWith("screenshot") || name.startsWith("screen_shot") || name.startsWith("screen shot")) return true
+        return i.folder.lowercase().split('/').any { seg -> SHOT_DIRS.any { it in seg } }
     }
 
     fun isInstaller(i: Item): Boolean =
@@ -132,11 +139,17 @@ object Scanner {
     fun isCompressible(i: Item): Boolean =
         i.name.substringAfterLast('.', "").lowercase() in setOf("jpg", "jpeg") && i.size >= 1_500_000
 
-    private val JUNK_EXT = setOf("tmp", "temp", "log", "bak", "old", "thumbdata", "chk", "dmp", "crdownload", "part")
-    private val JUNK_DIRS = setOf(".thumbnails", ".cache", "cache", "lost.dir", ".trash")
+    // „.bak”, „.old” și „.log” pot fi copii de siguranță sau jurnale dorite: nu sunt tratate ca resturi.
+    private val JUNK_EXT = setOf("tmp", "temp", "thumbdata", "chk", "dmp", "crdownload", "part")
+    private val JUNK_DIRS = setOf(".thumbnails", ".cache", "lost.dir", ".trash")
+    private const val FRESH_MS = 24L * 3600 * 1000
 
-    /** Resturi evidente: temporare, miniaturi, descărcări întrerupte, coșul Android (.trashed-*). */
-    fun isJunk(i: Item): Boolean {
+    /**
+     * Resturi evidente: temporare, miniaturi, descărcări întrerupte, coșul Android (.trashed-*).
+     * Fișierele modificate în ultimele 24 h sunt ocolite (o descărcare poate fi în curs).
+     */
+    fun isJunk(i: Item, now: Long = System.currentTimeMillis()): Boolean {
+        if (i.modified > now - FRESH_MS) return false
         val lower = i.name.lowercase()
         if (lower.startsWith(".trashed-")) return true
         if (lower.substringAfterLast('.', "") in JUNK_EXT) return true

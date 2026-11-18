@@ -540,14 +540,14 @@
   "hu": "Csoportok: %1$d · %2$s visszanyerhető"
  },
  "d_autoselect": {
-  "en": "Select the copies (keep the oldest)",
-  "ro": "Bifează copiile (păstrează cel mai vechi)",
-  "fr": "Cocher les copies (garder la plus ancienne)",
-  "it": "Seleziona le copie (tieni la più vecchia)",
-  "es": "Marcar las copias (conservar la más antigua)",
-  "pt": "Marcar as cópias (manter a mais antiga)",
-  "de": "Kopien markieren (älteste behalten)",
-  "hu": "Másolatok kijelölése (a legrégebbi marad)"
+  "en": "Select the extras (keep one per group)",
+  "ro": "Bifează surplusul (păstrează unul din fiecare grup)",
+  "fr": "Cocher le surplus (en garder un par groupe)",
+  "it": "Seleziona il surplus (tieni uno per gruppo)",
+  "es": "Marcar lo sobrante (conservar uno por grupo)",
+  "pt": "Marcar o excedente (manter um por grupo)",
+  "de": "Überzählige markieren (eine pro Gruppe behalten)",
+  "hu": "A felesleg kijelölése (csoportonként egy marad)"
  },
  "d_risky": {
   "en": "Groups where every copy is selected: %1$d. Keep at least one copy in each.",
@@ -878,5 +878,25 @@
   "pt": "Outros",
   "de": "Sonstiges",
   "hu": "Egyéb"
+ },
+ "a_last_old": {
+  "en": "not used in over a year",
+  "ro": "nefolosită de peste un an",
+  "fr": "inutilisée depuis plus d'un an",
+  "it": "non usata da oltre un anno",
+  "es": "sin usar desde hace más de un año",
+  "pt": "sem uso há mais de um ano",
+  "de": "seit über einem Jahr ungenutzt",
+  "hu": "több mint egy éve nem használt"
+ },
+ "d_similar_note": {
+  "en": "Similar images: the largest (best quality) one in each group is kept.",
+  "ro": "Imagini asemănătoare: se păstrează cea mai mare (calitate maximă) din fiecare grup.",
+  "fr": "Images similaires : la plus grande (meilleure qualité) de chaque groupe est conservée.",
+  "it": "Immagini simili: in ogni gruppo si tiene la più grande (qualità migliore).",
+  "es": "Imágenes parecidas: se conserva la más grande (mejor calidad) de cada grupo.",
+  "pt": "Imagens parecidas: a maior (melhor qualidade) de cada grupo é mantida.",
+  "de": "Ähnliche Bilder: In jeder Gruppe bleibt das größte (beste Qualität) erhalten.",
+  "hu": "Hasonló képek: minden csoportban a legnagyobb (legjobb minőségű) marad meg."
  }
 }

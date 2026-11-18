@@ -27,8 +27,23 @@ jobs:
         with:
           gradle-version: "8.14.3"
 
+      - name: Unit tests
+        run: gradle --no-daemon testDebugUnitTest
+
       - name: Build release APK
-        run: gradle --no-daemon assembleRelease
+        env:
+          LUSTRUM_KEYSTORE_B64: ${{ secrets.LUSTRUM_KEYSTORE_B64 }}
+          LUSTRUM_STORE_PASS: ${{ secrets.LUSTRUM_STORE_PASS }}
+          LUSTRUM_KEY_PASS: ${{ secrets.LUSTRUM_KEY_PASS }}
+          LUSTRUM_KEY_ALIAS: ${{ secrets.LUSTRUM_KEY_ALIAS }}
+        run: |
+          if [ -n "$LUSTRUM_KEYSTORE_B64" ]; then
+            echo "$LUSTRUM_KEYSTORE_B64" | base64 -d > "$RUNNER_TEMP/lustrum.jks"
+            export LUSTRUM_KEYSTORE="$RUNNER_TEMP/lustrum.jks"
+          else
+            unset LUSTRUM_STORE_PASS LUSTRUM_KEY_PASS LUSTRUM_KEY_ALIAS
+          fi
+          gradle --no-daemon assembleRelease
 
       - uses: actions/upload-artifact@v4
         with:

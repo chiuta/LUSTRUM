@@ -54,7 +54,7 @@
     <string name="d_find_exact">Caută fișiere identice</string>
     <string name="d_find_similar">Caută imagini asemănătoare</string>
     <string name="d_groups">Grupuri: %1$d · %2$s recuperabili</string>
-    <string name="d_autoselect">Bifează copiile (păstrează cel mai vechi)</string>
+    <string name="d_autoselect">Bifează surplusul (păstrează unul din fiecare grup)</string>
     <string name="d_risky">Grupuri cu toate copiile bifate: %1$d. Păstrează cel puțin una în fiecare.</string>
     <string name="d_group_head">Copii: %1$d · %2$s fiecare</string>
     <string name="a_need_usage">Pentru mărimea cache-ului și ultima folosire, Android cere „Acces la utilizare”.</string>
@@ -88,4 +88,6 @@
     <string name="cat_docs">Documente</string>
     <string name="cat_archives">Arhive și instalări</string>
     <string name="cat_other">Altele</string>
+    <string name="a_last_old">nefolosită de peste un an</string>
+    <string name="d_similar_note">Imagini asemănătoare: se păstrează cea mai mare (calitate maximă) din fiecare grup.</string>
 </resources>

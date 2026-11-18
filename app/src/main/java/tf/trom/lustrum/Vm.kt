@@ -23,6 +23,7 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
     var items by mutableStateOf<List<Item>>(emptyList())
     var scanning by mutableStateOf(false)
     var scanned by mutableStateOf(false)
+    var scannedWithAll by mutableStateOf(false)
     var progress by mutableStateOf("")
     var totalBytes by mutableStateOf(0L)
     var freeBytes by mutableStateOf(0L)
@@ -112,6 +113,7 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
                     orphans = emptyList(); emptyDirs = emptyList()
                 }
                 scanned = true
+                scannedWithAll = perms.allFiles
                 selected = emptySet()
                 exactGroups = emptyList(); similarGroups = emptyList()
                 exactDone = false; similarDone = false
@@ -176,7 +178,8 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
     /** Ștergere directă (necesită „Acces la toate fișierele”). */
     fun deleteFiles(list: List<Item>) {
         viewModelScope.launch(Dispatchers.IO) {
-            val ok = list.filter { if (it.dir) File(it.path).deleteRecursively() else File(it.path).delete() }
+            val root = Environment.getExternalStorageDirectory().canonicalFile
+            val ok = list.filter { safeToDelete(it, root) && (if (it.dir) File(it.path).deleteRecursively() else File(it.path).delete()) }
             val files = ok.filter { !it.dir }
             if (files.isNotEmpty()) {
                 MediaScannerConnection.scanFile(app, files.map { it.path }.toTypedArray(), null, null)
@@ -184,6 +187,16 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
             removed(ok)
             if (ok.size < list.size) message = app.getString(R.string.vm_cant_delete, list.size - ok.size)
         }
+    }
+
+    /** Nu atinge nimic în afara stocării partajate, rădăcina, „Android” sau legăturile simbolice. */
+    private fun safeToDelete(it: Item, root: File): Boolean {
+        val f = File(it.path)
+        val c = try { f.canonicalFile } catch (e: Exception) { return false }
+        if (c.path != f.absoluteFile.normalize().path) return false // legătură simbolică
+        if (!c.path.startsWith(root.path + "/")) return false
+        val rel = c.path.removePrefix(root.path + "/")
+        return rel != "Android"
     }
 
     /** Recomprimă JPEG-urile selectate (necesită „Acces la toate fișierele”). */

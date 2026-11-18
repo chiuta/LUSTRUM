@@ -24,6 +24,7 @@ object Compressor {
         val before = f.length()
         val tmp = File(f.parentFile, ".lustrum-${f.name}.tmp")
         try {
+            if (hasEmbeddedExtras(f)) return null
             val bmp = BitmapFactory.decodeFile(f.path) ?: return null
             try {
                 FileOutputStream(tmp).use { bmp.compress(Bitmap.CompressFormat.JPEG, 80, it) }
@@ -49,5 +50,20 @@ object Compressor {
         } finally {
             if (tmp.exists()) tmp.delete()
         }
+    }
+
+    private val MARKERS = listOf("MotionPhoto", "MicroVideo", "GainMap", "hdrgm", "Container:Directory")
+
+    /**
+     * Fotografiile cu video încorporat (Motion/Live Photo) sau hartă HDR s-ar strica la recomprimare:
+     * se caută marcajele XMP în primii 256 KB și fișierul se lasă neatins.
+     */
+    fun hasEmbeddedExtras(f: File): Boolean = try {
+        val head = ByteArray(minOf(f.length(), 262_144L).toInt())
+        f.inputStream().use { it.read(head) }
+        val text = String(head, Charsets.ISO_8859_1)
+        MARKERS.any { it in text }
+    } catch (e: Exception) {
+        true // la îndoială, nu se atinge
     }
 }

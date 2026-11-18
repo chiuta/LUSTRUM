@@ -54,7 +54,7 @@
     <string name="d_find_exact">Azonos fájlok keresése</string>
     <string name="d_find_similar">Hasonló képek keresése</string>
     <string name="d_groups">Csoportok: %1$d · %2$s visszanyerhető</string>
-    <string name="d_autoselect">Másolatok kijelölése (a legrégebbi marad)</string>
+    <string name="d_autoselect">A felesleg kijelölése (csoportonként egy marad)</string>
     <string name="d_risky">Olyan csoportok, ahol minden másolat ki van jelölve: %1$d. Mindegyikben hagyj meg legalább egyet.</string>
     <string name="d_group_head">Másolatok: %1$d · egyenként %2$s</string>
     <string name="a_need_usage">A gyorsítótár méretéhez és az utolsó használathoz az Android „Használati hozzáférést” kér.</string>
@@ -88,4 +88,6 @@
     <string name="cat_docs">Dokumentumok</string>
     <string name="cat_archives">Archívumok és telepítők</string>
     <string name="cat_other">Egyéb</string>
+    <string name="a_last_old">több mint egy éve nem használt</string>
+    <string name="d_similar_note">Hasonló képek: minden csoportban a legnagyobb (legjobb minőségű) marad meg.</string>
 </resources>
