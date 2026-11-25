@@ -262,7 +262,7 @@ fun HomeScreen(vm: LustrumVm, a: Actions, openJunk: () -> Unit) {
                         }
                         Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
                             Text(stringResource(R.string.auto_clean), Modifier.weight(1f), style = MaterialTheme.typography.bodySmall)
-                            Switch(checked = vm.autoClean, onCheckedChange = { vm.setAutoClean(it) })
+                            Switch(checked = vm.autoClean, onCheckedChange = { vm.updateAutoClean(it) })
                         }
                         Text(stringResource(R.string.auto_note), style = MaterialTheme.typography.bodySmall)
                     }

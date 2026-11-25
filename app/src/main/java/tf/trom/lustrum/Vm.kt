@@ -85,7 +85,7 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
         Scheduler.apply(app, days)
     }
 
-    fun setAutoClean(on: Boolean) {
+    fun updateAutoClean(on: Boolean) {
         autoClean = on
         prefs.edit().putBoolean("auto_clean", on).apply()
     }
