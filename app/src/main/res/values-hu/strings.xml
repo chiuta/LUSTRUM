@@ -89,7 +89,7 @@
     <string name="cat_archives">Archívumok és telepítők</string>
     <string name="cat_other">Egyéb</string>
     <string name="a_last_old">több mint egy éve nem használt</string>
-    <string name="d_similar_note">Hasonló képek: minden csoportban a legnagyobb (legjobb minőségű) marad meg.</string>
+    <string name="d_similar_note">Hasonló képek: csoportonként a legélesebb másolat marad meg (döntetlennél a legnagyobb). Törlés előtt nézd át.</string>
     <string name="f_blur">Elmosódott / sötét</string>
     <string name="blur_find">Elmosódott vagy sötét fotók keresése</string>
     <string name="blur_note">Heurisztika: az élességet és a fényerőt minden fotó kis másolatán mérjük. Törlés előtt nézd át az eredményt.</string>
@@ -103,4 +103,27 @@
     <string name="vm_trashed">Kukába helyezve: %1$d · %2$s (ürítéskor szabadul fel)</string>
     <string name="vm_restored">Visszaállítva: %1$d fájl</string>
     <string name="vm_trash_emptied">Kuka kiürítve · %1$s felszabadítva</string>
+    <string name="tab_swipe">Pörgetés</string>
+    <string name="swipe_intro">Lapozz végig a fotókon és videókon egyesével, a legrégebbiekkel kezdve: balra húzva törlöd, jobbra húzva megtartod. A végső megerősítésig semmi nem törlődik.</string>
+    <string name="swipe_start">Indítás (a legrégebbiek először)</string>
+    <string name="swipe_progress">%1$d / %2$d · megjelölve: %3$d (%4$s)</string>
+    <string name="swipe_done">Mindent átnéztél. Lent ellenőrizd a megjelölt elemeket.</string>
+    <string name="swipe_keep">Megtart</string>
+    <string name="swipe_undo">Vissza</string>
+    <string name="swipe_review">Átnézés és törlés (%1$d)</string>
+    <string name="d_video">Hasonló videók</string>
+    <string name="d_find_video">Hasonló videók keresése</string>
+    <string name="d_video_note">Hasonló videók: egy középső képkocka és a közel azonos hossz alapján párosítva. Csoportonként a legnagyobb fájl marad meg; törlés előtt nézd át.</string>
+    <string name="auto_title">Ütemezett tisztítás</string>
+    <string name="auto_off">Ki</string>
+    <string name="auto_weekly">Hetente</string>
+    <string name="auto_monthly">Havonta</string>
+    <string name="auto_clean">Felesleges fájlok automatikus törlése (különben csak értesítés)</string>
+    <string name="auto_note">Háttérben fut, nagyjából időszakonként egyszer, ha az akkumulátor nem fogyott le. Csak a 24 óránál régebbi, egyértelműen felesleges fájlokat érinti; biztonságos törlésnél a LUSTRUM-kukába kerülnek.</string>
+    <string name="notif_found">Takarításra kész felesleges fájlok: %1$d · %2$s</string>
+    <string name="notif_cleaned">Automatikusan törölve: %1$d fájl · %2$s</string>
+    <string name="trim_btn">Más alkalmazások gyorsítótárának csökkentése</string>
+    <string name="trim_note">Az Androidot kéri, hogy tárhely igénylésével szabadítsa fel más alkalmazások gyorsítótárát. Rendszer által segített: az eredmény eszközfüggő, és rövid időre megtöltheti a szabad helyet.</string>
+    <string name="vm_trimmed">Gyorsítótár-csökkentés: %1$s felszabadítva</string>
+    <string name="vm_trim_none">Nincs mit felszabadítani: az Android megtartotta a gyorsítótárakat</string>
 </resources>

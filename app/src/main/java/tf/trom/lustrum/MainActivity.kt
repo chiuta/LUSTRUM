@@ -35,6 +35,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        Scheduler.apply(this, vm.autoDays)
         val actions = Actions(
             requestMedia = {
                 permLauncher.launch(
@@ -62,6 +63,11 @@ class MainActivity : ComponentActivity() {
             },
             uninstall = { pkg ->
                 startActivity(Intent(Intent.ACTION_DELETE, Uri.parse("package:$pkg")))
+            },
+            requestNotif = {
+                if (Build.VERSION.SDK_INT >= 33 && !granted(Manifest.permission.POST_NOTIFICATIONS)) {
+                    permLauncher.launch(arrayOf(Manifest.permission.POST_NOTIFICATIONS))
+                }
             },
         )
         setContent { LustrumTheme { LustrumApp(vm, actions) } }

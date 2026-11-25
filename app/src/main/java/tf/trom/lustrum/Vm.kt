@@ -66,8 +66,64 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
     var selected by mutableStateOf<Set<String>>(emptySet())
     var message by mutableStateOf<String?>(null)
 
-    val groups: List<List<Item>> get() = if (dupMode == 0) exactGroups else similarGroups
-    val groupsDone: Boolean get() = if (dupMode == 0) exactDone else similarDone
+    var videoGroups by mutableStateOf<List<List<Item>>>(emptyList())
+    var videoDone by mutableStateOf(false)
+
+    val groups: List<List<Item>> get() = when (dupMode) { 0 -> exactGroups; 1 -> similarGroups; else -> videoGroups }
+    val groupsDone: Boolean get() = when (dupMode) { 0 -> exactDone; 1 -> similarDone; else -> videoDone }
+
+    // programare + Swiper
+    var autoDays by mutableStateOf(prefs.getInt("auto_days", 0))
+    var autoClean by mutableStateOf(prefs.getBoolean("auto_clean", false))
+    var swipeQueue by mutableStateOf<List<Item>>(emptyList())
+    var swipeIndex by mutableStateOf(0)
+    var swipeMarked by mutableStateOf<List<Item>>(emptyList())
+
+    fun setAuto(days: Int) {
+        autoDays = days
+        prefs.edit().putInt("auto_days", days).apply()
+        Scheduler.apply(app, days)
+    }
+
+    fun setAutoClean(on: Boolean) {
+        autoClean = on
+        prefs.edit().putBoolean("auto_clean", on).apply()
+    }
+
+    fun startSwipe() {
+        swipeQueue = items.filter { it.category == Category.IMAGINI || it.category == Category.VIDEO }
+            .sortedBy { it.modified }.take(500)
+        swipeIndex = 0
+        swipeMarked = emptyList()
+    }
+
+    fun swipe(delete: Boolean) {
+        val cur = swipeQueue.getOrNull(swipeIndex) ?: return
+        if (delete) swipeMarked = swipeMarked + cur
+        swipeIndex += 1
+    }
+
+    fun swipeUndo() {
+        if (swipeIndex == 0) return
+        swipeIndex -= 1
+        val cur = swipeQueue[swipeIndex]
+        swipeMarked = swipeMarked.filter { it.path != cur.path }
+    }
+
+    fun resetSwipe() {
+        swipeQueue = emptyList(); swipeIndex = 0; swipeMarked = emptyList()
+    }
+
+    fun trimCaches() {
+        viewModelScope.launch(Dispatchers.IO) {
+            val freed = CacheTrim.trim(app, apps.sumOf { it.cache })
+            updateStorage()
+            message = if (freed > 0) {
+                addFreed(freed)
+                app.getString(R.string.vm_trimmed, fmtSize(freed))
+            } else app.getString(R.string.vm_trim_none)
+        }
+    }
 
     init {
         updateStorage()
@@ -134,6 +190,7 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
                 exactGroups = emptyList(); similarGroups = emptyList()
                 exactDone = false; similarDone = false
                 blurry = emptyList(); blurryDone = false
+                videoGroups = emptyList(); videoDone = false
                 updateStorage()
                 refreshTrash()
             } catch (e: Exception) {
@@ -144,19 +201,31 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
         }
     }
 
-    fun findDupes(similar: Boolean) {
+    fun findDupes(mode: Int) {
         if (dupBusy) return
         dupBusy = true
         dupProgress = app.getString(R.string.vm_analyzing)
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val progress: (Int, Int) -> Unit = { d, t -> dupProgress = app.getString(R.string.vm_analyzing_n, d, t) }
-                if (similar) {
-                    similarGroups = Dupes.similar(app, items, progress)
-                    similarDone = true
-                } else {
-                    exactGroups = Dupes.exact(app, items, progress)
-                    exactDone = true
+                when (mode) {
+                    1 -> {
+                        val raw = Dupes.similar(app, items, progress)
+                        similarGroups = raw.mapIndexed { gi, g ->
+                            dupProgress = app.getString(R.string.vm_analyzing_n, gi + 1, raw.size)
+                            val sc = g.associateWith { Quality.analyze(app, it)?.sharpness }
+                            Dupes.bestFirst(g) { sc[it] }
+                        }
+                        similarDone = true
+                    }
+                    2 -> {
+                        videoGroups = Dupes.similarVideos(app, items, progress)
+                        videoDone = true
+                    }
+                    else -> {
+                        exactGroups = Dupes.exact(app, items, progress)
+                        exactDone = true
+                    }
                 }
             } catch (e: Exception) {
                 message = app.getString(R.string.vm_err_analyze, e.message ?: "")
@@ -260,6 +329,8 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
         items = items.filter { it.path !in keys }
         exactGroups = exactGroups.map { g -> g.filter { it.path !in keys } }.filter { it.size > 1 }
         similarGroups = similarGroups.map { g -> g.filter { it.path !in keys } }.filter { it.size > 1 }
+        videoGroups = videoGroups.map { g -> g.filter { it.path !in keys } }.filter { it.size > 1 }
+        if (swipeQueue.isNotEmpty()) resetSwipe()
         orphans = orphans.filter { it.path !in keys }
         blurry = blurry.filter { it.path !in keys }
         emptyDirs = emptyDirs.filter { it.path !in keys }
@@ -292,7 +363,10 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
     }
 
     /** Nu atinge nimic în afara stocării partajate, rădăcina, „Android” sau legăturile simbolice. */
-    private fun safeToDelete(it: Item, root: File): Boolean {
+    private fun safeToDelete(it: Item, root: File): Boolean = Safety.ok(it, root)
+
+    @Suppress("unused")
+    private fun safeToDeleteOld(it: Item, root: File): Boolean {
         val f = File(it.path)
         val c = try { f.canonicalFile } catch (e: Exception) { return false }
         if (c.path != f.absoluteFile.normalize().path) return false // legătură simbolică

@@ -137,3 +137,29 @@ class NewFeaturesTest {
         }
     }
 }
+
+class ReviewFeaturesTest {
+    private fun it(name: String, size: Long) = Item(name, "/s/$name", size, 0, Category.IMAGINI)
+
+    @Test fun bestFirstPrefersSharperThenLarger() {
+        val a = it("a.jpg", 5_000_000)   // mare, neclară
+        val b = it("b.jpg", 1_000_000)   // mică, clară
+        val c = it("c.jpg", 2_000_000)   // clară, mai mare decât b
+        val sharp = mapOf(a to 5.0, b to 400.0, c to 410.0)
+        val out = Dupes.bestFirst(listOf(a, b, c)) { sharp[it] }
+        assertEquals(listOf("c.jpg", "b.jpg", "a.jpg"), out.map { x -> x.name })
+    }
+
+    @Test fun durationsMatchWithinThreePercentOrOneSecond() {
+        assertTrue(Dupes.sameDuration(100_000, 102_500))
+        assertFalse(Dupes.sameDuration(100_000, 110_000))
+        assertTrue(Dupes.sameDuration(2_000, 2_900))
+    }
+
+    @Test fun clusterWithLooserDistanceForVideos() {
+        val a = 0x0F0F0F0F0F0F0F0FL
+        val b = a xor 0b111111L // distanța 6
+        assertEquals(1, Dupes.cluster(longArrayOf(a, b), 6).size)
+        assertEquals(0, Dupes.cluster(longArrayOf(a, b), 4).size)
+    }
+}

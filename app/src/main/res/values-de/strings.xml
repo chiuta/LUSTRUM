@@ -89,7 +89,7 @@
     <string name="cat_archives">Archive und Installer</string>
     <string name="cat_other">Sonstiges</string>
     <string name="a_last_old">seit über einem Jahr ungenutzt</string>
-    <string name="d_similar_note">Ähnliche Bilder: In jeder Gruppe bleibt das größte (beste Qualität) erhalten.</string>
+    <string name="d_similar_note">Ähnliche Bilder: In jeder Gruppe bleibt die schärfste Kopie erhalten (bei Gleichstand die größte). Vor dem Löschen prüfen.</string>
     <string name="f_blur">Unscharf / dunkel</string>
     <string name="blur_find">Unscharfe oder dunkle Fotos suchen</string>
     <string name="blur_note">Heuristik: Schärfe und Helligkeit werden an einer kleinen Kopie jedes Fotos gemessen. Ergebnisse vor dem Löschen prüfen.</string>
@@ -103,4 +103,27 @@
     <string name="vm_trashed">In den Papierkorb verschoben: %1$d · %2$s (beim Leeren freigegeben)</string>
     <string name="vm_restored">Wiederhergestellt: %1$d Dateien</string>
     <string name="vm_trash_emptied">Papierkorb geleert · %1$s freigegeben</string>
+    <string name="tab_swipe">Wischen</string>
+    <string name="swipe_intro">Gehen Sie Fotos und Videos einzeln durch, die ältesten zuerst: nach links wischen zum Löschen, nach rechts zum Behalten. Nichts wird gelöscht, bevor Sie am Ende bestätigen.</string>
+    <string name="swipe_start">Starten (älteste zuerst)</string>
+    <string name="swipe_progress">%1$d / %2$d · markiert: %3$d (%4$s)</string>
+    <string name="swipe_done">Alles durchgesehen. Prüfen Sie unten die markierten Elemente.</string>
+    <string name="swipe_keep">Behalten</string>
+    <string name="swipe_undo">Rückgängig</string>
+    <string name="swipe_review">Prüfen und löschen (%1$d)</string>
+    <string name="d_video">Ähnliche Videos</string>
+    <string name="d_find_video">Ähnliche Videos suchen</string>
+    <string name="d_video_note">Ähnliche Videos: erkannt an einem Bild aus der Mitte und fast gleicher Länge. Die größte Datei jeder Gruppe bleibt erhalten; vor dem Löschen prüfen.</string>
+    <string name="auto_title">Geplantes Aufräumen</string>
+    <string name="auto_off">Aus</string>
+    <string name="auto_weekly">Wöchentlich</string>
+    <string name="auto_monthly">Monatlich</string>
+    <string name="auto_clean">Datenmüll automatisch bereinigen (sonst nur benachrichtigen)</string>
+    <string name="auto_note">Läuft etwa einmal pro Zeitraum im Hintergrund, solange der Akku nicht schwach ist. Nur offensichtlicher Datenmüll, älter als 24 Stunden, wird angefasst; mit sicherem Löschen landet er im LUSTRUM-Papierkorb.</string>
+    <string name="notif_found">Datenmüll zum Bereinigen: %1$d Dateien · %2$s</string>
+    <string name="notif_cleaned">Automatisch bereinigt: %1$d Dateien · %2$s</string>
+    <string name="trim_btn">Cache anderer Apps verkleinern</string>
+    <string name="trim_note">Bittet Android, den Cache anderer Apps durch Speicheranforderung zu leeren. Systemgestützt: Das Ergebnis hängt vom Gerät ab und kann den freien Speicher kurz füllen.</string>
+    <string name="vm_trimmed">Cache-Verkleinerung: %1$s freigegeben</string>
+    <string name="vm_trim_none">Nichts freizugeben: Android hat die Caches behalten</string>
 </resources>

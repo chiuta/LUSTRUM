@@ -890,14 +890,14 @@
   "hu": "több mint egy éve nem használt"
  },
  "d_similar_note": {
-  "en": "Similar images: the largest (best quality) one in each group is kept.",
-  "ro": "Imagini asemănătoare: se păstrează cea mai mare (calitate maximă) din fiecare grup.",
-  "fr": "Images similaires : la plus grande (meilleure qualité) de chaque groupe est conservée.",
-  "it": "Immagini simili: in ogni gruppo si tiene la più grande (qualità migliore).",
-  "es": "Imágenes parecidas: se conserva la más grande (mejor calidad) de cada grupo.",
-  "pt": "Imagens parecidas: a maior (melhor qualidade) de cada grupo é mantida.",
-  "de": "Ähnliche Bilder: In jeder Gruppe bleibt das größte (beste Qualität) erhalten.",
-  "hu": "Hasonló képek: minden csoportban a legnagyobb (legjobb minőségű) marad meg."
+  "en": "Similar images: the sharpest copy in each group is kept (largest file on ties). Review before deleting.",
+  "ro": "Imagini asemănătoare: se păstrează copia cea mai clară din fiecare grup (la egalitate, cea mai mare). Verifică înainte de ștergere.",
+  "fr": "Images similaires : la copie la plus nette de chaque groupe est conservée (à égalité, la plus grande). Vérifiez avant de supprimer.",
+  "it": "Immagini simili: in ogni gruppo si tiene la copia più nitida (a parità, la più grande). Controlla prima di eliminare.",
+  "es": "Imágenes parecidas: se conserva la copia más nítida de cada grupo (en empate, la más grande). Revisa antes de eliminar.",
+  "pt": "Imagens parecidas: a cópia mais nítida de cada grupo é mantida (em empate, a maior). Revise antes de excluir.",
+  "de": "Ähnliche Bilder: In jeder Gruppe bleibt die schärfste Kopie erhalten (bei Gleichstand die größte). Vor dem Löschen prüfen.",
+  "hu": "Hasonló képek: csoportonként a legélesebb másolat marad meg (döntetlennél a legnagyobb). Törlés előtt nézd át."
  },
  "f_blur": {
   "en": "Blurry / dark",
@@ -1028,5 +1028,235 @@
   "pt": "Lixeira esvaziada · %1$s liberados",
   "de": "Papierkorb geleert · %1$s freigegeben",
   "hu": "Kuka kiürítve · %1$s felszabadítva"
+ },
+ "tab_swipe": {
+  "en": "Swipe",
+  "ro": "Glisare",
+  "fr": "Balayage",
+  "it": "Scorri",
+  "es": "Deslizar",
+  "pt": "Deslizar",
+  "de": "Wischen",
+  "hu": "Pörgetés"
+ },
+ "swipe_intro": {
+  "en": "Go through your photos and videos one by one, oldest first: swipe left to delete, right to keep. Nothing is deleted until you confirm at the end.",
+  "ro": "Treci prin poze și videoclipuri pe rând, cele mai vechi întâi: glisează la stânga ca să ștergi, la dreapta ca să păstrezi. Nimic nu se șterge până nu confirmi la final.",
+  "fr": "Passez vos photos et vidéos en revue une à une, les plus anciennes d'abord : glissez à gauche pour supprimer, à droite pour garder. Rien n'est supprimé avant votre confirmation finale.",
+  "it": "Scorri foto e video uno a uno, dai più vecchi: scorri a sinistra per eliminare, a destra per tenere. Nulla viene eliminato finché non confermi alla fine.",
+  "es": "Repasa tus fotos y vídeos uno a uno, empezando por los más antiguos: desliza a la izquierda para eliminar, a la derecha para conservar. No se elimina nada hasta que confirmes al final.",
+  "pt": "Revise suas fotos e vídeos um a um, começando pelos mais antigos: deslize para a esquerda para excluir, para a direita para manter. Nada é excluído até você confirmar no final.",
+  "de": "Gehen Sie Fotos und Videos einzeln durch, die ältesten zuerst: nach links wischen zum Löschen, nach rechts zum Behalten. Nichts wird gelöscht, bevor Sie am Ende bestätigen.",
+  "hu": "Lapozz végig a fotókon és videókon egyesével, a legrégebbiekkel kezdve: balra húzva törlöd, jobbra húzva megtartod. A végső megerősítésig semmi nem törlődik."
+ },
+ "swipe_start": {
+  "en": "Start (oldest first)",
+  "ro": "Începe (cele mai vechi întâi)",
+  "fr": "Commencer (les plus anciens d'abord)",
+  "it": "Inizia (dai più vecchi)",
+  "es": "Empezar (los más antiguos primero)",
+  "pt": "Começar (os mais antigos primeiro)",
+  "de": "Starten (älteste zuerst)",
+  "hu": "Indítás (a legrégebbiek először)"
+ },
+ "swipe_progress": {
+  "en": "%1$d / %2$d · marked: %3$d (%4$s)",
+  "ro": "%1$d / %2$d · marcate: %3$d (%4$s)",
+  "fr": "%1$d / %2$d · marqués : %3$d (%4$s)",
+  "it": "%1$d / %2$d · segnati: %3$d (%4$s)",
+  "es": "%1$d / %2$d · marcados: %3$d (%4$s)",
+  "pt": "%1$d / %2$d · marcados: %3$d (%4$s)",
+  "de": "%1$d / %2$d · markiert: %3$d (%4$s)",
+  "hu": "%1$d / %2$d · megjelölve: %3$d (%4$s)"
+ },
+ "swipe_done": {
+  "en": "All reviewed. Review your marked items below.",
+  "ro": "Totul parcurs. Verifică mai jos elementele marcate.",
+  "fr": "Tout est passé en revue. Vérifiez ci-dessous les éléments marqués.",
+  "it": "Tutto rivisto. Controlla qui sotto gli elementi segnati.",
+  "es": "Todo revisado. Revisa abajo los elementos marcados.",
+  "pt": "Tudo revisado. Confira abaixo os itens marcados.",
+  "de": "Alles durchgesehen. Prüfen Sie unten die markierten Elemente.",
+  "hu": "Mindent átnéztél. Lent ellenőrizd a megjelölt elemeket."
+ },
+ "swipe_keep": {
+  "en": "Keep",
+  "ro": "Păstrează",
+  "fr": "Garder",
+  "it": "Tieni",
+  "es": "Conservar",
+  "pt": "Manter",
+  "de": "Behalten",
+  "hu": "Megtart"
+ },
+ "swipe_undo": {
+  "en": "Undo",
+  "ro": "Anulează",
+  "fr": "Annuler",
+  "it": "Annulla",
+  "es": "Deshacer",
+  "pt": "Desfazer",
+  "de": "Rückgängig",
+  "hu": "Vissza"
+ },
+ "swipe_review": {
+  "en": "Review and delete (%1$d)",
+  "ro": "Verifică și șterge (%1$d)",
+  "fr": "Vérifier et supprimer (%1$d)",
+  "it": "Controlla ed elimina (%1$d)",
+  "es": "Revisar y eliminar (%1$d)",
+  "pt": "Revisar e excluir (%1$d)",
+  "de": "Prüfen und löschen (%1$d)",
+  "hu": "Átnézés és törlés (%1$d)"
+ },
+ "d_video": {
+  "en": "Similar videos",
+  "ro": "Videoclipuri asemănătoare",
+  "fr": "Vidéos similaires",
+  "it": "Video simili",
+  "es": "Vídeos parecidos",
+  "pt": "Vídeos parecidos",
+  "de": "Ähnliche Videos",
+  "hu": "Hasonló videók"
+ },
+ "d_find_video": {
+  "en": "Find similar videos",
+  "ro": "Caută videoclipuri asemănătoare",
+  "fr": "Trouver les vidéos similaires",
+  "it": "Trova video simili",
+  "es": "Buscar vídeos parecidos",
+  "pt": "Buscar vídeos parecidos",
+  "de": "Ähnliche Videos suchen",
+  "hu": "Hasonló videók keresése"
+ },
+ "d_video_note": {
+  "en": "Similar videos: matched by a frame from the middle plus almost identical length. The largest file in each group is kept; review before deleting.",
+  "ro": "Videoclipuri asemănătoare: potrivite după un cadru din mijloc și o durată aproape identică. Se păstrează fișierul cel mai mare din fiecare grup; verifică înainte de ștergere.",
+  "fr": "Vidéos similaires : repérées par une image du milieu et une durée presque identique. Le plus gros fichier de chaque groupe est conservé ; vérifiez avant de supprimer.",
+  "it": "Video simili: individuati da un fotogramma centrale e da una durata quasi identica. In ogni gruppo si tiene il file più grande; controlla prima di eliminare.",
+  "es": "Vídeos parecidos: se detectan por un fotograma central y una duración casi idéntica. Se conserva el archivo más grande de cada grupo; revisa antes de eliminar.",
+  "pt": "Vídeos parecidos: identificados por um quadro do meio e duração quase idêntica. O maior arquivo de cada grupo é mantido; revise antes de excluir.",
+  "de": "Ähnliche Videos: erkannt an einem Bild aus der Mitte und fast gleicher Länge. Die größte Datei jeder Gruppe bleibt erhalten; vor dem Löschen prüfen.",
+  "hu": "Hasonló videók: egy középső képkocka és a közel azonos hossz alapján párosítva. Csoportonként a legnagyobb fájl marad meg; törlés előtt nézd át."
+ },
+ "auto_title": {
+  "en": "Scheduled cleaning",
+  "ro": "Curățare programată",
+  "fr": "Nettoyage programmé",
+  "it": "Pulizia programmata",
+  "es": "Limpieza programada",
+  "pt": "Limpeza agendada",
+  "de": "Geplantes Aufräumen",
+  "hu": "Ütemezett tisztítás"
+ },
+ "auto_off": {
+  "en": "Off",
+  "ro": "Oprit",
+  "fr": "Désactivé",
+  "it": "Spento",
+  "es": "Desactivado",
+  "pt": "Desligado",
+  "de": "Aus",
+  "hu": "Ki"
+ },
+ "auto_weekly": {
+  "en": "Weekly",
+  "ro": "Săptămânal",
+  "fr": "Hebdomadaire",
+  "it": "Settimanale",
+  "es": "Semanal",
+  "pt": "Semanal",
+  "de": "Wöchentlich",
+  "hu": "Hetente"
+ },
+ "auto_monthly": {
+  "en": "Monthly",
+  "ro": "Lunar",
+  "fr": "Mensuel",
+  "it": "Mensile",
+  "es": "Mensual",
+  "pt": "Mensal",
+  "de": "Monatlich",
+  "hu": "Havonta"
+ },
+ "auto_clean": {
+  "en": "Clean junk automatically (otherwise only notify)",
+  "ro": "Curăță resturile automat (altfel doar notifică)",
+  "fr": "Nettoyer les fichiers inutiles automatiquement (sinon, simple notification)",
+  "it": "Pulisci i file inutili automaticamente (altrimenti solo notifica)",
+  "es": "Limpiar la basura automáticamente (si no, solo avisar)",
+  "pt": "Limpar o lixo automaticamente (senão, apenas notificar)",
+  "de": "Datenmüll automatisch bereinigen (sonst nur benachrichtigen)",
+  "hu": "Felesleges fájlok automatikus törlése (különben csak értesítés)"
+ },
+ "auto_note": {
+  "en": "Runs in the background about once per period while the battery is not low. Only obvious junk older than 24 hours is touched; with safe delete on, it goes to the LUSTRUM trash.",
+  "ro": "Rulează în fundal cam o dată pe perioadă, când bateria nu e aproape goală. Se ating doar resturile evidente mai vechi de 24 de ore; cu ștergerea sigură pornită, ajung în coșul LUSTRUM.",
+  "fr": "S'exécute en arrière-plan environ une fois par période, batterie non faible. Seuls les fichiers inutiles évidents de plus de 24 h sont touchés ; avec la suppression sécurisée, ils vont dans la corbeille LUSTRUM.",
+  "it": "Gira in background circa una volta per periodo, con la batteria non scarica. Si toccano solo i file inutili evidenti più vecchi di 24 ore; con l'eliminazione sicura attiva vanno nel cestino LUSTRUM.",
+  "es": "Se ejecuta en segundo plano aproximadamente una vez por periodo, con batería no baja. Solo se tocan archivos basura evidentes de más de 24 horas; con la eliminación segura activa van a la papelera LUSTRUM.",
+  "pt": "Roda em segundo plano cerca de uma vez por período, com bateria não baixa. Só o lixo óbvio com mais de 24 horas é tocado; com a exclusão segura ativa, vai para a lixeira LUSTRUM.",
+  "de": "Läuft etwa einmal pro Zeitraum im Hintergrund, solange der Akku nicht schwach ist. Nur offensichtlicher Datenmüll, älter als 24 Stunden, wird angefasst; mit sicherem Löschen landet er im LUSTRUM-Papierkorb.",
+  "hu": "Háttérben fut, nagyjából időszakonként egyszer, ha az akkumulátor nem fogyott le. Csak a 24 óránál régebbi, egyértelműen felesleges fájlokat érinti; biztonságos törlésnél a LUSTRUM-kukába kerülnek."
+ },
+ "notif_found": {
+  "en": "Junk ready to clean: %1$d files · %2$s",
+  "ro": "Resturi gata de curățat: %1$d fișiere · %2$s",
+  "fr": "Fichiers inutiles prêts à nettoyer : %1$d · %2$s",
+  "it": "File inutili pronti da pulire: %1$d · %2$s",
+  "es": "Basura lista para limpiar: %1$d archivos · %2$s",
+  "pt": "Lixo pronto para limpar: %1$d arquivos · %2$s",
+  "de": "Datenmüll zum Bereinigen: %1$d Dateien · %2$s",
+  "hu": "Takarításra kész felesleges fájlok: %1$d · %2$s"
+ },
+ "notif_cleaned": {
+  "en": "Cleaned automatically: %1$d files · %2$s",
+  "ro": "Curățate automat: %1$d fișiere · %2$s",
+  "fr": "Nettoyés automatiquement : %1$d fichiers · %2$s",
+  "it": "Puliti automaticamente: %1$d file · %2$s",
+  "es": "Limpiados automáticamente: %1$d archivos · %2$s",
+  "pt": "Limpos automaticamente: %1$d arquivos · %2$s",
+  "de": "Automatisch bereinigt: %1$d Dateien · %2$s",
+  "hu": "Automatikusan törölve: %1$d fájl · %2$s"
+ },
+ "trim_btn": {
+  "en": "Trim other apps' caches",
+  "ro": "Reduce cache-ul altor aplicații",
+  "fr": "Réduire le cache des autres applications",
+  "it": "Riduci la cache delle altre app",
+  "es": "Reducir la caché de otras apps",
+  "pt": "Reduzir o cache de outros apps",
+  "de": "Cache anderer Apps verkleinern",
+  "hu": "Más alkalmazások gyorsítótárának csökkentése"
+ },
+ "trim_note": {
+  "en": "Asks Android to free cached data of other apps by requesting storage. System-assisted: results vary by device and it may briefly fill the free space.",
+  "ro": "Cere Android să elibereze datele din cache ale altor aplicații, solicitând spațiu. Asistat de sistem: rezultatul diferă între dispozitive și poate umple scurt spațiul liber.",
+  "fr": "Demande à Android de libérer le cache des autres applications en réclamant de l'espace. Assisté par le système : le résultat varie selon l'appareil et l'espace libre peut être brièvement saturé.",
+  "it": "Chiede ad Android di liberare la cache delle altre app richiedendo spazio. Assistito dal sistema: il risultato varia da dispositivo a dispositivo e può riempire brevemente lo spazio libero.",
+  "es": "Pide a Android que libere la caché de otras apps solicitando espacio. Asistido por el sistema: el resultado varía según el dispositivo y puede llenar brevemente el espacio libre.",
+  "pt": "Pede ao Android que libere o cache de outros apps solicitando espaço. Assistido pelo sistema: o resultado varia conforme o aparelho e pode encher brevemente o espaço livre.",
+  "de": "Bittet Android, den Cache anderer Apps durch Speicheranforderung zu leeren. Systemgestützt: Das Ergebnis hängt vom Gerät ab und kann den freien Speicher kurz füllen.",
+  "hu": "Az Androidot kéri, hogy tárhely igénylésével szabadítsa fel más alkalmazások gyorsítótárát. Rendszer által segített: az eredmény eszközfüggő, és rövid időre megtöltheti a szabad helyet."
+ },
+ "vm_trimmed": {
+  "en": "Cache trim: %1$s freed",
+  "ro": "Reducere cache: %1$s eliberați",
+  "fr": "Réduction du cache : %1$s libérés",
+  "it": "Riduzione cache: %1$s liberati",
+  "es": "Reducción de caché: %1$s liberados",
+  "pt": "Redução de cache: %1$s liberados",
+  "de": "Cache-Verkleinerung: %1$s freigegeben",
+  "hu": "Gyorsítótár-csökkentés: %1$s felszabadítva"
+ },
+ "vm_trim_none": {
+  "en": "Nothing to free: Android kept the caches",
+  "ro": "Nimic de eliberat: Android a păstrat cache-urile",
+  "fr": "Rien à libérer : Android a gardé les caches",
+  "it": "Niente da liberare: Android ha mantenuto le cache",
+  "es": "Nada que liberar: Android conservó las cachés",
+  "pt": "Nada a liberar: o Android manteve os caches",
+  "de": "Nichts freizugeben: Android hat die Caches behalten",
+  "hu": "Nincs mit felszabadítani: az Android megtartotta a gyorsítótárakat"
  }
 }

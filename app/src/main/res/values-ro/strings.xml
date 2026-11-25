@@ -89,7 +89,7 @@
     <string name="cat_archives">Arhive și instalări</string>
     <string name="cat_other">Altele</string>
     <string name="a_last_old">nefolosită de peste un an</string>
-    <string name="d_similar_note">Imagini asemănătoare: se păstrează cea mai mare (calitate maximă) din fiecare grup.</string>
+    <string name="d_similar_note">Imagini asemănătoare: se păstrează copia cea mai clară din fiecare grup (la egalitate, cea mai mare). Verifică înainte de ștergere.</string>
     <string name="f_blur">Neclare / întunecate</string>
     <string name="blur_find">Caută poze neclare sau întunecate</string>
     <string name="blur_note">Euristică: claritatea și luminozitatea se măsoară pe o copie mică a fiecărei poze. Verifică rezultatele înainte de ștergere.</string>
@@ -103,4 +103,27 @@
     <string name="vm_trashed">Mutate în coș: %1$d · %2$s (se eliberează la golire)</string>
     <string name="vm_restored">Restaurate: %1$d fișiere</string>
     <string name="vm_trash_emptied">Coș golit · %1$s eliberați</string>
+    <string name="tab_swipe">Glisare</string>
+    <string name="swipe_intro">Treci prin poze și videoclipuri pe rând, cele mai vechi întâi: glisează la stânga ca să ștergi, la dreapta ca să păstrezi. Nimic nu se șterge până nu confirmi la final.</string>
+    <string name="swipe_start">Începe (cele mai vechi întâi)</string>
+    <string name="swipe_progress">%1$d / %2$d · marcate: %3$d (%4$s)</string>
+    <string name="swipe_done">Totul parcurs. Verifică mai jos elementele marcate.</string>
+    <string name="swipe_keep">Păstrează</string>
+    <string name="swipe_undo">Anulează</string>
+    <string name="swipe_review">Verifică și șterge (%1$d)</string>
+    <string name="d_video">Videoclipuri asemănătoare</string>
+    <string name="d_find_video">Caută videoclipuri asemănătoare</string>
+    <string name="d_video_note">Videoclipuri asemănătoare: potrivite după un cadru din mijloc și o durată aproape identică. Se păstrează fișierul cel mai mare din fiecare grup; verifică înainte de ștergere.</string>
+    <string name="auto_title">Curățare programată</string>
+    <string name="auto_off">Oprit</string>
+    <string name="auto_weekly">Săptămânal</string>
+    <string name="auto_monthly">Lunar</string>
+    <string name="auto_clean">Curăță resturile automat (altfel doar notifică)</string>
+    <string name="auto_note">Rulează în fundal cam o dată pe perioadă, când bateria nu e aproape goală. Se ating doar resturile evidente mai vechi de 24 de ore; cu ștergerea sigură pornită, ajung în coșul LUSTRUM.</string>
+    <string name="notif_found">Resturi gata de curățat: %1$d fișiere · %2$s</string>
+    <string name="notif_cleaned">Curățate automat: %1$d fișiere · %2$s</string>
+    <string name="trim_btn">Reduce cache-ul altor aplicații</string>
+    <string name="trim_note">Cere Android să elibereze datele din cache ale altor aplicații, solicitând spațiu. Asistat de sistem: rezultatul diferă între dispozitive și poate umple scurt spațiul liber.</string>
+    <string name="vm_trimmed">Reducere cache: %1$s eliberați</string>
+    <string name="vm_trim_none">Nimic de eliberat: Android a păstrat cache-urile</string>
 </resources>

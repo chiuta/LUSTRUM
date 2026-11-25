@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
+import android.media.MediaMetadataRetriever
 import java.security.MessageDigest
 import java.util.concurrent.Executors
 import java.util.concurrent.atomic.AtomicInteger
@@ -108,6 +109,68 @@ object Dupes {
         val idx = imgs.indices.filter { ok[it] }
         return cluster(LongArray(idx.size) { hashes[idx[it]] })
             .map { g -> g.map { imgs[idx[it]] } } // fiecare grup: cel mai mare (calitate) primul
+            .sortedByDescending { g -> g.sumOf { it.size } }
+    }
+
+    /** Cel mai bun primul: claritate (în trepte de ~10%), apoi mărimea fișierului. */
+    fun bestFirst(group: List<Item>, sharp: (Item) -> Double?): List<Item> =
+        group.sortedWith(
+            compareByDescending<Item> { (Math.log((sharp(it) ?: 0.0) + 1.0) * 10).toInt() }.thenByDescending { it.size }
+        )
+
+    fun sameDuration(a: Long, b: Long): Boolean = Math.abs(a - b) <= maxOf(1000L, a * 3 / 100)
+
+    private fun hashOf(bmp: Bitmap): Long {
+        val small = Bitmap.createScaledBitmap(bmp, 9, 8, true)
+        var h = 0L
+        for (y in 0 until 8) for (x in 0 until 8) {
+            if (lum(small.getPixel(x, y)) > lum(small.getPixel(x + 1, y))) h = h or (1L shl (y * 8 + x))
+        }
+        if (small !== bmp) small.recycle()
+        return h
+    }
+
+    /** Videoclipuri asemănătoare: același cadru din mijloc (dHash) și durată aproape identică. */
+    fun similarVideos(ctx: Context, items: List<Item>, progress: (Int, Int) -> Unit): List<List<Item>> {
+        val vids = items.filter { it.category == Category.VIDEO && it.size >= 100_000 }
+            .sortedWith(compareByDescending<Item> { it.size }.thenBy { it.modified })
+        val hashes = LongArray(vids.size)
+        val dur = LongArray(vids.size)
+        val ok = BooleanArray(vids.size)
+        val done = AtomicInteger()
+        val pool = Executors.newFixedThreadPool(2)
+        try {
+            vids.indices.map { i ->
+                pool.submit(Runnable {
+                    val r = MediaMetadataRetriever()
+                    try {
+                        val u = vids[i].uri
+                        if (u != null) r.setDataSource(ctx, u) else r.setDataSource(vids[i].path)
+                        val d = r.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)?.toLongOrNull() ?: 0L
+                        val f = if (d > 0) r.getFrameAtTime(d * 1000L * 3 / 10, MediaMetadataRetriever.OPTION_CLOSEST_SYNC) else null
+                        if (f != null) {
+                            val h = hashOf(f)
+                            f.recycle()
+                            if (h != 0L) { hashes[i] = h; dur[i] = d; ok[i] = true }
+                        }
+                    } catch (e: Throwable) {
+                        // video ilizibil: se ignoră
+                    } finally {
+                        try { r.release() } catch (e: Throwable) { }
+                    }
+                    progress(done.incrementAndGet(), vids.size)
+                })
+            }.forEach { it.get() }
+        } finally {
+            pool.shutdown()
+        }
+        val idx = vids.indices.filter { ok[it] }
+        return cluster(LongArray(idx.size) { hashes[idx[it]] }, 6)
+            .map { g ->
+                val rep = dur[idx[g[0]]]
+                g.filter { sameDuration(rep, dur[idx[it]]) }.map { vids[idx[it]] }
+            }
+            .filter { it.size > 1 }
             .sortedByDescending { g -> g.sumOf { it.size } }
     }
 

@@ -90,7 +90,7 @@
     <string name="cat_archives">Archives and installers</string>
     <string name="cat_other">Other</string>
     <string name="a_last_old">not used in over a year</string>
-    <string name="d_similar_note">Similar images: the largest (best quality) one in each group is kept.</string>
+    <string name="d_similar_note">Similar images: the sharpest copy in each group is kept (largest file on ties). Review before deleting.</string>
     <string name="f_blur">Blurry / dark</string>
     <string name="blur_find">Find blurry or dark photos</string>
     <string name="blur_note">Heuristic: sharpness and brightness are measured on a small copy of each photo. Review the results before deleting.</string>
@@ -104,4 +104,27 @@
     <string name="vm_trashed">Moved to trash: %1$d · %2$s (freed when emptied)</string>
     <string name="vm_restored">Restored: %1$d files</string>
     <string name="vm_trash_emptied">Trash emptied · %1$s freed</string>
+    <string name="tab_swipe">Swipe</string>
+    <string name="swipe_intro">Go through your photos and videos one by one, oldest first: swipe left to delete, right to keep. Nothing is deleted until you confirm at the end.</string>
+    <string name="swipe_start">Start (oldest first)</string>
+    <string name="swipe_progress">%1$d / %2$d · marked: %3$d (%4$s)</string>
+    <string name="swipe_done">All reviewed. Review your marked items below.</string>
+    <string name="swipe_keep">Keep</string>
+    <string name="swipe_undo">Undo</string>
+    <string name="swipe_review">Review and delete (%1$d)</string>
+    <string name="d_video">Similar videos</string>
+    <string name="d_find_video">Find similar videos</string>
+    <string name="d_video_note">Similar videos: matched by a frame from the middle plus almost identical length. The largest file in each group is kept; review before deleting.</string>
+    <string name="auto_title">Scheduled cleaning</string>
+    <string name="auto_off">Off</string>
+    <string name="auto_weekly">Weekly</string>
+    <string name="auto_monthly">Monthly</string>
+    <string name="auto_clean">Clean junk automatically (otherwise only notify)</string>
+    <string name="auto_note">Runs in the background about once per period while the battery is not low. Only obvious junk older than 24 hours is touched; with safe delete on, it goes to the LUSTRUM trash.</string>
+    <string name="notif_found">Junk ready to clean: %1$d files · %2$s</string>
+    <string name="notif_cleaned">Cleaned automatically: %1$d files · %2$s</string>
+    <string name="trim_btn">Trim other apps\' caches</string>
+    <string name="trim_note">Asks Android to free cached data of other apps by requesting storage. System-assisted: results vary by device and it may briefly fill the free space.</string>
+    <string name="vm_trimmed">Cache trim: %1$s freed</string>
+    <string name="vm_trim_none">Nothing to free: Android kept the caches</string>
 </resources>

@@ -89,7 +89,7 @@
     <string name="cat_archives">Archivos y instaladores</string>
     <string name="cat_other">Otros</string>
     <string name="a_last_old">sin usar desde hace más de un año</string>
-    <string name="d_similar_note">Imágenes parecidas: se conserva la más grande (mejor calidad) de cada grupo.</string>
+    <string name="d_similar_note">Imágenes parecidas: se conserva la copia más nítida de cada grupo (en empate, la más grande). Revisa antes de eliminar.</string>
     <string name="f_blur">Borrosas / oscuras</string>
     <string name="blur_find">Buscar fotos borrosas u oscuras</string>
     <string name="blur_note">Heurística: la nitidez y el brillo se miden en una copia pequeña de cada foto. Revisa los resultados antes de eliminar.</string>
@@ -103,4 +103,27 @@
     <string name="vm_trashed">Movidos a la papelera: %1$d · %2$s (se liberan al vaciar)</string>
     <string name="vm_restored">Restaurados: %1$d archivos</string>
     <string name="vm_trash_emptied">Papelera vaciada · %1$s liberados</string>
+    <string name="tab_swipe">Deslizar</string>
+    <string name="swipe_intro">Repasa tus fotos y vídeos uno a uno, empezando por los más antiguos: desliza a la izquierda para eliminar, a la derecha para conservar. No se elimina nada hasta que confirmes al final.</string>
+    <string name="swipe_start">Empezar (los más antiguos primero)</string>
+    <string name="swipe_progress">%1$d / %2$d · marcados: %3$d (%4$s)</string>
+    <string name="swipe_done">Todo revisado. Revisa abajo los elementos marcados.</string>
+    <string name="swipe_keep">Conservar</string>
+    <string name="swipe_undo">Deshacer</string>
+    <string name="swipe_review">Revisar y eliminar (%1$d)</string>
+    <string name="d_video">Vídeos parecidos</string>
+    <string name="d_find_video">Buscar vídeos parecidos</string>
+    <string name="d_video_note">Vídeos parecidos: se detectan por un fotograma central y una duración casi idéntica. Se conserva el archivo más grande de cada grupo; revisa antes de eliminar.</string>
+    <string name="auto_title">Limpieza programada</string>
+    <string name="auto_off">Desactivado</string>
+    <string name="auto_weekly">Semanal</string>
+    <string name="auto_monthly">Mensual</string>
+    <string name="auto_clean">Limpiar la basura automáticamente (si no, solo avisar)</string>
+    <string name="auto_note">Se ejecuta en segundo plano aproximadamente una vez por periodo, con batería no baja. Solo se tocan archivos basura evidentes de más de 24 horas; con la eliminación segura activa van a la papelera LUSTRUM.</string>
+    <string name="notif_found">Basura lista para limpiar: %1$d archivos · %2$s</string>
+    <string name="notif_cleaned">Limpiados automáticamente: %1$d archivos · %2$s</string>
+    <string name="trim_btn">Reducir la caché de otras apps</string>
+    <string name="trim_note">Pide a Android que libere la caché de otras apps solicitando espacio. Asistido por el sistema: el resultado varía según el dispositivo y puede llenar brevemente el espacio libre.</string>
+    <string name="vm_trimmed">Reducción de caché: %1$s liberados</string>
+    <string name="vm_trim_none">Nada que liberar: Android conservó las cachés</string>
 </resources>

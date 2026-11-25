@@ -71,6 +71,7 @@ class Actions(
     val delete: (List<Item>) -> Unit,
     val appSettings: (String) -> Unit,
     val uninstall: (String) -> Unit,
+    val requestNotif: () -> Unit,
 )
 
 @Composable
@@ -101,7 +102,7 @@ fun LustrumApp(vm: LustrumVm, a: Actions) {
         if (vm.perms.allFiles && vm.scanned && !vm.scannedWithAll && !vm.scanning) vm.scan()
     }
 
-    val tabs = listOf(R.string.tab_home to "🏠", R.string.tab_files to "📦", R.string.tab_dupes to "👯", R.string.tab_apps to "📱")
+    val tabs = listOf(R.string.tab_home to "🏠", R.string.tab_files to "📦", R.string.tab_dupes to "👯", R.string.tab_swipe to "👆", R.string.tab_apps to "📱")
     Scaffold(
         snackbarHost = { SnackbarHost(snack) },
         bottomBar = {
@@ -122,6 +123,7 @@ fun LustrumApp(vm: LustrumVm, a: Actions) {
                 0 -> HomeScreen(vm, a) { vm.clearSelection(); vm.filter = Filter.RESTURI; tab = 1 }
                 1 -> FilesScreen(vm, a)
                 2 -> DupScreen(vm, a)
+                3 -> SwipeScreen(vm, a)
                 else -> AppsScreen(vm, a)
             }
         }
@@ -249,6 +251,37 @@ fun HomeScreen(vm: LustrumVm, a: Actions, openJunk: () -> Unit) {
         item {
             Card(Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Text(stringResource(R.string.auto_title), style = MaterialTheme.typography.titleMedium)
+                    if (!p.allFiles) {
+                        Text(stringResource(R.string.need_all), style = MaterialTheme.typography.bodySmall)
+                    } else {
+                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                            listOf(0 to R.string.auto_off, 7 to R.string.auto_weekly, 30 to R.string.auto_monthly).forEach { (d, label) ->
+                                FilterChip(vm.autoDays == d, { vm.setAuto(d); if (d > 0) a.requestNotif() }, { Text(stringResource(label)) })
+                            }
+                        }
+                        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                            Text(stringResource(R.string.auto_clean), Modifier.weight(1f), style = MaterialTheme.typography.bodySmall)
+                            Switch(checked = vm.autoClean, onCheckedChange = { vm.setAutoClean(it) })
+                        }
+                        Text(stringResource(R.string.auto_note), style = MaterialTheme.typography.bodySmall)
+                    }
+                }
+            }
+        }
+        item {
+            Card(Modifier.fillMaxWidth()) {
+                Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    OutlinedButton(onClick = vm::trimCaches, modifier = Modifier.fillMaxWidth()) {
+                        Text(stringResource(R.string.trim_btn))
+                    }
+                    Text(stringResource(R.string.trim_note), style = MaterialTheme.typography.bodySmall)
+                }
+            }
+        }
+        item {
+            Card(Modifier.fillMaxWidth()) {
+                Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                     Text(stringResource(R.string.safe_delete), style = MaterialTheme.typography.titleMedium)
                     Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
                         Text(stringResource(R.string.safe_delete_note), Modifier.weight(1f), style = MaterialTheme.typography.bodySmall)
@@ -363,7 +396,7 @@ private fun DeleteBar(chosen: List<Item>, enabled: Boolean = true, onClick: () -
 }
 
 @Composable
-private fun ConfirmDelete(list: List<Item>, onDismiss: () -> Unit, onOk: () -> Unit) {
+internal fun ConfirmDelete(list: List<Item>, onDismiss: () -> Unit, onOk: () -> Unit) {
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(stringResource(R.string.confirm_del_title, list.size)) },
@@ -482,10 +515,11 @@ fun DupScreen(vm: LustrumVm, a: Actions) {
         Row(Modifier.padding(horizontal = 12.dp, vertical = 8.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             FilterChip(vm.dupMode == 0, { vm.clearSelection(); vm.dupMode = 0 }, { Text(stringResource(R.string.d_identical)) })
             FilterChip(vm.dupMode == 1, { vm.clearSelection(); vm.dupMode = 1 }, { Text(stringResource(R.string.d_similar)) })
+            FilterChip(vm.dupMode == 2, { vm.clearSelection(); vm.dupMode = 2 }, { Text(stringResource(R.string.d_video)) })
         }
         Column(Modifier.padding(horizontal = 16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
             Button(
-                onClick = { vm.findDupes(vm.dupMode == 1) },
+                onClick = { vm.findDupes(vm.dupMode) },
                 enabled = vm.scanned && !vm.dupBusy,
                 modifier = Modifier.fillMaxWidth(),
             ) {
@@ -494,14 +528,15 @@ fun DupScreen(vm: LustrumVm, a: Actions) {
                         vm.dupBusy -> vm.dupProgress
                         !vm.scanned -> stringResource(R.string.scan_first)
                         vm.dupMode == 0 -> stringResource(R.string.d_find_exact)
+                        vm.dupMode == 2 -> stringResource(R.string.d_find_video)
                         else -> stringResource(R.string.d_find_similar)
                     }
                 )
             }
             if (vm.groupsDone) {
                 Text(stringResource(R.string.d_groups, groups.size, fmtSize(recoverable)), style = MaterialTheme.typography.bodySmall)
-                if (groups.isNotEmpty() && vm.dupMode == 1) {
-                    Text(stringResource(R.string.d_similar_note), style = MaterialTheme.typography.bodySmall)
+                if (groups.isNotEmpty() && vm.dupMode != 0) {
+                    Text(stringResource(if (vm.dupMode == 1) R.string.d_similar_note else R.string.d_video_note), style = MaterialTheme.typography.bodySmall)
                 }
                 if (groups.isNotEmpty()) {
                     OutlinedButton(onClick = vm::autoSelect, modifier = Modifier.fillMaxWidth()) {

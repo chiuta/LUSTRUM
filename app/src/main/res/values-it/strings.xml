@@ -89,7 +89,7 @@
     <string name="cat_archives">Archivi e installatori</string>
     <string name="cat_other">Altro</string>
     <string name="a_last_old">non usata da oltre un anno</string>
-    <string name="d_similar_note">Immagini simili: in ogni gruppo si tiene la più grande (qualità migliore).</string>
+    <string name="d_similar_note">Immagini simili: in ogni gruppo si tiene la copia più nitida (a parità, la più grande). Controlla prima di eliminare.</string>
     <string name="f_blur">Sfocate / scure</string>
     <string name="blur_find">Trova foto sfocate o scure</string>
     <string name="blur_note">Euristica: nitidezza e luminosità si misurano su una piccola copia di ogni foto. Controlla i risultati prima di eliminare.</string>
@@ -103,4 +103,27 @@
     <string name="vm_trashed">Spostati nel cestino: %1$d · %2$s (liberati allo svuotamento)</string>
     <string name="vm_restored">Ripristinati: %1$d file</string>
     <string name="vm_trash_emptied">Cestino svuotato · %1$s liberati</string>
+    <string name="tab_swipe">Scorri</string>
+    <string name="swipe_intro">Scorri foto e video uno a uno, dai più vecchi: scorri a sinistra per eliminare, a destra per tenere. Nulla viene eliminato finché non confermi alla fine.</string>
+    <string name="swipe_start">Inizia (dai più vecchi)</string>
+    <string name="swipe_progress">%1$d / %2$d · segnati: %3$d (%4$s)</string>
+    <string name="swipe_done">Tutto rivisto. Controlla qui sotto gli elementi segnati.</string>
+    <string name="swipe_keep">Tieni</string>
+    <string name="swipe_undo">Annulla</string>
+    <string name="swipe_review">Controlla ed elimina (%1$d)</string>
+    <string name="d_video">Video simili</string>
+    <string name="d_find_video">Trova video simili</string>
+    <string name="d_video_note">Video simili: individuati da un fotogramma centrale e da una durata quasi identica. In ogni gruppo si tiene il file più grande; controlla prima di eliminare.</string>
+    <string name="auto_title">Pulizia programmata</string>
+    <string name="auto_off">Spento</string>
+    <string name="auto_weekly">Settimanale</string>
+    <string name="auto_monthly">Mensile</string>
+    <string name="auto_clean">Pulisci i file inutili automaticamente (altrimenti solo notifica)</string>
+    <string name="auto_note">Gira in background circa una volta per periodo, con la batteria non scarica. Si toccano solo i file inutili evidenti più vecchi di 24 ore; con l\'eliminazione sicura attiva vanno nel cestino LUSTRUM.</string>
+    <string name="notif_found">File inutili pronti da pulire: %1$d · %2$s</string>
+    <string name="notif_cleaned">Puliti automaticamente: %1$d file · %2$s</string>
+    <string name="trim_btn">Riduci la cache delle altre app</string>
+    <string name="trim_note">Chiede ad Android di liberare la cache delle altre app richiedendo spazio. Assistito dal sistema: il risultato varia da dispositivo a dispositivo e può riempire brevemente lo spazio libero.</string>
+    <string name="vm_trimmed">Riduzione cache: %1$s liberati</string>
+    <string name="vm_trim_none">Niente da liberare: Android ha mantenuto le cache</string>
 </resources>

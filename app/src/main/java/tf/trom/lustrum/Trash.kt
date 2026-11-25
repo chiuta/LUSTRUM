@@ -79,3 +79,15 @@ object Trash {
         return freed
     }
 }
+
+/** Reguli comune de siguranță pentru orice ștergere (manuală sau programată). */
+object Safety {
+    /** Nu atinge nimic în afara stocării partajate, rădăcina, „Android” sau legăturile simbolice. */
+    fun ok(it: Item, root: File): Boolean {
+        val f = File(it.path)
+        val c = try { f.canonicalFile } catch (e: Exception) { return false }
+        if (c.path != f.absoluteFile.normalize().path) return false
+        if (!c.path.startsWith(root.path + "/")) return false
+        return c.path.removePrefix(root.path + "/") != "Android"
+    }
+}

@@ -89,7 +89,7 @@
     <string name="cat_archives">Archives et installateurs</string>
     <string name="cat_other">Autres</string>
     <string name="a_last_old">inutilisée depuis plus d\'un an</string>
-    <string name="d_similar_note">Images similaires : la plus grande (meilleure qualité) de chaque groupe est conservée.</string>
+    <string name="d_similar_note">Images similaires : la copie la plus nette de chaque groupe est conservée (à égalité, la plus grande). Vérifiez avant de supprimer.</string>
     <string name="f_blur">Floues / sombres</string>
     <string name="blur_find">Trouver les photos floues ou sombres</string>
     <string name="blur_note">Heuristique : la netteté et la luminosité sont mesurées sur une petite copie de chaque photo. Vérifiez les résultats avant de supprimer.</string>
@@ -103,4 +103,27 @@
     <string name="vm_trashed">Mis à la corbeille : %1$d · %2$s (libérés au vidage)</string>
     <string name="vm_restored">Restaurés : %1$d fichiers</string>
     <string name="vm_trash_emptied">Corbeille vidée · %1$s libérés</string>
+    <string name="tab_swipe">Balayage</string>
+    <string name="swipe_intro">Passez vos photos et vidéos en revue une à une, les plus anciennes d\'abord : glissez à gauche pour supprimer, à droite pour garder. Rien n\'est supprimé avant votre confirmation finale.</string>
+    <string name="swipe_start">Commencer (les plus anciens d\'abord)</string>
+    <string name="swipe_progress">%1$d / %2$d · marqués : %3$d (%4$s)</string>
+    <string name="swipe_done">Tout est passé en revue. Vérifiez ci-dessous les éléments marqués.</string>
+    <string name="swipe_keep">Garder</string>
+    <string name="swipe_undo">Annuler</string>
+    <string name="swipe_review">Vérifier et supprimer (%1$d)</string>
+    <string name="d_video">Vidéos similaires</string>
+    <string name="d_find_video">Trouver les vidéos similaires</string>
+    <string name="d_video_note">Vidéos similaires : repérées par une image du milieu et une durée presque identique. Le plus gros fichier de chaque groupe est conservé ; vérifiez avant de supprimer.</string>
+    <string name="auto_title">Nettoyage programmé</string>
+    <string name="auto_off">Désactivé</string>
+    <string name="auto_weekly">Hebdomadaire</string>
+    <string name="auto_monthly">Mensuel</string>
+    <string name="auto_clean">Nettoyer les fichiers inutiles automatiquement (sinon, simple notification)</string>
+    <string name="auto_note">S\'exécute en arrière-plan environ une fois par période, batterie non faible. Seuls les fichiers inutiles évidents de plus de 24 h sont touchés ; avec la suppression sécurisée, ils vont dans la corbeille LUSTRUM.</string>
+    <string name="notif_found">Fichiers inutiles prêts à nettoyer : %1$d · %2$s</string>
+    <string name="notif_cleaned">Nettoyés automatiquement : %1$d fichiers · %2$s</string>
+    <string name="trim_btn">Réduire le cache des autres applications</string>
+    <string name="trim_note">Demande à Android de libérer le cache des autres applications en réclamant de l\'espace. Assisté par le système : le résultat varie selon l\'appareil et l\'espace libre peut être brièvement saturé.</string>
+    <string name="vm_trimmed">Réduction du cache : %1$s libérés</string>
+    <string name="vm_trim_none">Rien à libérer : Android a gardé les caches</string>
 </resources>
