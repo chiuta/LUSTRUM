@@ -54,6 +54,18 @@
       [
         "Device status",
         "RAM, battery level and temperature — read-only, for information."
+      ],
+      [
+        "Blurry & dark photos",
+        "Measures sharpness and brightness on a small copy of each photo and lists the likely rejects for you to review."
+      ],
+      [
+        "Safe delete with undo",
+        "Optional LUSTRUM trash: deleted files wait 30 days and can be restored; space is freed when you empty it."
+      ],
+      [
+        "Previews & biggest folders",
+        "Thumbnails in every list, a ranking of the folders that eat your storage, and a running total of what you have freed."
       ]
     ],
     "p_title": "Private by construction",
@@ -89,7 +101,7 @@
       "“RAM boost” and background-app killers. Android manages memory itself; these buttons don't help and drain the battery.",
       "Clearing other apps' caches in one tap. Android forbids it without special privileges, so LUSTRUM takes you straight to each app's storage screen.",
       "iOS. The system does not allow cleaning outside an app's own sandbox.",
-      "Undo. There is no recycle bin or preview yet: deletions are permanent, so every action is confirmed first.",
+      "Scheduled cleaning. LUSTRUM acts only when you open it and confirm; nothing runs in the background.",
       "Look inside other apps' Android/data folder. Android 11+ blocks this for every normal app; only root or Shizuku can, and LUSTRUM does not support them yet."
     ],
     "d_title": "Get LUSTRUM",
@@ -161,7 +173,7 @@
     "build_title": "Building",
     "build_text": "JDK 21, Android SDK, Gradle 8.14+: run `gradle assembleRelease` (`gradle testDebugUnitTest` runs the unit tests). The APK appears in `app/build/outputs/apk/release/`. The Build APK workflow tests, builds and publishes a release for every new version pushed to main. APKs are signed with a stable public key kept in the repository (`tools/lustrum-public.jks`), so updates install over each other; for your own distribution add your key as repository secrets (`LUSTRUM_KEYSTORE_B64`, `LUSTRUM_STORE_PASS`, `LUSTRUM_KEY_PASS`, `LUSTRUM_KEY_ALIAS`).",
     "status_title": "Status",
-    "status_text": "Beta. 8 unit tests and the build run in CI; not yet tested on a physical phone. Updating from 0.3.0 or earlier: uninstall once, because those builds used a different signing key; from 0.4.0 on, updates install over the old version.",
+    "status_text": "Beta. 14 unit tests and the build run in CI; not yet tested on a physical phone. Builds from 0.4.0 on share one signing key, so updates install over the old version (from 0.3.0 or earlier, uninstall once).",
     "ver": "Version",
     "upd": "Last updated"
   },
@@ -220,6 +232,18 @@
       [
         "Starea dispozitivului",
         "RAM, nivelul și temperatura bateriei — doar citire, informativ."
+      ],
+      [
+        "Poze neclare și întunecate",
+        "Măsoară claritatea și luminozitatea pe o copie mică a fiecărei poze și listează probabilele rebuturi, ca să le verifici tu."
+      ],
+      [
+        "Ștergere sigură, cu anulare",
+        "Coș LUSTRUM opțional: fișierele șterse așteaptă 30 de zile și pot fi restaurate; spațiul se eliberează când golești coșul."
+      ],
+      [
+        "Miniaturi și cele mai mari foldere",
+        "Miniaturi în fiecare listă, un clasament al folderelor care îți mănâncă spațiul și totalul eliberat până acum."
       ]
     ],
     "p_title": "Privat prin construcție",
@@ -255,7 +279,7 @@
       "„Boost RAM” și oprirea aplicațiilor din fundal. Android gestionează singur memoria; butoanele astea nu ajută și consumă baterie.",
       "Golirea cache-ului altor aplicații dintr-un clic. Android o interzice fără privilegii speciale, așa că LUSTRUM te duce direct la ecranul de stocare al fiecărei aplicații.",
       "iOS. Sistemul nu permite curățare în afara propriului spațiu al aplicației.",
-      "Anulare. Nu există încă coș de reciclare sau previzualizare: ștergerile sunt definitive, de aceea fiecare acțiune e confirmată înainte.",
+      "Curățare programată. LUSTRUM acționează doar când îl deschizi și confirmi; nimic nu rulează în fundal.",
       "Să se uite în folderul Android/data al altor aplicații. Android 11+ blochează asta pentru orice aplicație obișnuită; doar root sau Shizuku pot, iar LUSTRUM nu le suportă încă."
     ],
     "d_title": "Obține LUSTRUM",
@@ -327,7 +351,7 @@
     "build_title": "Construire",
     "build_text": "JDK 21, Android SDK, Gradle 8.14+: rulează `gradle assembleRelease` (`gradle testDebugUnitTest` rulează testele unitare). APK-ul apare în `app/build/outputs/apk/release/`. Fluxul Build APK testează, compilează și publică o versiune pentru fiecare versiune nouă ajunsă pe main. APK-urile sunt semnate cu o cheie publică stabilă din repo (`tools/lustrum-public.jks`), deci actualizările se instalează peste versiunea veche; pentru distribuția ta adaugă propria cheie ca secrete de repo (`LUSTRUM_KEYSTORE_B64`, `LUSTRUM_STORE_PASS`, `LUSTRUM_KEY_PASS`, `LUSTRUM_KEY_ALIAS`).",
     "status_title": "Stare",
-    "status_text": "Beta. 8 teste unitare și compilarea rulează în CI; încă netestată pe un telefon fizic. Actualizare de la 0.3.0 sau mai vechi: dezinstalează o dată, pentru că acele versiuni foloseau altă cheie de semnare; de la 0.4.0 încolo, actualizările se instalează peste versiunea veche.",
+    "status_text": "Beta. 14 teste unitare și compilarea rulează în CI; încă netestată pe un telefon fizic. Versiunile de la 0.4.0 încolo împart aceeași cheie de semnare, deci actualizările se instalează peste cea veche (de la 0.3.0 sau mai vechi, dezinstalează o dată).",
     "ver": "Versiune",
     "upd": "Ultima actualizare"
   },
@@ -386,6 +410,18 @@
       [
         "État de l'appareil",
         "RAM, niveau et température de la batterie — en lecture seule, à titre informatif."
+      ],
+      [
+        "Photos floues et sombres",
+        "Mesure la netteté et la luminosité sur une petite copie de chaque photo et liste les ratées probables, à vérifier par vous."
+      ],
+      [
+        "Suppression sécurisée, annulable",
+        "Corbeille LUSTRUM facultative : les fichiers supprimés attendent 30 jours et peuvent être restaurés ; l'espace est libéré au vidage."
+      ],
+      [
+        "Aperçus et plus gros dossiers",
+        "Miniatures dans chaque liste, un classement des dossiers qui mangent votre stockage et le total libéré jusqu'ici."
       ]
     ],
     "p_title": "Privé par construction",
@@ -421,7 +457,7 @@
       "Le « boost RAM » et les tueurs d'applications en arrière-plan. Android gère la mémoire seul ; ces boutons n'aident pas et vident la batterie.",
       "Vider le cache des autres applications en un geste. Android l'interdit sans privilèges spéciaux ; LUSTRUM vous emmène donc directement à l'écran de stockage de chaque application.",
       "iOS. Le système interdit tout nettoyage hors du bac à sable de l'application.",
-      "L'annulation. Il n'y a pas encore de corbeille ni d'aperçu : les suppressions sont définitives, donc chaque action est d'abord confirmée.",
+      "Le nettoyage programmé. LUSTRUM n'agit que lorsque vous l'ouvrez et confirmez ; rien ne tourne en arrière-plan.",
       "Regarder dans le dossier Android/data des autres applications. Android 11+ l'interdit à toute application ordinaire ; seuls root ou Shizuku le permettent, et LUSTRUM ne les gère pas encore."
     ],
     "d_title": "Obtenir LUSTRUM",
@@ -493,7 +529,7 @@
     "build_title": "Compilation",
     "build_text": "JDK 21, SDK Android, Gradle 8.14+ : lancez `gradle assembleRelease` (`gradle testDebugUnitTest` exécute les tests unitaires). L'APK apparaît dans `app/build/outputs/apk/release/`. Le workflow Build APK teste, compile et publie une version pour chaque nouvelle version poussée sur main. Les APK sont signés avec une clé publique stable du dépôt (`tools/lustrum-public.jks`), donc les mises à jour s'installent par-dessus ; pour votre propre diffusion, ajoutez votre clé en secrets du dépôt (`LUSTRUM_KEYSTORE_B64`, `LUSTRUM_STORE_PASS`, `LUSTRUM_KEY_PASS`, `LUSTRUM_KEY_ALIAS`).",
     "status_title": "État",
-    "status_text": "Bêta. 8 tests unitaires et la compilation tournent en CI ; pas encore testée sur un vrai téléphone. Mise à jour depuis 0.3.0 ou antérieure : désinstallez une fois, ces versions utilisaient une autre clé de signature ; dès 0.4.0, les mises à jour s'installent par-dessus.",
+    "status_text": "Bêta. 14 tests unitaires et la compilation tournent en CI ; pas encore testée sur un vrai téléphone. Les versions depuis la 0.4.0 partagent une même clé de signature : les mises à jour s'installent par-dessus (depuis 0.3.0 ou antérieure, désinstallez une fois).",
     "ver": "Version",
     "upd": "Dernière mise à jour"
   },
@@ -552,6 +588,18 @@
       [
         "Stato del dispositivo",
         "RAM, livello e temperatura della batteria — sola lettura, a scopo informativo."
+      ],
+      [
+        "Foto sfocate e scure",
+        "Misura nitidezza e luminosità su una piccola copia di ogni foto ed elenca i probabili scarti, da verificare."
+      ],
+      [
+        "Eliminazione sicura con annullamento",
+        "Cestino LUSTRUM opzionale: i file eliminati attendono 30 giorni e si possono ripristinare; lo spazio si libera allo svuotamento."
+      ],
+      [
+        "Anteprime e cartelle più grandi",
+        "Miniature in ogni elenco, una classifica delle cartelle che occupano più spazio e il totale liberato finora."
       ]
     ],
     "p_title": "Privato per costruzione",
@@ -587,7 +635,7 @@
       "Il «boost RAM» e i chiusori di app in background. Android gestisce da solo la memoria; questi pulsanti non servono e scaricano la batteria.",
       "Svuotare la cache delle altre app con un tocco. Android lo vieta senza privilegi speciali, perciò LUSTRUM ti porta direttamente alla schermata di archiviazione di ogni app.",
       "iOS. Il sistema non consente pulizie fuori dall'area riservata dell'app.",
-      "L'annullamento. Non ci sono ancora cestino né anteprime: le eliminazioni sono definitive, quindi ogni azione viene prima confermata.",
+      "La pulizia programmata. LUSTRUM agisce solo quando lo apri e confermi; nulla gira in background.",
       "Guardare nella cartella Android/data delle altre app. Da Android 11 è bloccato per ogni app normale; solo root o Shizuku possono, e LUSTRUM non li supporta ancora."
     ],
     "d_title": "Ottieni LUSTRUM",
@@ -659,7 +707,7 @@
     "build_title": "Compilazione",
     "build_text": "JDK 21, Android SDK, Gradle 8.14+: esegui `gradle assembleRelease` (`gradle testDebugUnitTest` esegue i test unitari). L'APK compare in `app/build/outputs/apk/release/`. Il workflow Build APK testa, compila e pubblica una release per ogni nuova versione su main. Gli APK sono firmati con una chiave pubblica stabile nel repository (`tools/lustrum-public.jks`), quindi gli aggiornamenti si installano sopra; per una tua distribuzione aggiungi la tua chiave come secret del repository (`LUSTRUM_KEYSTORE_B64`, `LUSTRUM_STORE_PASS`, `LUSTRUM_KEY_PASS`, `LUSTRUM_KEY_ALIAS`).",
     "status_title": "Stato",
-    "status_text": "Beta. 8 test unitari e la compilazione girano in CI; non ancora provata su un telefono fisico. Aggiornando da 0.3.0 o precedenti: disinstalla una volta, perché quelle versioni usavano un'altra chiave di firma; da 0.4.0 gli aggiornamenti si installano sopra.",
+    "status_text": "Beta. 14 test unitari e la compilazione girano in CI; non ancora provata su un telefono fisico. Dalla 0.4.0 le versioni condividono la stessa chiave di firma, quindi gli aggiornamenti si installano sopra (da 0.3.0 o precedenti, disinstalla una volta).",
     "ver": "Versione",
     "upd": "Ultimo aggiornamento"
   },
@@ -718,6 +766,18 @@
       [
         "Estado del dispositivo",
         "RAM, nivel y temperatura de la batería — solo lectura, a título informativo."
+      ],
+      [
+        "Fotos borrosas y oscuras",
+        "Mide nitidez y brillo en una copia pequeña de cada foto y lista los probables descartes para que los revises."
+      ],
+      [
+        "Eliminación segura con deshacer",
+        "Papelera LUSTRUM opcional: los archivos eliminados esperan 30 días y se pueden restaurar; el espacio se libera al vaciarla."
+      ],
+      [
+        "Vistas previas y carpetas más grandes",
+        "Miniaturas en cada lista, un ranking de las carpetas que más ocupan y el total liberado hasta ahora."
       ]
     ],
     "p_title": "Privado por diseño",
@@ -753,7 +813,7 @@
       "El «boost de RAM» y los cierra-apps en segundo plano. Android gestiona la memoria por sí solo; esos botones no ayudan y gastan batería.",
       "Vaciar la caché de otras apps con un toque. Android lo prohíbe sin privilegios especiales, así que LUSTRUM te lleva directo a la pantalla de almacenamiento de cada app.",
       "iOS. El sistema no permite limpiar fuera del espacio propio de la app.",
-      "Deshacer. Todavía no hay papelera ni vista previa: las eliminaciones son definitivas, por eso cada acción se confirma antes.",
+      "La limpieza programada. LUSTRUM solo actúa cuando lo abres y confirmas; nada se ejecuta en segundo plano.",
       "Mirar dentro de la carpeta Android/data de otras apps. Android 11+ lo bloquea a cualquier app normal; solo root o Shizuku pueden, y LUSTRUM aún no los admite."
     ],
     "d_title": "Consigue LUSTRUM",
@@ -825,7 +885,7 @@
     "build_title": "Compilación",
     "build_text": "JDK 21, SDK de Android, Gradle 8.14+: ejecuta `gradle assembleRelease` (`gradle testDebugUnitTest` ejecuta las pruebas unitarias). El APK aparece en `app/build/outputs/apk/release/`. El flujo Build APK prueba, compila y publica una versión por cada versión nueva en main. Los APK se firman con una clave pública estable del repositorio (`tools/lustrum-public.jks`), así las actualizaciones se instalan encima; para tu propia distribución añade tu clave como secretos del repositorio (`LUSTRUM_KEYSTORE_B64`, `LUSTRUM_STORE_PASS`, `LUSTRUM_KEY_PASS`, `LUSTRUM_KEY_ALIAS`).",
     "status_title": "Estado",
-    "status_text": "Beta. 8 pruebas unitarias y la compilación corren en CI; aún sin probar en un teléfono físico. Al actualizar desde 0.3.0 o anterior: desinstala una vez, porque esas versiones usaban otra clave de firma; desde 0.4.0 las actualizaciones se instalan encima.",
+    "status_text": "Beta. 14 pruebas unitarias y la compilación corren en CI; aún sin probar en un teléfono físico. Desde la 0.4.0 las versiones comparten clave de firma, así que las actualizaciones se instalan encima (desde 0.3.0 o anterior, desinstala una vez).",
     "ver": "Versión",
     "upd": "Última actualización"
   },
@@ -884,6 +944,18 @@
       [
         "Estado do dispositivo",
         "RAM, nível e temperatura da bateria — somente leitura, apenas informativo."
+      ],
+      [
+        "Fotos tremidas e escuras",
+        "Mede nitidez e brilho em uma cópia pequena de cada foto e lista os prováveis descartes para você revisar."
+      ],
+      [
+        "Exclusão segura com desfazer",
+        "Lixeira LUSTRUM opcional: os arquivos excluídos esperam 30 dias e podem ser restaurados; o espaço é liberado ao esvaziá-la."
+      ],
+      [
+        "Prévias e maiores pastas",
+        "Miniaturas em cada lista, um ranking das pastas que mais ocupam espaço e o total liberado até agora."
       ]
     ],
     "p_title": "Privado por construção",
@@ -919,7 +991,7 @@
       "“Turbo de RAM” e fechadores de apps em segundo plano. O Android gerencia a memória sozinho; esses botões não ajudam e gastam bateria.",
       "Limpar o cache de outros apps com um toque. O Android proíbe isso sem privilégios especiais, então o LUSTRUM leva você direto à tela de armazenamento de cada app.",
       "iOS. O sistema não permite limpeza fora do espaço do próprio app.",
-      "Desfazer. Ainda não há lixeira nem pré-visualização: as exclusões são definitivas, por isso cada ação é confirmada antes.",
+      "A limpeza agendada. O LUSTRUM só age quando você o abre e confirma; nada roda em segundo plano.",
       "Olhar dentro da pasta Android/data de outros apps. O Android 11+ bloqueia isso para qualquer app comum; só root ou Shizuku conseguem, e o LUSTRUM ainda não os suporta."
     ],
     "d_title": "Baixe o LUSTRUM",
@@ -991,7 +1063,7 @@
     "build_title": "Compilação",
     "build_text": "JDK 21, Android SDK, Gradle 8.14+: execute `gradle assembleRelease` (`gradle testDebugUnitTest` roda os testes unitários). O APK aparece em `app/build/outputs/apk/release/`. O workflow Build APK testa, compila e publica uma versão a cada nova versão enviada para main. Os APKs são assinados com uma chave pública estável do repositório (`tools/lustrum-public.jks`), então as atualizações se instalam por cima; para sua própria distribuição, adicione sua chave como segredos do repositório (`LUSTRUM_KEYSTORE_B64`, `LUSTRUM_STORE_PASS`, `LUSTRUM_KEY_PASS`, `LUSTRUM_KEY_ALIAS`).",
     "status_title": "Situação",
-    "status_text": "Beta. 8 testes unitários e a compilação rodam no CI; ainda não testado em um celular físico. Ao atualizar da 0.3.0 ou anterior: desinstale uma vez, pois essas versões usavam outra chave de assinatura; a partir da 0.4.0 as atualizações se instalam por cima.",
+    "status_text": "Beta. 14 testes unitários e a compilação rodam no CI; ainda não testado em um celular físico. Da 0.4.0 em diante as versões compartilham a mesma chave de assinatura, então as atualizações se instalam por cima (da 0.3.0 ou anterior, desinstale uma vez).",
     "ver": "Versão",
     "upd": "Última atualização"
   },
@@ -1050,6 +1122,18 @@
       [
         "Gerätestatus",
         "RAM, Akkustand und Temperatur — nur lesend, zur Information."
+      ],
+      [
+        "Unscharfe & dunkle Fotos",
+        "Misst Schärfe und Helligkeit an einer kleinen Kopie jedes Fotos und listet wahrscheinlichen Ausschuss zur Prüfung auf."
+      ],
+      [
+        "Sicheres Löschen mit Rückgängig",
+        "Optionaler LUSTRUM-Papierkorb: Gelöschtes wartet 30 Tage und lässt sich wiederherstellen; Speicher wird beim Leeren frei."
+      ],
+      [
+        "Vorschauen & größte Ordner",
+        "Vorschaubilder in jeder Liste, eine Rangliste der speicherhungrigen Ordner und die bisher freigegebene Gesamtmenge."
       ]
     ],
     "p_title": "Privat von Grund auf",
@@ -1085,7 +1169,7 @@
       "„RAM-Boost“ und das Beenden von Hintergrund-Apps. Android verwaltet den Speicher selbst; diese Schaltflächen helfen nicht und kosten Akku.",
       "Den Cache anderer Apps mit einem Tipp leeren. Android verbietet das ohne Sonderrechte, daher führt LUSTRUM direkt zum Speicherbildschirm jeder App.",
       "iOS. Das System erlaubt keine Bereinigung außerhalb des eigenen Bereichs einer App.",
-      "Rückgängig machen. Es gibt noch keinen Papierkorb und keine Vorschau: Löschungen sind endgültig, deshalb wird jede Aktion vorher bestätigt.",
+      "Geplantes Aufräumen. LUSTRUM handelt nur, wenn Sie es öffnen und bestätigen; nichts läuft im Hintergrund.",
       "In den Ordner Android/data anderer Apps schauen. Android 11+ sperrt das für jede normale App; nur Root oder Shizuku können es, und LUSTRUM unterstützt sie noch nicht."
     ],
     "d_title": "LUSTRUM holen",
@@ -1157,7 +1241,7 @@
     "build_title": "Bauen",
     "build_text": "JDK 21, Android SDK, Gradle 8.14+: `gradle assembleRelease` ausführen (`gradle testDebugUnitTest` startet die Unit-Tests). Die APK liegt in `app/build/outputs/apk/release/`. Der Workflow Build APK testet, baut und veröffentlicht für jede neue Version auf main ein Release. APKs werden mit einem stabilen öffentlichen Schlüssel aus dem Repository signiert (`tools/lustrum-public.jks`), Updates lassen sich also drüber installieren; für eigene Verteilung den eigenen Schlüssel als Repository-Secrets hinterlegen (`LUSTRUM_KEYSTORE_B64`, `LUSTRUM_STORE_PASS`, `LUSTRUM_KEY_PASS`, `LUSTRUM_KEY_ALIAS`).",
     "status_title": "Stand",
-    "status_text": "Beta. 8 Unit-Tests und der Build laufen in CI; noch nicht auf einem echten Handy getestet. Update von 0.3.0 oder älter: einmal deinstallieren, da diese Versionen einen anderen Signaturschlüssel nutzten; ab 0.4.0 lassen sich Updates drüber installieren.",
+    "status_text": "Beta. 14 Unit-Tests und der Build laufen in CI; noch nicht auf einem echten Handy getestet. Ab 0.4.0 teilen alle Versionen einen Signaturschlüssel, Updates lassen sich also drüber installieren (ab 0.3.0 oder älter einmal deinstallieren).",
     "ver": "Version",
     "upd": "Zuletzt aktualisiert"
   },
@@ -1216,6 +1300,18 @@
       [
         "Eszközállapot",
         "RAM, akkumulátorszint és hőmérséklet — csak olvasható, tájékoztató jellegű."
+      ],
+      [
+        "Elmosódott és sötét fotók",
+        "Minden fotó kis másolatán méri az élességet és a fényerőt, és listázza a valószínű selejtet, hogy átnézhesd."
+      ],
+      [
+        "Biztonságos törlés visszavonással",
+        "Opcionális LUSTRUM-kuka: a törölt fájlok 30 napig várnak és visszaállíthatók; a hely ürítéskor szabadul fel."
+      ],
+      [
+        "Előnézetek és legnagyobb mappák",
+        "Bélyegképek minden listában, rangsor a legtöbb helyet foglaló mappákról és az eddig felszabadított összeg."
       ]
     ],
     "p_title": "Magánszféra-barát felépítés",
@@ -1251,7 +1347,7 @@
       "„RAM-gyorsítás” és a háttérben futó alkalmazások leállítása. Az Android magától kezeli a memóriát; ezek a gombok nem segítenek, és merítik az akkumulátort.",
       "Más alkalmazások gyorsítótárának egy koppintásos ürítése. Az Android különleges jogosultság nélkül tiltja, ezért a LUSTRUM közvetlenül az adott alkalmazás tárhely-képernyőjére visz.",
       "iOS. A rendszer nem engedi a tisztítást az alkalmazás saját területén kívül.",
-      "Visszavonás. Még nincs kuka és előnézet: a törlés végleges, ezért minden műveletet előre megerősítesz.",
+      "Ütemezett tisztítás. A LUSTRUM csak akkor cselekszik, amikor megnyitod és megerősíted; semmi nem fut a háttérben.",
       "Más alkalmazások Android/data mappájába belenézni. Az Android 11+ ezt minden átlagos alkalmazástól megtiltja; csak a root vagy a Shizuku tudja, a LUSTRUM pedig még nem támogatja őket."
     ],
     "d_title": "Szerezd meg a LUSTRUM-ot",
@@ -1323,7 +1419,7 @@
     "build_title": "Fordítás",
     "build_text": "JDK 21, Android SDK, Gradle 8.14+: futtasd a `gradle assembleRelease` parancsot (a `gradle testDebugUnitTest` az egységteszteket futtatja). Az APK az `app/build/outputs/apk/release/` mappában jelenik meg. A Build APK munkafolyamat teszteli, lefordítja és kiadásként közzéteszi a main ágra érkező minden új verziót. Az APK-kat a tárolóban lévő stabil, nyilvános kulccsal írjuk alá (`tools/lustrum-public.jks`), így a frissítések a régi verzió fölé települnek; saját terjesztéshez add meg a saját kulcsodat tárolótitokként (`LUSTRUM_KEYSTORE_B64`, `LUSTRUM_STORE_PASS`, `LUSTRUM_KEY_PASS`, `LUSTRUM_KEY_ALIAS`).",
     "status_title": "Állapot",
-    "status_text": "Béta. 8 egységteszt és a fordítás CI-ben fut; valódi telefonon még nem tesztelt. Frissítés a 0.3.0-s vagy régebbi verzióról: egyszer távolítsd el, mert azok más aláírókulcsot használtak; a 0.4.0-tól a frissítések a régi verzió fölé települnek.",
+    "status_text": "Béta. 14 egységteszt és a fordítás CI-ben fut; valódi telefonon még nem tesztelt. A 0.4.0-tól minden verzió ugyanazt az aláírókulcsot használja, így a frissítések a régi verzió fölé települnek (0.3.0-ról vagy régebbiről egyszer távolítsd el).",
     "ver": "Verzió",
     "upd": "Utolsó frissítés"
   }

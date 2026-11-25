@@ -6,7 +6,7 @@
 
 LUSTRUM finds junk, duplicates, look-alike photos and app leftovers — and clears them only with your approval. It has no INTERNET permission, so it physically cannot send anything anywhere.
 
-**Version: 0.4.0 · Last updated: 2026-11-18**
+**Version: 0.5.0 · Last updated: 2026-11-25**
 
 [lustrum.chiuta.ro/](https://lustrum.chiuta.ro/)
 
@@ -20,6 +20,9 @@ LUSTRUM finds junk, duplicates, look-alike photos and app leftovers — and clea
 - **Photo compression** — Re-encodes big JPEGs and replaces them only if the result is at least 20% smaller. EXIF is kept; Motion Photos and HDR shots are skipped.
 - **Apps, caches & unused** — Cache size per app, last-used date, one tap to its settings or to uninstall.
 - **Device status** — RAM, battery level and temperature — read-only, for information.
+- **Blurry & dark photos** — Measures sharpness and brightness on a small copy of each photo and lists the likely rejects for you to review.
+- **Safe delete with undo** — Optional LUSTRUM trash: deleted files wait 30 days and can be restored; space is freed when you empty it.
+- **Previews & biggest folders** — Thumbnails in every list, a ranking of the folders that eat your storage, and a running total of what you have freed.
 
 ## Private by construction
 
@@ -53,7 +56,7 @@ Against the best-known cleaners, based on their public descriptions (November 20
 - “RAM boost” and background-app killers. Android manages memory itself; these buttons don't help and drain the battery.
 - Clearing other apps' caches in one tap. Android forbids it without special privileges, so LUSTRUM takes you straight to each app's storage screen.
 - iOS. The system does not allow cleaning outside an app's own sandbox.
-- Undo. There is no recycle bin or preview yet: deletions are permanent, so every action is confirmed first.
+- Scheduled cleaning. LUSTRUM acts only when you open it and confirm; nothing runs in the background.
 - Look inside other apps' Android/data folder. Android 11+ blocks this for every normal app; only root or Shizuku can, and LUSTRUM does not support them yet.
 
 ## Permissions, in plain words
@@ -79,7 +82,7 @@ JDK 21, Android SDK, Gradle 8.14+: run `gradle assembleRelease` (`gradle testDeb
 
 ## Status
 
-Beta. 8 unit tests and the build run in CI; not yet tested on a physical phone. Updating from 0.3.0 or earlier: uninstall once, because those builds used a different signing key; from 0.4.0 on, updates install over the old version.
+Beta. 14 unit tests and the build run in CI; not yet tested on a physical phone. Builds from 0.4.0 on share one signing key, so updates install over the old version (from 0.3.0 or earlier, uninstall once).
 
 ---
 

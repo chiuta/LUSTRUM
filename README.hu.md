@@ -6,7 +6,7 @@
 
 A LUSTRUM megtalálja a felesleges fájlokat, duplikátumokat, hasonló fotókat és az alkalmazások maradványait, és csak a jóváhagyásoddal törli őket. Nincs INTERNET-engedélye, így fizikailag sem tud semmit sehová küldeni.
 
-**Verzió: 0.4.0 · Utolsó frissítés: 2026-11-18**
+**Verzió: 0.5.0 · Utolsó frissítés: 2026-11-25**
 
 [lustrum.chiuta.ro/](https://lustrum.chiuta.ro/)
 
@@ -20,6 +20,9 @@ A LUSTRUM megtalálja a felesleges fájlokat, duplikátumokat, hasonló fotókat
 - **Fotótömörítés** — Újrakódolja a nagy JPEG-eket, és csak akkor cseréli le őket, ha az eredmény legalább 20%-kal kisebb. Az EXIF megmarad; a mozgó fényképeket és a HDR-felvételeket kihagyja.
 - **Alkalmazások, gyorsítótárak, nem használtak** — Alkalmazásonkénti gyorsítótár-méret, utolsó használat dátuma, közvetlen ugrás a beállításokhoz vagy az eltávolításhoz.
 - **Eszközállapot** — RAM, akkumulátorszint és hőmérséklet — csak olvasható, tájékoztató jellegű.
+- **Elmosódott és sötét fotók** — Minden fotó kis másolatán méri az élességet és a fényerőt, és listázza a valószínű selejtet, hogy átnézhesd.
+- **Biztonságos törlés visszavonással** — Opcionális LUSTRUM-kuka: a törölt fájlok 30 napig várnak és visszaállíthatók; a hely ürítéskor szabadul fel.
+- **Előnézetek és legnagyobb mappák** — Bélyegképek minden listában, rangsor a legtöbb helyet foglaló mappákról és az eddig felszabadított összeg.
 
 ## Magánszféra-barát felépítés
 
@@ -53,7 +56,7 @@ A legismertebb tisztítókkal szemben, nyilvános leírásaik alapján (2026. no
 - „RAM-gyorsítás” és a háttérben futó alkalmazások leállítása. Az Android magától kezeli a memóriát; ezek a gombok nem segítenek, és merítik az akkumulátort.
 - Más alkalmazások gyorsítótárának egy koppintásos ürítése. Az Android különleges jogosultság nélkül tiltja, ezért a LUSTRUM közvetlenül az adott alkalmazás tárhely-képernyőjére visz.
 - iOS. A rendszer nem engedi a tisztítást az alkalmazás saját területén kívül.
-- Visszavonás. Még nincs kuka és előnézet: a törlés végleges, ezért minden műveletet előre megerősítesz.
+- Ütemezett tisztítás. A LUSTRUM csak akkor cselekszik, amikor megnyitod és megerősíted; semmi nem fut a háttérben.
 - Más alkalmazások Android/data mappájába belenézni. Az Android 11+ ezt minden átlagos alkalmazástól megtiltja; csak a root vagy a Shizuku tudja, a LUSTRUM pedig még nem támogatja őket.
 
 ## Az engedélyek, egyszerűen
@@ -79,7 +82,7 @@ JDK 21, Android SDK, Gradle 8.14+: futtasd a `gradle assembleRelease` parancsot 
 
 ## Állapot
 
-Béta. 8 egységteszt és a fordítás CI-ben fut; valódi telefonon még nem tesztelt. Frissítés a 0.3.0-s vagy régebbi verzióról: egyszer távolítsd el, mert azok más aláírókulcsot használtak; a 0.4.0-tól a frissítések a régi verzió fölé települnek.
+Béta. 14 egységteszt és a fordítás CI-ben fut; valódi telefonon még nem tesztelt. A 0.4.0-tól minden verzió ugyanazt az aláírókulcsot használja, így a frissítések a régi verzió fölé települnek (0.3.0-ról vagy régebbiről egyszer távolítsd el).
 
 ---
 

@@ -6,7 +6,7 @@
 
 O LUSTRUM encontra arquivos inúteis, duplicatas, fotos parecidas e sobras de aplicativos, e só os apaga com a sua autorização. Ele não tem a permissão INTERNET, então não consegue enviar nada para lugar nenhum.
 
-**Versão: 0.4.0 · Última atualização: 2026-11-18**
+**Versão: 0.5.0 · Última atualização: 2026-11-25**
 
 [lustrum.chiuta.ro/](https://lustrum.chiuta.ro/)
 
@@ -20,6 +20,9 @@ O LUSTRUM encontra arquivos inúteis, duplicatas, fotos parecidas e sobras de ap
 - **Compressão de fotos** — Recodifica JPEGs grandes e só os substitui se o resultado for pelo menos 20% menor. O EXIF é mantido; Motion Photos e fotos HDR são ignoradas.
 - **Apps, caches e sem uso** — Tamanho do cache por app, data do último uso e acesso direto às configurações ou à desinstalação.
 - **Estado do dispositivo** — RAM, nível e temperatura da bateria — somente leitura, apenas informativo.
+- **Fotos tremidas e escuras** — Mede nitidez e brilho em uma cópia pequena de cada foto e lista os prováveis descartes para você revisar.
+- **Exclusão segura com desfazer** — Lixeira LUSTRUM opcional: os arquivos excluídos esperam 30 dias e podem ser restaurados; o espaço é liberado ao esvaziá-la.
+- **Prévias e maiores pastas** — Miniaturas em cada lista, um ranking das pastas que mais ocupam espaço e o total liberado até agora.
 
 ## Privado por construção
 
@@ -53,7 +56,7 @@ Com os limpadores mais conhecidos, com base nas descrições públicas deles (no
 - “Turbo de RAM” e fechadores de apps em segundo plano. O Android gerencia a memória sozinho; esses botões não ajudam e gastam bateria.
 - Limpar o cache de outros apps com um toque. O Android proíbe isso sem privilégios especiais, então o LUSTRUM leva você direto à tela de armazenamento de cada app.
 - iOS. O sistema não permite limpeza fora do espaço do próprio app.
-- Desfazer. Ainda não há lixeira nem pré-visualização: as exclusões são definitivas, por isso cada ação é confirmada antes.
+- A limpeza agendada. O LUSTRUM só age quando você o abre e confirma; nada roda em segundo plano.
 - Olhar dentro da pasta Android/data de outros apps. O Android 11+ bloqueia isso para qualquer app comum; só root ou Shizuku conseguem, e o LUSTRUM ainda não os suporta.
 
 ## As permissões, em palavras simples
@@ -79,7 +82,7 @@ JDK 21, Android SDK, Gradle 8.14+: execute `gradle assembleRelease` (`gradle tes
 
 ## Situação
 
-Beta. 8 testes unitários e a compilação rodam no CI; ainda não testado em um celular físico. Ao atualizar da 0.3.0 ou anterior: desinstale uma vez, pois essas versões usavam outra chave de assinatura; a partir da 0.4.0 as atualizações se instalam por cima.
+Beta. 14 testes unitários e a compilação rodam no CI; ainda não testado em um celular físico. Da 0.4.0 em diante as versões compartilham a mesma chave de assinatura, então as atualizações se instalam por cima (da 0.3.0 ou anterior, desinstale uma vez).
 
 ---
 

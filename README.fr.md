@@ -6,7 +6,7 @@
 
 LUSTRUM repère fichiers inutiles, doublons, photos similaires et restes d'applications, et ne les supprime qu'avec votre accord. Il n'a pas la permission INTERNET : il ne peut physiquement rien envoyer.
 
-**Version: 0.4.0 · Dernière mise à jour: 2026-11-18**
+**Version: 0.5.0 · Dernière mise à jour: 2026-11-25**
 
 [lustrum.chiuta.ro/](https://lustrum.chiuta.ro/)
 
@@ -20,6 +20,9 @@ LUSTRUM repère fichiers inutiles, doublons, photos similaires et restes d'appli
 - **Compression photo** — Réencode les gros JPEG et ne les remplace que si le résultat est au moins 20 % plus léger. L'EXIF est conservé ; les Motion Photos et les photos HDR sont ignorées.
 - **Applications, caches et inutilisées** — Taille du cache par application, date de dernière utilisation, accès direct aux réglages ou à la désinstallation.
 - **État de l'appareil** — RAM, niveau et température de la batterie — en lecture seule, à titre informatif.
+- **Photos floues et sombres** — Mesure la netteté et la luminosité sur une petite copie de chaque photo et liste les ratées probables, à vérifier par vous.
+- **Suppression sécurisée, annulable** — Corbeille LUSTRUM facultative : les fichiers supprimés attendent 30 jours et peuvent être restaurés ; l'espace est libéré au vidage.
+- **Aperçus et plus gros dossiers** — Miniatures dans chaque liste, un classement des dossiers qui mangent votre stockage et le total libéré jusqu'ici.
 
 ## Privé par construction
 
@@ -53,7 +56,7 @@ Face aux nettoyeurs les plus connus, d'après leurs descriptions publiques (nove
 - Le « boost RAM » et les tueurs d'applications en arrière-plan. Android gère la mémoire seul ; ces boutons n'aident pas et vident la batterie.
 - Vider le cache des autres applications en un geste. Android l'interdit sans privilèges spéciaux ; LUSTRUM vous emmène donc directement à l'écran de stockage de chaque application.
 - iOS. Le système interdit tout nettoyage hors du bac à sable de l'application.
-- L'annulation. Il n'y a pas encore de corbeille ni d'aperçu : les suppressions sont définitives, donc chaque action est d'abord confirmée.
+- Le nettoyage programmé. LUSTRUM n'agit que lorsque vous l'ouvrez et confirmez ; rien ne tourne en arrière-plan.
 - Regarder dans le dossier Android/data des autres applications. Android 11+ l'interdit à toute application ordinaire ; seuls root ou Shizuku le permettent, et LUSTRUM ne les gère pas encore.
 
 ## Les permissions, en clair
@@ -79,7 +82,7 @@ JDK 21, SDK Android, Gradle 8.14+ : lancez `gradle assembleRelease` (`gradle tes
 
 ## État
 
-Bêta. 8 tests unitaires et la compilation tournent en CI ; pas encore testée sur un vrai téléphone. Mise à jour depuis 0.3.0 ou antérieure : désinstallez une fois, ces versions utilisaient une autre clé de signature ; dès 0.4.0, les mises à jour s'installent par-dessus.
+Bêta. 14 tests unitaires et la compilation tournent en CI ; pas encore testée sur un vrai téléphone. Les versions depuis la 0.4.0 partagent une même clé de signature : les mises à jour s'installent par-dessus (depuis 0.3.0 ou antérieure, désinstallez une fois).
 
 ---
 

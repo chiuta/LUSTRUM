@@ -6,7 +6,7 @@
 
 LUSTRUM găsește resturi, duplicate, fotografii asemănătoare și rămășițe de aplicații și le șterge doar cu acordul tău. Nu are permisiunea INTERNET, deci nu poate trimite nimic nicăieri.
 
-**Versiune: 0.4.0 · Ultima actualizare: 2026-11-18**
+**Versiune: 0.5.0 · Ultima actualizare: 2026-11-25**
 
 [lustrum.chiuta.ro/](https://lustrum.chiuta.ro/)
 
@@ -20,6 +20,9 @@ LUSTRUM găsește resturi, duplicate, fotografii asemănătoare și rămășițe
 - **Comprimare foto** — Recomprimă JPEG-urile mari și le înlocuiește doar dacă rezultatul e cu cel puțin 20% mai mic. EXIF se păstrează; fotografiile cu video încorporat și cele HDR sunt ocolite.
 - **Aplicații, cache și nefolosite** — Mărimea cache-ului per aplicație, data ultimei folosiri, un clic spre setări sau dezinstalare.
 - **Starea dispozitivului** — RAM, nivelul și temperatura bateriei — doar citire, informativ.
+- **Poze neclare și întunecate** — Măsoară claritatea și luminozitatea pe o copie mică a fiecărei poze și listează probabilele rebuturi, ca să le verifici tu.
+- **Ștergere sigură, cu anulare** — Coș LUSTRUM opțional: fișierele șterse așteaptă 30 de zile și pot fi restaurate; spațiul se eliberează când golești coșul.
+- **Miniaturi și cele mai mari foldere** — Miniaturi în fiecare listă, un clasament al folderelor care îți mănâncă spațiul și totalul eliberat până acum.
 
 ## Privat prin construcție
 
@@ -53,7 +56,7 @@ Față de cele mai cunoscute curățătoare, pe baza descrierilor lor publice (n
 - „Boost RAM” și oprirea aplicațiilor din fundal. Android gestionează singur memoria; butoanele astea nu ajută și consumă baterie.
 - Golirea cache-ului altor aplicații dintr-un clic. Android o interzice fără privilegii speciale, așa că LUSTRUM te duce direct la ecranul de stocare al fiecărei aplicații.
 - iOS. Sistemul nu permite curățare în afara propriului spațiu al aplicației.
-- Anulare. Nu există încă coș de reciclare sau previzualizare: ștergerile sunt definitive, de aceea fiecare acțiune e confirmată înainte.
+- Curățare programată. LUSTRUM acționează doar când îl deschizi și confirmi; nimic nu rulează în fundal.
 - Să se uite în folderul Android/data al altor aplicații. Android 11+ blochează asta pentru orice aplicație obișnuită; doar root sau Shizuku pot, iar LUSTRUM nu le suportă încă.
 
 ## Permisiunile, pe înțelesul tuturor
@@ -79,7 +82,7 @@ JDK 21, Android SDK, Gradle 8.14+: rulează `gradle assembleRelease` (`gradle te
 
 ## Stare
 
-Beta. 8 teste unitare și compilarea rulează în CI; încă netestată pe un telefon fizic. Actualizare de la 0.3.0 sau mai vechi: dezinstalează o dată, pentru că acele versiuni foloseau altă cheie de semnare; de la 0.4.0 încolo, actualizările se instalează peste versiunea veche.
+Beta. 14 teste unitare și compilarea rulează în CI; încă netestată pe un telefon fizic. Versiunile de la 0.4.0 încolo împart aceeași cheie de semnare, deci actualizările se instalează peste cea veche (de la 0.3.0 sau mai vechi, dezinstalează o dată).
 
 ---
 

@@ -6,7 +6,7 @@
 
 LUSTRUM encuentra archivos basura, duplicados, fotos parecidas y restos de aplicaciones, y los elimina solo con tu permiso. No tiene el permiso INTERNET, así que no puede enviar nada a ningún sitio.
 
-**Versión: 0.4.0 · Última actualización: 2026-11-18**
+**Versión: 0.5.0 · Última actualización: 2026-11-25**
 
 [lustrum.chiuta.ro/](https://lustrum.chiuta.ro/)
 
@@ -20,6 +20,9 @@ LUSTRUM encuentra archivos basura, duplicados, fotos parecidas y restos de aplic
 - **Compresión de fotos** — Recodifica los JPEG grandes y los sustituye solo si el resultado pesa al menos un 20 % menos. Se conserva el EXIF; las Motion Photos y las fotos HDR se omiten.
 - **Apps, cachés y sin uso** — Tamaño de la caché por app, fecha del último uso y acceso directo a sus ajustes o a la desinstalación.
 - **Estado del dispositivo** — RAM, nivel y temperatura de la batería — solo lectura, a título informativo.
+- **Fotos borrosas y oscuras** — Mide nitidez y brillo en una copia pequeña de cada foto y lista los probables descartes para que los revises.
+- **Eliminación segura con deshacer** — Papelera LUSTRUM opcional: los archivos eliminados esperan 30 días y se pueden restaurar; el espacio se libera al vaciarla.
+- **Vistas previas y carpetas más grandes** — Miniaturas en cada lista, un ranking de las carpetas que más ocupan y el total liberado hasta ahora.
 
 ## Privado por diseño
 
@@ -53,7 +56,7 @@ Frente a los limpiadores más conocidos, según sus descripciones públicas (nov
 - El «boost de RAM» y los cierra-apps en segundo plano. Android gestiona la memoria por sí solo; esos botones no ayudan y gastan batería.
 - Vaciar la caché de otras apps con un toque. Android lo prohíbe sin privilegios especiales, así que LUSTRUM te lleva directo a la pantalla de almacenamiento de cada app.
 - iOS. El sistema no permite limpiar fuera del espacio propio de la app.
-- Deshacer. Todavía no hay papelera ni vista previa: las eliminaciones son definitivas, por eso cada acción se confirma antes.
+- La limpieza programada. LUSTRUM solo actúa cuando lo abres y confirmas; nada se ejecuta en segundo plano.
 - Mirar dentro de la carpeta Android/data de otras apps. Android 11+ lo bloquea a cualquier app normal; solo root o Shizuku pueden, y LUSTRUM aún no los admite.
 
 ## Los permisos, en cristiano
@@ -79,7 +82,7 @@ JDK 21, SDK de Android, Gradle 8.14+: ejecuta `gradle assembleRelease` (`gradle 
 
 ## Estado
 
-Beta. 8 pruebas unitarias y la compilación corren en CI; aún sin probar en un teléfono físico. Al actualizar desde 0.3.0 o anterior: desinstala una vez, porque esas versiones usaban otra clave de firma; desde 0.4.0 las actualizaciones se instalan encima.
+Beta. 14 pruebas unitarias y la compilación corren en CI; aún sin probar en un teléfono físico. Desde la 0.4.0 las versiones comparten clave de firma, así que las actualizaciones se instalan encima (desde 0.3.0 o anterior, desinstala una vez).
 
 ---
 
