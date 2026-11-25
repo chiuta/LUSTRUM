@@ -6,7 +6,7 @@
 
 A LUSTRUM megtalálja a felesleges fájlokat, duplikátumokat, hasonló fotókat és az alkalmazások maradványait, és csak a jóváhagyásoddal törli őket. Nincs INTERNET-engedélye, így fizikailag sem tud semmit sehová küldeni.
 
-**Verzió: 0.6.0 · Utolsó frissítés: 2026-11-25**
+**Verzió: 0.7.0 · Utolsó frissítés: 2026-11-25**
 
 [lustrum.chiuta.ro/](https://lustrum.chiuta.ro/)
 
@@ -26,7 +26,7 @@ A LUSTRUM megtalálja a felesleges fájlokat, duplikátumokat, hasonló fotókat
 - **Swiper** — Lapozz végig a fotókon és videókon egyesével, a legrégebbiekkel kezdve: balra húzva törlöd, jobbra húzva megtartod. A végső megerősítésig semmi nem törlődik.
 - **Ütemezett tisztítás** — Hetente vagy havonta, a háttérben, megfelelő akkumulátorszintnél: értesítés, vagy csak a 24 óránál régebbi, egyértelműen felesleges fájlok automatikus törlése.
 - **Legjobb fotó és hasonló videók** — A hasonló fotók csoportjaiban a legélesebb másolatot javasolja először. A hasonló videókat egy középső képkocka és a közel azonos hossz alapján párosítja.
-- **Rendszer által segített gyorsítótár-csökkentés** — Az Androidot kéri, hogy tárhely igénylésével szabadítsa fel más alkalmazások gyorsítótárát. Az eredmény eszközfüggő; root-varázslat nincs.
+- **Rendszer által segített gyorsítótár-csökkentés** — Az Androidot kéri, hogy tárhely igénylésével szabadítsa fel más alkalmazások gyorsítótárát. Az eredmény eszközfüggő; root-varázslat nincs. Rootolt telefonokon rootot is használ az összes gyorsítótár törléséhez.
 
 ## Magánszféra-barát felépítés
 
@@ -51,8 +51,8 @@ A legismertebb tisztítókkal szemben, nyilvános leírásaik alapján (2026. no
 | Eltávolított alkalmazások maradványai | ~ | ✓ | ✓ | ✗ | ~ |
 | Fotótömörítés | ~ | ✓ | ✓ | ✗ | ~ |
 | Ütemezett tisztítás | ~ | ~ | ✓ | ✗ | ✓ |
-| „RAM-gyorsítás” | — | ✓ | ✗ | ✗ | ✓ |
-| Root-/Shizuku-támogatás | ✗ | ✗ | ✓ | ✗ | ✗ |
+| „RAM-gyorsítás” | ~ | ✓ | ✗ | ✗ | ✓ |
+| Root-/Shizuku-támogatás | ~ | ✗ | ✓ | ✗ | ✗ |
 
 ✓ igen · ~ részben vagy fizetős · ✗ nem · — szándékosan nincs
 
@@ -62,7 +62,7 @@ A legismertebb tisztítókkal szemben, nyilvános leírásaik alapján (2026. no
 - Más alkalmazások gyorsítótárának garantált, egyérintéses törlése. Az Android különleges jogosultság nélkül tiltja; a LUSTRUM rendszer által segített csökkentést kínál (az eredmény változó), és az egyes alkalmazások tárhely-képernyőjére visz.
 - iOS. A rendszer nem engedi a tisztítást az alkalmazás saját területén kívül.
 - Agresszív háttérautomatika. Az ütemezett tisztítás csak a 24 óránál régebbi, egyértelműen felesleges fájlokat érinti, a fotóidat és dokumentumaidat soha.
-- Más alkalmazások Android/data mappájába belenézni. Az Android 11+ ezt minden átlagos alkalmazástól megtiltja; csak a root vagy a Shizuku tudja, a LUSTRUM pedig még nem támogatja őket.
+- Más alkalmazások Android/data mappáiba nézni. Az Android 11+ ezt minden átlagos alkalmazásnak tiltja; csak root vagy Shizuku képes rá. A LUSTRUM a rootot csak a gyorsítótár-csökkentéshez használja, a Shizukut nem támogatja.
 
 ## Az engedélyek, egyszerűen
 
@@ -75,7 +75,7 @@ A legismertebb tisztítókkal szemben, nyilvános leírásaik alapján (2026. no
 
 ## Szerezd meg a LUSTRUM-ot
 
-Béta — 0.6.0 verzió. Közvetlenül telepíthető, áruházi fiók nélkül.
+Béta — 0.7.0 verzió. Közvetlenül telepíthető, áruházi fiók nélkül.
 
 1. Töltsd le az APK-t a legújabb kiadásból.
 2. Engedélyezd a telepítést erről a forrásról, amikor az Android rákérdez.

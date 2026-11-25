@@ -6,7 +6,7 @@
 
 O LUSTRUM encontra arquivos inúteis, duplicatas, fotos parecidas e sobras de aplicativos, e só os apaga com a sua autorização. Ele não tem a permissão INTERNET, então não consegue enviar nada para lugar nenhum.
 
-**Versão: 0.6.0 · Última atualização: 2026-11-25**
+**Versão: 0.7.0 · Última atualização: 2026-11-25**
 
 [lustrum.chiuta.ro/](https://lustrum.chiuta.ro/)
 
@@ -26,7 +26,7 @@ O LUSTRUM encontra arquivos inúteis, duplicatas, fotos parecidas e sobras de ap
 - **Swiper** — Revise fotos e vídeos um a um, começando pelos mais antigos: deslize para a esquerda para excluir, para a direita para manter. Nada é removido até você confirmar no final.
 - **Limpeza agendada** — Semanal ou mensal, em segundo plano, com bateria suficiente: uma notificação, ou limpeza automática apenas do lixo óbvio com mais de 24 horas.
 - **Melhor foto e vídeos parecidos** — Em cada grupo de fotos parecidas, a cópia mais nítida é sugerida primeiro. Vídeos parecidos são identificados por um quadro do meio e duração quase idêntica.
-- **Redução de cache assistida pelo sistema** — Pede ao Android que libere o cache de outros apps solicitando espaço. O resultado varia conforme o aparelho; sem mágica de root.
+- **Redução de cache assistida pelo sistema** — Pede ao Android que libere o cache de outros apps solicitando espaço. O resultado varia conforme o aparelho; sem mágica de root. Em telefones com root também usa root para limpar todos os caches.
 
 ## Privado por construção
 
@@ -51,8 +51,8 @@ Com os limpadores mais conhecidos, com base nas descrições públicas deles (no
 | Sobras de apps desinstalados | ~ | ✓ | ✓ | ✗ | ~ |
 | Compressão de fotos | ~ | ✓ | ✓ | ✗ | ~ |
 | Limpeza agendada | ~ | ~ | ✓ | ✗ | ✓ |
-| “Turbo de RAM” | — | ✓ | ✗ | ✗ | ✓ |
-| Suporte a root / Shizuku | ✗ | ✗ | ✓ | ✗ | ✗ |
+| “Turbo de RAM” | ~ | ✓ | ✗ | ✗ | ✓ |
+| Suporte a root / Shizuku | ~ | ✗ | ✓ | ✗ | ✗ |
 
 ✓ sim · ~ parcial ou pago · ✗ não · — não oferece, de propósito
 
@@ -62,7 +62,7 @@ Com os limpadores mais conhecidos, com base nas descrições públicas deles (no
 - Limpar com garantia, em um toque, o cache de outros apps. O Android proíbe sem privilégios especiais; o LUSTRUM oferece uma redução assistida pelo sistema (resultados variáveis) e leva à tela de armazenamento de cada app.
 - iOS. O sistema não permite limpeza fora do espaço do próprio app.
 - Automação agressiva em segundo plano. A limpeza agendada só toca em lixo óbvio com mais de 24 horas, nunca em suas fotos ou documentos.
-- Olhar dentro da pasta Android/data de outros apps. O Android 11+ bloqueia isso para qualquer app comum; só root ou Shizuku conseguem, e o LUSTRUM ainda não os suporta.
+- Olhar dentro das pastas Android/data de outros apps. O Android 11+ bloqueia isso para qualquer app comum; só root ou Shizuku conseguem. O LUSTRUM usa root apenas para reduzir o cache e não suporta Shizuku.
 
 ## As permissões, em palavras simples
 
@@ -75,7 +75,7 @@ Com os limpadores mais conhecidos, com base nas descrições públicas deles (no
 
 ## Baixe o LUSTRUM
 
-Beta — versão 0.6.0. Instalação direta, sem conta de loja.
+Beta — versão 0.7.0. Instalação direta, sem conta de loja.
 
 1. Baixe o APK na última versão publicada.
 2. Permita a instalação desta fonte quando o Android perguntar.

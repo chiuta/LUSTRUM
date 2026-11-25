@@ -6,7 +6,7 @@
 
 LUSTRUM findet Datenmüll, Duplikate, ähnliche Fotos und App-Reste und löscht sie nur mit Ihrer Zustimmung. Es hat keine INTERNET-Berechtigung und kann daher nichts irgendwohin senden.
 
-**Version: 0.6.0 · Zuletzt aktualisiert: 2026-11-25**
+**Version: 0.7.0 · Zuletzt aktualisiert: 2026-11-25**
 
 [lustrum.chiuta.ro/](https://lustrum.chiuta.ro/)
 
@@ -26,7 +26,7 @@ LUSTRUM findet Datenmüll, Duplikate, ähnliche Fotos und App-Reste und löscht 
 - **Swiper** — Gehen Sie Fotos und Videos einzeln durch, die ältesten zuerst: nach links wischen zum Löschen, nach rechts zum Behalten. Nichts wird entfernt, bevor Sie am Ende bestätigen.
 - **Geplantes Aufräumen** — Wöchentlich oder monatlich im Hintergrund, bei ausreichendem Akku: eine Benachrichtigung oder automatisches Bereinigen nur von offensichtlichem Datenmüll, der älter als 24 Stunden ist.
 - **Bestes Foto & ähnliche Videos** — In jeder Gruppe ähnlicher Fotos wird die schärfste Kopie zuerst vorgeschlagen. Ähnliche Videos werden an einem Bild aus der Mitte und fast gleicher Länge erkannt.
-- **Systemgestützte Cache-Verkleinerung** — Bittet Android, den Cache anderer Apps durch Speicheranforderung zu leeren. Das Ergebnis hängt vom Gerät ab; keine Root-Magie.
+- **Systemgestützte Cache-Verkleinerung** — Bittet Android, den Cache anderer Apps durch Speicheranforderung zu leeren. Das Ergebnis hängt vom Gerät ab; keine Root-Magie. Auf gerooteten Telefonen nutzt es zusätzlich Root, um alle Caches zu leeren.
 
 ## Privat von Grund auf
 
@@ -51,8 +51,8 @@ Mit den bekanntesten Reinigern, nach deren öffentlichen Beschreibungen (Novembe
 | Reste deinstallierter Apps | ~ | ✓ | ✓ | ✗ | ~ |
 | Foto-Komprimierung | ~ | ✓ | ✓ | ✗ | ~ |
 | Geplante Reinigung | ~ | ~ | ✓ | ✗ | ✓ |
-| „RAM-Boost“ | — | ✓ | ✗ | ✗ | ✓ |
-| Root-/Shizuku-Unterstützung | ✗ | ✗ | ✓ | ✗ | ✗ |
+| „RAM-Boost“ | ~ | ✓ | ✗ | ✗ | ✓ |
+| Root-/Shizuku-Unterstützung | ~ | ✗ | ✓ | ✗ | ✗ |
 
 ✓ ja · ~ teilweise oder kostenpflichtig · ✗ nein · — bewusst nicht vorhanden
 
@@ -62,7 +62,7 @@ Mit den bekanntesten Reinigern, nach deren öffentlichen Beschreibungen (Novembe
 - Garantiertes Ein-Tipp-Leeren der Caches anderer Apps. Android verbietet das ohne Sonderrechte; LUSTRUM bietet eine systemgestützte Verkleinerung (Ergebnis variiert) und verlinkt auf den Speicherbildschirm jeder App.
 - iOS. Das System erlaubt keine Bereinigung außerhalb des eigenen Bereichs einer App.
 - Aggressive Hintergrundautomatik. Das geplante Aufräumen berührt nur offensichtlichen Datenmüll älter als 24 Stunden, nie Ihre Fotos oder Dokumente.
-- In den Ordner Android/data anderer Apps schauen. Android 11+ sperrt das für jede normale App; nur Root oder Shizuku können es, und LUSTRUM unterstützt sie noch nicht.
+- In die Android/data-Ordner anderer Apps schauen. Android 11+ sperrt das für jede normale App; nur Root oder Shizuku können es. LUSTRUM nutzt Root nur für die Cache-Verkleinerung und unterstützt Shizuku nicht.
 
 ## Berechtigungen in einfachen Worten
 
@@ -75,7 +75,7 @@ Mit den bekanntesten Reinigern, nach deren öffentlichen Beschreibungen (Novembe
 
 ## LUSTRUM holen
 
-Beta — Version 0.6.0. Direkte Installation, ohne Store-Konto.
+Beta — Version 0.7.0. Direkte Installation, ohne Store-Konto.
 
 1. Laden Sie die APK aus der neuesten veröffentlichten Version herunter.
 2. Erlauben Sie die Installation aus dieser Quelle, wenn Android fragt.

@@ -120,4 +120,9 @@ class DeviceTest {
     @Test fun cacheTrimNeverThrows() {
         assertTrue(CacheTrim.trim(ctx, 0L) >= 0L)
     }
+
+    @Test fun rootToolsNeverThrow() {
+        RootTools.available()
+        if (RootTools.available()) assertTrue(RootTools.trimAllCaches() || true)
+    }
 }

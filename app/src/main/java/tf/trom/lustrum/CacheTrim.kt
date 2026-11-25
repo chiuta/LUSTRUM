@@ -15,6 +15,10 @@ object CacheTrim {
     fun trim(ctx: Context, expectedCache: Long): Long {
         val sm = ctx.getSystemService(StorageManager::class.java) ?: return 0L
         val dir = ctx.filesDir
+        if (RootTools.available()) {
+            val b = StatFs(dir.path).availableBytes
+            if (RootTools.trimAllCaches()) return maxOf(0L, StatFs(dir.path).availableBytes - b)
+        }
         val tmp = File(dir, "trim.tmp")
         return try {
             val uuid = sm.getUuidForPath(dir)

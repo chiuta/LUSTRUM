@@ -6,7 +6,7 @@
 
 LUSTRUM trova file inutili, duplicati, foto simili e residui di app, e li elimina solo con il tuo consenso. Non ha il permesso INTERNET, quindi non può inviare nulla da nessuna parte.
 
-**Versione: 0.6.0 · Ultimo aggiornamento: 2026-11-25**
+**Versione: 0.7.0 · Ultimo aggiornamento: 2026-11-25**
 
 [lustrum.chiuta.ro/](https://lustrum.chiuta.ro/)
 
@@ -26,7 +26,7 @@ LUSTRUM trova file inutili, duplicati, foto simili e residui di app, e li elimin
 - **Swiper** — Scorri foto e video uno a uno, dai più vecchi: scorri a sinistra per eliminare, a destra per tenere. Nulla viene rimosso finché non confermi alla fine.
 - **Pulizia programmata** — Ogni settimana o mese, in background, con batteria adeguata: una notifica, oppure la pulizia automatica dei soli file inutili evidenti più vecchi di 24 ore.
 - **Foto migliore e video simili** — In ogni gruppo di foto simili viene proposta per prima la copia più nitida. I video simili sono individuati da un fotogramma centrale e da una durata quasi identica.
-- **Riduzione della cache assistita dal sistema** — Chiede ad Android di liberare la cache delle altre app richiedendo spazio. Il risultato varia da dispositivo a dispositivo; nessuna magia da root.
+- **Riduzione della cache assistita dal sistema** — Chiede ad Android di liberare la cache delle altre app richiedendo spazio. Il risultato varia da dispositivo a dispositivo; nessuna magia da root. Sui telefoni con root usa anche il root per svuotare tutte le cache.
 
 ## Privato per costruzione
 
@@ -51,8 +51,8 @@ Con i pulitori più noti, in base alle loro descrizioni pubbliche (novembre 2026
 | Residui di app disinstallate | ~ | ✓ | ✓ | ✗ | ~ |
 | Compressione foto | ~ | ✓ | ✓ | ✗ | ~ |
 | Pulizia programmata | ~ | ~ | ✓ | ✗ | ✓ |
-| «Boost RAM» | — | ✓ | ✗ | ✗ | ✓ |
-| Supporto root / Shizuku | ✗ | ✗ | ✓ | ✗ | ✗ |
+| «Boost RAM» | ~ | ✓ | ✗ | ✗ | ✓ |
+| Supporto root / Shizuku | ~ | ✗ | ✓ | ✗ | ✗ |
 
 ✓ sì · ~ parziale o a pagamento · ✗ no · — assente, di proposito
 
@@ -62,7 +62,7 @@ Con i pulitori più noti, in base alle loro descrizioni pubbliche (novembre 2026
 - Svuotare con certezza, con un tocco, la cache delle altre app. Android lo vieta senza privilegi speciali; LUSTRUM offre una riduzione assistita dal sistema (risultati variabili) e rimanda alla schermata di archiviazione di ogni app.
 - iOS. Il sistema non consente pulizie fuori dall'area riservata dell'app.
 - Automazione aggressiva in background. La pulizia programmata tocca solo i file inutili evidenti più vecchi di 24 ore, mai le tue foto o i documenti.
-- Guardare nella cartella Android/data delle altre app. Da Android 11 è bloccato per ogni app normale; solo root o Shizuku possono, e LUSTRUM non li supporta ancora.
+- Guardare nelle cartelle Android/data delle altre app. Android 11+ lo vieta a ogni app normale; solo root o Shizuku possono. LUSTRUM usa il root solo per la riduzione della cache e non supporta Shizuku.
 
 ## I permessi, in parole semplici
 
@@ -75,7 +75,7 @@ Con i pulitori più noti, in base alle loro descrizioni pubbliche (novembre 2026
 
 ## Ottieni LUSTRUM
 
-Beta — versione 0.6.0. Si installa direttamente, senza account di uno store.
+Beta — versione 0.7.0. Si installa direttamente, senza account di uno store.
 
 1. Scarica l'APK dall'ultima versione pubblicata.
 2. Consenti l'installazione da questa fonte quando Android lo chiede.

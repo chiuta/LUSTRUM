@@ -6,7 +6,7 @@
 
 LUSTRUM finds junk, duplicates, look-alike photos and app leftovers — and clears them only with your approval. It has no INTERNET permission, so it physically cannot send anything anywhere.
 
-**Version: 0.6.0 · Last updated: 2026-11-25**
+**Version: 0.7.0 · Last updated: 2026-11-25**
 
 [lustrum.chiuta.ro/](https://lustrum.chiuta.ro/)
 
@@ -26,7 +26,7 @@ LUSTRUM finds junk, duplicates, look-alike photos and app leftovers — and clea
 - **Swiper** — Go through photos and videos one by one, oldest first: swipe left to delete, right to keep. Nothing is removed until you confirm at the end.
 - **Scheduled cleaning** — Weekly or monthly, in the background, on a good battery: a notification, or automatic clean-up of obvious junk older than 24 hours only.
 - **Best photo & similar videos** — In each look-alike group the sharpest copy is suggested first. Similar videos are matched by a middle frame and near-identical length.
-- **System-assisted cache trim** — Asks Android to free other apps' cached data by requesting storage. Results vary by device; there is no root-level magic.
+- **System-assisted cache trim** — Asks Android to free other apps' cached data by requesting storage. Results vary by device; there is no root-level magic. On rooted phones it also uses root to clear all caches.
 
 ## Private by construction
 
@@ -51,8 +51,8 @@ Against the best-known cleaners, based on their public descriptions (November 20
 | Leftovers of uninstalled apps | ~ | ✓ | ✓ | ✗ | ~ |
 | Photo compression | ~ | ✓ | ✓ | ✗ | ~ |
 | Scheduled cleaning | ~ | ~ | ✓ | ✗ | ✓ |
-| “RAM boost” | — | ✓ | ✗ | ✗ | ✓ |
-| Root / Shizuku support | ✗ | ✗ | ✓ | ✗ | ✗ |
+| “RAM boost” | ~ | ✓ | ✗ | ✗ | ✓ |
+| Root / Shizuku support | ~ | ✗ | ✓ | ✗ | ✗ |
 
 ✓ yes · ~ partial or paid · ✗ no · — not offered, on purpose
 
@@ -62,7 +62,7 @@ Against the best-known cleaners, based on their public descriptions (November 20
 - Guaranteed one-tap clearing of other apps' caches. Android forbids it without special privileges; LUSTRUM offers a system-assisted trim (results vary) and links to each app's storage screen.
 - iOS. The system does not allow cleaning outside an app's own sandbox.
 - Aggressive background automation. Scheduled cleaning only touches obvious junk older than 24 hours, never your photos or documents.
-- Look inside other apps' Android/data folder. Android 11+ blocks this for every normal app; only root or Shizuku can, and LUSTRUM does not support them yet.
+- Look inside other apps' Android/data folders. Android 11+ blocks this for every normal app; only root or Shizuku can. LUSTRUM uses root only for the cache trim and does not support Shizuku.
 
 ## Permissions, in plain words
 
@@ -75,7 +75,7 @@ Against the best-known cleaners, based on their public descriptions (November 20
 
 ## Get LUSTRUM
 
-Beta — version 0.6.0. Installs directly; no store account needed.
+Beta — version 0.7.0. Installs directly; no store account needed.
 
 1. Download the APK from the latest release.
 2. Allow installation from this source when Android asks.

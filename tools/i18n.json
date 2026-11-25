@@ -81,7 +81,7 @@
    ],
    [
     "System-assisted cache trim",
-    "Asks Android to free other apps' cached data by requesting storage. Results vary by device; there is no root-level magic."
+    "Asks Android to free other apps' cached data by requesting storage. Results vary by device; there is no root-level magic. On rooted phones it also uses root to clear all caches."
    ]
   ],
   "p_title": "Private by construction",
@@ -119,10 +119,10 @@
    "Guaranteed one-tap clearing of other apps' caches. Android forbids it without special privileges; LUSTRUM offers a system-assisted trim (results vary) and links to each app's storage screen.",
    "iOS. The system does not allow cleaning outside an app's own sandbox.",
    "Aggressive background automation. Scheduled cleaning only touches obvious junk older than 24 hours, never your photos or documents.",
-   "Look inside other apps' Android/data folder. Android 11+ blocks this for every normal app; only root or Shizuku can, and LUSTRUM does not support them yet."
+   "Look inside other apps' Android/data folders. Android 11+ blocks this for every normal app; only root or Shizuku can. LUSTRUM uses root only for the cache trim and does not support Shizuku."
   ],
   "d_title": "Get LUSTRUM",
-  "d_sub": "Beta — version 0.6.0. Installs directly; no store account needed.",
+  "d_sub": "Beta — version 0.7.0. Installs directly; no store account needed.",
   "steps": [
    "Download the APK from the latest release.",
    "Allow installation from this source when Android asks.",
@@ -276,7 +276,7 @@
    ],
    [
     "Reducerea cache-ului, asistată de sistem",
-    "Cere Android să elibereze datele din cache ale altor aplicații, solicitând spațiu. Rezultatul diferă între dispozitive; nu există magie la nivel de root."
+    "Cere Android să elibereze datele din cache ale altor aplicații, solicitând spațiu. Rezultatul diferă între dispozitive; nu există magie la nivel de root. Pe telefoanele cu root folosește și root pentru a goli toate cache-urile."
    ]
   ],
   "p_title": "Privat prin construcție",
@@ -314,10 +314,10 @@
    "Golirea garantată, dintr-o atingere, a cache-ului altor aplicații. Android o interzice fără privilegii speciale; LUSTRUM oferă o reducere asistată de sistem (rezultate variabile) și trimite la ecranul de stocare al fiecărei aplicații.",
    "iOS. Sistemul nu permite curățare în afara propriului spațiu al aplicației.",
    "Automatizare agresivă în fundal. Curățarea programată atinge doar resturile evidente mai vechi de 24 de ore, niciodată pozele sau documentele tale.",
-   "Să se uite în folderul Android/data al altor aplicații. Android 11+ blochează asta pentru orice aplicație obișnuită; doar root sau Shizuku pot, iar LUSTRUM nu le suportă încă."
+   "Să se uite în folderele Android/data ale altor aplicații. Android 11+ blochează asta pentru orice aplicație obișnuită; doar root sau Shizuku pot. LUSTRUM folosește root doar pentru reducerea cache-ului și nu suportă Shizuku."
   ],
   "d_title": "Obține LUSTRUM",
-  "d_sub": "Beta — versiunea 0.6.0. Se instalează direct; nu ai nevoie de cont de magazin.",
+  "d_sub": "Beta — versiunea 0.7.0. Se instalează direct; nu ai nevoie de cont de magazin.",
   "steps": [
    "Descarcă APK-ul din ultima versiune publicată.",
    "Permite instalarea din această sursă când Android te întreabă.",
@@ -471,7 +471,7 @@
    ],
    [
     "Réduction du cache assistée par le système",
-    "Demande à Android de libérer le cache des autres applications en réclamant de l'espace. Le résultat varie selon l'appareil ; pas de magie root."
+    "Demande à Android de libérer le cache des autres applications en réclamant de l'espace. Le résultat varie selon l'appareil ; pas de magie root. Sur les téléphones rootés, il utilise aussi le root pour vider tous les caches."
    ]
   ],
   "p_title": "Privé par construction",
@@ -509,10 +509,10 @@
    "Vider à coup sûr, en un geste, le cache des autres applications. Android l'interdit sans privilèges spéciaux ; LUSTRUM propose une réduction assistée par le système (résultats variables) et renvoie à l'écran de stockage de chaque application.",
    "iOS. Le système interdit tout nettoyage hors du bac à sable de l'application.",
    "Une automatisation agressive en arrière-plan. Le nettoyage programmé ne touche que les fichiers inutiles évidents de plus de 24 h, jamais vos photos ni documents.",
-   "Regarder dans le dossier Android/data des autres applications. Android 11+ l'interdit à toute application ordinaire ; seuls root ou Shizuku le permettent, et LUSTRUM ne les gère pas encore."
+   "Regarder dans les dossiers Android/data des autres applications. Android 11+ l'interdit à toute application ordinaire ; seuls root ou Shizuku le permettent. LUSTRUM n'utilise root que pour réduire le cache et ne gère pas Shizuku."
   ],
   "d_title": "Obtenir LUSTRUM",
-  "d_sub": "Bêta — version 0.6.0. Installation directe, sans compte de boutique.",
+  "d_sub": "Bêta — version 0.7.0. Installation directe, sans compte de boutique.",
   "steps": [
    "Téléchargez l'APK depuis la dernière version publiée.",
    "Autorisez l'installation depuis cette source lorsque Android le demande.",
@@ -666,7 +666,7 @@
    ],
    [
     "Riduzione della cache assistita dal sistema",
-    "Chiede ad Android di liberare la cache delle altre app richiedendo spazio. Il risultato varia da dispositivo a dispositivo; nessuna magia da root."
+    "Chiede ad Android di liberare la cache delle altre app richiedendo spazio. Il risultato varia da dispositivo a dispositivo; nessuna magia da root. Sui telefoni con root usa anche il root per svuotare tutte le cache."
    ]
   ],
   "p_title": "Privato per costruzione",
@@ -704,10 +704,10 @@
    "Svuotare con certezza, con un tocco, la cache delle altre app. Android lo vieta senza privilegi speciali; LUSTRUM offre una riduzione assistita dal sistema (risultati variabili) e rimanda alla schermata di archiviazione di ogni app.",
    "iOS. Il sistema non consente pulizie fuori dall'area riservata dell'app.",
    "Automazione aggressiva in background. La pulizia programmata tocca solo i file inutili evidenti più vecchi di 24 ore, mai le tue foto o i documenti.",
-   "Guardare nella cartella Android/data delle altre app. Da Android 11 è bloccato per ogni app normale; solo root o Shizuku possono, e LUSTRUM non li supporta ancora."
+   "Guardare nelle cartelle Android/data delle altre app. Android 11+ lo vieta a ogni app normale; solo root o Shizuku possono. LUSTRUM usa il root solo per la riduzione della cache e non supporta Shizuku."
   ],
   "d_title": "Ottieni LUSTRUM",
-  "d_sub": "Beta — versione 0.6.0. Si installa direttamente, senza account di uno store.",
+  "d_sub": "Beta — versione 0.7.0. Si installa direttamente, senza account di uno store.",
   "steps": [
    "Scarica l'APK dall'ultima versione pubblicata.",
    "Consenti l'installazione da questa fonte quando Android lo chiede.",
@@ -861,7 +861,7 @@
    ],
    [
     "Reducción de caché asistida por el sistema",
-    "Pide a Android que libere la caché de otras apps solicitando espacio. El resultado varía según el dispositivo; sin magia de root."
+    "Pide a Android que libere la caché de otras apps solicitando espacio. El resultado varía según el dispositivo; sin magia de root. En teléfonos con root también usa root para vaciar todas las cachés."
    ]
   ],
   "p_title": "Privado por diseño",
@@ -899,10 +899,10 @@
    "Vaciar con garantía, con un toque, la caché de otras apps. Android lo prohíbe sin privilegios especiales; LUSTRUM ofrece una reducción asistida por el sistema (resultados variables) y enlaza a la pantalla de almacenamiento de cada app.",
    "iOS. El sistema no permite limpiar fuera del espacio propio de la app.",
    "Automatización agresiva en segundo plano. La limpieza programada solo toca basura evidente de más de 24 horas, nunca tus fotos ni documentos.",
-   "Mirar dentro de la carpeta Android/data de otras apps. Android 11+ lo bloquea a cualquier app normal; solo root o Shizuku pueden, y LUSTRUM aún no los admite."
+   "Mirar dentro de las carpetas Android/data de otras apps. Android 11+ lo bloquea a toda app normal; solo root o Shizuku pueden. LUSTRUM usa root solo para reducir la caché y no admite Shizuku."
   ],
   "d_title": "Consigue LUSTRUM",
-  "d_sub": "Beta — versión 0.6.0. Se instala directamente, sin cuenta de tienda.",
+  "d_sub": "Beta — versión 0.7.0. Se instala directamente, sin cuenta de tienda.",
   "steps": [
    "Descarga el APK de la última versión publicada.",
    "Permite la instalación desde esta fuente cuando Android te lo pida.",
@@ -1056,7 +1056,7 @@
    ],
    [
     "Redução de cache assistida pelo sistema",
-    "Pede ao Android que libere o cache de outros apps solicitando espaço. O resultado varia conforme o aparelho; sem mágica de root."
+    "Pede ao Android que libere o cache de outros apps solicitando espaço. O resultado varia conforme o aparelho; sem mágica de root. Em telefones com root também usa root para limpar todos os caches."
    ]
   ],
   "p_title": "Privado por construção",
@@ -1094,10 +1094,10 @@
    "Limpar com garantia, em um toque, o cache de outros apps. O Android proíbe sem privilégios especiais; o LUSTRUM oferece uma redução assistida pelo sistema (resultados variáveis) e leva à tela de armazenamento de cada app.",
    "iOS. O sistema não permite limpeza fora do espaço do próprio app.",
    "Automação agressiva em segundo plano. A limpeza agendada só toca em lixo óbvio com mais de 24 horas, nunca em suas fotos ou documentos.",
-   "Olhar dentro da pasta Android/data de outros apps. O Android 11+ bloqueia isso para qualquer app comum; só root ou Shizuku conseguem, e o LUSTRUM ainda não os suporta."
+   "Olhar dentro das pastas Android/data de outros apps. O Android 11+ bloqueia isso para qualquer app comum; só root ou Shizuku conseguem. O LUSTRUM usa root apenas para reduzir o cache e não suporta Shizuku."
   ],
   "d_title": "Baixe o LUSTRUM",
-  "d_sub": "Beta — versão 0.6.0. Instalação direta, sem conta de loja.",
+  "d_sub": "Beta — versão 0.7.0. Instalação direta, sem conta de loja.",
   "steps": [
    "Baixe o APK na última versão publicada.",
    "Permita a instalação desta fonte quando o Android perguntar.",
@@ -1251,7 +1251,7 @@
    ],
    [
     "Systemgestützte Cache-Verkleinerung",
-    "Bittet Android, den Cache anderer Apps durch Speicheranforderung zu leeren. Das Ergebnis hängt vom Gerät ab; keine Root-Magie."
+    "Bittet Android, den Cache anderer Apps durch Speicheranforderung zu leeren. Das Ergebnis hängt vom Gerät ab; keine Root-Magie. Auf gerooteten Telefonen nutzt es zusätzlich Root, um alle Caches zu leeren."
    ]
   ],
   "p_title": "Privat von Grund auf",
@@ -1289,10 +1289,10 @@
    "Garantiertes Ein-Tipp-Leeren der Caches anderer Apps. Android verbietet das ohne Sonderrechte; LUSTRUM bietet eine systemgestützte Verkleinerung (Ergebnis variiert) und verlinkt auf den Speicherbildschirm jeder App.",
    "iOS. Das System erlaubt keine Bereinigung außerhalb des eigenen Bereichs einer App.",
    "Aggressive Hintergrundautomatik. Das geplante Aufräumen berührt nur offensichtlichen Datenmüll älter als 24 Stunden, nie Ihre Fotos oder Dokumente.",
-   "In den Ordner Android/data anderer Apps schauen. Android 11+ sperrt das für jede normale App; nur Root oder Shizuku können es, und LUSTRUM unterstützt sie noch nicht."
+   "In die Android/data-Ordner anderer Apps schauen. Android 11+ sperrt das für jede normale App; nur Root oder Shizuku können es. LUSTRUM nutzt Root nur für die Cache-Verkleinerung und unterstützt Shizuku nicht."
   ],
   "d_title": "LUSTRUM holen",
-  "d_sub": "Beta — Version 0.6.0. Direkte Installation, ohne Store-Konto.",
+  "d_sub": "Beta — Version 0.7.0. Direkte Installation, ohne Store-Konto.",
   "steps": [
    "Laden Sie die APK aus der neuesten veröffentlichten Version herunter.",
    "Erlauben Sie die Installation aus dieser Quelle, wenn Android fragt.",
@@ -1446,7 +1446,7 @@
    ],
    [
     "Rendszer által segített gyorsítótár-csökkentés",
-    "Az Androidot kéri, hogy tárhely igénylésével szabadítsa fel más alkalmazások gyorsítótárát. Az eredmény eszközfüggő; root-varázslat nincs."
+    "Az Androidot kéri, hogy tárhely igénylésével szabadítsa fel más alkalmazások gyorsítótárát. Az eredmény eszközfüggő; root-varázslat nincs. Rootolt telefonokon rootot is használ az összes gyorsítótár törléséhez."
    ]
   ],
   "p_title": "Magánszféra-barát felépítés",
@@ -1484,10 +1484,10 @@
    "Más alkalmazások gyorsítótárának garantált, egyérintéses törlése. Az Android különleges jogosultság nélkül tiltja; a LUSTRUM rendszer által segített csökkentést kínál (az eredmény változó), és az egyes alkalmazások tárhely-képernyőjére visz.",
    "iOS. A rendszer nem engedi a tisztítást az alkalmazás saját területén kívül.",
    "Agresszív háttérautomatika. Az ütemezett tisztítás csak a 24 óránál régebbi, egyértelműen felesleges fájlokat érinti, a fotóidat és dokumentumaidat soha.",
-   "Más alkalmazások Android/data mappájába belenézni. Az Android 11+ ezt minden átlagos alkalmazástól megtiltja; csak a root vagy a Shizuku tudja, a LUSTRUM pedig még nem támogatja őket."
+   "Más alkalmazások Android/data mappáiba nézni. Az Android 11+ ezt minden átlagos alkalmazásnak tiltja; csak root vagy Shizuku képes rá. A LUSTRUM a rootot csak a gyorsítótár-csökkentéshez használja, a Shizukut nem támogatja."
   ],
   "d_title": "Szerezd meg a LUSTRUM-ot",
-  "d_sub": "Béta — 0.6.0 verzió. Közvetlenül telepíthető, áruházi fiók nélkül.",
+  "d_sub": "Béta — 0.7.0 verzió. Közvetlenül telepíthető, áruházi fiók nélkül.",
   "steps": [
    "Töltsd le az APK-t a legújabb kiadásból.",
    "Engedélyezd a telepítést erről a forrásról, amikor az Android rákérdez.",
