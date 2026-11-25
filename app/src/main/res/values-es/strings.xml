@@ -90,4 +90,17 @@
     <string name="cat_other">Otros</string>
     <string name="a_last_old">sin usar desde hace más de un año</string>
     <string name="d_similar_note">Imágenes parecidas: se conserva la más grande (mejor calidad) de cada grupo.</string>
+    <string name="f_blur">Borrosas / oscuras</string>
+    <string name="blur_find">Buscar fotos borrosas u oscuras</string>
+    <string name="blur_note">Heurística: la nitidez y el brillo se miden en una copia pequeña de cada foto. Revisa los resultados antes de eliminar.</string>
+    <string name="folders_title">Carpetas más grandes</string>
+    <string name="freed_total">Liberado con LUSTRUM hasta ahora: %1$s</string>
+    <string name="safe_delete">Eliminación segura</string>
+    <string name="safe_delete_note">Conserva los archivos eliminados 30 días en una papelera LUSTRUM para poder deshacer. El espacio se libera solo al vaciar la papelera.</string>
+    <string name="trash_line">%1$d archivos · %2$s · conservados 30 días</string>
+    <string name="trash_restore">Restaurar la última eliminación</string>
+    <string name="trash_empty">Vaciar la papelera</string>
+    <string name="vm_trashed">Movidos a la papelera: %1$d · %2$s (se liberan al vaciar)</string>
+    <string name="vm_restored">Restaurados: %1$d archivos</string>
+    <string name="vm_trash_emptied">Papelera vaciada · %1$s liberados</string>
 </resources>

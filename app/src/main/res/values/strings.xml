@@ -91,4 +91,17 @@
     <string name="cat_other">Other</string>
     <string name="a_last_old">not used in over a year</string>
     <string name="d_similar_note">Similar images: the largest (best quality) one in each group is kept.</string>
+    <string name="f_blur">Blurry / dark</string>
+    <string name="blur_find">Find blurry or dark photos</string>
+    <string name="blur_note">Heuristic: sharpness and brightness are measured on a small copy of each photo. Review the results before deleting.</string>
+    <string name="folders_title">Biggest folders</string>
+    <string name="freed_total">Freed with LUSTRUM so far: %1$s</string>
+    <string name="safe_delete">Safe delete</string>
+    <string name="safe_delete_note">Keep deleted files in a LUSTRUM trash for 30 days so you can undo. Space is freed only when the trash is emptied.</string>
+    <string name="trash_line">%1$d files · %2$s · kept 30 days</string>
+    <string name="trash_restore">Restore last deletion</string>
+    <string name="trash_empty">Empty trash</string>
+    <string name="vm_trashed">Moved to trash: %1$d · %2$s (freed when emptied)</string>
+    <string name="vm_restored">Restored: %1$d files</string>
+    <string name="vm_trash_emptied">Trash emptied · %1$s freed</string>
 </resources>

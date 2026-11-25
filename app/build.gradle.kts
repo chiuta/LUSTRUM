@@ -12,8 +12,8 @@ android {
         applicationId = "tf.trom.lustrum"
         minSdk = 30
         targetSdk = 35
-        versionCode = 4
-        versionName = "0.4.0"
+        versionCode = 5
+        versionName = "0.5.0"
     }
 
     // Semnare stabilă: actualizările se instalează peste versiunea veche doar dacă cheia rămâne aceeași.

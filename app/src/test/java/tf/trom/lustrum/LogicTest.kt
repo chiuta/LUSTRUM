@@ -70,3 +70,70 @@ class LogicTest {
         assertTrue(fmtSize(5L * 1024 * 1024).contains("MB"))
     }
 }
+
+class NewFeaturesTest {
+    @Test fun flatImageHasZeroSharpnessAndIsBad() {
+        val g = IntArray(64 * 64) { 128 }
+        val s = Quality.score(g, 64, 64)
+        assertEquals(0.0, s.sharpness, 0.0001)
+        assertTrue(s.bad)
+    }
+
+    @Test fun checkerboardIsSharpAndBrightEnough() {
+        val g = IntArray(64 * 64) { i -> if ((i % 64 + i / 64) % 2 == 0) 220 else 40 }
+        val s = Quality.score(g, 64, 64)
+        assertTrue(s.sharpness > Quality.SHARP_MIN)
+        assertFalse(s.bad)
+    }
+
+    @Test fun darkImageIsFlagged() {
+        val g = IntArray(64 * 64) { i -> if ((i % 64 + i / 64) % 2 == 0) 30 else 0 }
+        assertTrue(Quality.score(g, 64, 64).bad)
+    }
+
+    @Test fun trashMoveRestoreAndEmpty() {
+        val base = java.nio.file.Files.createTempDirectory("lustrum").toFile()
+        try {
+            val f = java.io.File(base, "DCIM/Camera/a.jpg").apply { parentFile!!.mkdirs(); writeText("x".repeat(100)) }
+            val item = Item("a.jpg", f.path, 100, 0, Category.IMAGINI)
+            val moved = Trash.move(listOf(item), base, 1000L)
+            assertEquals(1, moved.size)
+            assertFalse(f.exists())
+            assertEquals(1, Trash.info(base).files)
+            assertEquals(1, Trash.restoreLast(base).size)
+            assertTrue(f.exists())
+            assertEquals(0, Trash.info(base).files)
+            Trash.move(listOf(item), base, 2000L)
+            assertEquals(100L, Trash.empty(base))
+            assertEquals(0, Trash.info(base).files)
+        } finally {
+            base.deleteRecursively()
+        }
+    }
+
+    @Test fun purgeOldKeepsRecentBatches() {
+        val base = java.nio.file.Files.createTempDirectory("lustrum").toFile()
+        try {
+            val f = java.io.File(base, "a.txt").apply { writeText("abc") }
+            val item = Item("a.txt", f.path, 3, 0, Category.DOCUMENTE)
+            Trash.move(listOf(item), base, 1000L)
+            assertEquals(0L, Trash.purgeOld(base, 1000L + Trash.KEEP_MS - 1))
+            assertEquals(3L, Trash.purgeOld(base, 1000L + Trash.KEEP_MS + 1))
+        } finally {
+            base.deleteRecursively()
+        }
+    }
+
+    @Test fun restoreNeverOverwrites() {
+        val base = java.nio.file.Files.createTempDirectory("lustrum").toFile()
+        try {
+            val f = java.io.File(base, "a.txt").apply { writeText("old") }
+            Trash.move(listOf(Item("a.txt", f.path, 3, 0, Category.DOCUMENTE)), base, 5L)
+            f.writeText("new")
+            assertEquals(0, Trash.restoreLast(base).size)
+            assertEquals("new", f.readText())
+        } finally {
+            base.deleteRecursively()
+        }
+    }
+}

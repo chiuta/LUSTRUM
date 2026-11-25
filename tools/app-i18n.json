@@ -898,5 +898,135 @@
   "pt": "Imagens parecidas: a maior (melhor qualidade) de cada grupo é mantida.",
   "de": "Ähnliche Bilder: In jeder Gruppe bleibt das größte (beste Qualität) erhalten.",
   "hu": "Hasonló képek: minden csoportban a legnagyobb (legjobb minőségű) marad meg."
+ },
+ "f_blur": {
+  "en": "Blurry / dark",
+  "ro": "Neclare / întunecate",
+  "fr": "Floues / sombres",
+  "it": "Sfocate / scure",
+  "es": "Borrosas / oscuras",
+  "pt": "Tremidas / escuras",
+  "de": "Unscharf / dunkel",
+  "hu": "Elmosódott / sötét"
+ },
+ "blur_find": {
+  "en": "Find blurry or dark photos",
+  "ro": "Caută poze neclare sau întunecate",
+  "fr": "Trouver les photos floues ou sombres",
+  "it": "Trova foto sfocate o scure",
+  "es": "Buscar fotos borrosas u oscuras",
+  "pt": "Buscar fotos tremidas ou escuras",
+  "de": "Unscharfe oder dunkle Fotos suchen",
+  "hu": "Elmosódott vagy sötét fotók keresése"
+ },
+ "blur_note": {
+  "en": "Heuristic: sharpness and brightness are measured on a small copy of each photo. Review the results before deleting.",
+  "ro": "Euristică: claritatea și luminozitatea se măsoară pe o copie mică a fiecărei poze. Verifică rezultatele înainte de ștergere.",
+  "fr": "Heuristique : la netteté et la luminosité sont mesurées sur une petite copie de chaque photo. Vérifiez les résultats avant de supprimer.",
+  "it": "Euristica: nitidezza e luminosità si misurano su una piccola copia di ogni foto. Controlla i risultati prima di eliminare.",
+  "es": "Heurística: la nitidez y el brillo se miden en una copia pequeña de cada foto. Revisa los resultados antes de eliminar.",
+  "pt": "Heurística: nitidez e brilho são medidos em uma cópia pequena de cada foto. Revise os resultados antes de excluir.",
+  "de": "Heuristik: Schärfe und Helligkeit werden an einer kleinen Kopie jedes Fotos gemessen. Ergebnisse vor dem Löschen prüfen.",
+  "hu": "Heurisztika: az élességet és a fényerőt minden fotó kis másolatán mérjük. Törlés előtt nézd át az eredményt."
+ },
+ "folders_title": {
+  "en": "Biggest folders",
+  "ro": "Cele mai mari foldere",
+  "fr": "Plus gros dossiers",
+  "it": "Cartelle più grandi",
+  "es": "Carpetas más grandes",
+  "pt": "Maiores pastas",
+  "de": "Größte Ordner",
+  "hu": "Legnagyobb mappák"
+ },
+ "freed_total": {
+  "en": "Freed with LUSTRUM so far: %1$s",
+  "ro": "Eliberat cu LUSTRUM până acum: %1$s",
+  "fr": "Libéré avec LUSTRUM jusqu'ici : %1$s",
+  "it": "Liberato finora con LUSTRUM: %1$s",
+  "es": "Liberado con LUSTRUM hasta ahora: %1$s",
+  "pt": "Liberado com o LUSTRUM até agora: %1$s",
+  "de": "Bisher mit LUSTRUM freigegeben: %1$s",
+  "hu": "Eddig felszabadítva a LUSTRUM-mal: %1$s"
+ },
+ "safe_delete": {
+  "en": "Safe delete",
+  "ro": "Ștergere sigură",
+  "fr": "Suppression sécurisée",
+  "it": "Eliminazione sicura",
+  "es": "Eliminación segura",
+  "pt": "Exclusão segura",
+  "de": "Sicheres Löschen",
+  "hu": "Biztonságos törlés"
+ },
+ "safe_delete_note": {
+  "en": "Keep deleted files in a LUSTRUM trash for 30 days so you can undo. Space is freed only when the trash is emptied.",
+  "ro": "Păstrează fișierele șterse 30 de zile într-un coș LUSTRUM, ca să poți anula. Spațiul se eliberează abia când golești coșul.",
+  "fr": "Garde les fichiers supprimés 30 jours dans une corbeille LUSTRUM pour pouvoir annuler. L'espace n'est libéré qu'au vidage de la corbeille.",
+  "it": "Tiene i file eliminati 30 giorni in un cestino LUSTRUM per poter annullare. Lo spazio si libera solo svuotando il cestino.",
+  "es": "Conserva los archivos eliminados 30 días en una papelera LUSTRUM para poder deshacer. El espacio se libera solo al vaciar la papelera.",
+  "pt": "Mantém os arquivos excluídos por 30 dias em uma lixeira LUSTRUM para poder desfazer. O espaço só é liberado ao esvaziar a lixeira.",
+  "de": "Gelöschte Dateien 30 Tage in einem LUSTRUM-Papierkorb behalten, damit sich alles rückgängig machen lässt. Speicher wird erst beim Leeren frei.",
+  "hu": "A törölt fájlok 30 napig egy LUSTRUM-kukában maradnak, így visszavonhatod. A hely csak a kuka ürítésekor szabadul fel."
+ },
+ "trash_line": {
+  "en": "%1$d files · %2$s · kept 30 days",
+  "ro": "%1$d fișiere · %2$s · păstrate 30 de zile",
+  "fr": "%1$d fichiers · %2$s · conservés 30 jours",
+  "it": "%1$d file · %2$s · conservati 30 giorni",
+  "es": "%1$d archivos · %2$s · conservados 30 días",
+  "pt": "%1$d arquivos · %2$s · mantidos por 30 dias",
+  "de": "%1$d Dateien · %2$s · 30 Tage aufbewahrt",
+  "hu": "%1$d fájl · %2$s · 30 napig megőrizve"
+ },
+ "trash_restore": {
+  "en": "Restore last deletion",
+  "ro": "Restaurează ultima ștergere",
+  "fr": "Restaurer la dernière suppression",
+  "it": "Ripristina l'ultima eliminazione",
+  "es": "Restaurar la última eliminación",
+  "pt": "Restaurar a última exclusão",
+  "de": "Letzte Löschung wiederherstellen",
+  "hu": "Utolsó törlés visszaállítása"
+ },
+ "trash_empty": {
+  "en": "Empty trash",
+  "ro": "Golește coșul",
+  "fr": "Vider la corbeille",
+  "it": "Svuota il cestino",
+  "es": "Vaciar la papelera",
+  "pt": "Esvaziar a lixeira",
+  "de": "Papierkorb leeren",
+  "hu": "Kuka ürítése"
+ },
+ "vm_trashed": {
+  "en": "Moved to trash: %1$d · %2$s (freed when emptied)",
+  "ro": "Mutate în coș: %1$d · %2$s (se eliberează la golire)",
+  "fr": "Mis à la corbeille : %1$d · %2$s (libérés au vidage)",
+  "it": "Spostati nel cestino: %1$d · %2$s (liberati allo svuotamento)",
+  "es": "Movidos a la papelera: %1$d · %2$s (se liberan al vaciar)",
+  "pt": "Movidos para a lixeira: %1$d · %2$s (liberados ao esvaziar)",
+  "de": "In den Papierkorb verschoben: %1$d · %2$s (beim Leeren freigegeben)",
+  "hu": "Kukába helyezve: %1$d · %2$s (ürítéskor szabadul fel)"
+ },
+ "vm_restored": {
+  "en": "Restored: %1$d files",
+  "ro": "Restaurate: %1$d fișiere",
+  "fr": "Restaurés : %1$d fichiers",
+  "it": "Ripristinati: %1$d file",
+  "es": "Restaurados: %1$d archivos",
+  "pt": "Restaurados: %1$d arquivos",
+  "de": "Wiederhergestellt: %1$d Dateien",
+  "hu": "Visszaállítva: %1$d fájl"
+ },
+ "vm_trash_emptied": {
+  "en": "Trash emptied · %1$s freed",
+  "ro": "Coș golit · %1$s eliberați",
+  "fr": "Corbeille vidée · %1$s libérés",
+  "it": "Cestino svuotato · %1$s liberati",
+  "es": "Papelera vaciada · %1$s liberados",
+  "pt": "Lixeira esvaziada · %1$s liberados",
+  "de": "Papierkorb geleert · %1$s freigegeben",
+  "hu": "Kuka kiürítve · %1$s felszabadítva"
  }
 }

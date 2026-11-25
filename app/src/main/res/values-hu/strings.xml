@@ -90,4 +90,17 @@
     <string name="cat_other">Egyéb</string>
     <string name="a_last_old">több mint egy éve nem használt</string>
     <string name="d_similar_note">Hasonló képek: minden csoportban a legnagyobb (legjobb minőségű) marad meg.</string>
+    <string name="f_blur">Elmosódott / sötét</string>
+    <string name="blur_find">Elmosódott vagy sötét fotók keresése</string>
+    <string name="blur_note">Heurisztika: az élességet és a fényerőt minden fotó kis másolatán mérjük. Törlés előtt nézd át az eredményt.</string>
+    <string name="folders_title">Legnagyobb mappák</string>
+    <string name="freed_total">Eddig felszabadítva a LUSTRUM-mal: %1$s</string>
+    <string name="safe_delete">Biztonságos törlés</string>
+    <string name="safe_delete_note">A törölt fájlok 30 napig egy LUSTRUM-kukában maradnak, így visszavonhatod. A hely csak a kuka ürítésekor szabadul fel.</string>
+    <string name="trash_line">%1$d fájl · %2$s · 30 napig megőrizve</string>
+    <string name="trash_restore">Utolsó törlés visszaállítása</string>
+    <string name="trash_empty">Kuka ürítése</string>
+    <string name="vm_trashed">Kukába helyezve: %1$d · %2$s (ürítéskor szabadul fel)</string>
+    <string name="vm_restored">Visszaállítva: %1$d fájl</string>
+    <string name="vm_trash_emptied">Kuka kiürítve · %1$s felszabadítva</string>
 </resources>

@@ -66,7 +66,7 @@ object Scanner {
         val out = ArrayList<Item>()
         root.walkTopDown()
             .maxDepth(12)
-            .onEnter { !(it.parentFile == root && it.name == "Android") }
+            .onEnter { !(it.parentFile == root && (it.name == "Android" || it.name == Trash.DIR)) }
             .forEach { f ->
                 if (f.isFile) {
                     val len = f.length()

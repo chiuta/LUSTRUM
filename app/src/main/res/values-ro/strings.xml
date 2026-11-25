@@ -90,4 +90,17 @@
     <string name="cat_other">Altele</string>
     <string name="a_last_old">nefolosită de peste un an</string>
     <string name="d_similar_note">Imagini asemănătoare: se păstrează cea mai mare (calitate maximă) din fiecare grup.</string>
+    <string name="f_blur">Neclare / întunecate</string>
+    <string name="blur_find">Caută poze neclare sau întunecate</string>
+    <string name="blur_note">Euristică: claritatea și luminozitatea se măsoară pe o copie mică a fiecărei poze. Verifică rezultatele înainte de ștergere.</string>
+    <string name="folders_title">Cele mai mari foldere</string>
+    <string name="freed_total">Eliberat cu LUSTRUM până acum: %1$s</string>
+    <string name="safe_delete">Ștergere sigură</string>
+    <string name="safe_delete_note">Păstrează fișierele șterse 30 de zile într-un coș LUSTRUM, ca să poți anula. Spațiul se eliberează abia când golești coșul.</string>
+    <string name="trash_line">%1$d fișiere · %2$s · păstrate 30 de zile</string>
+    <string name="trash_restore">Restaurează ultima ștergere</string>
+    <string name="trash_empty">Golește coșul</string>
+    <string name="vm_trashed">Mutate în coș: %1$d · %2$s (se eliberează la golire)</string>
+    <string name="vm_restored">Restaurate: %1$d fișiere</string>
+    <string name="vm_trash_emptied">Coș golit · %1$s eliberați</string>
 </resources>

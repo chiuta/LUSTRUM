@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
     private val deleteLauncher = registerForActivityResult(
         ActivityResultContracts.StartIntentSenderForResult()
     ) { r ->
-        if (r.resultCode == RESULT_OK) vm.removed(pending) else vm.message = getString(R.string.vm_cancelled)
+        if (r.resultCode == RESULT_OK) vm.removed(pending, vm.useTrash) else vm.message = getString(R.string.vm_cancelled)
         pending = emptyList()
     }
 
@@ -70,6 +70,7 @@ class MainActivity : ComponentActivity() {
     override fun onResume() {
         super.onResume()
         refreshPerms()
+        vm.refreshTrash()
     }
 
     private fun granted(p: String) = checkSelfPermission(p) == PackageManager.PERMISSION_GRANTED
@@ -90,7 +91,9 @@ class MainActivity : ComponentActivity() {
         if (files.isNotEmpty()) vm.deleteFiles(files)
         if (withUri.isNotEmpty()) {
             pending = withUri
-            val pi = MediaStore.createDeleteRequest(contentResolver, withUri.map { it.uri!! })
+            val uris = withUri.map { it.uri!! }
+            val pi = if (vm.useTrash) MediaStore.createTrashRequest(contentResolver, uris, true)
+            else MediaStore.createDeleteRequest(contentResolver, uris)
             deleteLauncher.launch(IntentSenderRequest.Builder(pi.intentSender).build())
         }
     }

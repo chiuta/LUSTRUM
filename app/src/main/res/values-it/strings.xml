@@ -90,4 +90,17 @@
     <string name="cat_other">Altro</string>
     <string name="a_last_old">non usata da oltre un anno</string>
     <string name="d_similar_note">Immagini simili: in ogni gruppo si tiene la più grande (qualità migliore).</string>
+    <string name="f_blur">Sfocate / scure</string>
+    <string name="blur_find">Trova foto sfocate o scure</string>
+    <string name="blur_note">Euristica: nitidezza e luminosità si misurano su una piccola copia di ogni foto. Controlla i risultati prima di eliminare.</string>
+    <string name="folders_title">Cartelle più grandi</string>
+    <string name="freed_total">Liberato finora con LUSTRUM: %1$s</string>
+    <string name="safe_delete">Eliminazione sicura</string>
+    <string name="safe_delete_note">Tiene i file eliminati 30 giorni in un cestino LUSTRUM per poter annullare. Lo spazio si libera solo svuotando il cestino.</string>
+    <string name="trash_line">%1$d file · %2$s · conservati 30 giorni</string>
+    <string name="trash_restore">Ripristina l\'ultima eliminazione</string>
+    <string name="trash_empty">Svuota il cestino</string>
+    <string name="vm_trashed">Spostati nel cestino: %1$d · %2$s (liberati allo svuotamento)</string>
+    <string name="vm_restored">Ripristinati: %1$d file</string>
+    <string name="vm_trash_emptied">Cestino svuotato · %1$s liberati</string>
 </resources>

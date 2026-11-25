@@ -12,12 +12,26 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.File
+import java.util.concurrent.Executors
+import java.util.concurrent.atomic.AtomicInteger
 
-enum class Filter { MARI, VECHI, RESTURI, CAPTURI, INSTALATOARE, COMPRIMARE, ORFANE, GOALE }
+enum class Filter { MARI, VECHI, RESTURI, CAPTURI, NECLARE, INSTALATOARE, COMPRIMARE, ORFANE, GOALE }
 
 class LustrumVm(private val app: Application) : AndroidViewModel(app) {
 
     var perms by mutableStateOf(Perms())
+
+    private val prefs = app.getSharedPreferences("lustrum", android.content.Context.MODE_PRIVATE)
+    var useTrash by mutableStateOf(prefs.getBoolean("trash", false))
+    var lifetimeFreed by mutableStateOf(prefs.getLong("freed", 0L))
+    var trashFiles by mutableStateOf(0)
+    var trashBytes by mutableStateOf(0L)
+
+    // poze neclare / întunecate
+    var blurry by mutableStateOf<List<Item>>(emptyList())
+    var blurryDone by mutableStateOf(false)
+    var blurBusy by mutableStateOf(false)
+    var blurProgress by mutableStateOf("")
 
     // scanare
     var items by mutableStateOf<List<Item>>(emptyList())
@@ -74,6 +88,7 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
         }
         Filter.RESTURI -> items.filter(Scanner::isJunk).sortedByDescending { it.size }
         Filter.CAPTURI -> items.filter(Scanner::isScreenshot).sortedByDescending { it.size }
+        Filter.NECLARE -> blurry
         Filter.INSTALATOARE -> items.filter(Scanner::isInstaller).sortedByDescending { it.size }
         Filter.COMPRIMARE -> items.filter(Scanner::isCompressible).sortedByDescending { it.size }
         Filter.ORFANE -> orphans
@@ -99,6 +114,7 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
         progress = app.getString(R.string.vm_scanning)
         viewModelScope.launch(Dispatchers.IO) {
             try {
+                if (perms.allFiles) Trash.purgeOld()
                 val found = if (perms.allFiles) {
                     Scanner.scanFs { n -> progress = app.getString(R.string.vm_scanning_n, n) }
                 } else {
@@ -117,7 +133,9 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
                 selected = emptySet()
                 exactGroups = emptyList(); similarGroups = emptyList()
                 exactDone = false; similarDone = false
+                blurry = emptyList(); blurryDone = false
                 updateStorage()
+                refreshTrash()
             } catch (e: Exception) {
                 message = app.getString(R.string.vm_err_scan, e.message ?: "")
             } finally {
@@ -148,6 +166,80 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
         }
     }
 
+    fun findBlurry() {
+        if (blurBusy) return
+        blurBusy = true
+        blurProgress = app.getString(R.string.vm_analyzing)
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                val imgs = items.filter { it.category == Category.IMAGINI && it.size >= 30_000 && !Scanner.isScreenshot(it) }
+                val scores = arrayOfNulls<Quality.Score>(imgs.size)
+                val done = AtomicInteger(0)
+                val pool = Executors.newFixedThreadPool(4)
+                try {
+                    val fs = imgs.indices.map { i ->
+                        pool.submit(Runnable {
+                            scores[i] = Quality.analyze(app, imgs[i])
+                            val d = done.incrementAndGet()
+                            if (d % 20 == 0) blurProgress = app.getString(R.string.vm_analyzing_n, d, imgs.size)
+                        })
+                    }
+                    fs.forEach { it.get() }
+                } finally {
+                    pool.shutdown()
+                }
+                blurry = imgs.indices.filter { scores[it]?.bad == true }
+                    .sortedBy { scores[it]!!.sharpness }
+                    .map { imgs[it] }
+                blurryDone = true
+            } catch (e: Exception) {
+                message = app.getString(R.string.vm_err_analyze, e.message ?: "")
+            } finally {
+                blurBusy = false
+            }
+        }
+    }
+
+    private fun addFreed(n: Long) {
+        if (n <= 0) return
+        lifetimeFreed += n
+        prefs.edit().putLong("freed", lifetimeFreed).apply()
+    }
+
+    fun setTrash(on: Boolean) {
+        useTrash = on
+        prefs.edit().putBoolean("trash", on).apply()
+    }
+
+    fun refreshTrash() {
+        if (!perms.allFiles) { trashFiles = 0; trashBytes = 0; return }
+        viewModelScope.launch(Dispatchers.IO) {
+            val i = Trash.info()
+            trashFiles = i.files
+            trashBytes = i.bytes
+        }
+    }
+
+    fun restoreTrash() {
+        viewModelScope.launch(Dispatchers.IO) {
+            val r = Trash.restoreLast()
+            if (r.isNotEmpty()) MediaScannerConnection.scanFile(app, r.toTypedArray(), null, null)
+            message = app.getString(R.string.vm_restored, r.size)
+            refreshTrash()
+            if (r.isNotEmpty()) { scanning = false; scan() }
+        }
+    }
+
+    fun emptyTrash() {
+        viewModelScope.launch(Dispatchers.IO) {
+            val freed = Trash.empty()
+            addFreed(freed)
+            updateStorage()
+            message = app.getString(R.string.vm_trash_emptied, fmtSize(freed))
+            refreshTrash()
+        }
+    }
+
     fun loadApps() {
         if (appsBusy) return
         appsBusy = true
@@ -163,28 +255,38 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
     }
 
     /** Apelat după ce fișierele au fost șterse (de sistem sau direct). */
-    fun removed(done: Collection<Item>) {
+    fun removed(done: Collection<Item>, trashed: Boolean = false) {
         val keys = done.map { it.path }.toSet()
         items = items.filter { it.path !in keys }
         exactGroups = exactGroups.map { g -> g.filter { it.path !in keys } }.filter { it.size > 1 }
         similarGroups = similarGroups.map { g -> g.filter { it.path !in keys } }.filter { it.size > 1 }
         orphans = orphans.filter { it.path !in keys }
+        blurry = blurry.filter { it.path !in keys }
         emptyDirs = emptyDirs.filter { it.path !in keys }
         selected = selected - keys
         updateStorage()
-        message = app.getString(R.string.vm_deleted, done.size, fmtSize(done.sumOf { it.size }))
+        val bytes = done.sumOf { it.size }
+        if (trashed) {
+            message = app.getString(R.string.vm_trashed, done.size, fmtSize(bytes))
+            refreshTrash()
+        } else {
+            addFreed(bytes)
+            message = app.getString(R.string.vm_deleted, done.size, fmtSize(bytes))
+        }
     }
 
     /** Ștergere directă (necesită „Acces la toate fișierele”). */
     fun deleteFiles(list: List<Item>) {
         viewModelScope.launch(Dispatchers.IO) {
             val root = Environment.getExternalStorageDirectory().canonicalFile
-            val ok = list.filter { safeToDelete(it, root) && (if (it.dir) File(it.path).deleteRecursively() else File(it.path).delete()) }
+            val safe = list.filter { safeToDelete(it, root) }
+            val ok = if (useTrash) Trash.move(safe)
+            else safe.filter { if (it.dir) File(it.path).deleteRecursively() else File(it.path).delete() }
             val files = ok.filter { !it.dir }
             if (files.isNotEmpty()) {
                 MediaScannerConnection.scanFile(app, files.map { it.path }.toTypedArray(), null, null)
             }
-            removed(ok)
+            removed(ok, useTrash)
             if (ok.size < list.size) message = app.getString(R.string.vm_cant_delete, list.size - ok.size)
         }
     }
@@ -220,6 +322,7 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
                     items = items.map { f -> newSizes[f.path]?.let { s -> f.copy(size = s) } ?: f }
                     updateStorage()
                 }
+                addFreed(saved)
                 selected = selected - list.map { it.path }.toSet()
                 message = app.getString(R.string.vm_compressed, n, list.size, fmtSize(saved))
             } finally {

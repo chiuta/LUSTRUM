@@ -90,4 +90,17 @@
     <string name="cat_other">Sonstiges</string>
     <string name="a_last_old">seit über einem Jahr ungenutzt</string>
     <string name="d_similar_note">Ähnliche Bilder: In jeder Gruppe bleibt das größte (beste Qualität) erhalten.</string>
+    <string name="f_blur">Unscharf / dunkel</string>
+    <string name="blur_find">Unscharfe oder dunkle Fotos suchen</string>
+    <string name="blur_note">Heuristik: Schärfe und Helligkeit werden an einer kleinen Kopie jedes Fotos gemessen. Ergebnisse vor dem Löschen prüfen.</string>
+    <string name="folders_title">Größte Ordner</string>
+    <string name="freed_total">Bisher mit LUSTRUM freigegeben: %1$s</string>
+    <string name="safe_delete">Sicheres Löschen</string>
+    <string name="safe_delete_note">Gelöschte Dateien 30 Tage in einem LUSTRUM-Papierkorb behalten, damit sich alles rückgängig machen lässt. Speicher wird erst beim Leeren frei.</string>
+    <string name="trash_line">%1$d Dateien · %2$s · 30 Tage aufbewahrt</string>
+    <string name="trash_restore">Letzte Löschung wiederherstellen</string>
+    <string name="trash_empty">Papierkorb leeren</string>
+    <string name="vm_trashed">In den Papierkorb verschoben: %1$d · %2$s (beim Leeren freigegeben)</string>
+    <string name="vm_restored">Wiederhergestellt: %1$d Dateien</string>
+    <string name="vm_trash_emptied">Papierkorb geleert · %1$s freigegeben</string>
 </resources>

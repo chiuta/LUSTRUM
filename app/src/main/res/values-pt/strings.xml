@@ -90,4 +90,17 @@
     <string name="cat_other">Outros</string>
     <string name="a_last_old">sem uso há mais de um ano</string>
     <string name="d_similar_note">Imagens parecidas: a maior (melhor qualidade) de cada grupo é mantida.</string>
+    <string name="f_blur">Tremidas / escuras</string>
+    <string name="blur_find">Buscar fotos tremidas ou escuras</string>
+    <string name="blur_note">Heurística: nitidez e brilho são medidos em uma cópia pequena de cada foto. Revise os resultados antes de excluir.</string>
+    <string name="folders_title">Maiores pastas</string>
+    <string name="freed_total">Liberado com o LUSTRUM até agora: %1$s</string>
+    <string name="safe_delete">Exclusão segura</string>
+    <string name="safe_delete_note">Mantém os arquivos excluídos por 30 dias em uma lixeira LUSTRUM para poder desfazer. O espaço só é liberado ao esvaziar a lixeira.</string>
+    <string name="trash_line">%1$d arquivos · %2$s · mantidos por 30 dias</string>
+    <string name="trash_restore">Restaurar a última exclusão</string>
+    <string name="trash_empty">Esvaziar a lixeira</string>
+    <string name="vm_trashed">Movidos para a lixeira: %1$d · %2$s (liberados ao esvaziar)</string>
+    <string name="vm_restored">Restaurados: %1$d arquivos</string>
+    <string name="vm_trash_emptied">Lixeira esvaziada · %1$s liberados</string>
 </resources>

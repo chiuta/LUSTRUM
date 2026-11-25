@@ -90,4 +90,17 @@
     <string name="cat_other">Autres</string>
     <string name="a_last_old">inutilisée depuis plus d\'un an</string>
     <string name="d_similar_note">Images similaires : la plus grande (meilleure qualité) de chaque groupe est conservée.</string>
+    <string name="f_blur">Floues / sombres</string>
+    <string name="blur_find">Trouver les photos floues ou sombres</string>
+    <string name="blur_note">Heuristique : la netteté et la luminosité sont mesurées sur une petite copie de chaque photo. Vérifiez les résultats avant de supprimer.</string>
+    <string name="folders_title">Plus gros dossiers</string>
+    <string name="freed_total">Libéré avec LUSTRUM jusqu\'ici : %1$s</string>
+    <string name="safe_delete">Suppression sécurisée</string>
+    <string name="safe_delete_note">Garde les fichiers supprimés 30 jours dans une corbeille LUSTRUM pour pouvoir annuler. L\'espace n\'est libéré qu\'au vidage de la corbeille.</string>
+    <string name="trash_line">%1$d fichiers · %2$s · conservés 30 jours</string>
+    <string name="trash_restore">Restaurer la dernière suppression</string>
+    <string name="trash_empty">Vider la corbeille</string>
+    <string name="vm_trashed">Mis à la corbeille : %1$d · %2$s (libérés au vidage)</string>
+    <string name="vm_restored">Restaurés : %1$d fichiers</string>
+    <string name="vm_trash_emptied">Corbeille vidée · %1$s libérés</string>
 </resources>

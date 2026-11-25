@@ -2,7 +2,20 @@
 
 package tf.trom.lustrum
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Switch
+import androidx.compose.runtime.produceState
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.layout.ContentScale
+import android.graphics.Bitmap
+import android.os.Environment
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -211,6 +224,49 @@ fun HomeScreen(vm: LustrumVm, a: Actions, openJunk: () -> Unit) {
                 }
             }
         }
+        if (vm.scanned && vm.items.isNotEmpty()) {
+            item {
+                val root = remember { Environment.getExternalStorageDirectory().path + "/" }
+                val top = remember(vm.items) {
+                    vm.items.groupBy { it.folder.removePrefix(root).split('/').take(2).joinToString("/") }
+                        .map { (k, v) -> k to v.sumOf { it.size } }
+                        .sortedByDescending { it.second }
+                        .take(6)
+                }
+                Card(Modifier.fillMaxWidth()) {
+                    Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                        Text(stringResource(R.string.folders_title), style = MaterialTheme.typography.titleMedium)
+                        top.forEach { (f, s) ->
+                            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+                                Text(f.ifEmpty { "/" }, Modifier.weight(1f), maxLines = 1, overflow = TextOverflow.Ellipsis)
+                                Text(fmtSize(s))
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        item {
+            Card(Modifier.fillMaxWidth()) {
+                Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Text(stringResource(R.string.safe_delete), style = MaterialTheme.typography.titleMedium)
+                    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                        Text(stringResource(R.string.safe_delete_note), Modifier.weight(1f), style = MaterialTheme.typography.bodySmall)
+                        Switch(checked = vm.useTrash, onCheckedChange = { vm.setTrash(it) })
+                    }
+                    if (p.allFiles && vm.trashFiles > 0) {
+                        Text(stringResource(R.string.trash_line, vm.trashFiles, fmtSize(vm.trashBytes)))
+                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                            OutlinedButton(onClick = vm::restoreTrash) { Text(stringResource(R.string.trash_restore)) }
+                            OutlinedButton(onClick = vm::emptyTrash) { Text(stringResource(R.string.trash_empty)) }
+                        }
+                    }
+                    if (vm.lifetimeFreed > 0) {
+                        Text(stringResource(R.string.freed_total, fmtSize(vm.lifetimeFreed)), style = MaterialTheme.typography.bodySmall)
+                    }
+                }
+            }
+        }
         item {
             Card(Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -252,7 +308,8 @@ private fun ItemRow(item: Item, checked: Boolean, onToggle: () -> Unit) {
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Checkbox(checked = checked, onCheckedChange = { onToggle() })
-        Column(Modifier.weight(1f)) {
+        ItemThumb(item)
+        Column(Modifier.weight(1f).padding(horizontal = 8.dp)) {
             Text(item.name, maxLines = 1, overflow = TextOverflow.Ellipsis)
             Text(
                 item.folder,
@@ -264,6 +321,32 @@ private fun ItemRow(item: Item, checked: Boolean, onToggle: () -> Unit) {
         Column(horizontalAlignment = Alignment.End) {
             Text(fmtSize(item.size))
             Text(fmtDate(item.modified), style = MaterialTheme.typography.bodySmall)
+        }
+    }
+}
+
+@Composable
+private fun ItemThumb(item: Item) {
+    val ctx = LocalContext.current
+    val bmp by produceState<Bitmap?>(null, item.path) { value = withContext(Dispatchers.IO) { Thumbs.load(ctx, item) } }
+    Box(
+        Modifier.size(44.dp).clip(RoundedCornerShape(6.dp)).background(MaterialTheme.colorScheme.surfaceVariant),
+        contentAlignment = Alignment.Center,
+    ) {
+        val b = bmp
+        if (b != null) {
+            Image(b.asImageBitmap(), null, Modifier.fillMaxSize(), contentScale = ContentScale.Crop)
+        } else {
+            Text(
+                if (item.dir) "📁" else when (item.category) {
+                    Category.IMAGINI -> "🖼️"
+                    Category.VIDEO -> "🎞️"
+                    Category.AUDIO -> "🎵"
+                    Category.DOCUMENTE -> "📄"
+                    Category.ARHIVE -> "🗜️"
+                    else -> "📎"
+                }
+            )
         }
     }
 }
@@ -298,6 +381,7 @@ private fun filterLabel(f: Filter): String = when (f) {
     Filter.VECHI -> stringResource(R.string.f_old)
     Filter.RESTURI -> stringResource(R.string.f_junk)
     Filter.CAPTURI -> stringResource(R.string.f_shots)
+    Filter.NECLARE -> stringResource(R.string.f_blur)
     Filter.INSTALATOARE -> stringResource(R.string.f_apk)
     Filter.COMPRIMARE -> stringResource(R.string.f_compress)
     Filter.ORFANE -> stringResource(R.string.f_orphans)
@@ -319,6 +403,14 @@ fun FilesScreen(vm: LustrumVm, a: Actions) {
         ) {
             Filter.entries.forEach { f ->
                 FilterChip(vm.filter == f, { vm.clearSelection(); vm.filter = f }, { Text(filterLabel(f)) })
+            }
+        }
+        if (vm.filter == Filter.NECLARE) {
+            Column(Modifier.padding(horizontal = 16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                Button(onClick = vm::findBlurry, enabled = vm.scanned && !vm.blurBusy, modifier = Modifier.fillMaxWidth()) {
+                    Text(if (vm.blurBusy) vm.blurProgress else stringResource(R.string.blur_find))
+                }
+                Text(stringResource(R.string.blur_note), style = MaterialTheme.typography.bodySmall)
             }
         }
         if (compress) {
