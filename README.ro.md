@@ -6,7 +6,7 @@
 
 LUSTRUM găsește resturi, duplicate, fotografii asemănătoare și rămășițe de aplicații și le șterge doar cu acordul tău. Nu are permisiunea INTERNET, deci nu poate trimite nimic nicăieri.
 
-**Versiune: 0.5.0 · Ultima actualizare: 2026-11-25**
+**Versiune: 0.6.0 · Ultima actualizare: 2026-11-25**
 
 [lustrum.chiuta.ro/](https://lustrum.chiuta.ro/)
 
@@ -23,6 +23,10 @@ LUSTRUM găsește resturi, duplicate, fotografii asemănătoare și rămășițe
 - **Poze neclare și întunecate** — Măsoară claritatea și luminozitatea pe o copie mică a fiecărei poze și listează probabilele rebuturi, ca să le verifici tu.
 - **Ștergere sigură, cu anulare** — Coș LUSTRUM opțional: fișierele șterse așteaptă 30 de zile și pot fi restaurate; spațiul se eliberează când golești coșul.
 - **Miniaturi și cele mai mari foldere** — Miniaturi în fiecare listă, un clasament al folderelor care îți mănâncă spațiul și totalul eliberat până acum.
+- **Swiper** — Treci prin poze și videoclipuri pe rând, cele mai vechi întâi: glisează la stânga ca să ștergi, la dreapta ca să păstrezi. Nimic nu dispare până nu confirmi la final.
+- **Curățare programată** — Săptămânal sau lunar, în fundal, cu baterie suficientă: o notificare sau curățarea automată doar a resturilor evidente mai vechi de 24 de ore.
+- **Poza cea mai bună și videoclipuri asemănătoare** — În fiecare grup de poze asemănătoare, cea mai clară copie e propusă prima. Videoclipurile asemănătoare sunt potrivite după un cadru din mijloc și o durată aproape identică.
+- **Reducerea cache-ului, asistată de sistem** — Cere Android să elibereze datele din cache ale altor aplicații, solicitând spațiu. Rezultatul diferă între dispozitive; nu există magie la nivel de root.
 
 ## Privat prin construcție
 
@@ -32,10 +36,11 @@ Majoritatea curățătoarelor trăiesc din reclame și date. LUSTRUM e făcut in
 - Fără conturi, analitice, reclame sau cereri de plată.
 - Orice ștergere e confirmată; ștergerea media trece prin dialogul propriu Android.
 - Verificări de siguranță încorporate: fotografiile cu video încorporat (Motion Photo) și cele HDR nu sunt niciodată recomprimate, fișierele modificate în ultimele 24 de ore nu sunt considerate resturi, iar în afara stocării partajate nu se poate șterge nimic.
+- Curățarea programată acționează doar asupra resturilor evidente mai vechi de 24 de ore; cu ștergerea sigură pornită, ajung mai întâi în coșul LUSTRUM.
 
 ## Cum se compară
 
-Față de cele mai cunoscute curățătoare, pe baza descrierilor lor publice (noiembrie 2026).
+Față de cele mai cunoscute curățătoare, pe baza descrierilor lor publice (noiembrie 2026). Celulele concurenților provin din descrieri publice și nu au fost testate de noi. Comprimarea LUSTRUM (doar JPEG) și programarea (doar resturi evidente) sunt parțiale; unelte mature precum SD Maid SE fac mai mult.
 
 | | LUSTRUM | CCleaner | SD Maid SE | Files by Google | Norton Clean / Avast Cleanup |
 |---|:---:|:---:|:---:|:---:|:---:|
@@ -44,8 +49,8 @@ Față de cele mai cunoscute curățătoare, pe baza descrierilor lor publice (n
 | Open source | ✓ | ✗ | ✓ | ✗ | ✗ |
 | Duplicate și fotografii asemănătoare | ✓ | ~ | ✓ | ~ | ✓ |
 | Rămășițe de la aplicații dezinstalate | ~ | ✓ | ✓ | ✗ | ~ |
-| Comprimare foto | ✓ | ✓ | ✓ | ✗ | ~ |
-| Curățare programată | ✗ | ~ | ✓ | ✗ | ✓ |
+| Comprimare foto | ~ | ✓ | ✓ | ✗ | ~ |
+| Curățare programată | ~ | ~ | ✓ | ✗ | ✓ |
 | „Boost RAM” | — | ✓ | ✗ | ✗ | ✓ |
 | Suport root / Shizuku | ✗ | ✗ | ✓ | ✗ | ✗ |
 
@@ -54,9 +59,9 @@ Față de cele mai cunoscute curățătoare, pe baza descrierilor lor publice (n
 ## Ce nu face — intenționat
 
 - „Boost RAM” și oprirea aplicațiilor din fundal. Android gestionează singur memoria; butoanele astea nu ajută și consumă baterie.
-- Golirea cache-ului altor aplicații dintr-un clic. Android o interzice fără privilegii speciale, așa că LUSTRUM te duce direct la ecranul de stocare al fiecărei aplicații.
+- Golirea garantată, dintr-o atingere, a cache-ului altor aplicații. Android o interzice fără privilegii speciale; LUSTRUM oferă o reducere asistată de sistem (rezultate variabile) și trimite la ecranul de stocare al fiecărei aplicații.
 - iOS. Sistemul nu permite curățare în afara propriului spațiu al aplicației.
-- Curățare programată. LUSTRUM acționează doar când îl deschizi și confirmi; nimic nu rulează în fundal.
+- Automatizare agresivă în fundal. Curățarea programată atinge doar resturile evidente mai vechi de 24 de ore, niciodată pozele sau documentele tale.
 - Să se uite în folderul Android/data al altor aplicații. Android 11+ blochează asta pentru orice aplicație obișnuită; doar root sau Shizuku pot, iar LUSTRUM nu le suportă încă.
 
 ## Permisiunile, pe înțelesul tuturor
@@ -70,7 +75,7 @@ Față de cele mai cunoscute curățătoare, pe baza descrierilor lor publice (n
 
 ## Obține LUSTRUM
 
-Beta — versiunea 0.4.0. Se instalează direct; nu ai nevoie de cont de magazin.
+Beta — versiunea 0.6.0. Se instalează direct; nu ai nevoie de cont de magazin.
 
 1. Descarcă APK-ul din ultima versiune publicată.
 2. Permite instalarea din această sursă când Android te întreabă.
@@ -82,7 +87,7 @@ JDK 21, Android SDK, Gradle 8.14+: rulează `gradle assembleRelease` (`gradle te
 
 ## Stare
 
-Beta. 14 teste unitare și compilarea rulează în CI; încă netestată pe un telefon fizic. Versiunile de la 0.4.0 încolo împart aceeași cheie de semnare, deci actualizările se instalează peste cea veche (de la 0.3.0 sau mai vechi, dezinstalează o dată).
+Beta. 17 teste unitare și 8 teste instrumentate pe un emulator Android rulează în CI; încă netestat pe un telefon fizic. Traducerile sunt automate și nerevizuite de vorbitori nativi. Versiunile de la 0.4.0 încoace au aceeași cheie de semnare, deci actualizările se instalează peste cea veche (de la 0.3.0 sau mai vechi, dezinstalează o dată).
 
 ---
 

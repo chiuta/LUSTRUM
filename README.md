@@ -6,7 +6,7 @@
 
 LUSTRUM finds junk, duplicates, look-alike photos and app leftovers — and clears them only with your approval. It has no INTERNET permission, so it physically cannot send anything anywhere.
 
-**Version: 0.5.0 · Last updated: 2026-11-25**
+**Version: 0.6.0 · Last updated: 2026-11-25**
 
 [lustrum.chiuta.ro/](https://lustrum.chiuta.ro/)
 
@@ -23,6 +23,10 @@ LUSTRUM finds junk, duplicates, look-alike photos and app leftovers — and clea
 - **Blurry & dark photos** — Measures sharpness and brightness on a small copy of each photo and lists the likely rejects for you to review.
 - **Safe delete with undo** — Optional LUSTRUM trash: deleted files wait 30 days and can be restored; space is freed when you empty it.
 - **Previews & biggest folders** — Thumbnails in every list, a ranking of the folders that eat your storage, and a running total of what you have freed.
+- **Swiper** — Go through photos and videos one by one, oldest first: swipe left to delete, right to keep. Nothing is removed until you confirm at the end.
+- **Scheduled cleaning** — Weekly or monthly, in the background, on a good battery: a notification, or automatic clean-up of obvious junk older than 24 hours only.
+- **Best photo & similar videos** — In each look-alike group the sharpest copy is suggested first. Similar videos are matched by a middle frame and near-identical length.
+- **System-assisted cache trim** — Asks Android to free other apps' cached data by requesting storage. Results vary by device; there is no root-level magic.
 
 ## Private by construction
 
@@ -32,10 +36,11 @@ Most cleaners earn their keep from ads and data. LUSTRUM is built the other way 
 - No accounts, no analytics, no ads, no purchase prompts.
 - Every deletion is confirmed first; media deletions go through Android's own system dialog.
 - Built-in safety checks: Motion Photos and HDR photos are never recompressed, files changed in the last 24 hours are never called junk, and nothing outside shared storage can be deleted.
+- Scheduled cleaning acts only on obvious junk older than 24 hours; with safe delete on, it goes to the LUSTRUM trash first.
 
 ## How it compares
 
-Against the best-known cleaners, based on their public descriptions (November 2026).
+Against the best-known cleaners, based on their public descriptions (November 2026). Competitor cells come from public descriptions and were not tested by us. LUSTRUM's compression (JPEG only) and scheduling (obvious junk only) are partial; mature tools such as SD Maid SE do more.
 
 | | LUSTRUM | CCleaner | SD Maid SE | Files by Google | Norton Clean / Avast Cleanup |
 |---|:---:|:---:|:---:|:---:|:---:|
@@ -44,8 +49,8 @@ Against the best-known cleaners, based on their public descriptions (November 20
 | Open source | ✓ | ✗ | ✓ | ✗ | ✗ |
 | Duplicates & look-alike photos | ✓ | ~ | ✓ | ~ | ✓ |
 | Leftovers of uninstalled apps | ~ | ✓ | ✓ | ✗ | ~ |
-| Photo compression | ✓ | ✓ | ✓ | ✗ | ~ |
-| Scheduled cleaning | ✗ | ~ | ✓ | ✗ | ✓ |
+| Photo compression | ~ | ✓ | ✓ | ✗ | ~ |
+| Scheduled cleaning | ~ | ~ | ✓ | ✗ | ✓ |
 | “RAM boost” | — | ✓ | ✗ | ✗ | ✓ |
 | Root / Shizuku support | ✗ | ✗ | ✓ | ✗ | ✗ |
 
@@ -54,9 +59,9 @@ Against the best-known cleaners, based on their public descriptions (November 20
 ## What it will not do — on purpose
 
 - “RAM boost” and background-app killers. Android manages memory itself; these buttons don't help and drain the battery.
-- Clearing other apps' caches in one tap. Android forbids it without special privileges, so LUSTRUM takes you straight to each app's storage screen.
+- Guaranteed one-tap clearing of other apps' caches. Android forbids it without special privileges; LUSTRUM offers a system-assisted trim (results vary) and links to each app's storage screen.
 - iOS. The system does not allow cleaning outside an app's own sandbox.
-- Scheduled cleaning. LUSTRUM acts only when you open it and confirm; nothing runs in the background.
+- Aggressive background automation. Scheduled cleaning only touches obvious junk older than 24 hours, never your photos or documents.
 - Look inside other apps' Android/data folder. Android 11+ blocks this for every normal app; only root or Shizuku can, and LUSTRUM does not support them yet.
 
 ## Permissions, in plain words
@@ -70,7 +75,7 @@ Against the best-known cleaners, based on their public descriptions (November 20
 
 ## Get LUSTRUM
 
-Beta — version 0.4.0. Installs directly; no store account needed.
+Beta — version 0.6.0. Installs directly; no store account needed.
 
 1. Download the APK from the latest release.
 2. Allow installation from this source when Android asks.
@@ -82,7 +87,7 @@ JDK 21, Android SDK, Gradle 8.14+: run `gradle assembleRelease` (`gradle testDeb
 
 ## Status
 
-Beta. 14 unit tests and the build run in CI; not yet tested on a physical phone. Builds from 0.4.0 on share one signing key, so updates install over the old version (from 0.3.0 or earlier, uninstall once).
+Beta. 17 unit tests, plus 8 instrumented tests on an Android emulator, run in CI; not yet tested on a physical phone. Translations are machine-made and not reviewed by native speakers. Builds from 0.4.0 on share one signing key, so updates install over the old version (from 0.3.0 or earlier, uninstall once).
 
 ---
 
