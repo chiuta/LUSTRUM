@@ -54,7 +54,7 @@ $UI tap "Find identical files"; $UI wait "Select" 90 || sleep 8; shot dupes-exac
 $UI tap "=Similar images" || true; sleep 1
 $UI tap "Find similar images"; sleep 25; shot dupes-similar
 $UI tap "=Similar videos" || true; sleep 1
-$UI tap "Find similar videos"; sleep 20; shot dupes-video
+$UI tap "Find similar videos"; sleep 75; shot dupes-video; adb logcat -d -t 400 > build-demo/raw/logcat.txt || true
 rec_stop dupes
 
 # 4. Swiper
@@ -71,7 +71,7 @@ rec_stop swiper
 # 5. Curățare programată și coș
 rec_start schedule
 $UI tap "=Home"; sleep 2
-for i in 1 2 3; do $UI scroll; done
+for i in 1 2; do $UI scroll; done
 $UI tap "=Weekly" || true; sleep 2; shot schedule
 rec_stop schedule
 
@@ -85,5 +85,5 @@ done
 for f in build-demo/raw/*.mp4; do
   ffmpeg -y -loglevel error -i "$f" -vf "scale=360:-2" -c:v libx264 -preset veryfast -crf 31 -pix_fmt yuv420p -movflags +faststart -an "media/$(basename "$f")"
 done
-adb shell cat /sdcard/ui.xml > media/last-ui.xml || true
+echo "=== LOGCAT ==="; grep -iE "lustrum|AndroidRuntime|MediaMetadata|FATAL" build-demo/raw/logcat.txt | tail -60 || true
 ls -la media

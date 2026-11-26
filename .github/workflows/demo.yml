@@ -51,7 +51,7 @@ jobs:
       - name: Commit media to the repository
         if: always()
         run: |
-          rm -f media/last-ui.xml
+          rm -f media/last-ui.xml media/logcat.txt
           if ls media/*.png >/dev/null 2>&1; then
             git config user.name "Alexio"
             git config user.email "alexio@trom.tf"
