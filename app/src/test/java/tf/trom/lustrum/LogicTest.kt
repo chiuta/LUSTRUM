@@ -198,6 +198,10 @@ class AuditTest {
             assertTrue(!Safety.ok(it(and), root))
             assertTrue(!Safety.ok(it(outside), root))
             assertTrue(!Safety.ok(it(File(root.path)), root))
+            File(root, "Android/media/old.app").mkdirs()
+            assertTrue(Safety.ok(it(File(root, "Android/media/old.app")), root))
+            assertTrue(!Safety.ok(it(File(root, "Android/media")), root))
+            assertTrue(!Safety.ok(it(File(root, "Android/data")), root))
             outside.delete()
         } finally { root.deleteRecursively() }
     }

@@ -88,6 +88,10 @@ object Safety {
         val c = try { f.canonicalFile } catch (e: Exception) { return false }
         if (c.path != f.absoluteFile.normalize().path) return false
         if (!c.path.startsWith(root.path + "/")) return false
-        return c.path.removePrefix(root.path + "/") != "Android"
+        val rel = c.path.removePrefix(root.path + "/")
+        // „Android” în sine și Android/data (datele altor aplicații) sunt intangibile; Android/media și /obb
+        // permit doar foldere de aplicații dezinstalate (orfane), nu rădăcinile lor.
+        if (rel == "Android" || rel == "Android/data" || rel.startsWith("Android/data/")) return false
+        return rel != "Android/media" && rel != "Android/obb"
     }
 }
