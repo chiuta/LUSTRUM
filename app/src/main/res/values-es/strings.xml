@@ -119,7 +119,7 @@
     <string name="auto_weekly">Semanal</string>
     <string name="auto_monthly">Mensual</string>
     <string name="auto_clean">Limpiar la basura automáticamente (si no, solo avisar)</string>
-    <string name="auto_note">Se ejecuta en segundo plano aproximadamente una vez por periodo, con batería no baja. Solo se tocan archivos basura evidentes de más de 24 horas; con la eliminación segura activa van a la papelera LUSTRUM.</string>
+    <string name="auto_note">Se ejecuta en segundo plano aproximadamente una vez por periodo, con batería no baja. Solo se tocan archivos basura evidentes de más de 24 horas y siempre van primero a la papelera LUSTRUM (recuperables 30 días), nunca directos a la eliminación.</string>
     <string name="notif_found">Basura lista para limpiar: %1$d archivos · %2$s</string>
     <string name="notif_cleaned">Limpiados automáticamente: %1$d archivos · %2$s</string>
     <string name="trim_btn">Reducir la caché de otras apps</string>

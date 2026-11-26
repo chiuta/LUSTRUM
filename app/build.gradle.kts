@@ -12,9 +12,9 @@ android {
         applicationId = "tf.trom.lustrum"
         minSdk = 30
         targetSdk = 35
-        versionCode = 7
+        versionCode = 8
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        versionName = "0.7.0"
+        versionName = "0.8.0"
     }
 
     // Semnare stabilă: actualizările se instalează peste versiunea veche doar dacă cheia rămâne aceeași.

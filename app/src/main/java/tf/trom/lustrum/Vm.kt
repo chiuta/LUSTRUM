@@ -114,16 +114,31 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
         swipeQueue = emptyList(); swipeIndex = 0; swipeMarked = emptyList()
     }
 
+    var trimBusy by mutableStateOf(false)
+
+    fun refreshFreed() {
+        lifetimeFreed = prefs.getLong("freed", 0L)
+    }
+
     fun trimCaches() {
+        if (trimBusy) return
+        trimBusy = true
         viewModelScope.launch(Dispatchers.IO) {
-            val freed = CacheTrim.trim(app, apps.sumOf { it.cache })
-            updateStorage()
-            message = if (freed > 0) {
-                addFreed(freed)
-                app.getString(R.string.vm_trimmed, fmtSize(freed))
-            } else app.getString(R.string.vm_trim_none)
+            try {
+                val freed = CacheTrim.trim(app, apps.sumOf { it.cache })
+                updateStorage()
+                message = if (freed > 0) {
+                    addFreed(freed)
+                    app.getString(R.string.vm_trimmed, fmtSize(freed))
+                } else app.getString(R.string.vm_trim_none)
+            } finally {
+                trimBusy = false
+            }
         }
     }
+
+    /** Ștergerea cerută printr-un dialog de sistem așteaptă aici (supraviețuiește rotirii ecranului). */
+    var pendingDelete: List<Item> = emptyList()
 
     init {
         updateStorage()
@@ -184,6 +199,7 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
                 } else {
                     orphans = emptyList(); emptyDirs = emptyList()
                 }
+                resetSwipe()
                 scanned = true
                 scannedWithAll = perms.allFiles
                 selected = emptySet()
@@ -271,7 +287,7 @@ class LustrumVm(private val app: Application) : AndroidViewModel(app) {
 
     private fun addFreed(n: Long) {
         if (n <= 0) return
-        lifetimeFreed += n
+        lifetimeFreed = prefs.getLong("freed", 0L) + n
         prefs.edit().putLong("freed", lifetimeFreed).apply()
     }
 

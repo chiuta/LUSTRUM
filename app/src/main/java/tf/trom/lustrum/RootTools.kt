@@ -1,5 +1,6 @@
 package tf.trom.lustrum
 
+import java.io.File
 import java.util.concurrent.TimeUnit
 
 /**
@@ -7,16 +8,25 @@ import java.util.concurrent.TimeUnit
  * Fără root (cazul normal) `available()` dă false și nimic nu se execută.
  */
 object RootTools {
-    private fun run(cmd: String, timeoutSec: Long): Pair<Int, String>? = try {
-        val p = ProcessBuilder("su", "-c", cmd).redirectErrorStream(true).start()
-        val out = p.inputStream.bufferedReader().readText()
-        if (!p.waitFor(timeoutSec, TimeUnit.SECONDS)) { p.destroyForcibly(); null } else p.exitValue() to out
-    } catch (t: Throwable) {
-        null
+    /** Ieșirea merge într-un fișier, ca așteptarea cu timeout să nu poată rămâne blocată pe citire. */
+    private fun run(cmd: String, timeoutSec: Long): Pair<Int, String>? {
+        val out = try { File.createTempFile("su", ".out") } catch (t: Throwable) { return null }
+        return try {
+            val p = ProcessBuilder("su", "-c", cmd).redirectErrorStream(true).redirectOutput(out).start()
+            try { p.outputStream.close() } catch (t: Throwable) { }
+            if (!p.waitFor(timeoutSec, TimeUnit.SECONDS)) {
+                p.destroyForcibly()
+                null
+            } else p.exitValue() to out.readText()
+        } catch (t: Throwable) {
+            null
+        } finally {
+            out.delete()
+        }
     }
 
     fun available(): Boolean {
-        val r = run("id", 8) ?: return false
+        val r = run("id", 10) ?: return false
         return r.first == 0 && r.second.contains("uid=0")
     }
 

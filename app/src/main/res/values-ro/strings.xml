@@ -119,7 +119,7 @@
     <string name="auto_weekly">Săptămânal</string>
     <string name="auto_monthly">Lunar</string>
     <string name="auto_clean">Curăță resturile automat (altfel doar notifică)</string>
-    <string name="auto_note">Rulează în fundal cam o dată pe perioadă, când bateria nu e aproape goală. Se ating doar resturile evidente mai vechi de 24 de ore; cu ștergerea sigură pornită, ajung în coșul LUSTRUM.</string>
+    <string name="auto_note">Rulează în fundal cam o dată pe perioadă, când bateria nu e aproape goală. Se ating doar resturile evidente mai vechi de 24 de ore, iar ele merg întotdeauna întâi în coșul LUSTRUM (recuperabile 30 de zile), niciodată direct la ștergere.</string>
     <string name="notif_found">Resturi gata de curățat: %1$d fișiere · %2$s</string>
     <string name="notif_cleaned">Curățate automat: %1$d fișiere · %2$s</string>
     <string name="trim_btn">Reduce cache-ul altor aplicații</string>

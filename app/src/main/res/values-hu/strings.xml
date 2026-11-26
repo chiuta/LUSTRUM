@@ -119,7 +119,7 @@
     <string name="auto_weekly">Hetente</string>
     <string name="auto_monthly">Havonta</string>
     <string name="auto_clean">Felesleges fájlok automatikus törlése (különben csak értesítés)</string>
-    <string name="auto_note">Háttérben fut, nagyjából időszakonként egyszer, ha az akkumulátor nem fogyott le. Csak a 24 óránál régebbi, egyértelműen felesleges fájlokat érinti; biztonságos törlésnél a LUSTRUM-kukába kerülnek.</string>
+    <string name="auto_note">Háttérben fut, nagyjából időszakonként egyszer, ha az akkumulátor nem fogyott le. Csak a 24 óránál régebbi, egyértelműen felesleges fájlokat érinti, és ezek mindig előbb a LUSTRUM-kukába kerülnek (30 napig visszaállíthatók), soha nem közvetlenül a törlésre.</string>
     <string name="notif_found">Takarításra kész felesleges fájlok: %1$d · %2$s</string>
     <string name="notif_cleaned">Automatikusan törölve: %1$d fájl · %2$s</string>
     <string name="trim_btn">Más alkalmazások gyorsítótárának csökkentése</string>

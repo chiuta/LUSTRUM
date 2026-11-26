@@ -61,6 +61,10 @@ fun SwipeScreen(vm: LustrumVm, a: Actions) {
         val item = queue.getOrNull(idx)
         if (item == null) {
             Text(stringResource(R.string.swipe_done), style = MaterialTheme.typography.titleMedium)
+            Box(Modifier.weight(1f))
+            OutlinedButton(onClick = vm::startSwipe, modifier = Modifier.fillMaxWidth()) {
+                Text(stringResource(R.string.swipe_start))
+            }
         } else {
             val ctx = LocalContext.current
             val bmp by produceState<Bitmap?>(null, item.path) { value = withContext(Dispatchers.IO) { Thumbs.load(ctx, item, 720) } }
@@ -83,7 +87,7 @@ fun SwipeScreen(vm: LustrumVm, a: Actions) {
                 contentAlignment = Alignment.Center,
             ) {
                 val b = bmp
-                if (b != null) Image(b.asImageBitmap(), null, Modifier.fillMaxSize(), contentScale = ContentScale.Fit)
+                if (b != null) Image(b.asImageBitmap(), item.name, Modifier.fillMaxSize(), contentScale = ContentScale.Fit)
                 else Text(if (item.category == Category.VIDEO) "🎞️" else "🖼️", style = MaterialTheme.typography.displayMedium)
             }
             Text(item.name, maxLines = 1)

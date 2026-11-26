@@ -272,7 +272,7 @@ fun HomeScreen(vm: LustrumVm, a: Actions, openJunk: () -> Unit) {
         item {
             Card(Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    OutlinedButton(onClick = vm::trimCaches, modifier = Modifier.fillMaxWidth()) {
+                    OutlinedButton(onClick = vm::trimCaches, enabled = !vm.trimBusy, modifier = Modifier.fillMaxWidth()) {
                         Text(stringResource(R.string.trim_btn))
                     }
                     Text(stringResource(R.string.trim_note), style = MaterialTheme.typography.bodySmall)

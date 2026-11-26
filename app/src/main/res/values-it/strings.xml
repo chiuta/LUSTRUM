@@ -119,7 +119,7 @@
     <string name="auto_weekly">Settimanale</string>
     <string name="auto_monthly">Mensile</string>
     <string name="auto_clean">Pulisci i file inutili automaticamente (altrimenti solo notifica)</string>
-    <string name="auto_note">Gira in background circa una volta per periodo, con la batteria non scarica. Si toccano solo i file inutili evidenti più vecchi di 24 ore; con l\'eliminazione sicura attiva vanno nel cestino LUSTRUM.</string>
+    <string name="auto_note">Gira in background circa una volta per periodo, con la batteria non scarica. Si toccano solo i file inutili evidenti più vecchi di 24 ore, e vanno sempre prima nel cestino LUSTRUM (recuperabili per 30 giorni), mai direttamente all\'eliminazione.</string>
     <string name="notif_found">File inutili pronti da pulire: %1$d · %2$s</string>
     <string name="notif_cleaned">Puliti automaticamente: %1$d file · %2$s</string>
     <string name="trim_btn">Riduci la cache delle altre app</string>

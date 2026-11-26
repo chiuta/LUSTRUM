@@ -120,7 +120,7 @@
     <string name="auto_weekly">Weekly</string>
     <string name="auto_monthly">Monthly</string>
     <string name="auto_clean">Clean junk automatically (otherwise only notify)</string>
-    <string name="auto_note">Runs in the background about once per period while the battery is not low. Only obvious junk older than 24 hours is touched; with safe delete on, it goes to the LUSTRUM trash.</string>
+    <string name="auto_note">Runs in the background about once per period while the battery is not low. Only obvious junk older than 24 hours is touched, and it always goes to the LUSTRUM trash first (restorable for 30 days), never straight to deletion.</string>
     <string name="notif_found">Junk ready to clean: %1$d files · %2$s</string>
     <string name="notif_cleaned">Cleaned automatically: %1$d files · %2$s</string>
     <string name="trim_btn">Trim other apps\' caches</string>

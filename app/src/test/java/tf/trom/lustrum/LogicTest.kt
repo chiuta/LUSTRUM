@@ -1,5 +1,7 @@
 package tf.trom.lustrum
 
+import java.io.File
+
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
@@ -161,5 +163,61 @@ class ReviewFeaturesTest {
         val b = a xor 0b111111L // distanța 6
         assertEquals(1, Dupes.cluster(longArrayOf(a, b), 6).size)
         assertEquals(0, Dupes.cluster(longArrayOf(a, b), 4).size)
+    }
+}
+
+class AuditTest {
+    @Test fun clusterFindsDistanceSixSpreadAcrossAllSlices() {
+        // 6 biți diferiți, câte unul în fiecare dintre cele 7 felii posibile: pigeonhole cu 7 felii îl găsește
+        val a = 0x5555555555555555L
+        val flips = longArrayOf(1L shl 2, 1L shl 12, 1L shl 21, 1L shl 31, 1L shl 40, 1L shl 52)
+        val b = flips.fold(a) { x, f -> x xor f }
+        assertEquals(6, java.lang.Long.bitCount(a xor b))
+        assertEquals(1, Dupes.cluster(longArrayOf(a, b), 6).size)
+    }
+
+    @Test fun clusterRejectsBeyondDistance() {
+        val a = 0L or 0x00FF00FF00FF00FFL
+        val b = a xor 0x7FL // 7 biți
+        assertEquals(0, Dupes.cluster(longArrayOf(a, b), 6).size)
+    }
+
+    @Test fun clusterZeroDistanceDoesNotCrash() {
+        assertEquals(1, Dupes.cluster(longArrayOf(42L, 42L, 99999L), 0).size)
+    }
+
+    @Test fun safetyRejectsOutsideRootAndAndroidDir() {
+        val root = java.nio.file.Files.createTempDirectory("sd").toFile().canonicalFile
+        try {
+            File(root, "Android/data").mkdirs(); File(root, "DCIM").mkdirs()
+            val ok = File(root, "DCIM/a.jpg").apply { writeText("x") }
+            val and = File(root, "Android/data/x.bin").apply { writeText("x") }
+            val outside = File.createTempFile("out", ".bin")
+            fun it(f: File) = Item(f.name, f.path, 1, 0, Category.ALTELE)
+            assertTrue(Safety.ok(it(ok), root))
+            assertTrue(!Safety.ok(it(and), root))
+            assertTrue(!Safety.ok(it(outside), root))
+            assertTrue(!Safety.ok(it(File(root.path)), root))
+            outside.delete()
+        } finally { root.deleteRecursively() }
+    }
+
+    @Test fun safetyRejectsSymlinks() {
+        val root = java.nio.file.Files.createTempDirectory("sd").toFile().canonicalFile
+        try {
+            val real = File(root, "real.txt").apply { writeText("x") }
+            val link = File(root, "link.txt")
+            java.nio.file.Files.createSymbolicLink(link.toPath(), real.toPath())
+            assertTrue(!Safety.ok(Item("link.txt", link.path, 1, 0, Category.ALTELE), root))
+        } finally { root.deleteRecursively() }
+    }
+
+    @Test fun junkRuleSkipsFreshAndKeepsBackups() {
+        val now = 10L * 24 * 3600 * 1000
+        fun i(n: String, m: Long) = Item(n, "/s/$n", 1, m, Category.ALTELE)
+        assertTrue(Scanner.isJunk(i("a.tmp", 0), now))
+        assertTrue(!Scanner.isJunk(i("a.tmp", now - 1000), now))
+        assertTrue(!Scanner.isJunk(i("notes.bak", 0), now))
+        assertTrue(!Scanner.isJunk(i("report.log", 0), now))
     }
 }

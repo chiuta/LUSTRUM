@@ -8,7 +8,22 @@ on:
   workflow_dispatch:
 
 jobs:
+  docs:
+    # Traduceri complete, aceleași substituții în toate limbile, versiune coerentă, fișiere generate la zi.
+    runs-on: ubuntu-26.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - run: node tools/check.mjs
+      - run: |
+          node tools/build-android.mjs
+          LUSTRUM_DATE=$(grep -oP '\d{4}-\d{2}-\d{2}' README.md | head -1) node tools/build.mjs
+          git diff --exit-code --stat || { echo "Fișierele generate nu sunt la zi: rulează node tools/build-android.mjs && node tools/build.mjs"; exit 1; }
+
   apk:
+    needs: docs
     runs-on: ubuntu-26.04
     permissions:
       contents: write
@@ -98,7 +113,9 @@ jobs:
           force-avd-creation: false
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim
           disable-animations: true
-          script: gradle --no-daemon connectedDebugAndroidTest
+          script: |
+            gradle --no-daemon connectedDebugAndroidTest assembleRelease
+            bash tools/smoke-release.sh
 
       - name: Upload test reports
         if: always()

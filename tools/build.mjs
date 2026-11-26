@@ -8,7 +8,7 @@ const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
 const T = JSON.parse(readFileSync(join(here, "i18n.json"), "utf8"));
 const ORDER = ["en", "ro", "fr", "it", "es", "pt", "de", "hu"];
-const VERSION = "0.7.0";
+const VERSION = "0.8.0";
 const DATE = process.env.LUSTRUM_DATE || new Date().toISOString().slice(0, 10);
 const SITE = "https://lustrum.chiuta.ro/";
 

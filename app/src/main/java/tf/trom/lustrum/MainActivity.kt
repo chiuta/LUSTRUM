@@ -19,13 +19,12 @@ import android.os.Bundle
 class MainActivity : ComponentActivity() {
 
     private val vm: LustrumVm by viewModels()
-    private var pending: List<Item> = emptyList()
 
     private val deleteLauncher = registerForActivityResult(
         ActivityResultContracts.StartIntentSenderForResult()
     ) { r ->
-        if (r.resultCode == RESULT_OK) vm.removed(pending, vm.useTrash) else vm.message = getString(R.string.vm_cancelled)
-        pending = emptyList()
+        if (r.resultCode == RESULT_OK) vm.removed(vm.pendingDelete, vm.useTrash) else vm.message = getString(R.string.vm_cancelled)
+        vm.pendingDelete = emptyList()
     }
 
     private val permLauncher = registerForActivityResult(
@@ -77,6 +76,7 @@ class MainActivity : ComponentActivity() {
         super.onResume()
         refreshPerms()
         vm.refreshTrash()
+        vm.refreshFreed()
     }
 
     private fun granted(p: String) = checkSelfPermission(p) == PackageManager.PERMISSION_GRANTED
@@ -96,7 +96,7 @@ class MainActivity : ComponentActivity() {
         val (withUri, files) = items.partition { it.uri != null }
         if (files.isNotEmpty()) vm.deleteFiles(files)
         if (withUri.isNotEmpty()) {
-            pending = withUri
+            vm.pendingDelete = withUri
             val uris = withUri.map { it.uri!! }
             val pi = if (vm.useTrash) MediaStore.createTrashRequest(contentResolver, uris, true)
             else MediaStore.createDeleteRequest(contentResolver, uris)

@@ -6,7 +6,7 @@
 
 O LUSTRUM encontra arquivos inúteis, duplicatas, fotos parecidas e sobras de aplicativos, e só os apaga com a sua autorização. Ele não tem a permissão INTERNET, então não consegue enviar nada para lugar nenhum.
 
-**Versão: 0.7.0 · Última atualização: 2026-11-25**
+**Versão: 0.8.0 · Última atualização: 2026-11-26**
 
 [lustrum.chiuta.ro/](https://lustrum.chiuta.ro/)
 
@@ -24,7 +24,7 @@ O LUSTRUM encontra arquivos inúteis, duplicatas, fotos parecidas e sobras de ap
 - **Exclusão segura com desfazer** — Lixeira LUSTRUM opcional: os arquivos excluídos esperam 30 dias e podem ser restaurados; o espaço é liberado ao esvaziá-la.
 - **Prévias e maiores pastas** — Miniaturas em cada lista, um ranking das pastas que mais ocupam espaço e o total liberado até agora.
 - **Swiper** — Revise fotos e vídeos um a um, começando pelos mais antigos: deslize para a esquerda para excluir, para a direita para manter. Nada é removido até você confirmar no final.
-- **Limpeza agendada** — Semanal ou mensal, em segundo plano, com bateria suficiente: uma notificação, ou limpeza automática apenas do lixo óbvio com mais de 24 horas.
+- **Limpeza agendada** — Semanal ou mensal, em segundo plano, com bateria suficiente: uma notificação, ou limpeza automática apenas do lixo óbvio com mais de 24 horas. Os arquivos limpos vão sempre primeiro para a lixeira LUSTRUM de 30 dias.
 - **Melhor foto e vídeos parecidos** — Em cada grupo de fotos parecidas, a cópia mais nítida é sugerida primeiro. Vídeos parecidos são identificados por um quadro do meio e duração quase idêntica.
 - **Redução de cache assistida pelo sistema** — Pede ao Android que libere o cache de outros apps solicitando espaço. O resultado varia conforme o aparelho; sem mágica de root. Em telefones com root também usa root para limpar todos os caches.
 
@@ -36,7 +36,7 @@ A maioria dos limpadores vive de anúncios e dados. O LUSTRUM foi feito ao contr
 - Sem contas, análises, anúncios ou pedidos de pagamento.
 - Toda exclusão é confirmada; nas mídias, quem confirma é a caixa de diálogo do próprio Android.
 - Verificações de segurança integradas: Motion Photos e fotos HDR nunca são recomprimidas, arquivos alterados nas últimas 24 horas nunca são tratados como lixo e nada fora do armazenamento compartilhado pode ser excluído.
-- A limpeza agendada atua só sobre lixo óbvio com mais de 24 horas; com a exclusão segura ativa, vai primeiro para a lixeira LUSTRUM.
+- A limpeza agendada atua só sobre lixo óbvio com mais de 24 horas e o move sempre primeiro para a lixeira LUSTRUM, nunca direto para a exclusão.
 
 ## Como se compara
 
@@ -75,7 +75,7 @@ Com os limpadores mais conhecidos, com base nas descrições públicas deles (no
 
 ## Baixe o LUSTRUM
 
-Beta — versão 0.7.0. Instalação direta, sem conta de loja.
+Beta — versão 0.8.0. Instalação direta, sem conta de loja.
 
 1. Baixe o APK na última versão publicada.
 2. Permita a instalação desta fonte quando o Android perguntar.
@@ -87,7 +87,7 @@ JDK 21, Android SDK, Gradle 8.14+: execute `gradle assembleRelease` (`gradle tes
 
 ## Situação
 
-Beta. 17 testes unitários e 8 instrumentados em um emulador Android rodam no CI; ainda não testado em um telefone físico. As traduções são automáticas e não revisadas por nativos. As versões desde 0.4.0 compartilham a chave de assinatura: as atualizações instalam por cima (de 0.3.0 ou anteriores, desinstale uma vez).
+Beta. 23 testes unitários, 10 instrumentados em um emulador Android e um teste de fumaça da versão release minificada rodam no CI; ainda não testado em um telefone físico. As traduções são automáticas e não revisadas por nativos. As versões desde 0.4.0 compartilham a chave de assinatura: as atualizações instalam por cima (de 0.3.0 ou anteriores, desinstale uma vez).
 
 ---
 

@@ -119,7 +119,7 @@
     <string name="auto_weekly">Semanal</string>
     <string name="auto_monthly">Mensal</string>
     <string name="auto_clean">Limpar o lixo automaticamente (senão, apenas notificar)</string>
-    <string name="auto_note">Roda em segundo plano cerca de uma vez por período, com bateria não baixa. Só o lixo óbvio com mais de 24 horas é tocado; com a exclusão segura ativa, vai para a lixeira LUSTRUM.</string>
+    <string name="auto_note">Roda em segundo plano cerca de uma vez por período, com bateria não baixa. Só o lixo óbvio com mais de 24 horas é tocado e sempre vai primeiro para a lixeira LUSTRUM (recuperável por 30 dias), nunca direto para a exclusão.</string>
     <string name="notif_found">Lixo pronto para limpar: %1$d arquivos · %2$s</string>
     <string name="notif_cleaned">Limpos automaticamente: %1$d arquivos · %2$s</string>
     <string name="trim_btn">Reduzir o cache de outros apps</string>

@@ -6,7 +6,7 @@
 
 LUSTRUM trova file inutili, duplicati, foto simili e residui di app, e li elimina solo con il tuo consenso. Non ha il permesso INTERNET, quindi non può inviare nulla da nessuna parte.
 
-**Versione: 0.7.0 · Ultimo aggiornamento: 2026-11-25**
+**Versione: 0.8.0 · Ultimo aggiornamento: 2026-11-26**
 
 [lustrum.chiuta.ro/](https://lustrum.chiuta.ro/)
 
@@ -24,7 +24,7 @@ LUSTRUM trova file inutili, duplicati, foto simili e residui di app, e li elimin
 - **Eliminazione sicura con annullamento** — Cestino LUSTRUM opzionale: i file eliminati attendono 30 giorni e si possono ripristinare; lo spazio si libera allo svuotamento.
 - **Anteprime e cartelle più grandi** — Miniature in ogni elenco, una classifica delle cartelle che occupano più spazio e il totale liberato finora.
 - **Swiper** — Scorri foto e video uno a uno, dai più vecchi: scorri a sinistra per eliminare, a destra per tenere. Nulla viene rimosso finché non confermi alla fine.
-- **Pulizia programmata** — Ogni settimana o mese, in background, con batteria adeguata: una notifica, oppure la pulizia automatica dei soli file inutili evidenti più vecchi di 24 ore.
+- **Pulizia programmata** — Ogni settimana o mese, in background, con batteria adeguata: una notifica, oppure la pulizia automatica dei soli file inutili evidenti più vecchi di 24 ore. I file puliti vanno sempre prima nel cestino LUSTRUM di 30 giorni.
 - **Foto migliore e video simili** — In ogni gruppo di foto simili viene proposta per prima la copia più nitida. I video simili sono individuati da un fotogramma centrale e da una durata quasi identica.
 - **Riduzione della cache assistita dal sistema** — Chiede ad Android di liberare la cache delle altre app richiedendo spazio. Il risultato varia da dispositivo a dispositivo; nessuna magia da root. Sui telefoni con root usa anche il root per svuotare tutte le cache.
 
@@ -36,7 +36,7 @@ La maggior parte dei pulitori vive di pubblicità e dati. LUSTRUM è fatto al co
 - Niente account, analisi, pubblicità o richieste di pagamento.
 - Ogni eliminazione è confermata; per i contenuti multimediali interviene la finestra di dialogo di Android.
 - Controlli di sicurezza integrati: le Motion Photo e le foto HDR non vengono mai ricompresse, i file modificati nelle ultime 24 ore non sono mai considerati inutili e nulla fuori dall'archiviazione condivisa può essere eliminato.
-- La pulizia programmata agisce solo sui file inutili evidenti più vecchi di 24 ore; con l'eliminazione sicura attiva vanno prima nel cestino LUSTRUM.
+- La pulizia programmata agisce solo sui file inutili evidenti più vecchi di 24 ore e li sposta sempre prima nel cestino LUSTRUM, mai direttamente all'eliminazione.
 
 ## Il confronto
 
@@ -75,7 +75,7 @@ Con i pulitori più noti, in base alle loro descrizioni pubbliche (novembre 2026
 
 ## Ottieni LUSTRUM
 
-Beta — versione 0.7.0. Si installa direttamente, senza account di uno store.
+Beta — versione 0.8.0. Si installa direttamente, senza account di uno store.
 
 1. Scarica l'APK dall'ultima versione pubblicata.
 2. Consenti l'installazione da questa fonte quando Android lo chiede.
@@ -87,7 +87,7 @@ JDK 21, Android SDK, Gradle 8.14+: esegui `gradle assembleRelease` (`gradle test
 
 ## Stato
 
-Beta. 17 test unitari e 8 test strumentati su emulatore Android girano in CI; non ancora provato su un telefono fisico. Le traduzioni sono automatiche e non riviste da madrelingua. Le versioni dalla 0.4.0 condividono la chiave di firma: gli aggiornamenti si installano sopra (da 0.3.0 o precedenti, disinstalla una volta).
+Beta. 23 test unitari, 10 test strumentati su emulatore Android e uno smoke test della build release minificata girano in CI; non ancora provato su un telefono fisico. Le traduzioni sono automatiche e non riviste da madrelingua. Le versioni dalla 0.4.0 condividono la chiave di firma: gli aggiornamenti si installano sopra (da 0.3.0 o precedenti, disinstalla una volta).
 
 ---
 

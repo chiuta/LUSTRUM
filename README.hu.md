@@ -6,7 +6,7 @@
 
 A LUSTRUM megtalálja a felesleges fájlokat, duplikátumokat, hasonló fotókat és az alkalmazások maradványait, és csak a jóváhagyásoddal törli őket. Nincs INTERNET-engedélye, így fizikailag sem tud semmit sehová küldeni.
 
-**Verzió: 0.7.0 · Utolsó frissítés: 2026-11-25**
+**Verzió: 0.8.0 · Utolsó frissítés: 2026-11-26**
 
 [lustrum.chiuta.ro/](https://lustrum.chiuta.ro/)
 
@@ -24,7 +24,7 @@ A LUSTRUM megtalálja a felesleges fájlokat, duplikátumokat, hasonló fotókat
 - **Biztonságos törlés visszavonással** — Opcionális LUSTRUM-kuka: a törölt fájlok 30 napig várnak és visszaállíthatók; a hely ürítéskor szabadul fel.
 - **Előnézetek és legnagyobb mappák** — Bélyegképek minden listában, rangsor a legtöbb helyet foglaló mappákról és az eddig felszabadított összeg.
 - **Swiper** — Lapozz végig a fotókon és videókon egyesével, a legrégebbiekkel kezdve: balra húzva törlöd, jobbra húzva megtartod. A végső megerősítésig semmi nem törlődik.
-- **Ütemezett tisztítás** — Hetente vagy havonta, a háttérben, megfelelő akkumulátorszintnél: értesítés, vagy csak a 24 óránál régebbi, egyértelműen felesleges fájlok automatikus törlése.
+- **Ütemezett tisztítás** — Hetente vagy havonta, a háttérben, megfelelő akkumulátorszintnél: értesítés, vagy csak a 24 óránál régebbi, egyértelműen felesleges fájlok automatikus törlése. A megtisztított fájlok mindig előbb a 30 napos LUSTRUM-kukába kerülnek.
 - **Legjobb fotó és hasonló videók** — A hasonló fotók csoportjaiban a legélesebb másolatot javasolja először. A hasonló videókat egy középső képkocka és a közel azonos hossz alapján párosítja.
 - **Rendszer által segített gyorsítótár-csökkentés** — Az Androidot kéri, hogy tárhely igénylésével szabadítsa fel más alkalmazások gyorsítótárát. Az eredmény eszközfüggő; root-varázslat nincs. Rootolt telefonokon rootot is használ az összes gyorsítótár törléséhez.
 
@@ -36,7 +36,7 @@ A legtöbb tisztító reklámokból és adatokból él. A LUSTRUM fordítva kés
 - Nincs fiók, analitika, reklám vagy fizetési felszólítás.
 - Minden törlést megerősítesz; a médiafájloknál az Android saját párbeszédablaka kér jóváhagyást.
 - Beépített biztonsági ellenőrzések: a mozgó fényképeket (Motion Photo) és a HDR-fotókat soha nem tömöríti újra, a 24 órán belül módosított fájlokat soha nem tekinti feleslegesnek, és a megosztott tárhelyen kívül semmi nem törölhető.
-- Az ütemezett tisztítás csak a 24 óránál régebbi, egyértelműen felesleges fájlokat érinti; biztonságos törlésnél először a LUSTRUM-kukába kerülnek.
+- Az ütemezett tisztítás csak a 24 óránál régebbi, egyértelműen felesleges fájlokat érinti, és mindig előbb a LUSTRUM-kukába helyezi, soha nem közvetlenül törli.
 
 ## Összehasonlítás
 
@@ -75,7 +75,7 @@ A legismertebb tisztítókkal szemben, nyilvános leírásaik alapján (2026. no
 
 ## Szerezd meg a LUSTRUM-ot
 
-Béta — 0.7.0 verzió. Közvetlenül telepíthető, áruházi fiók nélkül.
+Béta — 0.8.0 verzió. Közvetlenül telepíthető, áruházi fiók nélkül.
 
 1. Töltsd le az APK-t a legújabb kiadásból.
 2. Engedélyezd a telepítést erről a forrásról, amikor az Android rákérdez.
@@ -87,7 +87,7 @@ JDK 21, Android SDK, Gradle 8.14+: futtasd a `gradle assembleRelease` parancsot 
 
 ## Állapot
 
-Béta. 17 egységteszt és 8 műszerezett teszt fut Android-emulátoron a CI-ben; fizikai telefonon még nem tesztelve. A fordítások gépiek, anyanyelvi beszélők nem ellenőrizték. A 0.4.0-tól kezdve a buildek közös aláírókulcsot használnak, így a frissítés a régire települ (0.3.0 vagy korábbi esetén egyszer távolítsd el).
+Béta. 23 egységteszt, 10 műszerezett teszt Android-emulátoron és a minifikált release build füsttesztje fut a CI-ben; fizikai telefonon még nem tesztelve. A fordítások gépiek, anyanyelvi beszélők nem ellenőrizték. A 0.4.0-tól kezdve a buildek közös aláírókulcsot használnak, így a frissítés a régire települ (0.3.0 vagy korábbi esetén egyszer távolítsd el).
 
 ---
 

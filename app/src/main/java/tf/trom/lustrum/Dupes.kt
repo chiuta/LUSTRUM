@@ -176,16 +176,18 @@ object Dupes {
 
     /**
      * Grupează hash-uri cu distanța Hamming ≤ maxDist față de un „reprezentant” (fără înlănțuire:
-     * A~B și B~C nu înseamnă A~C). Candidații vin din 5 găleți de câte ~13 biți (principiul cutiei:
-     * două hash-uri la distanță ≤ 4 au cel puțin o felie identică), deci nu e comparație n².
+     * A~B și B~C nu înseamnă A~C). Candidații vin din maxDist+1 găleți (principiul cutiei: două hash-uri
+     * la distanță ≤ maxDist au cel puțin o felie identică), deci nu e comparație n².
      * Ordinea de intrare = prioritatea reprezentanților. Returnează liste de indici.
      */
     fun cluster(hashes: LongArray, maxDist: Int = 4): List<List<Int>> {
-        val slices = 5
+        // principiul cutiei: cu maxDist+1 felii, două hash-uri la distanță ≤ maxDist au cel puțin o felie identică
+        val slices = maxOf(maxDist + 1, 3)
         val buckets = Array(slices) { HashMap<Int, MutableList<Int>>() }
         fun key(h: Long, s: Int): Int {
-            val w = if (s == slices - 1) 12 else 13
-            return ((h ushr (s * 13)) and ((1L shl w) - 1)).toInt()
+            val lo = s * 64 / slices
+            val w = (s + 1) * 64 / slices - lo
+            return ((h ushr lo) and ((1L shl w) - 1)).toInt()
         }
         for (i in hashes.indices) for (s in 0 until slices) buckets[s].getOrPut(key(hashes[i], s)) { mutableListOf() }.add(i)
         val used = BooleanArray(hashes.size)

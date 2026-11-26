@@ -119,7 +119,7 @@
     <string name="auto_weekly">Hebdomadaire</string>
     <string name="auto_monthly">Mensuel</string>
     <string name="auto_clean">Nettoyer les fichiers inutiles automatiquement (sinon, simple notification)</string>
-    <string name="auto_note">S\'exécute en arrière-plan environ une fois par période, batterie non faible. Seuls les fichiers inutiles évidents de plus de 24 h sont touchés ; avec la suppression sécurisée, ils vont dans la corbeille LUSTRUM.</string>
+    <string name="auto_note">S\'exécute en arrière-plan environ une fois par période, batterie non faible. Seuls les fichiers inutiles évidents de plus de 24 h sont touchés, et ils vont toujours d\'abord dans la corbeille LUSTRUM (récupérables 30 jours), jamais directement à la suppression.</string>
     <string name="notif_found">Fichiers inutiles prêts à nettoyer : %1$d · %2$s</string>
     <string name="notif_cleaned">Nettoyés automatiquement : %1$d fichiers · %2$s</string>
     <string name="trim_btn">Réduire le cache des autres applications</string>

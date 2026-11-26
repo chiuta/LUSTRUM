@@ -1190,14 +1190,14 @@
   "hu": "Felesleges fájlok automatikus törlése (különben csak értesítés)"
  },
  "auto_note": {
-  "en": "Runs in the background about once per period while the battery is not low. Only obvious junk older than 24 hours is touched; with safe delete on, it goes to the LUSTRUM trash.",
-  "ro": "Rulează în fundal cam o dată pe perioadă, când bateria nu e aproape goală. Se ating doar resturile evidente mai vechi de 24 de ore; cu ștergerea sigură pornită, ajung în coșul LUSTRUM.",
-  "fr": "S'exécute en arrière-plan environ une fois par période, batterie non faible. Seuls les fichiers inutiles évidents de plus de 24 h sont touchés ; avec la suppression sécurisée, ils vont dans la corbeille LUSTRUM.",
-  "it": "Gira in background circa una volta per periodo, con la batteria non scarica. Si toccano solo i file inutili evidenti più vecchi di 24 ore; con l'eliminazione sicura attiva vanno nel cestino LUSTRUM.",
-  "es": "Se ejecuta en segundo plano aproximadamente una vez por periodo, con batería no baja. Solo se tocan archivos basura evidentes de más de 24 horas; con la eliminación segura activa van a la papelera LUSTRUM.",
-  "pt": "Roda em segundo plano cerca de uma vez por período, com bateria não baixa. Só o lixo óbvio com mais de 24 horas é tocado; com a exclusão segura ativa, vai para a lixeira LUSTRUM.",
-  "de": "Läuft etwa einmal pro Zeitraum im Hintergrund, solange der Akku nicht schwach ist. Nur offensichtlicher Datenmüll, älter als 24 Stunden, wird angefasst; mit sicherem Löschen landet er im LUSTRUM-Papierkorb.",
-  "hu": "Háttérben fut, nagyjából időszakonként egyszer, ha az akkumulátor nem fogyott le. Csak a 24 óránál régebbi, egyértelműen felesleges fájlokat érinti; biztonságos törlésnél a LUSTRUM-kukába kerülnek."
+  "en": "Runs in the background about once per period while the battery is not low. Only obvious junk older than 24 hours is touched, and it always goes to the LUSTRUM trash first (restorable for 30 days), never straight to deletion.",
+  "ro": "Rulează în fundal cam o dată pe perioadă, când bateria nu e aproape goală. Se ating doar resturile evidente mai vechi de 24 de ore, iar ele merg întotdeauna întâi în coșul LUSTRUM (recuperabile 30 de zile), niciodată direct la ștergere.",
+  "fr": "S'exécute en arrière-plan environ une fois par période, batterie non faible. Seuls les fichiers inutiles évidents de plus de 24 h sont touchés, et ils vont toujours d'abord dans la corbeille LUSTRUM (récupérables 30 jours), jamais directement à la suppression.",
+  "it": "Gira in background circa una volta per periodo, con la batteria non scarica. Si toccano solo i file inutili evidenti più vecchi di 24 ore, e vanno sempre prima nel cestino LUSTRUM (recuperabili per 30 giorni), mai direttamente all'eliminazione.",
+  "es": "Se ejecuta en segundo plano aproximadamente una vez por periodo, con batería no baja. Solo se tocan archivos basura evidentes de más de 24 horas y siempre van primero a la papelera LUSTRUM (recuperables 30 días), nunca directos a la eliminación.",
+  "pt": "Roda em segundo plano cerca de uma vez por período, com bateria não baixa. Só o lixo óbvio com mais de 24 horas é tocado e sempre vai primeiro para a lixeira LUSTRUM (recuperável por 30 dias), nunca direto para a exclusão.",
+  "de": "Läuft etwa einmal pro Zeitraum im Hintergrund, solange der Akku nicht schwach ist. Nur offensichtlicher Datenmüll, älter als 24 Stunden, wird angefasst und landet immer zuerst im LUSTRUM-Papierkorb (30 Tage wiederherstellbar), nie direkt in der Löschung.",
+  "hu": "Háttérben fut, nagyjából időszakonként egyszer, ha az akkumulátor nem fogyott le. Csak a 24 óránál régebbi, egyértelműen felesleges fájlokat érinti, és ezek mindig előbb a LUSTRUM-kukába kerülnek (30 napig visszaállíthatók), soha nem közvetlenül a törlésre."
  },
  "notif_found": {
   "en": "Junk ready to clean: %1$d files · %2$s",

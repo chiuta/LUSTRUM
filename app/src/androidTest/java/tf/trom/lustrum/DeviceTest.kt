@@ -108,13 +108,26 @@ class DeviceTest {
         assertEquals("hello", f.readText())
     }
 
-    @Test fun scheduledRunCleansOnlyOldJunk() {
+    @Test fun scheduledRunMovesOnlyOldJunkToTrash() {
         val oldTmp = File(dir, "old.tmp").apply { writeBytes(ByteArray(5000)); setLastModified(old) }
         val freshTmp = File(dir, "fresh.tmp").apply { writeBytes(ByteArray(5000)) }
-        val report = Scheduler.runOnce(ctx, autoClean = true, useTrash = false)
+        val photo = File(dir, "keep.jpg").apply { writeBytes(ByteArray(5000)); setLastModified(old) }
+        val report = Scheduler.runOnce(ctx, autoClean = true)
         assertTrue(report.cleaned)
         assertFalse(oldTmp.exists())
         assertTrue(freshTmp.exists())
+        assertTrue(photo.exists())
+        assertTrue("moved to trash, not deleted", Trash.info().files >= 1)
+        assertTrue(Trash.restoreLast().isNotEmpty())
+        assertTrue(oldTmp.exists())
+    }
+
+    @Test fun scheduledNotifyOnlyReportsWhenNotCleaning() {
+        File(dir, "old2.tmp").apply { writeBytes(ByteArray(5000)); setLastModified(old) }
+        val r = Scheduler.runOnce(ctx, autoClean = false)
+        assertFalse(r.cleaned)
+        assertTrue(r.count >= 1)
+        assertTrue(File(dir, "old2.tmp").exists())
     }
 
     @Test fun cacheTrimNeverThrows() {

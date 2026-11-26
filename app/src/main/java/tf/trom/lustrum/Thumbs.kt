@@ -10,7 +10,12 @@ import java.io.File
 
 /** Miniaturi mici pentru liste: din MediaStore când există URI, altfel decodate din fișier. */
 object Thumbs {
-    private val cache = LruCache<String, Bitmap>(48)
+    // limitat în octeți, nu în număr: o previzualizare mare cântărește cât zeci de miniaturi
+    private val cache = object : LruCache<String, Bitmap>(
+        (Runtime.getRuntime().maxMemory() / 12).toInt().coerceIn(4 shl 20, 48 shl 20)
+    ) {
+        override fun sizeOf(key: String, value: Bitmap): Int = value.allocationByteCount
+    }
     private const val SIDE = 120
 
     fun load(ctx: Context, item: Item, side: Int = SIDE): Bitmap? {

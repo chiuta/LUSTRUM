@@ -73,7 +73,7 @@
    ],
    [
     "Scheduled cleaning",
-    "Weekly or monthly, in the background, on a good battery: a notification, or automatic clean-up of obvious junk older than 24 hours only."
+    "Weekly or monthly, in the background, on a good battery: a notification, or automatic clean-up of obvious junk older than 24 hours only. Cleaned files always go to the 30-day LUSTRUM trash first."
    ],
    [
     "Best photo & similar videos",
@@ -91,7 +91,7 @@
    "No accounts, no analytics, no ads, no purchase prompts.",
    "Every deletion is confirmed first; media deletions go through Android's own system dialog.",
    "Built-in safety checks: Motion Photos and HDR photos are never recompressed, files changed in the last 24 hours are never called junk, and nothing outside shared storage can be deleted.",
-   "Scheduled cleaning acts only on obvious junk older than 24 hours; with safe delete on, it goes to the LUSTRUM trash first."
+   "Scheduled cleaning acts only on obvious junk older than 24 hours and always moves it to the LUSTRUM trash first, never straight to deletion."
   ],
   "c_title": "How it compares",
   "c_sub": "Against the best-known cleaners, based on their public descriptions (November 2026). Competitor cells come from public descriptions and were not tested by us. LUSTRUM's compression (JPEG only) and scheduling (obvious junk only) are partial; mature tools such as SD Maid SE do more.",
@@ -122,7 +122,7 @@
    "Look inside other apps' Android/data folders. Android 11+ blocks this for every normal app; only root or Shizuku can. LUSTRUM uses root only for the cache trim and does not support Shizuku."
   ],
   "d_title": "Get LUSTRUM",
-  "d_sub": "Beta — version 0.7.0. Installs directly; no store account needed.",
+  "d_sub": "Beta — version 0.8.0. Installs directly; no store account needed.",
   "steps": [
    "Download the APK from the latest release.",
    "Allow installation from this source when Android asks.",
@@ -190,7 +190,7 @@
   "build_title": "Building",
   "build_text": "JDK 21, Android SDK, Gradle 8.14+: run `gradle assembleRelease` (`gradle testDebugUnitTest` runs the unit tests). The APK appears in `app/build/outputs/apk/release/`. The Build APK workflow tests, builds and publishes a release for every new version pushed to main. APKs are signed with a stable public key kept in the repository (`tools/lustrum-public.jks`), so updates install over each other; for your own distribution add your key as repository secrets (`LUSTRUM_KEYSTORE_B64`, `LUSTRUM_STORE_PASS`, `LUSTRUM_KEY_PASS`, `LUSTRUM_KEY_ALIAS`).",
   "status_title": "Status",
-  "status_text": "Beta. 17 unit tests, plus 8 instrumented tests on an Android emulator, run in CI; not yet tested on a physical phone. Translations are machine-made and not reviewed by native speakers. Builds from 0.4.0 on share one signing key, so updates install over the old version (from 0.3.0 or earlier, uninstall once).",
+  "status_text": "Beta. 23 unit tests, 10 instrumented tests on an Android emulator and a smoke test of the minified release build run in CI; not yet tested on a physical phone. Translations are machine-made and not reviewed by native speakers. Builds from 0.4.0 on share one signing key, so updates install over the old version (from 0.3.0 or earlier, uninstall once).",
   "ver": "Version",
   "upd": "Last updated"
  },
@@ -268,7 +268,7 @@
    ],
    [
     "Curățare programată",
-    "Săptămânal sau lunar, în fundal, cu baterie suficientă: o notificare sau curățarea automată doar a resturilor evidente mai vechi de 24 de ore."
+    "Săptămânal sau lunar, în fundal, cu baterie suficientă: o notificare sau curățarea automată doar a resturilor evidente mai vechi de 24 de ore. Fișierele curățate merg întotdeauna întâi în coșul LUSTRUM de 30 de zile."
    ],
    [
     "Poza cea mai bună și videoclipuri asemănătoare",
@@ -286,7 +286,7 @@
    "Fără conturi, analitice, reclame sau cereri de plată.",
    "Orice ștergere e confirmată; ștergerea media trece prin dialogul propriu Android.",
    "Verificări de siguranță încorporate: fotografiile cu video încorporat (Motion Photo) și cele HDR nu sunt niciodată recomprimate, fișierele modificate în ultimele 24 de ore nu sunt considerate resturi, iar în afara stocării partajate nu se poate șterge nimic.",
-   "Curățarea programată acționează doar asupra resturilor evidente mai vechi de 24 de ore; cu ștergerea sigură pornită, ajung mai întâi în coșul LUSTRUM."
+   "Curățarea programată acționează doar asupra resturilor evidente mai vechi de 24 de ore și le mută întotdeauna întâi în coșul LUSTRUM, niciodată direct la ștergere."
   ],
   "c_title": "Cum se compară",
   "c_sub": "Față de cele mai cunoscute curățătoare, pe baza descrierilor lor publice (noiembrie 2026). Celulele concurenților provin din descrieri publice și nu au fost testate de noi. Comprimarea LUSTRUM (doar JPEG) și programarea (doar resturi evidente) sunt parțiale; unelte mature precum SD Maid SE fac mai mult.",
@@ -317,7 +317,7 @@
    "Să se uite în folderele Android/data ale altor aplicații. Android 11+ blochează asta pentru orice aplicație obișnuită; doar root sau Shizuku pot. LUSTRUM folosește root doar pentru reducerea cache-ului și nu suportă Shizuku."
   ],
   "d_title": "Obține LUSTRUM",
-  "d_sub": "Beta — versiunea 0.7.0. Se instalează direct; nu ai nevoie de cont de magazin.",
+  "d_sub": "Beta — versiunea 0.8.0. Se instalează direct; nu ai nevoie de cont de magazin.",
   "steps": [
    "Descarcă APK-ul din ultima versiune publicată.",
    "Permite instalarea din această sursă când Android te întreabă.",
@@ -385,7 +385,7 @@
   "build_title": "Construire",
   "build_text": "JDK 21, Android SDK, Gradle 8.14+: rulează `gradle assembleRelease` (`gradle testDebugUnitTest` rulează testele unitare). APK-ul apare în `app/build/outputs/apk/release/`. Fluxul Build APK testează, compilează și publică o versiune pentru fiecare versiune nouă ajunsă pe main. APK-urile sunt semnate cu o cheie publică stabilă din repo (`tools/lustrum-public.jks`), deci actualizările se instalează peste versiunea veche; pentru distribuția ta adaugă propria cheie ca secrete de repo (`LUSTRUM_KEYSTORE_B64`, `LUSTRUM_STORE_PASS`, `LUSTRUM_KEY_PASS`, `LUSTRUM_KEY_ALIAS`).",
   "status_title": "Stare",
-  "status_text": "Beta. 17 teste unitare și 8 teste instrumentate pe un emulator Android rulează în CI; încă netestat pe un telefon fizic. Traducerile sunt automate și nerevizuite de vorbitori nativi. Versiunile de la 0.4.0 încoace au aceeași cheie de semnare, deci actualizările se instalează peste cea veche (de la 0.3.0 sau mai vechi, dezinstalează o dată).",
+  "status_text": "Beta. 23 de teste unitare, 10 teste instrumentate pe un emulator Android și un test de fum al versiunii release minificate rulează în CI; încă netestat pe un telefon fizic. Traducerile sunt automate și nerevizuite de vorbitori nativi. Versiunile de la 0.4.0 încoace au aceeași cheie de semnare, deci actualizările se instalează peste cea veche (de la 0.3.0 sau mai vechi, dezinstalează o dată).",
   "ver": "Versiune",
   "upd": "Ultima actualizare"
  },
@@ -463,7 +463,7 @@
    ],
    [
     "Nettoyage programmé",
-    "Chaque semaine ou chaque mois, en arrière-plan, batterie suffisante : une notification, ou le nettoyage automatique des seuls fichiers inutiles évidents de plus de 24 h."
+    "Chaque semaine ou chaque mois, en arrière-plan, batterie suffisante : une notification, ou le nettoyage automatique des seuls fichiers inutiles évidents de plus de 24 h. Les fichiers nettoyés vont toujours d'abord dans la corbeille LUSTRUM de 30 jours."
    ],
    [
     "Meilleure photo et vidéos similaires",
@@ -481,7 +481,7 @@
    "Pas de compte, pas d'analyse, pas de pub, pas d'incitation à payer.",
    "Chaque suppression est confirmée ; pour les médias, c'est la boîte de dialogue d'Android qui s'en charge.",
    "Garde-fous intégrés : les Motion Photos et les photos HDR ne sont jamais recompressées, les fichiers modifiés depuis moins de 24 h ne sont jamais traités comme inutiles, et rien hors du stockage partagé ne peut être supprimé.",
-   "Le nettoyage programmé n'agit que sur les fichiers inutiles évidents de plus de 24 h ; avec la suppression sécurisée, ils vont d'abord dans la corbeille LUSTRUM."
+   "Le nettoyage programmé n'agit que sur les fichiers inutiles évidents de plus de 24 h et les déplace toujours d'abord dans la corbeille LUSTRUM, jamais directement à la suppression."
   ],
   "c_title": "Comparaison",
   "c_sub": "Face aux nettoyeurs les plus connus, d'après leurs descriptions publiques (novembre 2026). Les cellules des concurrents viennent de descriptions publiques et n'ont pas été testées par nous. La compression de LUSTRUM (JPEG seulement) et la planification (fichiers inutiles évidents seulement) sont partielles ; des outils matures comme SD Maid SE font plus.",
@@ -512,7 +512,7 @@
    "Regarder dans les dossiers Android/data des autres applications. Android 11+ l'interdit à toute application ordinaire ; seuls root ou Shizuku le permettent. LUSTRUM n'utilise root que pour réduire le cache et ne gère pas Shizuku."
   ],
   "d_title": "Obtenir LUSTRUM",
-  "d_sub": "Bêta — version 0.7.0. Installation directe, sans compte de boutique.",
+  "d_sub": "Bêta — version 0.8.0. Installation directe, sans compte de boutique.",
   "steps": [
    "Téléchargez l'APK depuis la dernière version publiée.",
    "Autorisez l'installation depuis cette source lorsque Android le demande.",
@@ -580,7 +580,7 @@
   "build_title": "Compilation",
   "build_text": "JDK 21, SDK Android, Gradle 8.14+ : lancez `gradle assembleRelease` (`gradle testDebugUnitTest` exécute les tests unitaires). L'APK apparaît dans `app/build/outputs/apk/release/`. Le workflow Build APK teste, compile et publie une version pour chaque nouvelle version poussée sur main. Les APK sont signés avec une clé publique stable du dépôt (`tools/lustrum-public.jks`), donc les mises à jour s'installent par-dessus ; pour votre propre diffusion, ajoutez votre clé en secrets du dépôt (`LUSTRUM_KEYSTORE_B64`, `LUSTRUM_STORE_PASS`, `LUSTRUM_KEY_PASS`, `LUSTRUM_KEY_ALIAS`).",
   "status_title": "État",
-  "status_text": "Bêta. 17 tests unitaires et 8 tests instrumentés sur émulateur Android tournent en CI ; pas encore testé sur un téléphone physique. Les traductions sont automatiques, non relues par des natifs. Les versions depuis 0.4.0 partagent une clé de signature : les mises à jour s'installent par-dessus (depuis 0.3.0 ou avant, désinstallez une fois).",
+  "status_text": "Bêta. 23 tests unitaires, 10 tests instrumentés sur émulateur Android et un test de fumée de la version release minifiée tournent en CI ; pas encore testé sur un téléphone physique. Les traductions sont automatiques, non relues par des natifs. Les versions depuis 0.4.0 partagent une clé de signature : les mises à jour s'installent par-dessus (depuis 0.3.0 ou avant, désinstallez une fois).",
   "ver": "Version",
   "upd": "Dernière mise à jour"
  },
@@ -658,7 +658,7 @@
    ],
    [
     "Pulizia programmata",
-    "Ogni settimana o mese, in background, con batteria adeguata: una notifica, oppure la pulizia automatica dei soli file inutili evidenti più vecchi di 24 ore."
+    "Ogni settimana o mese, in background, con batteria adeguata: una notifica, oppure la pulizia automatica dei soli file inutili evidenti più vecchi di 24 ore. I file puliti vanno sempre prima nel cestino LUSTRUM di 30 giorni."
    ],
    [
     "Foto migliore e video simili",
@@ -676,7 +676,7 @@
    "Niente account, analisi, pubblicità o richieste di pagamento.",
    "Ogni eliminazione è confermata; per i contenuti multimediali interviene la finestra di dialogo di Android.",
    "Controlli di sicurezza integrati: le Motion Photo e le foto HDR non vengono mai ricompresse, i file modificati nelle ultime 24 ore non sono mai considerati inutili e nulla fuori dall'archiviazione condivisa può essere eliminato.",
-   "La pulizia programmata agisce solo sui file inutili evidenti più vecchi di 24 ore; con l'eliminazione sicura attiva vanno prima nel cestino LUSTRUM."
+   "La pulizia programmata agisce solo sui file inutili evidenti più vecchi di 24 ore e li sposta sempre prima nel cestino LUSTRUM, mai direttamente all'eliminazione."
   ],
   "c_title": "Il confronto",
   "c_sub": "Con i pulitori più noti, in base alle loro descrizioni pubbliche (novembre 2026). Le celle dei concorrenti provengono da descrizioni pubbliche e non sono state testate da noi. La compressione di LUSTRUM (solo JPEG) e la pianificazione (solo file inutili evidenti) sono parziali; strumenti maturi come SD Maid SE fanno di più.",
@@ -707,7 +707,7 @@
    "Guardare nelle cartelle Android/data delle altre app. Android 11+ lo vieta a ogni app normale; solo root o Shizuku possono. LUSTRUM usa il root solo per la riduzione della cache e non supporta Shizuku."
   ],
   "d_title": "Ottieni LUSTRUM",
-  "d_sub": "Beta — versione 0.7.0. Si installa direttamente, senza account di uno store.",
+  "d_sub": "Beta — versione 0.8.0. Si installa direttamente, senza account di uno store.",
   "steps": [
    "Scarica l'APK dall'ultima versione pubblicata.",
    "Consenti l'installazione da questa fonte quando Android lo chiede.",
@@ -775,7 +775,7 @@
   "build_title": "Compilazione",
   "build_text": "JDK 21, Android SDK, Gradle 8.14+: esegui `gradle assembleRelease` (`gradle testDebugUnitTest` esegue i test unitari). L'APK compare in `app/build/outputs/apk/release/`. Il workflow Build APK testa, compila e pubblica una release per ogni nuova versione su main. Gli APK sono firmati con una chiave pubblica stabile nel repository (`tools/lustrum-public.jks`), quindi gli aggiornamenti si installano sopra; per una tua distribuzione aggiungi la tua chiave come secret del repository (`LUSTRUM_KEYSTORE_B64`, `LUSTRUM_STORE_PASS`, `LUSTRUM_KEY_PASS`, `LUSTRUM_KEY_ALIAS`).",
   "status_title": "Stato",
-  "status_text": "Beta. 17 test unitari e 8 test strumentati su emulatore Android girano in CI; non ancora provato su un telefono fisico. Le traduzioni sono automatiche e non riviste da madrelingua. Le versioni dalla 0.4.0 condividono la chiave di firma: gli aggiornamenti si installano sopra (da 0.3.0 o precedenti, disinstalla una volta).",
+  "status_text": "Beta. 23 test unitari, 10 test strumentati su emulatore Android e uno smoke test della build release minificata girano in CI; non ancora provato su un telefono fisico. Le traduzioni sono automatiche e non riviste da madrelingua. Le versioni dalla 0.4.0 condividono la chiave di firma: gli aggiornamenti si installano sopra (da 0.3.0 o precedenti, disinstalla una volta).",
   "ver": "Versione",
   "upd": "Ultimo aggiornamento"
  },
@@ -853,7 +853,7 @@
    ],
    [
     "Limpieza programada",
-    "Semanal o mensual, en segundo plano, con batería suficiente: una notificación, o limpieza automática solo de la basura evidente de más de 24 horas."
+    "Semanal o mensual, en segundo plano, con batería suficiente: una notificación, o limpieza automática solo de la basura evidente de más de 24 horas. Los archivos limpiados van siempre primero a la papelera LUSTRUM de 30 días."
    ],
    [
     "Mejor foto y vídeos parecidos",
@@ -871,7 +871,7 @@
    "Sin cuentas, analíticas, anuncios ni avisos de pago.",
    "Cada borrado se confirma; en los archivos multimedia lo hace el cuadro de diálogo del propio Android.",
    "Comprobaciones de seguridad integradas: las Motion Photos y las fotos HDR nunca se recomprimen, los archivos modificados en las últimas 24 horas nunca se consideran basura y no se puede borrar nada fuera del almacenamiento compartido.",
-   "La limpieza programada actúa solo sobre basura evidente de más de 24 horas; con la eliminación segura activa va primero a la papelera LUSTRUM."
+   "La limpieza programada actúa solo sobre basura evidente de más de 24 horas y la mueve siempre primero a la papelera LUSTRUM, nunca directa a la eliminación."
   ],
   "c_title": "Cómo se compara",
   "c_sub": "Frente a los limpiadores más conocidos, según sus descripciones públicas (noviembre de 2026). Las celdas de la competencia proceden de descripciones públicas y no las hemos probado. La compresión de LUSTRUM (solo JPEG) y la programación (solo basura evidente) son parciales; herramientas maduras como SD Maid SE hacen más.",
@@ -902,7 +902,7 @@
    "Mirar dentro de las carpetas Android/data de otras apps. Android 11+ lo bloquea a toda app normal; solo root o Shizuku pueden. LUSTRUM usa root solo para reducir la caché y no admite Shizuku."
   ],
   "d_title": "Consigue LUSTRUM",
-  "d_sub": "Beta — versión 0.7.0. Se instala directamente, sin cuenta de tienda.",
+  "d_sub": "Beta — versión 0.8.0. Se instala directamente, sin cuenta de tienda.",
   "steps": [
    "Descarga el APK de la última versión publicada.",
    "Permite la instalación desde esta fuente cuando Android te lo pida.",
@@ -970,7 +970,7 @@
   "build_title": "Compilación",
   "build_text": "JDK 21, SDK de Android, Gradle 8.14+: ejecuta `gradle assembleRelease` (`gradle testDebugUnitTest` ejecuta las pruebas unitarias). El APK aparece en `app/build/outputs/apk/release/`. El flujo Build APK prueba, compila y publica una versión por cada versión nueva en main. Los APK se firman con una clave pública estable del repositorio (`tools/lustrum-public.jks`), así las actualizaciones se instalan encima; para tu propia distribución añade tu clave como secretos del repositorio (`LUSTRUM_KEYSTORE_B64`, `LUSTRUM_STORE_PASS`, `LUSTRUM_KEY_PASS`, `LUSTRUM_KEY_ALIAS`).",
   "status_title": "Estado",
-  "status_text": "Beta. 17 pruebas unitarias y 8 instrumentadas en un emulador Android se ejecutan en CI; aún no probado en un teléfono físico. Las traducciones son automáticas y no están revisadas por nativos. Las versiones desde 0.4.0 comparten clave de firma: las actualizaciones se instalan encima (desde 0.3.0 o anteriores, desinstala una vez).",
+  "status_text": "Beta. 23 pruebas unitarias, 10 instrumentadas en un emulador Android y una prueba de humo de la versión release minificada se ejecutan en CI; aún no probado en un teléfono físico. Las traducciones son automáticas y no están revisadas por nativos. Las versiones desde 0.4.0 comparten clave de firma: las actualizaciones se instalan encima (desde 0.3.0 o anteriores, desinstala una vez).",
   "ver": "Versión",
   "upd": "Última actualización"
  },
@@ -1048,7 +1048,7 @@
    ],
    [
     "Limpeza agendada",
-    "Semanal ou mensal, em segundo plano, com bateria suficiente: uma notificação, ou limpeza automática apenas do lixo óbvio com mais de 24 horas."
+    "Semanal ou mensal, em segundo plano, com bateria suficiente: uma notificação, ou limpeza automática apenas do lixo óbvio com mais de 24 horas. Os arquivos limpos vão sempre primeiro para a lixeira LUSTRUM de 30 dias."
    ],
    [
     "Melhor foto e vídeos parecidos",
@@ -1066,7 +1066,7 @@
    "Sem contas, análises, anúncios ou pedidos de pagamento.",
    "Toda exclusão é confirmada; nas mídias, quem confirma é a caixa de diálogo do próprio Android.",
    "Verificações de segurança integradas: Motion Photos e fotos HDR nunca são recomprimidas, arquivos alterados nas últimas 24 horas nunca são tratados como lixo e nada fora do armazenamento compartilhado pode ser excluído.",
-   "A limpeza agendada atua só sobre lixo óbvio com mais de 24 horas; com a exclusão segura ativa, vai primeiro para a lixeira LUSTRUM."
+   "A limpeza agendada atua só sobre lixo óbvio com mais de 24 horas e o move sempre primeiro para a lixeira LUSTRUM, nunca direto para a exclusão."
   ],
   "c_title": "Como se compara",
   "c_sub": "Com os limpadores mais conhecidos, com base nas descrições públicas deles (novembro de 2026). As células dos concorrentes vêm de descrições públicas e não foram testadas por nós. A compressão do LUSTRUM (só JPEG) e o agendamento (só lixo óbvio) são parciais; ferramentas maduras como o SD Maid SE fazem mais.",
@@ -1097,7 +1097,7 @@
    "Olhar dentro das pastas Android/data de outros apps. O Android 11+ bloqueia isso para qualquer app comum; só root ou Shizuku conseguem. O LUSTRUM usa root apenas para reduzir o cache e não suporta Shizuku."
   ],
   "d_title": "Baixe o LUSTRUM",
-  "d_sub": "Beta — versão 0.7.0. Instalação direta, sem conta de loja.",
+  "d_sub": "Beta — versão 0.8.0. Instalação direta, sem conta de loja.",
   "steps": [
    "Baixe o APK na última versão publicada.",
    "Permita a instalação desta fonte quando o Android perguntar.",
@@ -1165,7 +1165,7 @@
   "build_title": "Compilação",
   "build_text": "JDK 21, Android SDK, Gradle 8.14+: execute `gradle assembleRelease` (`gradle testDebugUnitTest` roda os testes unitários). O APK aparece em `app/build/outputs/apk/release/`. O workflow Build APK testa, compila e publica uma versão a cada nova versão enviada para main. Os APKs são assinados com uma chave pública estável do repositório (`tools/lustrum-public.jks`), então as atualizações se instalam por cima; para sua própria distribuição, adicione sua chave como segredos do repositório (`LUSTRUM_KEYSTORE_B64`, `LUSTRUM_STORE_PASS`, `LUSTRUM_KEY_PASS`, `LUSTRUM_KEY_ALIAS`).",
   "status_title": "Situação",
-  "status_text": "Beta. 17 testes unitários e 8 instrumentados em um emulador Android rodam no CI; ainda não testado em um telefone físico. As traduções são automáticas e não revisadas por nativos. As versões desde 0.4.0 compartilham a chave de assinatura: as atualizações instalam por cima (de 0.3.0 ou anteriores, desinstale uma vez).",
+  "status_text": "Beta. 23 testes unitários, 10 instrumentados em um emulador Android e um teste de fumaça da versão release minificada rodam no CI; ainda não testado em um telefone físico. As traduções são automáticas e não revisadas por nativos. As versões desde 0.4.0 compartilham a chave de assinatura: as atualizações instalam por cima (de 0.3.0 ou anteriores, desinstale uma vez).",
   "ver": "Versão",
   "upd": "Última atualização"
  },
@@ -1243,7 +1243,7 @@
    ],
    [
     "Geplantes Aufräumen",
-    "Wöchentlich oder monatlich im Hintergrund, bei ausreichendem Akku: eine Benachrichtigung oder automatisches Bereinigen nur von offensichtlichem Datenmüll, der älter als 24 Stunden ist."
+    "Wöchentlich oder monatlich im Hintergrund, bei ausreichendem Akku: eine Benachrichtigung oder automatisches Bereinigen nur von offensichtlichem Datenmüll, der älter als 24 Stunden ist. Bereinigte Dateien landen immer zuerst im 30-Tage-Papierkorb von LUSTRUM."
    ],
    [
     "Bestes Foto & ähnliche Videos",
@@ -1261,7 +1261,7 @@
    "Keine Konten, keine Analyse, keine Werbung, keine Kaufaufforderungen.",
    "Jedes Löschen wird bestätigt; bei Mediendateien übernimmt das den Systemdialog von Android.",
    "Eingebaute Sicherheitsprüfungen: Motion Photos und HDR-Fotos werden nie neu komprimiert, in den letzten 24 Stunden geänderte Dateien gelten nie als Datenmüll, und außerhalb des gemeinsamen Speichers lässt sich nichts löschen.",
-   "Das geplante Aufräumen betrifft nur offensichtlichen Datenmüll älter als 24 Stunden; mit sicherem Löschen landet er zuerst im LUSTRUM-Papierkorb."
+   "Das geplante Aufräumen betrifft nur offensichtlichen Datenmüll älter als 24 Stunden und verschiebt ihn immer zuerst in den LUSTRUM-Papierkorb, nie direkt in die Löschung."
   ],
   "c_title": "Der Vergleich",
   "c_sub": "Mit den bekanntesten Reinigern, nach deren öffentlichen Beschreibungen (November 2026). Die Felder der Mitbewerber stammen aus öffentlichen Beschreibungen und wurden von uns nicht getestet. Komprimierung (nur JPEG) und Zeitplan (nur offensichtlicher Datenmüll) sind bei LUSTRUM teilweise umgesetzt; ausgereifte Tools wie SD Maid SE leisten mehr.",
@@ -1292,7 +1292,7 @@
    "In die Android/data-Ordner anderer Apps schauen. Android 11+ sperrt das für jede normale App; nur Root oder Shizuku können es. LUSTRUM nutzt Root nur für die Cache-Verkleinerung und unterstützt Shizuku nicht."
   ],
   "d_title": "LUSTRUM holen",
-  "d_sub": "Beta — Version 0.7.0. Direkte Installation, ohne Store-Konto.",
+  "d_sub": "Beta — Version 0.8.0. Direkte Installation, ohne Store-Konto.",
   "steps": [
    "Laden Sie die APK aus der neuesten veröffentlichten Version herunter.",
    "Erlauben Sie die Installation aus dieser Quelle, wenn Android fragt.",
@@ -1360,7 +1360,7 @@
   "build_title": "Bauen",
   "build_text": "JDK 21, Android SDK, Gradle 8.14+: `gradle assembleRelease` ausführen (`gradle testDebugUnitTest` startet die Unit-Tests). Die APK liegt in `app/build/outputs/apk/release/`. Der Workflow Build APK testet, baut und veröffentlicht für jede neue Version auf main ein Release. APKs werden mit einem stabilen öffentlichen Schlüssel aus dem Repository signiert (`tools/lustrum-public.jks`), Updates lassen sich also drüber installieren; für eigene Verteilung den eigenen Schlüssel als Repository-Secrets hinterlegen (`LUSTRUM_KEYSTORE_B64`, `LUSTRUM_STORE_PASS`, `LUSTRUM_KEY_PASS`, `LUSTRUM_KEY_ALIAS`).",
   "status_title": "Stand",
-  "status_text": "Beta. 17 Unit-Tests und 8 instrumentierte Tests auf einem Android-Emulator laufen in der CI; noch nicht auf einem echten Telefon getestet. Die Übersetzungen sind maschinell und nicht von Muttersprachlern geprüft. Builds ab 0.4.0 teilen einen Signaturschlüssel, Updates werden also über die alte Version installiert (ab 0.3.0 oder früher einmal deinstallieren).",
+  "status_text": "Beta. 23 Unit-Tests, 10 instrumentierte Tests auf einem Android-Emulator und ein Smoke-Test des minifizierten Release-Builds laufen in der CI; noch nicht auf einem echten Telefon getestet. Die Übersetzungen sind maschinell und nicht von Muttersprachlern geprüft. Builds ab 0.4.0 teilen einen Signaturschlüssel, Updates werden also über die alte Version installiert (ab 0.3.0 oder früher einmal deinstallieren).",
   "ver": "Version",
   "upd": "Zuletzt aktualisiert"
  },
@@ -1438,7 +1438,7 @@
    ],
    [
     "Ütemezett tisztítás",
-    "Hetente vagy havonta, a háttérben, megfelelő akkumulátorszintnél: értesítés, vagy csak a 24 óránál régebbi, egyértelműen felesleges fájlok automatikus törlése."
+    "Hetente vagy havonta, a háttérben, megfelelő akkumulátorszintnél: értesítés, vagy csak a 24 óránál régebbi, egyértelműen felesleges fájlok automatikus törlése. A megtisztított fájlok mindig előbb a 30 napos LUSTRUM-kukába kerülnek."
    ],
    [
     "Legjobb fotó és hasonló videók",
@@ -1456,7 +1456,7 @@
    "Nincs fiók, analitika, reklám vagy fizetési felszólítás.",
    "Minden törlést megerősítesz; a médiafájloknál az Android saját párbeszédablaka kér jóváhagyást.",
    "Beépített biztonsági ellenőrzések: a mozgó fényképeket (Motion Photo) és a HDR-fotókat soha nem tömöríti újra, a 24 órán belül módosított fájlokat soha nem tekinti feleslegesnek, és a megosztott tárhelyen kívül semmi nem törölhető.",
-   "Az ütemezett tisztítás csak a 24 óránál régebbi, egyértelműen felesleges fájlokat érinti; biztonságos törlésnél először a LUSTRUM-kukába kerülnek."
+   "Az ütemezett tisztítás csak a 24 óránál régebbi, egyértelműen felesleges fájlokat érinti, és mindig előbb a LUSTRUM-kukába helyezi, soha nem közvetlenül törli."
   ],
   "c_title": "Összehasonlítás",
   "c_sub": "A legismertebb tisztítókkal szemben, nyilvános leírásaik alapján (2026. november). A versenytársak adatai nyilvános leírásokból származnak, nem teszteltük őket. A LUSTRUM tömörítése (csak JPEG) és ütemezése (csak egyértelmű felesleges fájlok) részleges; az érett eszközök, például az SD Maid SE, többet tudnak.",
@@ -1487,7 +1487,7 @@
    "Más alkalmazások Android/data mappáiba nézni. Az Android 11+ ezt minden átlagos alkalmazásnak tiltja; csak root vagy Shizuku képes rá. A LUSTRUM a rootot csak a gyorsítótár-csökkentéshez használja, a Shizukut nem támogatja."
   ],
   "d_title": "Szerezd meg a LUSTRUM-ot",
-  "d_sub": "Béta — 0.7.0 verzió. Közvetlenül telepíthető, áruházi fiók nélkül.",
+  "d_sub": "Béta — 0.8.0 verzió. Közvetlenül telepíthető, áruházi fiók nélkül.",
   "steps": [
    "Töltsd le az APK-t a legújabb kiadásból.",
    "Engedélyezd a telepítést erről a forrásról, amikor az Android rákérdez.",
@@ -1555,7 +1555,7 @@
   "build_title": "Fordítás",
   "build_text": "JDK 21, Android SDK, Gradle 8.14+: futtasd a `gradle assembleRelease` parancsot (a `gradle testDebugUnitTest` az egységteszteket futtatja). Az APK az `app/build/outputs/apk/release/` mappában jelenik meg. A Build APK munkafolyamat teszteli, lefordítja és kiadásként közzéteszi a main ágra érkező minden új verziót. Az APK-kat a tárolóban lévő stabil, nyilvános kulccsal írjuk alá (`tools/lustrum-public.jks`), így a frissítések a régi verzió fölé települnek; saját terjesztéshez add meg a saját kulcsodat tárolótitokként (`LUSTRUM_KEYSTORE_B64`, `LUSTRUM_STORE_PASS`, `LUSTRUM_KEY_PASS`, `LUSTRUM_KEY_ALIAS`).",
   "status_title": "Állapot",
-  "status_text": "Béta. 17 egységteszt és 8 műszerezett teszt fut Android-emulátoron a CI-ben; fizikai telefonon még nem tesztelve. A fordítások gépiek, anyanyelvi beszélők nem ellenőrizték. A 0.4.0-tól kezdve a buildek közös aláírókulcsot használnak, így a frissítés a régire települ (0.3.0 vagy korábbi esetén egyszer távolítsd el).",
+  "status_text": "Béta. 23 egységteszt, 10 műszerezett teszt Android-emulátoron és a minifikált release build füsttesztje fut a CI-ben; fizikai telefonon még nem tesztelve. A fordítások gépiek, anyanyelvi beszélők nem ellenőrizték. A 0.4.0-tól kezdve a buildek közös aláírókulcsot használnak, így a frissítés a régire települ (0.3.0 vagy korábbi esetén egyszer távolítsd el).",
   "ver": "Verzió",
   "upd": "Utolsó frissítés"
  }

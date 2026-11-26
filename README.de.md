@@ -6,7 +6,7 @@
 
 LUSTRUM findet Datenmüll, Duplikate, ähnliche Fotos und App-Reste und löscht sie nur mit Ihrer Zustimmung. Es hat keine INTERNET-Berechtigung und kann daher nichts irgendwohin senden.
 
-**Version: 0.7.0 · Zuletzt aktualisiert: 2026-11-25**
+**Version: 0.8.0 · Zuletzt aktualisiert: 2026-11-26**
 
 [lustrum.chiuta.ro/](https://lustrum.chiuta.ro/)
 
@@ -24,7 +24,7 @@ LUSTRUM findet Datenmüll, Duplikate, ähnliche Fotos und App-Reste und löscht 
 - **Sicheres Löschen mit Rückgängig** — Optionaler LUSTRUM-Papierkorb: Gelöschtes wartet 30 Tage und lässt sich wiederherstellen; Speicher wird beim Leeren frei.
 - **Vorschauen & größte Ordner** — Vorschaubilder in jeder Liste, eine Rangliste der speicherhungrigen Ordner und die bisher freigegebene Gesamtmenge.
 - **Swiper** — Gehen Sie Fotos und Videos einzeln durch, die ältesten zuerst: nach links wischen zum Löschen, nach rechts zum Behalten. Nichts wird entfernt, bevor Sie am Ende bestätigen.
-- **Geplantes Aufräumen** — Wöchentlich oder monatlich im Hintergrund, bei ausreichendem Akku: eine Benachrichtigung oder automatisches Bereinigen nur von offensichtlichem Datenmüll, der älter als 24 Stunden ist.
+- **Geplantes Aufräumen** — Wöchentlich oder monatlich im Hintergrund, bei ausreichendem Akku: eine Benachrichtigung oder automatisches Bereinigen nur von offensichtlichem Datenmüll, der älter als 24 Stunden ist. Bereinigte Dateien landen immer zuerst im 30-Tage-Papierkorb von LUSTRUM.
 - **Bestes Foto & ähnliche Videos** — In jeder Gruppe ähnlicher Fotos wird die schärfste Kopie zuerst vorgeschlagen. Ähnliche Videos werden an einem Bild aus der Mitte und fast gleicher Länge erkannt.
 - **Systemgestützte Cache-Verkleinerung** — Bittet Android, den Cache anderer Apps durch Speicheranforderung zu leeren. Das Ergebnis hängt vom Gerät ab; keine Root-Magie. Auf gerooteten Telefonen nutzt es zusätzlich Root, um alle Caches zu leeren.
 
@@ -36,7 +36,7 @@ Die meisten Reiniger leben von Werbung und Daten. LUSTRUM ist umgekehrt gebaut.
 - Keine Konten, keine Analyse, keine Werbung, keine Kaufaufforderungen.
 - Jedes Löschen wird bestätigt; bei Mediendateien übernimmt das den Systemdialog von Android.
 - Eingebaute Sicherheitsprüfungen: Motion Photos und HDR-Fotos werden nie neu komprimiert, in den letzten 24 Stunden geänderte Dateien gelten nie als Datenmüll, und außerhalb des gemeinsamen Speichers lässt sich nichts löschen.
-- Das geplante Aufräumen betrifft nur offensichtlichen Datenmüll älter als 24 Stunden; mit sicherem Löschen landet er zuerst im LUSTRUM-Papierkorb.
+- Das geplante Aufräumen betrifft nur offensichtlichen Datenmüll älter als 24 Stunden und verschiebt ihn immer zuerst in den LUSTRUM-Papierkorb, nie direkt in die Löschung.
 
 ## Der Vergleich
 
@@ -75,7 +75,7 @@ Mit den bekanntesten Reinigern, nach deren öffentlichen Beschreibungen (Novembe
 
 ## LUSTRUM holen
 
-Beta — Version 0.7.0. Direkte Installation, ohne Store-Konto.
+Beta — Version 0.8.0. Direkte Installation, ohne Store-Konto.
 
 1. Laden Sie die APK aus der neuesten veröffentlichten Version herunter.
 2. Erlauben Sie die Installation aus dieser Quelle, wenn Android fragt.
@@ -87,7 +87,7 @@ JDK 21, Android SDK, Gradle 8.14+: `gradle assembleRelease` ausführen (`gradle 
 
 ## Stand
 
-Beta. 17 Unit-Tests und 8 instrumentierte Tests auf einem Android-Emulator laufen in der CI; noch nicht auf einem echten Telefon getestet. Die Übersetzungen sind maschinell und nicht von Muttersprachlern geprüft. Builds ab 0.4.0 teilen einen Signaturschlüssel, Updates werden also über die alte Version installiert (ab 0.3.0 oder früher einmal deinstallieren).
+Beta. 23 Unit-Tests, 10 instrumentierte Tests auf einem Android-Emulator und ein Smoke-Test des minifizierten Release-Builds laufen in der CI; noch nicht auf einem echten Telefon getestet. Die Übersetzungen sind maschinell und nicht von Muttersprachlern geprüft. Builds ab 0.4.0 teilen einen Signaturschlüssel, Updates werden also über die alte Version installiert (ab 0.3.0 oder früher einmal deinstallieren).
 
 ---
 

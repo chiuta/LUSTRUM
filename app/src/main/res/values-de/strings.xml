@@ -119,7 +119,7 @@
     <string name="auto_weekly">Wöchentlich</string>
     <string name="auto_monthly">Monatlich</string>
     <string name="auto_clean">Datenmüll automatisch bereinigen (sonst nur benachrichtigen)</string>
-    <string name="auto_note">Läuft etwa einmal pro Zeitraum im Hintergrund, solange der Akku nicht schwach ist. Nur offensichtlicher Datenmüll, älter als 24 Stunden, wird angefasst; mit sicherem Löschen landet er im LUSTRUM-Papierkorb.</string>
+    <string name="auto_note">Läuft etwa einmal pro Zeitraum im Hintergrund, solange der Akku nicht schwach ist. Nur offensichtlicher Datenmüll, älter als 24 Stunden, wird angefasst und landet immer zuerst im LUSTRUM-Papierkorb (30 Tage wiederherstellbar), nie direkt in der Löschung.</string>
     <string name="notif_found">Datenmüll zum Bereinigen: %1$d Dateien · %2$s</string>
     <string name="notif_cleaned">Automatisch bereinigt: %1$d Dateien · %2$s</string>
     <string name="trim_btn">Cache anderer Apps verkleinern</string>

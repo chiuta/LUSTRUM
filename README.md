@@ -6,7 +6,7 @@
 
 LUSTRUM finds junk, duplicates, look-alike photos and app leftovers — and clears them only with your approval. It has no INTERNET permission, so it physically cannot send anything anywhere.
 
-**Version: 0.7.0 · Last updated: 2026-11-25**
+**Version: 0.8.0 · Last updated: 2026-11-26**
 
 [lustrum.chiuta.ro/](https://lustrum.chiuta.ro/)
 
@@ -24,7 +24,7 @@ LUSTRUM finds junk, duplicates, look-alike photos and app leftovers — and clea
 - **Safe delete with undo** — Optional LUSTRUM trash: deleted files wait 30 days and can be restored; space is freed when you empty it.
 - **Previews & biggest folders** — Thumbnails in every list, a ranking of the folders that eat your storage, and a running total of what you have freed.
 - **Swiper** — Go through photos and videos one by one, oldest first: swipe left to delete, right to keep. Nothing is removed until you confirm at the end.
-- **Scheduled cleaning** — Weekly or monthly, in the background, on a good battery: a notification, or automatic clean-up of obvious junk older than 24 hours only.
+- **Scheduled cleaning** — Weekly or monthly, in the background, on a good battery: a notification, or automatic clean-up of obvious junk older than 24 hours only. Cleaned files always go to the 30-day LUSTRUM trash first.
 - **Best photo & similar videos** — In each look-alike group the sharpest copy is suggested first. Similar videos are matched by a middle frame and near-identical length.
 - **System-assisted cache trim** — Asks Android to free other apps' cached data by requesting storage. Results vary by device; there is no root-level magic. On rooted phones it also uses root to clear all caches.
 
@@ -36,7 +36,7 @@ Most cleaners earn their keep from ads and data. LUSTRUM is built the other way 
 - No accounts, no analytics, no ads, no purchase prompts.
 - Every deletion is confirmed first; media deletions go through Android's own system dialog.
 - Built-in safety checks: Motion Photos and HDR photos are never recompressed, files changed in the last 24 hours are never called junk, and nothing outside shared storage can be deleted.
-- Scheduled cleaning acts only on obvious junk older than 24 hours; with safe delete on, it goes to the LUSTRUM trash first.
+- Scheduled cleaning acts only on obvious junk older than 24 hours and always moves it to the LUSTRUM trash first, never straight to deletion.
 
 ## How it compares
 
@@ -75,7 +75,7 @@ Against the best-known cleaners, based on their public descriptions (November 20
 
 ## Get LUSTRUM
 
-Beta — version 0.7.0. Installs directly; no store account needed.
+Beta — version 0.8.0. Installs directly; no store account needed.
 
 1. Download the APK from the latest release.
 2. Allow installation from this source when Android asks.
@@ -87,7 +87,7 @@ JDK 21, Android SDK, Gradle 8.14+: run `gradle assembleRelease` (`gradle testDeb
 
 ## Status
 
-Beta. 17 unit tests, plus 8 instrumented tests on an Android emulator, run in CI; not yet tested on a physical phone. Translations are machine-made and not reviewed by native speakers. Builds from 0.4.0 on share one signing key, so updates install over the old version (from 0.3.0 or earlier, uninstall once).
+Beta. 23 unit tests, 10 instrumented tests on an Android emulator and a smoke test of the minified release build run in CI; not yet tested on a physical phone. Translations are machine-made and not reviewed by native speakers. Builds from 0.4.0 on share one signing key, so updates install over the old version (from 0.3.0 or earlier, uninstall once).
 
 ---
 

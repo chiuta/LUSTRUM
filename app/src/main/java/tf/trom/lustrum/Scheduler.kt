@@ -12,7 +12,6 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
-import java.io.File
 import java.util.concurrent.TimeUnit
 
 /** Curățare periodică în fundal: numai resturi evidente (vezi Scanner.isJunk), cu notificare. */
@@ -36,21 +35,20 @@ object Scheduler {
         wm.enqueueUniquePeriodicWork(NAME, ExistingPeriodicWorkPolicy.UPDATE, req)
     }
 
-    /** Scanează și, dacă `autoClean`, mută în coș / șterge resturile. Necesită „Acces la toate fișierele”. */
-    fun runOnce(ctx: Context, autoClean: Boolean, useTrash: Boolean): Report {
+    /**
+     * Scanează și, dacă `autoClean`, mută resturile în coșul LUSTRUM (niciodată ștergere definitivă,
+     * indiferent de setare: nimeni nu e de față să anuleze). Necesită „Acces la toate fișierele”.
+     */
+    fun runOnce(ctx: Context, autoClean: Boolean): Report {
         if (!Environment.isExternalStorageManager()) return Report(0, 0, false)
+        Trash.purgeOld()
         val junk = Scanner.scanFs { }.filter { Scanner.isJunk(it) }
         val bytes = junk.sumOf { it.size }
         if (!autoClean || junk.isEmpty()) return Report(junk.size, bytes, false)
         val root = Environment.getExternalStorageDirectory().canonicalFile
         val safe = junk.filter { Safety.ok(it, root) }
-        val done = if (useTrash) Trash.move(safe) else safe.filter { File(it.path).delete() }
-        val freed = done.sumOf { it.size }
-        if (!useTrash && freed > 0) {
-            val p = prefs(ctx)
-            p.edit().putLong("freed", p.getLong("freed", 0L) + freed).apply()
-        }
-        return Report(done.size, freed, true)
+        val done = Trash.move(safe)
+        return Report(done.size, done.sumOf { it.size }, true)
     }
 
     fun notify(ctx: Context, r: Report) {
@@ -77,7 +75,7 @@ object Scheduler {
 class CleanWorker(ctx: Context, params: WorkerParameters) : CoroutineWorker(ctx, params) {
     override suspend fun doWork(): Result {
         val p = Scheduler.prefs(applicationContext)
-        val r = Scheduler.runOnce(applicationContext, p.getBoolean("auto_clean", false), p.getBoolean("trash", false))
+        val r = Scheduler.runOnce(applicationContext, p.getBoolean("auto_clean", false))
         Scheduler.notify(applicationContext, r)
         return Result.success()
     }
