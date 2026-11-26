@@ -100,7 +100,7 @@ JDK 21, SDK de Android, Gradle 8.14+: ejecuta `gradle assembleRelease` (`gradle 
 
 ## Estado
 
-Beta. 23 pruebas unitarias, 10 instrumentadas en un emulador Android y una prueba de humo de la versión release minificada se ejecutan en CI; aún no probado en un teléfono físico. Las traducciones son automáticas y no están revisadas por nativos. Las versiones desde 0.4.0 comparten clave de firma: las actualizaciones se instalan encima (desde 0.3.0 o anteriores, desinstala una vez).
+Beta. 25 pruebas unitarias, 11 instrumentadas en un emulador Android y una prueba de humo de la versión release minificada se ejecutan en CI; aún no probado en un teléfono físico. Las traducciones son automáticas y no están revisadas por nativos. Las versiones desde 0.4.0 comparten clave de firma: las actualizaciones se instalan encima (desde 0.3.0 o anteriores, desinstala una vez).
 
 ---
 

@@ -100,7 +100,7 @@ JDK 21, Android SDK, Gradle 8.14+: `gradle assembleRelease` ausführen (`gradle 
 
 ## Stand
 
-Beta. 23 Unit-Tests, 10 instrumentierte Tests auf einem Android-Emulator und ein Smoke-Test des minifizierten Release-Builds laufen in der CI; noch nicht auf einem echten Telefon getestet. Die Übersetzungen sind maschinell und nicht von Muttersprachlern geprüft. Builds ab 0.4.0 teilen einen Signaturschlüssel, Updates werden also über die alte Version installiert (ab 0.3.0 oder früher einmal deinstallieren).
+Beta. 25 Unit-Tests, 11 instrumentierte Tests auf einem Android-Emulator und ein Smoke-Test des minifizierten Release-Builds laufen in der CI; noch nicht auf einem echten Telefon getestet. Die Übersetzungen sind maschinell und nicht von Muttersprachlern geprüft. Builds ab 0.4.0 teilen einen Signaturschlüssel, Updates werden also über die alte Version installiert (ab 0.3.0 oder früher einmal deinstallieren).
 
 ---
 

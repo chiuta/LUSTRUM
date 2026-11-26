@@ -100,7 +100,7 @@ JDK 21, Android SDK, Gradle 8.14+: rulează `gradle assembleRelease` (`gradle te
 
 ## Stare
 
-Beta. 23 de teste unitare, 10 teste instrumentate pe un emulator Android și un test de fum al versiunii release minificate rulează în CI; încă netestat pe un telefon fizic. Traducerile sunt automate și nerevizuite de vorbitori nativi. Versiunile de la 0.4.0 încoace au aceeași cheie de semnare, deci actualizările se instalează peste cea veche (de la 0.3.0 sau mai vechi, dezinstalează o dată).
+Beta. 25 de teste unitare, 11 teste instrumentate pe un emulator Android și un test de fum al versiunii release minificate rulează în CI; încă netestat pe un telefon fizic. Traducerile sunt automate și nerevizuite de vorbitori nativi. Versiunile de la 0.4.0 încoace au aceeași cheie de semnare, deci actualizările se instalează peste cea veche (de la 0.3.0 sau mai vechi, dezinstalează o dată).
 
 ---
 

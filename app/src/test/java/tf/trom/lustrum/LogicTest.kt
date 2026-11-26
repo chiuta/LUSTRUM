@@ -225,3 +225,16 @@ class AuditTest {
         assertTrue(!Scanner.isJunk(i("report.log", 0), now))
     }
 }
+
+class VideoSplitTest {
+    @Test fun longClipDoesNotSwallowShortCopies() {
+        val dur = longArrayOf(6000, 4000, 4100) // 0 = clip lung, 1 și 2 = copii de ~4 s
+        val out = Dupes.splitByDuration(listOf(0, 1, 2)) { dur[it] }
+        assertEquals(listOf(listOf(1, 2)), out)
+    }
+
+    @Test fun differentLengthsGiveNoGroup() {
+        val dur = longArrayOf(1000, 9000, 20000)
+        assertEquals(emptyList<List<Int>>(), Dupes.splitByDuration(listOf(0, 1, 2)) { dur[it] })
+    }
+}

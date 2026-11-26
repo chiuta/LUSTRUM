@@ -100,7 +100,7 @@ JDK 21, Android SDK, Gradle 8.14+: run `gradle assembleRelease` (`gradle testDeb
 
 ## Status
 
-Beta. 23 unit tests, 10 instrumented tests on an Android emulator and a smoke test of the minified release build run in CI; not yet tested on a physical phone. Translations are machine-made and not reviewed by native speakers. Builds from 0.4.0 on share one signing key, so updates install over the old version (from 0.3.0 or earlier, uninstall once).
+Beta. 25 unit tests, 11 instrumented tests on an Android emulator and a smoke test of the minified release build run in CI; not yet tested on a physical phone. Translations are machine-made and not reviewed by native speakers. Builds from 0.4.0 on share one signing key, so updates install over the old version (from 0.3.0 or earlier, uninstall once).
 
 ---
 

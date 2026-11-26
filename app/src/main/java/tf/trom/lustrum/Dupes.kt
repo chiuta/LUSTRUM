@@ -174,12 +174,29 @@ object Dupes {
         }
         val idx = vids.indices.filter { ok[it] }
         return cluster(LongArray(idx.size) { hashes[idx[it]] }, 6)
-            .map { g ->
-                val rep = dur[idx[g[0]]]
-                g.filter { sameDuration(rep, dur[idx[it]]) }.map { vids[idx[it]] }
-            }
-            .filter { it.size > 1 }
+            .flatMap { g -> splitByDuration(g) { dur[idx[it]] } }
+            .map { g -> g.map { vids[idx[it]] } }
             .sortedByDescending { g -> g.sumOf { it.size } }
+    }
+
+    /**
+     * Un grup de cadre asemănătoare se împarte după durată: un clip lung cu un cadru la fel ca al altor două
+     * copii scurte nu trebuie să le „înghită” și apoi să le piardă. Păstrează doar subgrupurile cu cel puțin 2 elemente.
+     */
+    fun splitByDuration(members: List<Int>, dur: (Int) -> Long): List<List<Int>> {
+        val left = members.toMutableList()
+        val out = ArrayList<List<Int>>()
+        while (left.isNotEmpty()) {
+            val rep = left.removeAt(0)
+            val grp = arrayListOf(rep)
+            val it = left.iterator()
+            while (it.hasNext()) {
+                val j = it.next()
+                if (sameDuration(dur(rep), dur(j))) { grp.add(j); it.remove() }
+            }
+            if (grp.size > 1) out.add(grp)
+        }
+        return out
     }
 
     /**

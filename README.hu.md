@@ -100,7 +100,7 @@ JDK 21, Android SDK, Gradle 8.14+: futtasd a `gradle assembleRelease` parancsot 
 
 ## Állapot
 
-Béta. 23 egységteszt, 10 műszerezett teszt Android-emulátoron és a minifikált release build füsttesztje fut a CI-ben; fizikai telefonon még nem tesztelve. A fordítások gépiek, anyanyelvi beszélők nem ellenőrizték. A 0.4.0-tól kezdve a buildek közös aláírókulcsot használnak, így a frissítés a régire települ (0.3.0 vagy korábbi esetén egyszer távolítsd el).
+Béta. 25 egységteszt, 11 műszerezett teszt Android-emulátoron és a minifikált release build füsttesztje fut a CI-ben; fizikai telefonon még nem tesztelve. A fordítások gépiek, anyanyelvi beszélők nem ellenőrizték. A 0.4.0-tól kezdve a buildek közös aláírókulcsot használnak, így a frissítés a régire települ (0.3.0 vagy korábbi esetén egyszer távolítsd el).
 
 ---
 
