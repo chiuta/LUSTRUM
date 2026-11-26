@@ -158,6 +158,7 @@ object Dupes {
                         } else {
                             val h = hashOf(f)
                             f.recycle()
+                            Log.i("LUSTRUM", "video ${vids[i].name}: ${d} ms, hash ${java.lang.Long.toHexString(h)}, ${vids[i].size} B")
                             if (h != 0L) { hashes[i] = h; dur[i] = d; ok[i] = true }
                             else Log.w("LUSTRUM", "video cu hash 0 (cadru uniform): ${vids[i].path}")
                         }
@@ -173,6 +174,7 @@ object Dupes {
             pool.shutdown()
         }
         val idx = vids.indices.filter { ok[it] }
+        Log.i("LUSTRUM", "videoclipuri: ${vids.size} candidate, ${idx.size} cu cadru")
         return cluster(LongArray(idx.size) { hashes[idx[it]] }, 6)
             .flatMap { g -> splitByDuration(g) { dur[idx[it]] } }
             .map { g -> g.map { vids[idx[it]] } }
