@@ -85,6 +85,13 @@ html.hc .btn.pri{background:var(--a);color:#000}
 h2{font-size:clamp(1.7rem,4vw,2.6rem);margin:0 0 .6rem;letter-spacing:-.02em}
 .sub2{color:var(--mut);max-width:40rem;margin:0 0 2.2rem}
 .cards{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(15.5rem,1fr))}
+.shots{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:1.1rem;margin-top:1.6rem}
+.shots figure,.vids figure{margin:0}
+.shots img{width:100%;height:auto;display:block;border-radius:1.1rem;border:1px solid var(--bd);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.vids{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1.1rem;margin-top:1rem}
+.vids video{width:100%;height:auto;display:block;border-radius:1.1rem;border:1px solid var(--bd);background:#000}
+figcaption{font-size:.85rem;opacity:.85;margin-top:.5rem;line-height:1.35}
+.vh{margin-top:2.4rem}
 .card{background:var(--card);border:1px solid var(--bd);border-radius:1.2rem;padding:1.3rem;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:transform .25s,border-color .25s}
 .card:hover{transform:translateY(-4px);border-color:var(--a)}
 .card .ic{width:2.6rem;height:2.6rem;display:grid;place-items:center;border-radius:.8rem;background:linear-gradient(135deg,color-mix(in srgb,var(--a) 30%,transparent),color-mix(in srgb,var(--b) 30%,transparent));font-size:1.3rem;margin-bottom:.8rem}
@@ -159,7 +166,7 @@ html.hc #panel{background:#000}
     <svg viewBox="0 0 108 108" aria-hidden="true"><rect width="108" height="108" rx="24" fill="#00796B"/><path fill="#fff" d="M66,26 L72,32 L54,56 L47,50 Z"/><path fill="#fff" d="M45,52 L58,64 L42,82 Q36,85 31,80 Q26,75 29,69 Z"/></svg>
     LUSTRUM
   </a>
-  <nav class="links" aria-label="Main"><a href="#features" data-n="0"></a><a href="#compare" data-n="1"></a><a href="#privacy" data-n="2"></a><a href="#download" data-n="3"></a></nav>
+  <nav class="links" aria-label="Main"><a href="#features" data-n="0"></a><a href="#demo" data-n="1"></a><a href="#compare" data-n="2"></a><a href="#privacy" data-n="3"></a><a href="#download" data-n="4"></a></nav>
   <select class="lang" id="lang" aria-label="Language"></select>
 </div></header>
 
@@ -191,6 +198,14 @@ html.hc #panel{background:#000}
 <section id="features"><div class="wrap">
   <h2 class="reveal" data-k="f_title"></h2>
   <div class="cards" id="fcards"></div>
+</div></section>
+
+<section id="demo"><div class="wrap">
+  <h2 class="reveal" data-k="demo_title"></h2>
+  <p class="sub2 reveal" data-k="demo_note"></p>
+  <div class="shots" id="shots"></div>
+  <h3 class="reveal vh" data-k="demo_vtitle"></h3>
+  <div class="vids" id="vids"></div>
 </div></section>
 
 <section id="privacy"><div class="wrap split">
@@ -268,6 +283,8 @@ const ORDER = ["en","ro","fr","it","es","pt","de","hu"];
 const SITE = "https://lustrum.chiuta.ro/";
 const COLS = ["LUSTRUM","CCleaner","SD Maid SE","Files by Google","Norton Clean / Avast Cleanup"];
 const M = [["y","n","y","y","n"],["y","n","p","n","n"],["y","n","y","n","n"],["y","p","y","p","y"],["p","y","y","n","p"],["p","y","y","n","p"],["p","p","y","n","y"],["p","y","n","n","y"],["p","n","y","n","n"]];
+const SHOTS = ["home-after","files-junk","dupes-exact","dupes-similar","swiper-marked","schedule"];
+const VIDS = [["scan","home-after"],["dupes","dupes-similar"],["swiper","swiper"],["schedule","schedule"]];
 const ICONS = ["📊","🗂️","👯","🖼️","🧹","🗜️","📱","🔋","🌫️","🛟","📁","👆","⏰","🎞️","🧊"];
 const CATW = [38,24,14,16,8];
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
@@ -300,6 +317,8 @@ function render(l){
   $("#ptitle").textContent = t.a11y[0];
   $("#stats").innerHTML = ["0","0","0","8"].map((n,i) => `<div class="stat"><b>${n}</b><span>${esc(t.stats[i])}</span></div>`).join("");
   $("#fcards").innerHTML = t.features.map((f,i) => `<article class="card reveal"><div class="ic" aria-hidden="true">${ICONS[i]}</div><h3>${esc(f[0])}</h3><p>${esc(f[1])}</p></article>`).join("");
+  $("#shots").innerHTML = SHOTS.map((n,i) => `<figure class="reveal"><img src="media/${n}.png" alt="${esc(t.demo_shots[i])}" loading="lazy" width="540" height="1200"><figcaption>${esc(t.demo_shots[i])}</figcaption></figure>`).join("");
+  $("#vids").innerHTML = VIDS.map((v,i) => `<figure class="reveal"><video controls preload="none" playsinline muted poster="media/${v[1]}.png" aria-label="${esc(t.demo_vids[i])}"><source src="media/${v[0]}.mp4" type="video/mp4"></video><figcaption>${esc(t.demo_vids[i])}</figcaption></figure>`).join("");
   $("#pts").innerHTML = t.points.map(p => `<li class="reveal">${esc(p)}</li>`).join("");
   $("#notdo").innerHTML = t.n_items.map(p => `<div class="card reveal"><p>${esc(p)}</p></div>`).join("");
   $("#steps").innerHTML = t.steps.map(p => `<li class="reveal">${esc(p)}</li>`).join("");

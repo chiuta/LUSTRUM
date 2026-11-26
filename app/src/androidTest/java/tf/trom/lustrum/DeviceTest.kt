@@ -138,4 +138,13 @@ class DeviceTest {
         RootTools.available()
         if (RootTools.available()) assertTrue(RootTools.trimAllCaches() || true)
     }
+
+    @Test fun similarVideosGroupsIdenticalClips() {
+        val clip = InstrumentationRegistry.getInstrumentation().context.assets.open("clip.mp4").readBytes()
+        val a = File(dir, "a.mp4").apply { writeBytes(clip) }
+        val b = File(dir, "b.mp4").apply { writeBytes(clip) }
+        val g = Dupes.similarVideos(ctx, listOf(item(a, Category.VIDEO), item(b, Category.VIDEO)), { _, _ -> }, minSize = 1000)
+        assertEquals("grupuri: $g", 1, g.size)
+        assertEquals(2, g[0].size)
+    }
 }

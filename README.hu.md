@@ -28,6 +28,19 @@ A LUSTRUM megtalálja a felesleges fájlokat, duplikátumokat, hasonló fotókat
 - **Legjobb fotó és hasonló videók** — A hasonló fotók csoportjaiban a legélesebb másolatot javasolja először. A hasonló videókat egy középső képkocka és a közel azonos hossz alapján párosítja.
 - **Rendszer által segített gyorsítótár-csökkentés** — Az Androidot kéri, hogy tárhely igénylésével szabadítsa fel más alkalmazások gyorsítótárát. Az eredmény eszközfüggő; root-varázslat nincs. Rootolt telefonokon rootot is használ az összes gyorsítótár törléséhez.
 
+## Működés közben
+
+Valódi képernyőképek és felvételek a LUSTRUM-ról egy Android-emulátoron, generált mintafájlokkal — nem fizikai telefonon.
+
+![Kezdőlap: a tárhely egy pillantásra és egyérintéses vizsgálat](media/home-after.png)
+![Megtalált felesleges fájlok, átnézésre készen](media/files-junk.png)
+![Azonos fájlok, csoportonként egy példány marad](media/dupes-exact.png)
+![Hasonló fotók: a legélesebb másolat marad](media/dupes-similar.png)
+![Swiper: húzással megtartod vagy törlöd, megerősítés nélkül semmi nem törlődik](media/swiper-marked.png)
+![Ütemezett tisztítás, biztonságos törlés és gyorsítótár-csökkentés](media/schedule.png)
+
+**Rövid bemutatóvideók:** [▶ A telefon vizsgálata](media/scan.mp4) · [▶ Duplikátumok keresése](media/dupes.mp4) · [▶ Swiper működés közben](media/swiper.mp4) · [▶ Automatikus tisztítás ütemezése](media/schedule.mp4)
+
 ## Magánszféra-barát felépítés
 
 A legtöbb tisztító reklámokból és adatokból él. A LUSTRUM fordítva készült.

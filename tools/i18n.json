@@ -17,6 +17,7 @@
   ],
   "nav": [
    "Features",
+   "Demo",
    "Compare",
    "Privacy",
    "Download"
@@ -192,7 +193,24 @@
   "status_title": "Status",
   "status_text": "Beta. 23 unit tests, 10 instrumented tests on an Android emulator and a smoke test of the minified release build run in CI; not yet tested on a physical phone. Translations are machine-made and not reviewed by native speakers. Builds from 0.4.0 on share one signing key, so updates install over the old version (from 0.3.0 or earlier, uninstall once).",
   "ver": "Version",
-  "upd": "Last updated"
+  "upd": "Last updated",
+  "demo_title": "See it in action",
+  "demo_note": "Real screenshots and screen recordings of LUSTRUM running on an Android emulator with generated sample files — not on a physical phone.",
+  "demo_shots": [
+   "Home: storage at a glance and a one-tap scan",
+   "Junk files found, ready to review",
+   "Identical files, one copy kept per group",
+   "Look-alike photos: the sharpest copy is kept",
+   "Swiper: swipe to keep or delete, nothing is removed until you confirm",
+   "Scheduled cleaning, safe delete and cache trim"
+  ],
+  "demo_vids": [
+   "Scanning the phone",
+   "Finding duplicates",
+   "Swiper in action",
+   "Scheduling automatic cleaning"
+  ],
+  "demo_vtitle": "Short demo videos"
  },
  "ro": {
   "name": "Română",
@@ -212,6 +230,7 @@
   ],
   "nav": [
    "Funcții",
+   "Demo",
    "Comparație",
    "Confidențialitate",
    "Descarcă"
@@ -387,7 +406,24 @@
   "status_title": "Stare",
   "status_text": "Beta. 23 de teste unitare, 10 teste instrumentate pe un emulator Android și un test de fum al versiunii release minificate rulează în CI; încă netestat pe un telefon fizic. Traducerile sunt automate și nerevizuite de vorbitori nativi. Versiunile de la 0.4.0 încoace au aceeași cheie de semnare, deci actualizările se instalează peste cea veche (de la 0.3.0 sau mai vechi, dezinstalează o dată).",
   "ver": "Versiune",
-  "upd": "Ultima actualizare"
+  "upd": "Ultima actualizare",
+  "demo_title": "Vezi-l în acțiune",
+  "demo_note": "Capturi de ecran și înregistrări reale cu LUSTRUM rulând pe un emulator Android, cu fișiere de probă generate — nu pe un telefon fizic.",
+  "demo_shots": [
+   "Acasă: spațiul dintr-o privire și scanare dintr-o atingere",
+   "Resturi găsite, gata de verificat",
+   "Fișiere identice, o copie păstrată în fiecare grup",
+   "Poze asemănătoare: se păstrează cea mai clară copie",
+   "Swiper: glisezi ca să păstrezi sau să ștergi, nimic nu dispare până nu confirmi",
+   "Curățare programată, ștergere sigură și reducere cache"
+  ],
+  "demo_vids": [
+   "Scanarea telefonului",
+   "Căutarea duplicatelor",
+   "Swiper în acțiune",
+   "Programarea curățării automate"
+  ],
+  "demo_vtitle": "Videoclipuri demonstrative scurte"
  },
  "fr": {
   "name": "Français",
@@ -407,6 +443,7 @@
   ],
   "nav": [
    "Fonctions",
+   "Démo",
    "Comparaison",
    "Confidentialité",
    "Télécharger"
@@ -582,7 +619,24 @@
   "status_title": "État",
   "status_text": "Bêta. 23 tests unitaires, 10 tests instrumentés sur émulateur Android et un test de fumée de la version release minifiée tournent en CI ; pas encore testé sur un téléphone physique. Les traductions sont automatiques, non relues par des natifs. Les versions depuis 0.4.0 partagent une clé de signature : les mises à jour s'installent par-dessus (depuis 0.3.0 ou avant, désinstallez une fois).",
   "ver": "Version",
-  "upd": "Dernière mise à jour"
+  "upd": "Dernière mise à jour",
+  "demo_title": "Voir en action",
+  "demo_note": "Vraies captures et enregistrements d'écran de LUSTRUM sur un émulateur Android avec des fichiers d'exemple générés — pas sur un téléphone physique.",
+  "demo_shots": [
+   "Accueil : le stockage en un coup d'œil et une analyse en un geste",
+   "Fichiers inutiles trouvés, prêts à vérifier",
+   "Fichiers identiques, une copie conservée par groupe",
+   "Photos similaires : la plus nette est conservée",
+   "Swiper : glissez pour garder ou supprimer, rien n'est retiré avant confirmation",
+   "Nettoyage programmé, suppression sécurisée et réduction du cache"
+  ],
+  "demo_vids": [
+   "Analyse du téléphone",
+   "Recherche de doublons",
+   "Swiper en action",
+   "Programmer le nettoyage automatique"
+  ],
+  "demo_vtitle": "Courtes vidéos de démonstration"
  },
  "it": {
   "name": "Italiano",
@@ -602,6 +656,7 @@
   ],
   "nav": [
    "Funzioni",
+   "Demo",
    "Confronto",
    "Privacy",
    "Scarica"
@@ -777,7 +832,24 @@
   "status_title": "Stato",
   "status_text": "Beta. 23 test unitari, 10 test strumentati su emulatore Android e uno smoke test della build release minificata girano in CI; non ancora provato su un telefono fisico. Le traduzioni sono automatiche e non riviste da madrelingua. Le versioni dalla 0.4.0 condividono la chiave di firma: gli aggiornamenti si installano sopra (da 0.3.0 o precedenti, disinstalla una volta).",
   "ver": "Versione",
-  "upd": "Ultimo aggiornamento"
+  "upd": "Ultimo aggiornamento",
+  "demo_title": "Guardalo in azione",
+  "demo_note": "Screenshot e registrazioni reali di LUSTRUM su un emulatore Android con file di esempio generati — non su un telefono fisico.",
+  "demo_shots": [
+   "Home: spazio a colpo d'occhio e scansione con un tocco",
+   "File inutili trovati, pronti da controllare",
+   "File identici, una copia tenuta per gruppo",
+   "Foto simili: si tiene la copia più nitida",
+   "Swiper: scorri per tenere o eliminare, nulla viene rimosso senza conferma",
+   "Pulizia programmata, eliminazione sicura e riduzione della cache"
+  ],
+  "demo_vids": [
+   "Scansione del telefono",
+   "Ricerca dei duplicati",
+   "Swiper in azione",
+   "Programmare la pulizia automatica"
+  ],
+  "demo_vtitle": "Brevi video dimostrativi"
  },
  "es": {
   "name": "Español",
@@ -797,6 +869,7 @@
   ],
   "nav": [
    "Funciones",
+   "Demo",
    "Comparación",
    "Privacidad",
    "Descargar"
@@ -972,7 +1045,24 @@
   "status_title": "Estado",
   "status_text": "Beta. 23 pruebas unitarias, 10 instrumentadas en un emulador Android y una prueba de humo de la versión release minificada se ejecutan en CI; aún no probado en un teléfono físico. Las traducciones son automáticas y no están revisadas por nativos. Las versiones desde 0.4.0 comparten clave de firma: las actualizaciones se instalan encima (desde 0.3.0 o anteriores, desinstala una vez).",
   "ver": "Versión",
-  "upd": "Última actualización"
+  "upd": "Última actualización",
+  "demo_title": "Míralo en acción",
+  "demo_note": "Capturas y grabaciones reales de LUSTRUM en un emulador Android con archivos de ejemplo generados — no en un teléfono físico.",
+  "demo_shots": [
+   "Inicio: el almacenamiento de un vistazo y un escaneo con un toque",
+   "Basura encontrada, lista para revisar",
+   "Archivos idénticos, una copia conservada por grupo",
+   "Fotos parecidas: se conserva la copia más nítida",
+   "Swiper: desliza para conservar o eliminar, nada se quita sin confirmar",
+   "Limpieza programada, eliminación segura y reducción de caché"
+  ],
+  "demo_vids": [
+   "Escaneo del teléfono",
+   "Búsqueda de duplicados",
+   "Swiper en acción",
+   "Programar la limpieza automática"
+  ],
+  "demo_vtitle": "Vídeos de demostración cortos"
  },
  "pt": {
   "name": "Português",
@@ -992,6 +1082,7 @@
   ],
   "nav": [
    "Funções",
+   "Demo",
    "Comparação",
    "Privacidade",
    "Baixar"
@@ -1167,7 +1258,24 @@
   "status_title": "Situação",
   "status_text": "Beta. 23 testes unitários, 10 instrumentados em um emulador Android e um teste de fumaça da versão release minificada rodam no CI; ainda não testado em um telefone físico. As traduções são automáticas e não revisadas por nativos. As versões desde 0.4.0 compartilham a chave de assinatura: as atualizações instalam por cima (de 0.3.0 ou anteriores, desinstale uma vez).",
   "ver": "Versão",
-  "upd": "Última atualização"
+  "upd": "Última atualização",
+  "demo_title": "Veja em ação",
+  "demo_note": "Capturas e gravações reais do LUSTRUM em um emulador Android com arquivos de exemplo gerados — não em um telefone físico.",
+  "demo_shots": [
+   "Início: o armazenamento num relance e uma verificação com um toque",
+   "Lixo encontrado, pronto para revisar",
+   "Arquivos idênticos, uma cópia mantida por grupo",
+   "Fotos parecidas: a cópia mais nítida é mantida",
+   "Swiper: deslize para manter ou excluir, nada é removido sem confirmar",
+   "Limpeza agendada, exclusão segura e redução de cache"
+  ],
+  "demo_vids": [
+   "Verificando o telefone",
+   "Procurando duplicatas",
+   "Swiper em ação",
+   "Agendando a limpeza automática"
+  ],
+  "demo_vtitle": "Vídeos de demonstração curtos"
  },
  "de": {
   "name": "Deutsch",
@@ -1187,6 +1295,7 @@
   ],
   "nav": [
    "Funktionen",
+   "Demo",
    "Vergleich",
    "Datenschutz",
    "Download"
@@ -1362,7 +1471,24 @@
   "status_title": "Stand",
   "status_text": "Beta. 23 Unit-Tests, 10 instrumentierte Tests auf einem Android-Emulator und ein Smoke-Test des minifizierten Release-Builds laufen in der CI; noch nicht auf einem echten Telefon getestet. Die Übersetzungen sind maschinell und nicht von Muttersprachlern geprüft. Builds ab 0.4.0 teilen einen Signaturschlüssel, Updates werden also über die alte Version installiert (ab 0.3.0 oder früher einmal deinstallieren).",
   "ver": "Version",
-  "upd": "Zuletzt aktualisiert"
+  "upd": "Zuletzt aktualisiert",
+  "demo_title": "In Aktion sehen",
+  "demo_note": "Echte Screenshots und Bildschirmaufnahmen von LUSTRUM auf einem Android-Emulator mit erzeugten Beispieldateien — nicht auf einem echten Telefon.",
+  "demo_shots": [
+   "Start: Speicher auf einen Blick und Scan mit einem Tipp",
+   "Gefundener Datenmüll, bereit zur Prüfung",
+   "Identische Dateien, pro Gruppe bleibt eine Kopie",
+   "Ähnliche Fotos: die schärfste Kopie bleibt",
+   "Swiper: wischen zum Behalten oder Löschen, nichts wird ohne Bestätigung entfernt",
+   "Geplantes Aufräumen, sicheres Löschen und Cache-Verkleinerung"
+  ],
+  "demo_vids": [
+   "Telefon scannen",
+   "Duplikate finden",
+   "Swiper in Aktion",
+   "Automatisches Aufräumen planen"
+  ],
+  "demo_vtitle": "Kurze Demovideos"
  },
  "hu": {
   "name": "Magyar",
@@ -1382,6 +1508,7 @@
   ],
   "nav": [
    "Funkciók",
+   "Demó",
    "Összehasonlítás",
    "Adatvédelem",
    "Letöltés"
@@ -1557,6 +1684,23 @@
   "status_title": "Állapot",
   "status_text": "Béta. 23 egységteszt, 10 műszerezett teszt Android-emulátoron és a minifikált release build füsttesztje fut a CI-ben; fizikai telefonon még nem tesztelve. A fordítások gépiek, anyanyelvi beszélők nem ellenőrizték. A 0.4.0-tól kezdve a buildek közös aláírókulcsot használnak, így a frissítés a régire települ (0.3.0 vagy korábbi esetén egyszer távolítsd el).",
   "ver": "Verzió",
-  "upd": "Utolsó frissítés"
+  "upd": "Utolsó frissítés",
+  "demo_title": "Működés közben",
+  "demo_note": "Valódi képernyőképek és felvételek a LUSTRUM-ról egy Android-emulátoron, generált mintafájlokkal — nem fizikai telefonon.",
+  "demo_shots": [
+   "Kezdőlap: a tárhely egy pillantásra és egyérintéses vizsgálat",
+   "Megtalált felesleges fájlok, átnézésre készen",
+   "Azonos fájlok, csoportonként egy példány marad",
+   "Hasonló fotók: a legélesebb másolat marad",
+   "Swiper: húzással megtartod vagy törlöd, megerősítés nélkül semmi nem törlődik",
+   "Ütemezett tisztítás, biztonságos törlés és gyorsítótár-csökkentés"
+  ],
+  "demo_vids": [
+   "A telefon vizsgálata",
+   "Duplikátumok keresése",
+   "Swiper működés közben",
+   "Automatikus tisztítás ütemezése"
+  ],
+  "demo_vtitle": "Rövid bemutatóvideók"
  }
 }

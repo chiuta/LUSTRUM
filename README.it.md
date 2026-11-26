@@ -28,6 +28,19 @@ LUSTRUM trova file inutili, duplicati, foto simili e residui di app, e li elimin
 - **Foto migliore e video simili** — In ogni gruppo di foto simili viene proposta per prima la copia più nitida. I video simili sono individuati da un fotogramma centrale e da una durata quasi identica.
 - **Riduzione della cache assistita dal sistema** — Chiede ad Android di liberare la cache delle altre app richiedendo spazio. Il risultato varia da dispositivo a dispositivo; nessuna magia da root. Sui telefoni con root usa anche il root per svuotare tutte le cache.
 
+## Guardalo in azione
+
+Screenshot e registrazioni reali di LUSTRUM su un emulatore Android con file di esempio generati — non su un telefono fisico.
+
+![Home: spazio a colpo d'occhio e scansione con un tocco](media/home-after.png)
+![File inutili trovati, pronti da controllare](media/files-junk.png)
+![File identici, una copia tenuta per gruppo](media/dupes-exact.png)
+![Foto simili: si tiene la copia più nitida](media/dupes-similar.png)
+![Swiper: scorri per tenere o eliminare, nulla viene rimosso senza conferma](media/swiper-marked.png)
+![Pulizia programmata, eliminazione sicura e riduzione della cache](media/schedule.png)
+
+**Brevi video dimostrativi:** [▶ Scansione del telefono](media/scan.mp4) · [▶ Ricerca dei duplicati](media/dupes.mp4) · [▶ Swiper in azione](media/swiper.mp4) · [▶ Programmare la pulizia automatica](media/schedule.mp4)
+
 ## Privato per costruzione
 
 La maggior parte dei pulitori vive di pubblicità e dati. LUSTRUM è fatto al contrario.

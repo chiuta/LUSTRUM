@@ -28,6 +28,19 @@ LUSTRUM findet Datenmüll, Duplikate, ähnliche Fotos und App-Reste und löscht 
 - **Bestes Foto & ähnliche Videos** — In jeder Gruppe ähnlicher Fotos wird die schärfste Kopie zuerst vorgeschlagen. Ähnliche Videos werden an einem Bild aus der Mitte und fast gleicher Länge erkannt.
 - **Systemgestützte Cache-Verkleinerung** — Bittet Android, den Cache anderer Apps durch Speicheranforderung zu leeren. Das Ergebnis hängt vom Gerät ab; keine Root-Magie. Auf gerooteten Telefonen nutzt es zusätzlich Root, um alle Caches zu leeren.
 
+## In Aktion sehen
+
+Echte Screenshots und Bildschirmaufnahmen von LUSTRUM auf einem Android-Emulator mit erzeugten Beispieldateien — nicht auf einem echten Telefon.
+
+![Start: Speicher auf einen Blick und Scan mit einem Tipp](media/home-after.png)
+![Gefundener Datenmüll, bereit zur Prüfung](media/files-junk.png)
+![Identische Dateien, pro Gruppe bleibt eine Kopie](media/dupes-exact.png)
+![Ähnliche Fotos: die schärfste Kopie bleibt](media/dupes-similar.png)
+![Swiper: wischen zum Behalten oder Löschen, nichts wird ohne Bestätigung entfernt](media/swiper-marked.png)
+![Geplantes Aufräumen, sicheres Löschen und Cache-Verkleinerung](media/schedule.png)
+
+**Kurze Demovideos:** [▶ Telefon scannen](media/scan.mp4) · [▶ Duplikate finden](media/dupes.mp4) · [▶ Swiper in Aktion](media/swiper.mp4) · [▶ Automatisches Aufräumen planen](media/schedule.mp4)
+
 ## Privat von Grund auf
 
 Die meisten Reiniger leben von Werbung und Daten. LUSTRUM ist umgekehrt gebaut.

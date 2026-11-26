@@ -28,6 +28,19 @@ LUSTRUM găsește resturi, duplicate, fotografii asemănătoare și rămășițe
 - **Poza cea mai bună și videoclipuri asemănătoare** — În fiecare grup de poze asemănătoare, cea mai clară copie e propusă prima. Videoclipurile asemănătoare sunt potrivite după un cadru din mijloc și o durată aproape identică.
 - **Reducerea cache-ului, asistată de sistem** — Cere Android să elibereze datele din cache ale altor aplicații, solicitând spațiu. Rezultatul diferă între dispozitive; nu există magie la nivel de root. Pe telefoanele cu root folosește și root pentru a goli toate cache-urile.
 
+## Vezi-l în acțiune
+
+Capturi de ecran și înregistrări reale cu LUSTRUM rulând pe un emulator Android, cu fișiere de probă generate — nu pe un telefon fizic.
+
+![Acasă: spațiul dintr-o privire și scanare dintr-o atingere](media/home-after.png)
+![Resturi găsite, gata de verificat](media/files-junk.png)
+![Fișiere identice, o copie păstrată în fiecare grup](media/dupes-exact.png)
+![Poze asemănătoare: se păstrează cea mai clară copie](media/dupes-similar.png)
+![Swiper: glisezi ca să păstrezi sau să ștergi, nimic nu dispare până nu confirmi](media/swiper-marked.png)
+![Curățare programată, ștergere sigură și reducere cache](media/schedule.png)
+
+**Videoclipuri demonstrative scurte:** [▶ Scanarea telefonului](media/scan.mp4) · [▶ Căutarea duplicatelor](media/dupes.mp4) · [▶ Swiper în acțiune](media/swiper.mp4) · [▶ Programarea curățării automate](media/schedule.mp4)
+
 ## Privat prin construcție
 
 Majoritatea curățătoarelor trăiesc din reclame și date. LUSTRUM e făcut invers.

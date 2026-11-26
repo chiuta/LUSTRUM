@@ -40,6 +40,9 @@ for (const c of ORDER) {
   out.push(`[${SITE.replace("https://", "")}](${SITE})`, "");
   out.push(`## ${t.f_title}`, "");
   t.features.forEach(f => out.push(`- **${f[0]}** — ${f[1]}`));
+  out.push("", `## ${t.demo_title}`, "", t.demo_note, "");
+  ["home-after", "files-junk", "dupes-exact", "dupes-similar", "swiper-marked", "schedule"].forEach((n, i) => out.push(`![${t.demo_shots[i]}](media/${n}.png)`));
+  out.push("", `**${t.demo_vtitle}:** ` + ["scan", "dupes", "swiper", "schedule"].map((n, i) => `[▶ ${t.demo_vids[i]}](media/${n}.mp4)`).join(" · "));
   out.push("", `## ${t.p_title}`, "", t.p_text, "");
   t.points.forEach(p => out.push(`- ${p}`));
   out.push("", `## ${t.c_title}`, "", t.c_sub, "");

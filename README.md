@@ -28,6 +28,19 @@ LUSTRUM finds junk, duplicates, look-alike photos and app leftovers — and clea
 - **Best photo & similar videos** — In each look-alike group the sharpest copy is suggested first. Similar videos are matched by a middle frame and near-identical length.
 - **System-assisted cache trim** — Asks Android to free other apps' cached data by requesting storage. Results vary by device; there is no root-level magic. On rooted phones it also uses root to clear all caches.
 
+## See it in action
+
+Real screenshots and screen recordings of LUSTRUM running on an Android emulator with generated sample files — not on a physical phone.
+
+![Home: storage at a glance and a one-tap scan](media/home-after.png)
+![Junk files found, ready to review](media/files-junk.png)
+![Identical files, one copy kept per group](media/dupes-exact.png)
+![Look-alike photos: the sharpest copy is kept](media/dupes-similar.png)
+![Swiper: swipe to keep or delete, nothing is removed until you confirm](media/swiper-marked.png)
+![Scheduled cleaning, safe delete and cache trim](media/schedule.png)
+
+**Short demo videos:** [▶ Scanning the phone](media/scan.mp4) · [▶ Finding duplicates](media/dupes.mp4) · [▶ Swiper in action](media/swiper.mp4) · [▶ Scheduling automatic cleaning](media/schedule.mp4)
+
 ## Private by construction
 
 Most cleaners earn their keep from ads and data. LUSTRUM is built the other way around.

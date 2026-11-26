@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.media.MediaMetadataRetriever
+import android.util.Log
 import java.security.MessageDigest
 import java.util.concurrent.Executors
 import java.util.concurrent.atomic.AtomicInteger
@@ -131,8 +132,8 @@ object Dupes {
     }
 
     /** Videoclipuri asemănătoare: același cadru din mijloc (dHash) și durată aproape identică. */
-    fun similarVideos(ctx: Context, items: List<Item>, progress: (Int, Int) -> Unit): List<List<Item>> {
-        val vids = items.filter { it.category == Category.VIDEO && it.size >= 100_000 }
+    fun similarVideos(ctx: Context, items: List<Item>, progress: (Int, Int) -> Unit, minSize: Long = 100_000): List<List<Item>> {
+        val vids = items.filter { it.category == Category.VIDEO && it.size >= minSize }
             .sortedWith(compareByDescending<Item> { it.size }.thenBy { it.modified })
         val hashes = LongArray(vids.size)
         val dur = LongArray(vids.size)
@@ -147,14 +148,21 @@ object Dupes {
                         val u = vids[i].uri
                         if (u != null) r.setDataSource(ctx, u) else r.setDataSource(vids[i].path)
                         val d = r.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)?.toLongOrNull() ?: 0L
-                        val f = if (d > 0) r.getFrameAtTime(d * 1000L * 3 / 10, MediaMetadataRetriever.OPTION_CLOSEST_SYNC) else null
-                        if (f != null) {
+                        val t = d * 1000L * 3 / 10
+                        // un cadru din mijloc; dacă decodorul nu-l dă, încearcă orice cadru apropiat sau primul
+                        val f = r.getFrameAtTime(t, MediaMetadataRetriever.OPTION_CLOSEST_SYNC)
+                            ?: r.getFrameAtTime(t, MediaMetadataRetriever.OPTION_CLOSEST)
+                            ?: r.getFrameAtTime(0L, MediaMetadataRetriever.OPTION_CLOSEST_SYNC)
+                        if (f == null) {
+                            Log.w("LUSTRUM", "video fără cadru: ${vids[i].path} (durată $d ms)")
+                        } else {
                             val h = hashOf(f)
                             f.recycle()
                             if (h != 0L) { hashes[i] = h; dur[i] = d; ok[i] = true }
+                            else Log.w("LUSTRUM", "video cu hash 0 (cadru uniform): ${vids[i].path}")
                         }
                     } catch (e: Throwable) {
-                        // video ilizibil: se ignoră
+                        Log.w("LUSTRUM", "video ilizibil: ${vids[i].path}", e)
                     } finally {
                         try { r.release() } catch (e: Throwable) { }
                     }
